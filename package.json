@@ -93,12 +93,5 @@
     "*.ts": "eslint --cache --fix",
     "*.vue": "eslint --cache --fix"
   },
-  "keywords": [
-    "ui framework",
-    "component framework",
-    "ui library",
-    "component library",
-    "vue framework"
-  ],
   "types": "./types/index.d.ts"
 }
