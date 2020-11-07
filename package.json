@@ -1,6 +1,7 @@
 {
   "name": "vuejs3-datepicker",
   "version": "0.0.1",
+  "description": "Vue 3 datepicker",
   "files": [
     "dist/*",
     "src/*",
@@ -93,5 +94,27 @@
     "*.ts": "eslint --cache --fix",
     "*.vue": "eslint --cache --fix"
   },
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vue 3",
+    "javascript",
+    "typescript",
+    "vue-component",
+    "date",
+    "library",
+    "month",
+    "quarter",
+    "picker",
+    "datepicker",
+    "monthpicker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhadip/vuejs3-datepicker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shubhadip/vuejs3-datepicker/issues"
+  }
 }
