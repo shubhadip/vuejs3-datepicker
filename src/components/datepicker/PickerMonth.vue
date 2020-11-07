@@ -7,10 +7,10 @@
   >
     <slot name="beforeCalendarHeader"></slot>
     <section>
-      <p @click="showYearCalendar">{{currYearName}}</p>
-      <p v-if="selectedDate">{{getDayName}} {{getDisplayDate}} {{monthName}}</p>
+      <p @click="showYearCalendar">{{ currYearName }}</p>
+      <p v-if="selectedDate">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
-    
+
     <header>
       <span @click="isRtl ? nextYear() : previousYear()" class="prev" :class="{ disabled: isLeftNavDisabled }"
         >&lt;</span
@@ -35,7 +35,16 @@
 
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue';
-import { getFullYear, getMonth, setMonth, setFullYear, getMonthName, getDate, getMonthNameAbbr, getDayNameAbbr } from './utils/DateUtils';
+import {
+  getFullYear,
+  getMonth,
+  setMonth,
+  setFullYear,
+  getMonthName,
+  getDate,
+  getMonthNameAbbr,
+  getDayNameAbbr,
+} from './utils/DateUtils';
 
 interface IMonths {
   month: number;
@@ -82,8 +91,8 @@ export default defineComponent({
       type: Boolean,
     },
     fullMonthName: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   setup(props, { emit }) {
     /** ********************************** Methods  *********************************** */
@@ -247,26 +256,25 @@ export default defineComponent({
       return props.isRtl ? isPreviousYearDisabled() : isNextYearDisabled();
     });
 
-
     /**
-    * Gets the name of the month the current page is on
-    * @return {String}
-    */
+     * Gets the name of the month the current page is on
+     * @return {String}
+     */
     const monthName = computed(() => {
-      const tempName = props.translation && props.translation.months
+      const tempName = props.translation && props.translation.months;
       return getMonthName(getMonth(props.pageDate), tempName);
     });
 
+    const getDisplayDate = computed(() => {
+      return props.selectedDate ? getDate(props.selectedDate) : null;
+    });
 
-    const getDisplayDate = computed(()=>{
-      return props.selectedDate ? getDate(props.selectedDate) : null
-    })
+    const getDayName = computed(() => {
+      return props.selectedDate
+        ? getDayNameAbbr(props.selectedDate, props.translation && props.translation.daysNames)
+        : null;
+    });
 
-
-    const getDayName = computed(()=>{
-      return props.selectedDate ? getDayNameAbbr(props.selectedDate,props.translation && props.translation.daysNames) : null
-    })
-    
     /**
      * Gets the name of the year that current page is on
      * @return {Number}
@@ -276,18 +284,16 @@ export default defineComponent({
       return `${getFullYear(props.pageDate)}${yearSuffix}`;
     });
 
-
     /**
      * Gets the name of the month the current page is on
      * @return {String}
      */
     const currMonthName = computed(() => {
-      const monthName = props.fullMonthName
+      const tempmonthName = props.fullMonthName
         ? props.translation && props.translation.months
         : props.translation && props.translation.monthsAbbr;
-      return getMonthNameAbbr(getMonth(props.pageDate), monthName);
+      return getMonthNameAbbr(getMonth(props.pageDate), tempmonthName);
     });
-
 
     return {
       isRightNavDisabled,
@@ -301,7 +307,8 @@ export default defineComponent({
       getDisplayDate,
       monthName,
       showYearCalendar,
-      getDayName
+      getDayName,
+      currMonthName,
     };
   },
 });
