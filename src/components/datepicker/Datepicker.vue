@@ -1,5 +1,11 @@
 <template>
-  <div class="vuejs3-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']">
+  <div
+    class="vuejs3-datepicker"
+    :class="[wrapperClass, isRtl ? 'rtl' : '']"
+    v-clickoutside="{
+      handler: inline ? null : closeOnClickOutside,
+    }"
+  >
     <date-input
       :selectedDate="selectedDate"
       :resetTypedDate="resetTypedDate"
@@ -27,14 +33,12 @@
       @clearDate="clearDate"
       :minimumView="minimumView"
       :maximumView="maximumView"
-      :clearError="clearError"
       :hideInput="hideInput"
     >
       <template v-slot:afterDateInput>
         <slot name="afterDateInput"></slot>
       </template>
     </date-input>
-    <div v-if="!validation.isValid" class="dp-error">{{ validation.message }}</div>
     <!--Day View  -->
     <picker-day
       v-if="allowedToShowView('day')"
@@ -79,6 +83,8 @@
       @selectMonth="selectMonth"
       @showYearCalendar="showYearCalendar"
       @changedYear="setPageDate"
+      :minimumView="minimumView"
+      :maximumView="maximumView"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -101,6 +107,8 @@
       @selectYear="selectYear"
       @changedDecade="setPageDate"
       :fullMonthName="fullMonthName"
+      :minimumView="minimumView"
+      :maximumView="maximumView"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -110,15 +118,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch, ref, reactive } from 'vue';
+import { defineComponent, computed, watch, ref } from 'vue';
+import clickOutside from '../../directives/click-outside';
 import DateInput from './DateInput.vue';
 import PickerDay from './PickerDay.vue';
 import PickerMonth from './PickerMonth.vue';
 import PickerYear from './PickerYear.vue';
 import * as Langlist from './locale/index';
 import { isValidDate, setDate, validateDateInput } from './utils/DateUtils';
-import { IValidation, IValidationRule } from '../../shared/interfaces';
-import { validationHandler } from '../../shared/validations';
 
 export default defineComponent({
   name: 'Datepicker',
@@ -127,6 +134,9 @@ export default defineComponent({
     PickerDay,
     PickerMonth,
     PickerYear,
+  },
+  directives: {
+    clickoutside: clickOutside,
   },
   props: {
     modelValue: {
@@ -224,18 +234,6 @@ export default defineComponent({
     useUtc: {
       type: Boolean,
     },
-    /**
-     * Validations array of objects of type IValidationRule to valdiate the input
-     * @values IValidationRule[]
-     */
-    validations: {
-      type: Array as () => IValidationRule[],
-      default: (): IValidationRule[] => [] as IValidationRule[],
-    },
-    autoValidate: {
-      type: Boolean,
-      default: false,
-    },
     hideInput: {
       type: Boolean,
       default: true,
@@ -268,10 +266,6 @@ export default defineComponent({
     const calendarHeight = ref(0);
     const resetTypedDate = ref(new Date());
 
-    const validation = reactive<IValidation>({
-      isValid: true,
-      message: '',
-    });
     /** ********************************** Computed  *********************************** */
     const computedInitialView = computed(() => {
       if (!props.initialView) {
@@ -337,19 +331,6 @@ export default defineComponent({
     }
 
     /**
-     * Calls the validationHandler to check the validations,
-     * whether the state of input is valid or not.
-     *
-     * @returns boolean whether current state of the input is valid or not
-     */
-    function isValid(): boolean {
-      const response = validationHandler(selectedDate.value, props.validations);
-      validation.isValid = response.isValid;
-      validation.message = response.message;
-      return validation.isValid;
-    }
-
-    /**
      * Close all calendar layers
      * @param {Boolean} emitEvent - emit close event
      */
@@ -359,9 +340,6 @@ export default defineComponent({
       showYearView.value = false;
       if (!isInline.value) {
         if (emitEvent) {
-          if (props.autoValidate) {
-            isValid();
-          }
           emit('closed');
         }
       }
@@ -562,13 +540,11 @@ export default defineComponent({
     }
 
     /**
-     * Reset Validation Message
+     * Click Outside handler
      */
-    function clearError(): void {
-      validation.message = '';
-      validation.isValid = true;
+    function closeOnClickOutside(): void {
+      close();
     }
-
     /** ********************************** Watchers  *********************************** */
     watch(
       () => props.modelValue,
@@ -626,9 +602,7 @@ export default defineComponent({
       showMonthCalendar,
       setPageDate,
       selectDate,
-      validation,
-      isValid,
-      clearError,
+      closeOnClickOutside,
     };
   },
 });

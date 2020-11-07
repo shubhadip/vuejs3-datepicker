@@ -39,5 +39,5 @@ const app = Vue.createApp({
     },
   });
   
-  app.component('appdate-picker',Appdatepicker);
+  app.component('appdate-picker',Datepicker);
   app.mount('#user-goal');

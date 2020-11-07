@@ -6,9 +6,9 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section>
+    <section v-if="selectedDate">
       <p @click="showYearCalendar">{{ currYearName }}</p>
-      <p v-if="selectedDate">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
+      <p>{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
     <header>
       <span @click="isRtl ? nextMonth() : previousMonth()" class="prev" :class="{ disabled: isLeftNavDisabled }"
@@ -492,6 +492,7 @@ export default defineComponent({
     const getDisplayDate = computed(() => {
       return props.selectedDate ? getDate(props.selectedDate) : null;
     });
+
     return {
       isDefined,
       showMonthCalendar,

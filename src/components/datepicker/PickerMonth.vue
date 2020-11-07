@@ -6,7 +6,7 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section>
+    <section v-if="ifDifferentViews">
       <p @click="showYearCalendar">{{ currYearName }}</p>
       <p v-if="selectedDate">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
@@ -92,6 +92,14 @@ export default defineComponent({
     },
     fullMonthName: {
       type: Boolean,
+    },
+    minimumView: {
+      type: String,
+      default: 'day',
+    },
+    maximumView: {
+      type: String,
+      default: 'year',
     },
   },
   setup(props, { emit }) {
@@ -295,6 +303,10 @@ export default defineComponent({
       return getMonthNameAbbr(getMonth(props.pageDate), tempmonthName);
     });
 
+    const ifDifferentViews = computed(() => {
+      return !(props.minimumView === props.maximumView && (props.minimumView !== 'day' || props.maximumView !== 'day'));
+    });
+
     return {
       isRightNavDisabled,
       isLeftNavDisabled,
@@ -309,6 +321,7 @@ export default defineComponent({
       showYearCalendar,
       getDayName,
       currMonthName,
+      ifDifferentViews,
     };
   },
 });
