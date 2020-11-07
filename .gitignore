@@ -1,0 +1,29 @@
+.DS_Store
+node_modules
+
+# local env files
+.env.local
+.env.*.local
+.vscode
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+dist/assets
+dist/webpack-stats.json
+dist/index.html
+dist/favicon.ico
+dist/js/
+dist/img/
+dist/app-*.js
+dist/*.hot-update.js
+dist/*.hot-update.json
+.eslintcache
