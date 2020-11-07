@@ -1,5 +1,5 @@
 {
-  "name": "vue3-datepicker",
+  "name": "vuejs3-datepicker",
   "version": "0.0.1",
   "files": [
     "dist/*",
