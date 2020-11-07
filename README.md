@@ -66,10 +66,9 @@ Inline always open version
 ```
 Programtic Acess of value of datepicker
 ```html
-<datepicker ref="inputRef" :autoValidate="true" @selected="handleSelectDate" :disabled-dates="disabledDates" :highlighted="highlightDates" :value="emptyDate" @closed="handleCalendarClose" :validations="validations" ></datepicker>
+<datepicker ref="inputRef"  @selected="handleSelectDate" :disabled-dates="disabledDates" :highlighted="highlightDates" :value="date" @closed="handleCalendarClose" ></datepicker>
 ```
 ```javascript
-const isValid = (inputRef.value as any).isValid();
 const { selectedDate } = (inputRef.value  as any).value; 
 ```
 
@@ -102,8 +101,6 @@ const { selectedDate } = (inputRef.value  as any).value;
 | open-date                     | Date\|String    |             | If set, open on that date                |
 | minimum-view                  | String          | 'day'       | If set, lower-level views won't show     |
 | maximum-view                  | String          | 'year'      | If set, higher-level views won't show    |
-| autovalidate                  | Boolean         | false       | Basic Date Validtion on Blur             |
-| validations                   | Array           |             | Accepts an Array of Objects [{'name':'required', message: 'custom Message'}]|
 
 
 ## Events

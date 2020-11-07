@@ -15,27 +15,13 @@
 
     <div class="wrapper">
       <div class="ind">
-        <label>With Validations</label>
-        <appdate-picker
-          :autoValidate="true"
-          @selected="handleSelectDate"
-          :highlighted="highlightDates"
-          :value="emptyDate"
-          @closed="handleCalendarClose"
-          :validations="validations"
-        />
-      </div>
-
-      <div class="ind">
         <label>With Programmatic Access</label>
         <appdate-picker
           ref="inputRef"
-          :autoValidate="true"
           @selected="handleSelectDate"
           :highlighted="highlightDates"
           :value="emptyDate"
           @closed="handleCalendarClose"
-          :validations="validations"
         />
         <button @click="checkDatePicker">Check DatePicker</button>
       </div>
@@ -168,12 +154,6 @@ export default defineComponent({
       },
       initialDate: new Date(),
       dateinput: new Date(),
-      validations: [
-        {
-          name: 'required',
-          message: 'Oh, we can’t proceed without value. Do your bit?',
-        },
-      ],
       emptyDate: null,
     };
   },
@@ -198,9 +178,7 @@ export default defineComponent({
       console.log(payload);
     },
     checkDatePicker(): void {
-      const isValid = (this.$refs.inputRef as any).isValid();
       const { selectedDate } = this.$refs.inputRef as any;
-      console.log(isValid);
       console.log(selectedDate);
     },
     changedVmodel(): void {

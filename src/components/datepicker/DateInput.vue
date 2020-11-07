@@ -15,7 +15,7 @@
         </i>
       </span>
     </span>
-    <div>
+    <div v-if="typeable || !hideInput">
       <span v-if="!inline"><img src="../../assets/calendar.svg"/></span>
       <input
         :type="inline ? 'hidden' : 'text'"
@@ -33,11 +33,13 @@
         @click="showCalendar"
         @keyup="parseTypedDate"
         @blur="inputBlurred"
-        @focus="onFocus"
         autocomplete="off"
       />
     </div>
-    <!-- Clear Button -->
+    <div v-else @click="showCalendar" style="width: 400px;border: 1px solid black;">
+      <span v-if="!inline"><img src="../../assets/calendar.svg"/></span>
+      <div v-if="!inline">{{ formattedValue }}</div>
+    </div>
     <span
       v-if="clearButton && selectedDate"
       class="vuejs3-datepicker__clear-button"
@@ -128,10 +130,6 @@ export default defineComponent({
     maximumView: {
       type: String,
       default: 'year',
-    },
-    clearError: {
-      type: Function,
-      required: true,
     },
     hideInput: {
       type: Boolean,
@@ -234,19 +232,10 @@ export default defineComponent({
       if (props.typeable && Number.isNaN(Date.parse((inputRef.value as any).value))) {
         clearDate();
         // need to check this if required
-        debugger;
         (inputRef.value as any).value = null;
         typedDate.value = '';
       }
       emit('close-calendar', true);
-    }
-
-    /**
-     * nullify the error
-     * called once the input is focused
-     */
-    function onFocus(): void {
-      props.clearError();
     }
 
     return {
@@ -256,7 +245,6 @@ export default defineComponent({
       showCalendar,
       parseTypedDate,
       inputBlurred,
-      onFocus,
       inputRef,
     };
   },
