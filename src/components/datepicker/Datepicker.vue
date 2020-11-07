@@ -1,83 +1,83 @@
 <template>
-  <div class="vuejs3-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']"
-  >
-    <date-input 
-      :selectedDate="selectedDate" 
-      :resetTypedDate="resetTypedDate" 
-      :format="format" 
-      :translation="translation" 
-      :inline="inline" 
-      :id="id" 
-      :name="name" 
-      :openDate="openDate" 
+  <div class="vuejs3-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']">
+    <date-input
+      :selectedDate="selectedDate"
+      :resetTypedDate="resetTypedDate"
+      :format="format"
+      :translation="translation"
+      :inline="inline"
+      :id="id"
+      :name="name"
+      :openDate="openDate"
       :placeholder="placeholder"
-      :inputClass="inputClass" 
-      :typeable="typeable" 
-      :clearButton="clearButton" 
-      :clearButtonIcon="clearButtonIcon" 
+      :inputClass="inputClass"
+      :typeable="typeable"
+      :clearButton="clearButton"
+      :clearButtonIcon="clearButtonIcon"
       :calendarButton="calendarButton"
-      :calendarButtonIcon="calendarButtonIcon" 
-      :calendarButtonIconContent="calendarButtonIconContent" 
-      :disabled="disabled" 
-      :required="required" 
+      :calendarButtonIcon="calendarButtonIcon"
+      :calendarButtonIconContent="calendarButtonIconContent"
+      :disabled="disabled"
+      :required="required"
       :addBootstrapClass="addBootstrapClass"
-      :use-utc="useUtc" 
-      @showCalendar="showCalendar" 
-      @closeCalendar="close" 
-      @typedDate="setTypedDate" 
+      :use-utc="useUtc"
+      @showCalendar="showCalendar"
+      @closeCalendar="close"
+      @typedDate="setTypedDate"
       @clearDate="clearDate"
       :minimumView="minimumView"
       :maximumView="maximumView"
       :clearError="clearError"
       :hideInput="hideInput"
-      >
+    >
       <template v-slot:afterDateInput>
         <slot name="afterDateInput"></slot>
       </template>
     </date-input>
     <div v-if="!validation.isValid" class="dp-error">{{ validation.message }}</div>
     <!--Day View  -->
-    <picker-day v-if="allowedToShowView('day')" 
-      :pageDate="pageDate" 
-      :selectedDate="selectedDate" 
-      :showDayView="showDayView" 
-      :fullMonthName="fullMonthName" 
-      :allowedToShowView="allowedToShowView"  
+    <picker-day
+      v-if="allowedToShowView('day')"
+      :pageDate="pageDate"
+      :selectedDate="selectedDate"
+      :showDayView="showDayView"
+      :fullMonthName="fullMonthName"
+      :allowedToShowView="allowedToShowView"
       :disabledDates="disabledDates"
-      :highlighted="highlighted" 
-      :calendarClass="calendarClass" 
-      :calendarStyle="calendarStyle" 
-      :translation="translation" 
-      :pageTimestamp="pageTimestamp" 
-      :isRtl="isRtl" 
-      :mondayFirst="mondayFirst" 
-      :dayCellContent="dayCellContent" 
-      @changedMonth="handleChangedMonthFromDayPicker" 
-      @selectDate="selectDate" 
-      @showMonthCalendar="showMonthCalendar" 
+      :highlighted="highlighted"
+      :calendarClass="calendarClass"
+      :calendarStyle="calendarStyle"
+      :translation="translation"
+      :pageTimestamp="pageTimestamp"
+      :isRtl="isRtl"
+      :mondayFirst="mondayFirst"
+      :dayCellContent="dayCellContent"
+      @changedMonth="handleChangedMonthFromDayPicker"
+      @selectDate="selectDate"
+      @showMonthCalendar="showMonthCalendar"
       @selectedDisabled="selectDisabledDate"
-      @showYearCalendar="showYearCalendar" 
-      >
+      @showYearCalendar="showYearCalendar"
+    >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
       </template>
     </picker-day>
 
     <!--Month View -->
-    <picker-month 
-      v-if="allowedToShowView('month')" 
-      :pageDate="pageDate" 
-      :selectedDate="selectedDate" 
-      :showMonthView="showMonthView" 
-      :allowedToShowView="allowedToShowView" 
-      :disabledDates="disabledDates" 
-      :calendarClass="calendarClass" 
-      :calendarStyle="calendarStyle" 
-      :translation="translation" 
-      :isRtl="isRtl" 
-      :use-utc="useUtc" 
-      @selectMonth="selectMonth" 
-      @showYearCalendar="showYearCalendar" 
+    <picker-month
+      v-if="allowedToShowView('month')"
+      :pageDate="pageDate"
+      :selectedDate="selectedDate"
+      :showMonthView="showMonthView"
+      :allowedToShowView="allowedToShowView"
+      :disabledDates="disabledDates"
+      :calendarClass="calendarClass"
+      :calendarStyle="calendarStyle"
+      :translation="translation"
+      :isRtl="isRtl"
+      :use-utc="useUtc"
+      @selectMonth="selectMonth"
+      @showYearCalendar="showYearCalendar"
       @changedYear="setPageDate"
     >
       <template v-slot:beforeCalendarHeader>
@@ -86,53 +86,39 @@
     </picker-month>
 
     <!-- Year View -->
-    <picker-year 
-      v-if="allowedToShowView('year')" 
-      :pageDate="pageDate" 
-      :selectedDate="selectedDate" 
-      :showYearView="showYearView" 
-      :allowedToShowView="allowedToShowView" 
-      :disabledDates="disabledDates" 
-      :calendarClass="calendarClass" 
-      :calendarStyle="calendarStyle" 
-      :translation="translation" 
-      :isRtl="isRtl" 
-      :use-utc="useUtc" 
-      @selectYear="selectYear" 
+    <picker-year
+      v-if="allowedToShowView('year')"
+      :pageDate="pageDate"
+      :selectedDate="selectedDate"
+      :showYearView="showYearView"
+      :allowedToShowView="allowedToShowView"
+      :disabledDates="disabledDates"
+      :calendarClass="calendarClass"
+      :calendarStyle="calendarStyle"
+      :translation="translation"
+      :isRtl="isRtl"
+      :use-utc="useUtc"
+      @selectYear="selectYear"
       @changedDecade="setPageDate"
       :fullMonthName="fullMonthName"
-      >
+    >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
       </template>
     </picker-year>
   </div>
-
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  computed,
-  watch,
-  ref,
-  reactive,
-  onMounted,
-  onUnmounted,
-} from 'vue';
+import { defineComponent, computed, watch, ref, reactive } from 'vue';
 import DateInput from './DateInput.vue';
 import PickerDay from './PickerDay.vue';
 import PickerMonth from './PickerMonth.vue';
 import PickerYear from './PickerYear.vue';
-import * as Langlist from './locale/index'
-import {
-  isValidDate,
-  setDate,
-  validateDateInput
-} from './utils/DateUtils';
+import * as Langlist from './locale/index';
+import { isValidDate, setDate, validateDateInput } from './utils/DateUtils';
 import { IValidation, IValidationRule } from '../../shared/interfaces';
 import { validationHandler } from '../../shared/validations';
-import ClickOutside from './../../directives/click-outside';
 
 export default defineComponent({
   name: 'Datepicker',
@@ -144,10 +130,10 @@ export default defineComponent({
   },
   props: {
     modelValue: {
-      type: [Date as new() => Date, String],
+      type: [Date as new () => Date, String],
     },
     value: {
-      type: [Date as new() => Date, String],
+      type: [Date as new () => Date, String],
     },
     format: {
       type: [String, Function],
@@ -155,11 +141,11 @@ export default defineComponent({
     },
     language: {
       type: String,
-      default: 'en'
+      default: 'en',
     },
     openDate: {
       validator: (val: Date): boolean => validateDateInput(val),
-      type: Date as new() => Date,
+      type: Date as new () => Date,
     },
     minimumView: {
       type: String,
@@ -252,22 +238,30 @@ export default defineComponent({
     },
     hideInput: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
-  emits: ['input','cleared','update:modelValue','closed','changed-month','changed-year','changed-day','selected','selected-disabled'],
-  setup(props, {
-    emit
-  }) {
-    const initmodelvalue = new Date(props.modelValue as unknown as Date)
+  emits: [
+    'input',
+    'cleared',
+    'update:modelValue',
+    'closed',
+    'changed-month',
+    'changed-year',
+    'changed-day',
+    'selected',
+    'selected-disabled',
+  ],
+  setup(props, { emit }) {
+    const initmodelvalue = new Date((props.modelValue as unknown) as Date);
     const pageTimestamp = ref<number>(0);
-    const selectedDate = ref < Date | null > (null);
-    if(props.modelValue && isValidDate(initmodelvalue)){
-      pageTimestamp.value = (setDate(initmodelvalue, 1));
-      selectedDate.value = initmodelvalue; 
-    }else{
-      pageTimestamp.value = (setDate(new Date(), 1));
-    } 
+    const selectedDate = ref<Date | null>(null);
+    if (props.modelValue && isValidDate(initmodelvalue)) {
+      pageTimestamp.value = setDate(initmodelvalue, 1);
+      selectedDate.value = initmodelvalue;
+    } else {
+      pageTimestamp.value = setDate(new Date(), 1);
+    }
     const showDayView = ref(false);
     const showMonthView = ref(false);
     const showYearView = ref(false);
@@ -292,7 +286,7 @@ export default defineComponent({
 
     const translation = computed(() => {
       const temp = (Langlist as any).data;
-      return temp[(props.language as any)];
+      return temp[props.language as any];
     });
 
     const isInline = computed(() => {
@@ -317,7 +311,7 @@ export default defineComponent({
     /**
      * Sets the date that the calendar should open on
      */
-    function setPageDate(date ? : string | number | Date | undefined): void {
+    function setPageDate(date?: string | number | Date | undefined): void {
       if (!date) {
         if (props.openDate) {
           date = new Date(props.openDate);
@@ -343,10 +337,23 @@ export default defineComponent({
     }
 
     /**
+     * Calls the validationHandler to check the validations,
+     * whether the state of input is valid or not.
+     *
+     * @returns boolean whether current state of the input is valid or not
+     */
+    function isValid(): boolean {
+      const response = validationHandler(selectedDate.value, props.validations);
+      validation.isValid = response.isValid;
+      validation.message = response.message;
+      return validation.isValid;
+    }
+
+    /**
      * Close all calendar layers
      * @param {Boolean} emitEvent - emit close event
      */
-    function close(emitEvent ? : boolean): void {
+    function close(emitEvent?: boolean): void {
       showDayView.value = false;
       showMonthView.value = false;
       showYearView.value = false;
@@ -357,7 +364,6 @@ export default defineComponent({
           }
           emit('closed');
         }
-        
       }
     }
 
@@ -443,9 +449,9 @@ export default defineComponent({
       selectedDate.value = date;
       setPageDate(date);
       emit('selected', date);
-      if(props.modelValue){
+      if (props.modelValue) {
         emit('update:modelValue', date);
-      }else{
+      } else {
         emit('input', date);
       }
     }
@@ -457,9 +463,9 @@ export default defineComponent({
       selectedDate.value = null;
       setPageDate();
       emit('selected', null);
-      if(props.modelValue){
+      if (props.modelValue) {
         emit('update:modelValue', null);
-      }else{
+      } else {
         emit('input', null);
       }
       emit('cleared');
@@ -468,9 +474,7 @@ export default defineComponent({
     /**
      * @param {Object} date
      */
-    function selectDate(date: {
-      timestamp: string | number | Date
-    }): void {
+    function selectDate(date: { timestamp: string | number | Date }): void {
       setDate1(date.timestamp);
       if (!isInline.value) {
         close(true);
@@ -486,9 +490,7 @@ export default defineComponent({
     /**
      * @param {Object} month
      */
-    function selectMonth(month: {
-      timestamp: any
-    }): void {
+    function selectMonth(month: { timestamp: any }): void {
       const date = new Date(month.timestamp);
       if (allowedToShowView('day')) {
         setPageDate(date);
@@ -502,9 +504,7 @@ export default defineComponent({
     /**
      * @param {Object} year
      */
-    function selectYear(year: {
-      timestamp: any
-    }): void {
+    function selectYear(year: { timestamp: any }): void {
       const date = new Date(year.timestamp);
       if (allowedToShowView('month')) {
         setPageDate(date);
@@ -545,9 +545,7 @@ export default defineComponent({
     /**
      * Set the date from a typedDate event
      */
-    function setTypedDate(date: {
-      getTime: () => string | number | Date
-    }): void {
+    function setTypedDate(date: { getTime: () => string | number | Date }): void {
       setDate1(date.getTime());
     }
 
@@ -563,19 +561,6 @@ export default defineComponent({
       }
     }
 
-
-    /**
-     * Calls the validationHandler to check the validations,
-     * whether the state of input is valid or not.
-     *
-     * @returns boolean whether current state of the input is valid or not
-     */
-    function isValid(): boolean {
-      const response = validationHandler(selectedDate.value, props.validations);
-      validation.isValid = response.isValid;
-      validation.message = response.message;
-      return validation.isValid;
-    }
     /**
      * Reset Validation Message
      */
@@ -609,15 +594,9 @@ export default defineComponent({
         setInitialView();
       }
     );
-    /**
-    * test 
-    */
-    function onClose(){
-      debugger
-    }
 
     init();
-    
+
     return {
       pageTimestamp,
       selectedDate,
@@ -650,7 +629,6 @@ export default defineComponent({
       validation,
       isValid,
       clearError,
-      onClose
     };
   },
 });

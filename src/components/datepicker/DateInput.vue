@@ -16,26 +16,26 @@
       </span>
     </span>
     <div>
-      <span v-if="!inline"><img src="../../assets/calendar.svg" /></span>
+      <span v-if="!inline"><img src="../../assets/calendar.svg"/></span>
       <input
-      :type="inline ? 'hidden' : 'text'"
-      :class="computedInputClass"
-      :name="name"
-      ref="inputRef"
-      :id="id"
-      :value="formattedValue"
-      :open-date="openDate"
-      :placeholder="placeholder"
-      :clear-button="clearButton"
-      :disabled="disabled"
-      :required="required"
-      :readonly="!typeable"
-      @click="showCalendar"
-      @keyup="parseTypedDate"
-      @blur="inputBlurred"
-      @focus="onFocus"
-      autocomplete="off"
-    />
+        :type="inline ? 'hidden' : 'text'"
+        :class="computedInputClass"
+        :name="name"
+        ref="inputRef"
+        :id="id"
+        :value="formattedValue"
+        :open-date="openDate"
+        :placeholder="placeholder"
+        :clear-button="clearButton"
+        :disabled="disabled"
+        :required="required"
+        :readonly="!typeable"
+        @click="showCalendar"
+        @keyup="parseTypedDate"
+        @blur="inputBlurred"
+        @focus="onFocus"
+        autocomplete="off"
+      />
     </div>
     <!-- Clear Button -->
     <span
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref, watch } from 'vue';
+import { computed, defineComponent, ref, watch } from 'vue';
 import { formatDate } from './utils/DateUtils';
 
 export default defineComponent({
@@ -120,7 +120,7 @@ export default defineComponent({
     },
     useUtc: {
       type: Boolean,
-    }, 
+    },
     minimumView: {
       type: String,
       default: 'day',
@@ -135,12 +135,11 @@ export default defineComponent({
     },
     hideInput: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
-  emits: ['showCalendar','typedDate','clearDate', 'closeCalendar'],
-  setup(props, { emit } ) {
-    
+  emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
+  setup(props, { emit }) {
     const typedDate = ref<string | number>();
     const inputRef = ref(null);
     // computed
@@ -156,28 +155,29 @@ export default defineComponent({
       }
       return props.inputClass;
     });
-    
+
     const formattedValue = computed(() => {
       if (!props.selectedDate) {
         return null;
       }
       if (typedDate.value) {
-        return typedDate.value
+        return typedDate.value;
       }
 
-      let date = typeof props.format === 'function'
-        ? props.format(props.selectedDate)
-        : formatDate(new Date(props.selectedDate), props.format as any, props.translation as any);
-      
-      if(props.minimumView === props.maximumView){
-        const [,y,z] = date.split(' ')
-        if(props.maximumView === 'month'){
-          date = y
-        }else if((props.maximumView === 'year')){
-          date = z
+      let date =
+        typeof props.format === 'function'
+          ? props.format(props.selectedDate)
+          : formatDate(new Date(props.selectedDate), props.format as any, props.translation as any);
+
+      if (props.minimumView === props.maximumView) {
+        const [, y, z] = date.split(' ');
+        if (props.maximumView === 'month') {
+          date = y;
+        } else if (props.maximumView === 'year') {
+          date = z;
         }
       }
-      
+
       return date;
     });
 
@@ -193,7 +193,7 @@ export default defineComponent({
      * open Calendar
      */
     function showCalendar(): void {
-      emit('showCalendar');
+      emit('show-calendar');
     }
 
     /**
@@ -201,18 +201,20 @@ export default defineComponent({
      * @param {Event} event
      */
     function parseTypedDate(event: KeyboardEvent): void {
-      if ([
-        27, // escape
-        13 // enter
-      ].includes(event.keyCode)) {
+      if (
+        [
+          27, // escape
+          13, // enter
+        ].includes(event.keyCode)
+      ) {
         (inputRef.value as any).blur();
       }
       if (props.typeable) {
-        const value = (inputRef.value as any).value
-        const temptypedDate = Date.parse(value)
-        if (!isNaN(temptypedDate)) {
+        const { value } = inputRef.value as any;
+        const temptypedDate = Date.parse(value);
+        if (!Number.isNaN(temptypedDate)) {
           typedDate.value = value;
-          emit('typedDate',(temptypedDate))
+          emit('typed-date', new Date(temptypedDate));
         }
       }
     }
@@ -221,7 +223,7 @@ export default defineComponent({
      * emit a clearDate event
      */
     function clearDate(): void {
-      emit('clearDate');
+      emit('clear-date');
     }
 
     /**
@@ -232,12 +234,12 @@ export default defineComponent({
       if (props.typeable && Number.isNaN(Date.parse((inputRef.value as any).value))) {
         clearDate();
         // need to check this if required
-        (inputRef.value as any).value = null
+        debugger;
+        (inputRef.value as any).value = null;
         typedDate.value = '';
       }
-      emit('closeCalendar', true);
+      emit('close-calendar', true);
     }
-
 
     /**
      * nullify the error
@@ -255,7 +257,7 @@ export default defineComponent({
       parseTypedDate,
       inputBlurred,
       onFocus,
-      inputRef
+      inputRef,
     };
   },
 });

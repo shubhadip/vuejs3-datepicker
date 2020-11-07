@@ -28,7 +28,7 @@ const required = (value: any): boolean => {
 };
 
 const validationRules: IValidationRules = {
-  required
+  required,
 };
 
 /**

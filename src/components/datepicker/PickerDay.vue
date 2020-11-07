@@ -7,8 +7,8 @@
   >
     <slot name="beforeCalendarHeader"></slot>
     <section>
-      <p @click="showYearCalendar">{{currYearName}}</p>
-      <p v-if="selectedDate">{{getDayName}} {{getDisplayDate}} {{monthName}}</p>
+      <p @click="showYearCalendar">{{ currYearName }}</p>
+      <p v-if="selectedDate">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
     <header>
       <span @click="isRtl ? nextMonth() : previousMonth()" class="prev" :class="{ disabled: isLeftNavDisabled }"
@@ -120,7 +120,7 @@ export default defineComponent({
       type: Boolean,
     },
   },
-  emits: ['show-year-calendar','changed-month','show-month-calendar','selected-disabled','select-date'],
+  emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
   setup(props, { emit }) {
     /** ********************************** Methods *********************************** */
     /**
@@ -447,7 +447,7 @@ export default defineComponent({
      * @return {String}
      */
     const monthName = computed(() => {
-      const tempName = props.translation && props.translation.months
+      const tempName = props.translation && props.translation.months;
       return getMonthName(getMonth(props.pageDate), tempName);
     });
 
@@ -483,13 +483,15 @@ export default defineComponent({
       return props.isRtl ? isPreviousMonthDisabled() : isNextMonthDisabled();
     });
 
-    const getDayName = computed(()=>{
-      return props.selectedDate ? getDayNameAbbr(props.selectedDate,props.translation && props.translation.daysNames) : null
-    })
+    const getDayName = computed(() => {
+      return props.selectedDate
+        ? getDayNameAbbr(props.selectedDate, props.translation && props.translation.daysNames)
+        : null;
+    });
 
-    const getDisplayDate = computed(()=>{
-      return props.selectedDate ? getDate(props.selectedDate) : null
-    })
+    const getDisplayDate = computed(() => {
+      return props.selectedDate ? getDate(props.selectedDate) : null;
+    });
     return {
       isDefined,
       showMonthCalendar,
@@ -508,7 +510,7 @@ export default defineComponent({
       monthName,
       getDayName,
       getDisplayDate,
-      showYearCalendar
+      showYearCalendar,
     };
   },
 });

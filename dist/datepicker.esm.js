@@ -421,7 +421,7 @@ var script = defineComponent({
     typeable: {
       type: Boolean
     },
-    bootstrapStyling: {
+    addBootstrapClass: {
       type: Boolean
     },
     useUtc: {
@@ -451,7 +451,7 @@ var script = defineComponent({
     var inputRef = ref(null); // computed
 
     var computedInputClass = computed(function () {
-      if (props.bootstrapStyling) {
+      if (props.addBootstrapClass) {
         if (typeof props.inputClass === 'string') {
           return [props.inputClass, 'form-control'].join(' ');
         } // tbd : need to add here props.inputClass
@@ -521,7 +521,7 @@ var script = defineComponent({
 
         if (!isNaN(temptypedDate)) {
           typedDate.value = value;
-          emit('typedDate', temptypedDate);
+          emit('typedDate', new Date(temptypedDate));
         }
       }
     }
@@ -543,6 +543,7 @@ var script = defineComponent({
       if (props.typeable && Number.isNaN(Date.parse(inputRef.value.value))) {
         clearDate(); // need to check this if required
 
+        debugger;
         inputRef.value.value = null;
         typedDate.value = '';
       }
@@ -582,18 +583,18 @@ const _hoisted_5 = /*#__PURE__*/createTextVNode("Default");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createBlock("div", {
-    class: { 'input-group': _ctx.bootstrapStyling }
+    class: { 'input-group': _ctx.addBootstrapClass }
   }, [
     createCommentVNode(" Calendar Button "),
     (_ctx.calendarButton)
       ? (openBlock(), createBlock("span", {
           key: 0,
-          class: ["vuejs3-datepicker__calendar-button", { 'input-group-prepend': _ctx.bootstrapStyling }],
+          class: ["vuejs3-datepicker__calendar-button", { 'input-group-prepend': _ctx.addBootstrapClass }],
           onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showCalendar(...args))),
           style: { 'cursor:not-allowed;': _ctx.disabled }
         }, [
           createVNode("span", {
-            class: { 'input-group-text': _ctx.bootstrapStyling }
+            class: { 'input-group-text': _ctx.addBootstrapClass }
           }, [
             createVNode("i", { class: _ctx.calendarButtonIcon }, [
               createTextVNode(toDisplayString(_ctx.calendarButtonIconContent) + " ", 1 /* TEXT */),
@@ -634,11 +635,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     (_ctx.clearButton && _ctx.selectedDate)
       ? (openBlock(), createBlock("span", {
           key: 1,
-          class: ["vuejs3-datepicker__clear-button", { 'input-group-append': _ctx.bootstrapStyling }],
+          class: ["vuejs3-datepicker__clear-button", { 'input-group-append': _ctx.addBootstrapClass }],
           onClick: _cache[6] || (_cache[6] = $event => (_ctx.clearDate()))
         }, [
           createVNode("span", {
-            class: { 'input-group-text': _ctx.bootstrapStyling }
+            class: { 'input-group-text': _ctx.addBootstrapClass }
           }, [
             createVNode("i", { class: _ctx.clearButtonIcon }, [
               (!_ctx.clearButtonIcon)
@@ -2051,7 +2052,7 @@ var script$4 = defineComponent({
     calendarButtonIconContent: {
       type: String
     },
-    bootstrapStyling: {
+    addBootstrapClass: {
       type: Boolean
     },
     initialView: {
@@ -2554,7 +2555,7 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
       calendarButtonIconContent: _ctx.calendarButtonIconContent,
       disabled: _ctx.disabled,
       required: _ctx.required,
-      bootstrapStyling: _ctx.bootstrapStyling,
+      addBootstrapClass: _ctx.addBootstrapClass,
       "use-utc": _ctx.useUtc,
       onShowCalendar: _ctx.showCalendar,
       onCloseCalendar: _ctx.close,
@@ -2569,7 +2570,7 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, "afterDateInput")
       ]),
       _: 1
-    }, 8 /* PROPS */, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "bootstrapStyling", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "clearError", "hideInput"]),
+    }, 8 /* PROPS */, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "clearError", "hideInput"]),
     (!_ctx.validation.isValid)
       ? (openBlock(), createBlock("div", _hoisted_1$4, toDisplayString(_ctx.validation.message), 1 /* TEXT */))
       : createCommentVNode("v-if", true),

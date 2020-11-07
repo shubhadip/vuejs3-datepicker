@@ -8613,7 +8613,7 @@ var script = defineComponent({
       default: true
     }
   },
-  emits: ['showCalendar', 'typedDate', 'clearDate', 'closeCalendar'],
+  emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
     var typedDate = ref();
@@ -8670,7 +8670,7 @@ var script = defineComponent({
      */
 
     function showCalendar() {
-      emit('showCalendar');
+      emit('show-calendar');
     }
     /**
      * Attempt to parse a typed date
@@ -8679,8 +8679,7 @@ var script = defineComponent({
 
 
     function parseTypedDate(event) {
-      if ([27, 13 // enter
-      ].includes(event.keyCode)) {
+      if ([27, 13].includes(event.keyCode)) {
         inputRef.value.blur();
       }
 
@@ -8688,9 +8687,9 @@ var script = defineComponent({
         var value = inputRef.value.value;
         var temptypedDate = Date.parse(value);
 
-        if (!isNaN(temptypedDate)) {
+        if (!Number.isNaN(temptypedDate)) {
           typedDate.value = value;
-          emit('typedDate', temptypedDate);
+          emit('typed-date', new Date(temptypedDate));
         }
       }
     }
@@ -8700,7 +8699,7 @@ var script = defineComponent({
 
 
     function clearDate() {
-      emit('clearDate');
+      emit('clear-date');
     }
     /**
      * nullify the typed date to defer to regular formatting
@@ -8712,11 +8711,12 @@ var script = defineComponent({
       if (props.typeable && Number.isNaN(Date.parse(inputRef.value.value))) {
         clearDate(); // need to check this if required
 
+        debugger;
         inputRef.value.value = null;
         typedDate.value = '';
       }
 
-      emit('closeCalendar', true);
+      emit('close-calendar', true);
     }
     /**
      * nullify the error
@@ -9560,9 +9560,9 @@ var script$2 = defineComponent({
       return props.isRtl ? isPreviousYearDisabled() : isNextYearDisabled();
     });
     /**
-    * Gets the name of the month the current page is on
-    * @return {String}
-    */
+     * Gets the name of the month the current page is on
+     * @return {String}
+     */
 
     var monthName = computed$1(function () {
       var tempName = props.translation && props.translation.months;
@@ -9589,8 +9589,8 @@ var script$2 = defineComponent({
      */
 
     var currMonthName = computed$1(function () {
-      var monthName = props.fullMonthName ? props.translation && props.translation.months : props.translation && props.translation.monthsAbbr;
-      return getMonthNameAbbr(getMonth(props.pageDate), monthName);
+      var tempmonthName = props.fullMonthName ? props.translation && props.translation.months : props.translation && props.translation.monthsAbbr;
+      return getMonthNameAbbr(getMonth(props.pageDate), tempmonthName);
     });
     return {
       isRightNavDisabled: isRightNavDisabled,
@@ -9604,7 +9604,8 @@ var script$2 = defineComponent({
       getDisplayDate: getDisplayDate,
       monthName: monthName,
       showYearCalendar: showYearCalendar,
-      getDayName: getDayName
+      getDayName: getDayName,
+      currMonthName: currMonthName
     };
   }
 });
@@ -9870,9 +9871,9 @@ var script$3 = defineComponent({
       return props.selectedDate ? getDayNameAbbr(props.selectedDate, props.translation && props.translation.daysNames) : null;
     });
     /**
-    * Gets the name of the month the current page is on
-    * @return {String}
-    */
+     * Gets the name of the month the current page is on
+     * @return {String}
+     */
 
     var monthName = computed$1(function () {
       var tempName = props.translation && props.translation.months;
@@ -9896,8 +9897,8 @@ var script$3 = defineComponent({
      */
 
     var currMonthName = computed$1(function () {
-      var monthName = props.fullMonthName ? props.translation && props.translation.months : props.translation && props.translation.monthsAbbr;
-      return getMonthNameAbbr(getMonth(props.pageDate), monthName);
+      var tempmonthName = props.fullMonthName ? props.translation && props.translation.months : props.translation && props.translation.monthsAbbr;
+      return getMonthNameAbbr(getMonth(props.pageDate), tempmonthName);
     });
     return {
       isRightNavDisabled: isRightNavDisabled,
@@ -10343,6 +10344,20 @@ var script$4 = defineComponent({
       return viewIndex >= minimumViewIndex && viewIndex <= maximumViewIndex;
     }
     /**
+     * Calls the validationHandler to check the validations,
+     * whether the state of input is valid or not.
+     *
+     * @returns boolean whether current state of the input is valid or not
+     */
+
+
+    function isValid() {
+      var response = validationHandler(selectedDate.value, props.validations);
+      validation.isValid = response.isValid;
+      validation.message = response.message;
+      return validation.isValid;
+    }
+    /**
      * Close all calendar layers
      * @param {Boolean} emitEvent - emit close event
      */
@@ -10599,20 +10614,6 @@ var script$4 = defineComponent({
       }
     }
     /**
-     * Calls the validationHandler to check the validations,
-     * whether the state of input is valid or not.
-     *
-     * @returns boolean whether current state of the input is valid or not
-     */
-
-
-    function isValid() {
-      var response = validationHandler(selectedDate.value, props.validations);
-      validation.isValid = response.isValid;
-      validation.message = response.message;
-      return validation.isValid;
-    }
-    /**
      * Reset Validation Message
      */
 
@@ -10644,14 +10645,6 @@ var script$4 = defineComponent({
     }, function () {
       setInitialView();
     });
-    /**
-    * test
-    */
-
-    function onClose() {
-      debugger;
-    }
-
     init();
     return {
       pageTimestamp: pageTimestamp,
@@ -10684,8 +10677,7 @@ var script$4 = defineComponent({
       selectDate: selectDate,
       validation: validation,
       isValid: isValid,
-      clearError: clearError,
-      onClose: onClose
+      clearError: clearError
     };
   }
 });
@@ -11003,12 +10995,12 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
           onInput: _ctx.dateSelected,
           value: _ctx.defaultValue,
           "disabled-dates": {
-          dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
-        },
+            dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
+          },
           highlighted: {
-          to: new Date(2020, 12, 16),
-          from: new Date(2020, 11, 17),
-        }
+            to: new Date(2020, 12, 16),
+            from: new Date(2020, 11, 17),
+          }
         }, null, 8 /* PROPS */, ["onInput", "value", "disabled-dates", "highlighted"]),
         createVNode("button", {
           onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.changeDefaultValue(...args)))
@@ -11019,9 +11011,9 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         createVNode(_component_appdate_picker, {
           onInput: _ctx.dateSelected,
           "disabled-dates": {
-          to: new Date(2020, 10, 5),
-          from: new Date(2020, 10, 16),
-        }
+            to: new Date(2020, 10, 5),
+            from: new Date(2020, 10, 16),
+          }
         }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
       ]),
       createVNode("div", _hoisted_13, [
@@ -11029,8 +11021,13 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         createVNode(_component_appdate_picker, {
           onInput: _ctx.dateSelected,
           "disabled-dates": {
-          dates: [new Date(2020, 11, 16), new Date(2020, 11, 17), new Date(2020, 11, 18),
-          new Date(2020, 11, 19),new Date(2020, 11, 20)],
+            dates: [
+              new Date(2020, 11, 16),
+              new Date(2020, 11, 17),
+              new Date(2020, 11, 18),
+              new Date(2020, 11, 19),
+              new Date(2020, 11, 20),
+            ],
           }
         }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
       ])
@@ -11072,8 +11069,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
     createVNode("div", _hoisted_23, [
       _hoisted_24,
       createVNode(_component_appdate_picker, {
-        "minimum-view": "day",
-        "maximum-view": "day",
+        "minimum-view": 'day',
+        "maximum-view": 'day',
         onInput: _ctx.handleChangedDay
       }, null, 8 /* PROPS */, ["onInput"])
     ]),
@@ -11081,8 +11078,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
       _hoisted_26,
       createVNode(_component_appdate_picker, {
         value: new Date(),
-        "minimum-view": "month",
-        "maximum-view": "month",
+        "minimum-view": 'month',
+        "maximum-view": 'month',
         onChangedMonth: _ctx.handleChangedMonth
       }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
     ]),
@@ -11090,8 +11087,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
       _hoisted_28,
       createVNode(_component_appdate_picker, {
         value: new Date(),
-        "minimum-view": "year",
-        "maximum-view": "year",
+        "minimum-view": 'year',
+        "maximum-view": 'year',
         onChangedYear: _ctx.handleChangedYear
       }, null, 8 /* PROPS */, ["value", "onChangedYear"])
     ]),
@@ -11099,8 +11096,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
       _hoisted_30,
       createVNode(_component_appdate_picker, {
         value: new Date(),
-        "minimum-view": "year",
-        "maximum-view": "year",
+        "minimum-view": 'year',
+        "maximum-view": 'year',
         onChangedYear: _ctx.handleChangedYear
       }, null, 8 /* PROPS */, ["value", "onChangedYear"])
     ])

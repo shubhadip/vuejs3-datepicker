@@ -58,7 +58,7 @@ Using `v-model`
 ```
 Emits events
 ``` html
-<datepicker @selected="doSomethingInParentComponentFunction" @opened="datepickerOpenedFunction" @closed="datepickerClosedFunction">
+<datepicker @selected="parentfunctionSelectedhandler" @opened="datepickerOpenedFunction" @closed="parentfunctionCloseHandler">
 ```
 Inline always open version
 ``` html
@@ -120,24 +120,6 @@ These events are emitted on actions in the datepicker
 | changed-month     | Object     | Month page has been changed          |
 | changed-year      | Object     | Year page has been changed           |
 | changed-decade    | Object     | Decade page has been changed         |
-
-
-#### Function formatter
-
-Delegates date formatting to provided function.
-Function will be called with date and it has to return formated date as a string.
-This allow us to use moment, date-fns, globalize or any other library to format date.
-
-``` html
-<script>
-  methods: {
-    customFormatter(date) {
-      return format(new Date(), 'YYYY-mm-dd');
-    }
-  }
-</script>
-<datepicker :format="customFormatter"></datepicker>
-```
 
 ## Disabled Dates
 Dates can be disabled in a number of ways.

@@ -1,6 +1,5 @@
-
 const af = (): any => {
-  const langName = 'Afrikaans'
+  const langName = 'Afrikaans';
   const monthFullName = [
     'Januarie',
     'Februarie',
@@ -14,9 +13,9 @@ const af = (): any => {
     'Oktober',
     'November',
     'Desember',
-  ]
-  const shortName = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des']
-  const days = ['So.', 'Ma.', 'Di.', 'Wo.', 'Do.', 'Vr.', 'Sa.']
+  ];
+  const shortName = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+  const days = ['So.', 'Ma.', 'Di.', 'Wo.', 'Do.', 'Vr.', 'Sa.'];
   const rtl = false;
   const ymd = false;
   const yearSuffix = '';
@@ -29,12 +28,12 @@ const af = (): any => {
     rtl,
     langName,
     // tbd: need fullName of days
-    daysNames: days
-  }
+    daysNames: days,
+  };
 };
 
 const en = (): any => {
-  const langName = 'English'
+  const langName = 'English';
   const monthFullName = [
     'January',
     'February',
@@ -48,10 +47,10 @@ const en = (): any => {
     'October',
     'November',
     'December',
-  ]
-  const shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-  const daysNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  ];
+  const shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const daysNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const rtl = false;
   const ymd = false;
   const yearSuffix = '';
@@ -64,11 +63,11 @@ const en = (): any => {
     ymd,
     rtl,
     langName,
-    daysNames
-  }
-}
+    daysNames,
+  };
+};
 
 export const data = {
   af: af(),
-  en: en()
-}
+  en: en(),
+};

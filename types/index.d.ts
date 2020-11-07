@@ -1,28 +1,30 @@
 export interface Datepicker {
-  modelValue :[Date, String]
-  value :[Date, String]
-  format: [String, Function]
-  openDate:Date
-  minimumView:String
-  maximumView: String
-  dayCellContent: Function
-  fullMonthName: Boolean
-  disabledDates: Object
-  highlighted: Object
-  placeholder:String
-  inline:Boolean
-  calendarClass: [String, Object]
-  inputClass:[String, Object]
-  wrapperClass: [String, Object]
-  mondayFirst: Boolean
-  clearButton: Boolean
-  clearButtonIcon: String
-  calendarButton:Boolean
-  calendarButtonIcon: String
-  calendarButtonIconContent: String
-  initialView: String
-  disabled: Boolean
-  required: Boolean
-  typeable: Boolean
-  useUtc: Boolean
+  modelValue: [Date, string];
+  value: [Date, string];
+  format: [string, Function];
+  id: string;
+  name: string;
+  openDate: Date;
+  minimumView: string;
+  maximumView: string;
+  dayCellContent: Function;
+  fullMonthName: boolean;
+  disabledDates: Record<string, any>;
+  highlighted: Record<string, any>;
+  placeholder: string;
+  inline: boolean;
+  calendarClass: [string, Record<string, any>];
+  inputClass: [string, Record<string, any>];
+  wrapperClass: [string, Record<string, any>];
+  mondayFirst: boolean;
+  clearButton: boolean;
+  clearButtonIcon: string;
+  calendarButton: boolean;
+  calendarButtonIcon: string;
+  calendarButtonIconContent: string;
+  initialView: string;
+  disabled: boolean;
+  required: boolean;
+  typeable: boolean;
+  useUtc: boolean;
 }
