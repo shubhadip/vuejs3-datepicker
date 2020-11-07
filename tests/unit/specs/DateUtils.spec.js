@@ -15,10 +15,15 @@ import {
   getFullYear,
   getMonth,
   getDate,
-} from '@/components/appdatepicker/utils/DateUtils';
-import { en } from '@/components/appdatepicker/locale';
+} from '@/components/datepicker/utils/DateUtils';
+import * as Langlist from '@/components/datepicker/locale';
+
+let en;
 
 describe('DateUtils', () => {
+  beforeEach(()=>{
+    en = Langlist.data['en'];
+  })
   it('should detect invalid date object', () => {
     expect(isValidDate(null)).toEqual(false);
     expect(isValidDate(123)).toEqual(false);
@@ -44,22 +49,22 @@ describe('DateUtils', () => {
   });
 
   it('should format date strings correctly in English', () => {
-    expect(formatDate(new Date(2020, 0, 1), 'd MMMM yyyy')).toEqual('1 January 2020');
-    expect(formatDate(new Date(2020, 0, 9), 'dd MMM yyyy')).toEqual('09 Jan 2020');
-    expect(formatDate(new Date(2020, 0, 9), 'dd MMM yy')).toEqual('09 Jan 20');
-    expect(formatDate(new Date(2020, 2, 9), 'yyyy-MM-dd')).toEqual('2020-03-09');
-    expect(formatDate(new Date(2020, 2, 9), 'dsu MMMM yyyy')).toEqual('9th March 2020');
-    expect(formatDate(new Date(2020, 2, 1), 'dsu MMMM yyyy')).toEqual('1st March 2020');
-    expect(formatDate(new Date(2020, 2, 2), 'dsu MMMM yyyy')).toEqual('2nd March 2020');
-    expect(formatDate(new Date(2020, 2, 3), 'dsu MMMM yyyy')).toEqual('3rd March 2020');
-    expect(formatDate(new Date(2020, 7, 2), 'D dsu MMMM yyyy')).toEqual('Sun 2nd August 2020');
-    expect(formatDate(new Date(2020, 8, 1), 'D dsu MMMM yyyy')).toEqual('Tue 1st September 2020');
-    expect(formatDate(new Date(2020, 7, 7), 'D dsu MMMM yyyy')).toEqual('Fri 7th August 2020');
-    expect(formatDate(new Date(2020, 11, 2), 'dd MMM yyyy')).toEqual('02 Dec 2020');
+    expect(formatDate(new Date(2020, 0, 1), 'd MMMM yyyy', en)).toEqual('1 January 2020');
+    expect(formatDate(new Date(2020, 0, 9), 'dd MMM yyyy', en)).toEqual('09 Jan 2020');
+    expect(formatDate(new Date(2020, 0, 9), 'dd MMM yy', en)).toEqual('09 Jan 20');
+    expect(formatDate(new Date(2020, 2, 9), 'yyyy-MM-dd', en)).toEqual('2020-03-09');
+    expect(formatDate(new Date(2020, 2, 9), 'dsu MMMM yyyy', en)).toEqual('9th March 2020');
+    expect(formatDate(new Date(2020, 2, 1), 'dsu MMMM yyyy', en)).toEqual('1st March 2020');
+    expect(formatDate(new Date(2020, 2, 2), 'dsu MMMM yyyy', en)).toEqual('2nd March 2020');
+    expect(formatDate(new Date(2020, 2, 3), 'dsu MMMM yyyy', en)).toEqual('3rd March 2020');
+    expect(formatDate(new Date(2020, 7, 2), 'D dsu MMMM yyyy', en)).toEqual('Sun 2nd August 2020');
+    expect(formatDate(new Date(2020, 8, 1), 'D dsu MMMM yyyy', en)).toEqual('Tue 1st September 2020');
+    expect(formatDate(new Date(2020, 7, 7), 'D dsu MMMM yyyy', en)).toEqual('Fri 7th August 2020');
+    expect(formatDate(new Date(2020, 11, 2), 'dd MMM yyyy', en)).toEqual('02 Dec 2020');
   });
 
   it('should give the correct day', () => {
-    expect(formatDate(new Date(2020, 0, 1), 'D')).toEqual('Wed');
+    expect(formatDate(new Date(2020, 0, 1), 'D', en)).toEqual('Wed');
   });
 
   it('can create an array of dates', () => {
