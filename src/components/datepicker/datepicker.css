@@ -1,5 +1,5 @@
 $black: #000;
-$blue: #4bd;
+$green: #40b983;
 $white: #fff;
 
 .rtl {
@@ -9,171 +9,147 @@ $white: #fff;
 .vuejs3-datepicker {
   position: relative;
   text-align: left;
-}
-
-.vuejs3-datepicker * {
-  box-sizing: border-box;
-}
-
-.vuejs3-datepicker {
+  * {
+    box-sizing: border-box;
+  }
   input {
     border: 1px solid;
   }
-}
-.vuejs3-datepicker__calendar {
-  position: absolute;
-  z-index: 100;
-  background: $white;
-  width: 300px;
-  border: 1px solid $black;
-}
-
-.vuejs3-datepicker__calendar header {
-  display: block;
-  line-height: 40px;
-}
-
-.vuejs3-datepicker__calendar header span {
-  text-align: center;
-  width: 71.42857142857143%;
-  float: left;
-}
-
-.vuejs3-datepicker__calendar header .prev,
-.vuejs3-datepicker__calendar header .next {
-  width: 14.285714285714286%;
-  float: left;
-  text-indent: -10000px;
-  position: relative;
-}
-
-.vuejs3-datepicker__calendar header .prev:after,
-.vuejs3-datepicker__calendar header .next:after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border: 6px solid transparent;
-}
-
-.vuejs3-datepicker__calendar header .prev:after {
-  border-right: 10px solid $black;
-  margin-left: -5px;
-}
-
-.vuejs3-datepicker__calendar header .prev.disabled:after {
-  border-right: 10px solid $black;
-}
-
-.vuejs3-datepicker__calendar header .next:after {
-  border-left: 10px solid $black;
-  margin-left: 5px;
-}
-
-.vuejs3-datepicker__calendar header .next.disabled:after {
-  border-left: 10px solid #ddd;
-}
-
-.vuejs3-datepicker__calendar header .prev:not(.disabled),
-.vuejs3-datepicker__calendar header .next:not(.disabled),
-.vuejs3-datepicker__calendar header .up:not(.disabled) {
-  cursor: pointer;
-}
-
-.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,
-.vuejs3-datepicker__calendar header .next:not(.disabled):hover,
-.vuejs3-datepicker__calendar header .up:not(.disabled):hover {
-  background: #eee;
-}
-
-.vuejs3-datepicker__calendar .disabled {
-  color: #ddd;
-  cursor: default;
-}
-
-.vuejs3-datepicker__calendar .flex-rtl {
-  display: flex;
-  width: inherit;
-  flex-wrap: wrap;
-}
-
-.vuejs3-datepicker__calendar .cell {
-  display: inline-block;
-  padding: 0 5px;
-  width: 14.285714285714286%;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid transparent;
-}
-
-.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,
-.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,
-.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year {
-  cursor: pointer;
-}
-
-.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
-.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
-.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
-  border: 1px solid $blue;
-}
-
-.vuejs3-datepicker__calendar .cell.selected {
-  background: $blue;
-}
-
-.vuejs3-datepicker__calendar .cell.selected:hover {
-  background: $blue;
-}
-
-.vuejs3-datepicker__calendar .cell.selected.highlighted {
-  background: $blue;
-}
-
-.vuejs3-datepicker__calendar .cell.highlighted {
-  background: #cae5ed;
-}
-
-.vuejs3-datepicker__calendar .cell.highlighted.disabled {
-  color: #a3a3a3;
-}
-
-.vuejs3-datepicker__calendar .cell.grey {
-  color: #888;
-}
-
-.vuejs3-datepicker__calendar .cell.grey:hover {
-  background: inherit;
-}
-
-.vuejs3-datepicker__calendar .cell.day-header {
-  font-size: 75%;
-  white-space: nowrap;
-  cursor: inherit;
-}
-
-.vuejs3-datepicker__calendar .cell.day-header:hover {
-  background: inherit;
-}
-
-.vuejs3-datepicker__calendar .month,
-.vuejs3-datepicker__calendar .year {
-  width: 33.333%;
-}
-
-.vuejs3-datepicker__clear-button,
-.vuejs3-datepicker__calendar-button {
-  cursor: pointer;
-  font-style: normal;
-}
-
-.vuejs3-datepicker__clear-button.disabled,
-.vuejs3-datepicker__calendar-button.disabled {
-  color: #999;
-  cursor: default;
+  &__calendar {
+    position: absolute;
+    z-index: 100;
+    background: $white;
+    width: 300px;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    border-radius: 4px;
+    &-topbar{
+        background-color: $green;
+        color: $white;
+        padding: 25px;
+        &-year{
+            font-size: 30px;
+            margin: 0px;
+            padding-bottom: 10px;
+        }
+        &-day{
+            font-size: 20px;
+            margin: 0px;
+        }
+    }
+    &-actionarea{
+        padding: 10PX;
+    }
+     header {
+      display: block;
+      line-height: 40px;
+      span {
+        text-align: center;
+        width: 71.42857142857143%;
+        float: left;
+      }
+      .next, .prev {
+        width: 14.285714285714286%;
+        float: left;
+        text-indent: -10000px;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          border: 6px solid transparent;
+        }
+      }
+      .prev:after {
+        border-right: 10px solid $black;
+        margin-left: -5px;
+      }
+      .prev.disabled:after {
+        border-right: 10px solid $black;
+      }
+      .next:after {
+        border-left: 10px solid $black;
+        margin-left: 5px;
+      }
+      .next.disabled:after {
+        border-left: 10px solid #ddd;
+      }
+      .prev:not(.disabled), .next:not(.disabled), .up:not(.disabled){
+        cursor: pointer;
+        &:hover{
+          background: #eee;
+        }
+      }
+    }
+    .disabled {
+      color: #ddd;
+      cursor: default;
+    }
+    .flex-rtl {
+      display: flex;
+      width: inherit;
+      flex-wrap: wrap;
+    }
+    .cell {
+      display: inline-block;
+      padding: 0 5px;
+      width: 14.285714285714286%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid transparent;
+    }
+    .cell:not(.blank):not(.disabled).day, .cell:not(.blank):not(.disabled).month, .cell:not(.blank):not(.disabled).year{
+      cursor: pointer;
+      transition: 0.45s;
+      &:hover{
+        border: 1px solid $green;
+      }
+    }
+    .cell.selected {
+      background: $green;
+      color: $white;
+      &:hover{
+        background: $green;
+      }
+    }
+    .cell.highlighted {
+      background: #cae5ed;
+      &.selected {
+        background: $green;
+      }
+      &.disabled {
+        color: #a3a3a3;
+      }
+    }
+    .cell.grey {
+      color: #888;
+      &:hover{
+        background: inherit;
+      }
+    }
+    .cell.day-header {
+      font-size: 75%;
+      white-space: nowrap;
+      cursor: inherit;
+      &:hover{
+        background: inherit;
+      }
+    }
+    .month, .year{
+      width: 33.333%;
+    }
+  }
+  &__clear-button, &__calendar-button{
+    cursor: pointer;
+    font-style: normal;
+    &.disabled {
+      color: #999;
+      cursor: default;
+    }
+  }
 }
 
 .dp-error {
