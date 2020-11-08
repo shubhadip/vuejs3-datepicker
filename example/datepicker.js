@@ -8338,6 +8338,51 @@ function onEvent(_ref5) {
   }
 }
 
+var script = defineComponent({
+  name: 'IconView',
+  props: {
+    height: {
+      type: [String, Number],
+      default: '16'
+    },
+    width: {
+      type: [String, Number],
+      default: '16'
+    },
+    color: {
+      type: String,
+      default: 'black'
+    }
+  },
+  setup: function setup() {
+    return {};
+  }
+});
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (openBlock(), createBlock(Fragment, null, [
+    createCommentVNode(" eslint-disable "),
+    (openBlock(), createBlock("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 448 512",
+      height: _ctx.height,
+      width: _ctx.width,
+      role: "img",
+      "aria-hidden": "true",
+      "data-icon": "calendarAlt"
+    }, [
+      createVNode("path", {
+        fill: _ctx.color,
+        d: "M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"
+      }, null, 8 /* PROPS */, ["fill"])
+    ], 8 /* PROPS */, ["height", "width"])),
+    createCommentVNode("eslint-enable")
+  ], 64 /* STABLE_FRAGMENT */))
+}
+
+script.render = render;
+script.__file = "src/components/iconview/IconView.vue";
+
 // import en from '@/components/datepicker/locale/translations/en';
 
 /**
@@ -8573,8 +8618,11 @@ var validateDateInput = function validateDateInput(val) {
   return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number';
 };
 
-var script = defineComponent({
+var script$1 = defineComponent({
   name: 'DateInput',
+  components: {
+    IconView: script
+  },
   props: {
     selectedDate: {
       type: Date
@@ -8777,37 +8825,30 @@ var script = defineComponent({
   }
 });
 
-const img = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' height='16' width='16' role='img' aria-hidden='true' data-icon='calendarAlt'%3e%3cpath fill='currentColor' d='M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z'%3e%3c/path%3e%3c/svg%3e";
-
 const _hoisted_1 = { key: 0 };
 const _hoisted_2 = {
   key: 1,
   style: {"position":"relative"}
 };
 const _hoisted_3 = { key: 0 };
-const _hoisted_4 = /*#__PURE__*/createVNode("img", {
-  src: img,
-  class: "vuejs3-datepicker__typeablecalendar"
-}, null, -1 /* HOISTED */);
-const _hoisted_5 = {
+const _hoisted_4 = {
   key: 0,
   class: "vuejs3-datepicker__value"
 };
-const _hoisted_6 = /*#__PURE__*/createVNode("span", null, [
-  /*#__PURE__*/createVNode("img", { src: img })
-], -1 /* HOISTED */);
-const _hoisted_7 = {
+const _hoisted_5 = {
   key: 0,
   class: "vuejs3-datepicker__content"
 };
-const _hoisted_8 = {
+const _hoisted_6 = {
   key: 1,
   class: "vuejs3-datepicker__content"
 };
-const _hoisted_9 = { key: 0 };
-const _hoisted_10 = /*#__PURE__*/createTextVNode("Default");
+const _hoisted_7 = { key: 0 };
+const _hoisted_8 = /*#__PURE__*/createTextVNode("Default");
 
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_IconView = resolveComponent("IconView");
+
   return (openBlock(), createBlock("div", {
     class: { 'input-group': _ctx.addBootstrapClass }
   }, [
@@ -8835,7 +8876,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ? (openBlock(), createBlock("div", _hoisted_2, [
           (!_ctx.inline)
             ? (openBlock(), createBlock("span", _hoisted_3, [
-                _hoisted_4
+                createVNode(_component_IconView, { class: "vuejs3-datepicker__typeablecalendar" })
               ]))
             : createCommentVNode("v-if", true),
           createVNode("input", {
@@ -8862,11 +8903,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[5] || (_cache[5] = (...args) => (_ctx.showCalendar(...args)))
         }, [
           (!_ctx.inline)
-            ? (openBlock(), createBlock("div", _hoisted_5, [
-                _hoisted_6,
+            ? (openBlock(), createBlock("div", _hoisted_4, [
+                createVNode("span", null, [
+                  createVNode(_component_IconView)
+                ]),
                 (_ctx.formattedValue)
-                  ? (openBlock(), createBlock("div", _hoisted_7, toDisplayString(_ctx.formattedValue), 1 /* TEXT */))
-                  : (openBlock(), createBlock("div", _hoisted_8, toDisplayString(_ctx.placeholder), 1 /* TEXT */))
+                  ? (openBlock(), createBlock("div", _hoisted_5, toDisplayString(_ctx.formattedValue), 1 /* TEXT */))
+                  : (openBlock(), createBlock("div", _hoisted_6, toDisplayString(_ctx.placeholder), 1 /* TEXT */))
               ]))
             : createCommentVNode("v-if", true)
         ])),
@@ -8881,22 +8924,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           }, [
             createVNode("i", { class: _ctx.clearButtonIcon }, [
               (!_ctx.clearButtonIcon)
-                ? (openBlock(), createBlock("span", _hoisted_9, "×"))
+                ? (openBlock(), createBlock("span", _hoisted_7, "×"))
                 : createCommentVNode("v-if", true)
             ], 2 /* CLASS */)
           ], 2 /* CLASS */)
         ], 2 /* CLASS */))
       : createCommentVNode("v-if", true),
     renderSlot(_ctx.$slots, "afterDateInput", {}, () => [
-      _hoisted_10
+      _hoisted_8
     ])
   ], 2 /* CLASS */))
 }
 
-script.render = render;
-script.__file = "src/components/datepicker/DateInput.vue";
+script$1.render = render$1;
+script$1.__file = "src/components/datepicker/DateInput.vue";
 
-var script$1 = defineComponent({
+var script$2 = defineComponent({
   name: 'PickerDay',
   props: {
     showDayView: {
@@ -9375,7 +9418,7 @@ const _hoisted_1$1 = {
 const _hoisted_2$1 = { class: "vuejs3-datepicker__calendar-topbar-day" };
 const _hoisted_3$1 = { class: "vuejs3-datepicker__calendar-actionarea" };
 
-function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
     class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
     style: _ctx.calendarStyle,
@@ -9438,10 +9481,10 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   ])
 }
 
-script$1.render = render$1;
-script$1.__file = "src/components/datepicker/PickerDay.vue";
+script$2.render = render$2;
+script$2.__file = "src/components/datepicker/PickerDay.vue";
 
-var script$2 = defineComponent({
+var script$3 = defineComponent({
   name: 'PickerMonth',
   props: {
     showMonthView: {
@@ -9730,7 +9773,7 @@ const _hoisted_2$2 = {
 };
 const _hoisted_3$2 = { class: "vuejs3-datepicker__calendar-actionarea" };
 
-function render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
     class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
     style: _ctx.calendarStyle,
@@ -9776,10 +9819,10 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   ])
 }
 
-script$2.render = render$2;
-script$2.__file = "src/components/datepicker/PickerMonth.vue";
+script$3.render = render$3;
+script$3.__file = "src/components/datepicker/PickerMonth.vue";
 
-var script$3 = defineComponent({
+var script$4 = defineComponent({
   name: 'PickerYear',
   props: {
     showYearView: {
@@ -10063,7 +10106,7 @@ const _hoisted_3$3 = {
 };
 const _hoisted_4$1 = { class: "vuejs3-datepicker__calendar-actionarea" };
 
-function render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
     class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
     style: _ctx.calendarStyle,
@@ -10103,8 +10146,8 @@ function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   ])
 }
 
-script$3.render = render$3;
-script$3.__file = "src/components/datepicker/PickerYear.vue";
+script$4.render = render$4;
+script$4.__file = "src/components/datepicker/PickerYear.vue";
 
 var af = function af() {
   var langName = 'Afrikaans';
@@ -10154,13 +10197,13 @@ var data = {
   en: en()
 };
 
-var script$4 = defineComponent({
+var script$5 = defineComponent({
   name: 'Datepicker',
   components: {
-    DateInput: script,
-    PickerDay: script$1,
-    PickerMonth: script$2,
-    PickerYear: script$3
+    DateInput: script$1,
+    PickerDay: script$2,
+    PickerMonth: script$3,
+    PickerYear: script$4
   },
   directives: {
     clickoutside: ClickOutside
@@ -10670,7 +10713,7 @@ var script$4 = defineComponent({
   }
 });
 
-function render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_date_input = resolveComponent("date-input");
   const _component_picker_day = resolveComponent("picker-day");
   const _component_picker_month = resolveComponent("picker-month");
@@ -10838,13 +10881,13 @@ function styleInject(css, ref) {
 var css_248z = ".rtl{direction:rtl}.vuejs3-datepicker{position:relative;text-align:left}.vuejs3-datepicker *{box-sizing:border-box}.vuejs3-datepicker input{border:1px solid}.vuejs3-datepicker__value{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:10px;cursor:pointer;border:1px solid}.vuejs3-datepicker__content{margin-left:10px}.vuejs3-datepicker__typeablecalendar{position:absolute;top:10px;left:10px}.vuejs3-datepicker__inputvalue{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;cursor:pointer;border:1px solid;padding:10px 10px 10px 35px}.vuejs3-datepicker__calendar{position:absolute;z-index:100;background:#fff;width:300px;box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);border-radius:4px}.vuejs3-datepicker__calendar-topbar{background-color:#40b983;color:#fff;padding:25px}.vuejs3-datepicker__calendar-topbar-year{font-size:30px;margin:0;padding-bottom:10px}.vuejs3-datepicker__calendar-topbar-day{font-size:20px;margin:0}.vuejs3-datepicker__calendar-actionarea{padding:10PX}.vuejs3-datepicker__calendar header{display:block;line-height:40px}.vuejs3-datepicker__calendar header span{text-align:center;width:71.42857142857143%;float:left}.vuejs3-datepicker__calendar header .next,.vuejs3-datepicker__calendar header .prev{width:14.285714285714286%;float:left;text-indent:-10000px;position:relative}.vuejs3-datepicker__calendar header .next:after,.vuejs3-datepicker__calendar header .prev:after{content:\"\";position:absolute;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);border:6px solid transparent}.vuejs3-datepicker__calendar header .prev:after{border-right:10px solid #000;margin-left:-5px}.vuejs3-datepicker__calendar header .prev.disabled:after{border-right:10px solid #000}.vuejs3-datepicker__calendar header .next:after{border-left:10px solid #000;margin-left:5px}.vuejs3-datepicker__calendar header .next.disabled:after{border-left:10px solid #ddd}.vuejs3-datepicker__calendar header .next:not(.disabled),.vuejs3-datepicker__calendar header .prev:not(.disabled),.vuejs3-datepicker__calendar header .up:not(.disabled){cursor:pointer}.vuejs3-datepicker__calendar header .next:not(.disabled):hover,.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,.vuejs3-datepicker__calendar header .up:not(.disabled):hover{background:#eee}.vuejs3-datepicker__calendar .disabled{color:#ddd;cursor:default}.vuejs3-datepicker__calendar .flex-rtl{display:-webkit-flex;display:-ms-flexbox;display:flex;width:inherit;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.vuejs3-datepicker__calendar .cell{display:inline-block;padding:0 5px;width:14.285714285714286%;height:40px;line-height:40px;text-align:center;vertical-align:middle;border:1px solid transparent}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year{cursor:pointer;transition:.45s}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{border:1px solid #40b983}.vuejs3-datepicker__calendar .cell.selected{background:#40b983;color:#fff}.vuejs3-datepicker__calendar .cell.selected:hover{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted{background:#cae5ed}.vuejs3-datepicker__calendar .cell.highlighted.selected{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted.disabled{color:#a3a3a3}.vuejs3-datepicker__calendar .cell.grey{color:#888}.vuejs3-datepicker__calendar .cell.grey:hover{background:inherit}.vuejs3-datepicker__calendar .cell.day-header{font-size:75%;white-space:nowrap;cursor:inherit}.vuejs3-datepicker__calendar .cell.day-header:hover{background:inherit}.vuejs3-datepicker__calendar .month,.vuejs3-datepicker__calendar .year{width:33.333%}.vuejs3-datepicker__calendar-button,.vuejs3-datepicker__clear-button{cursor:pointer;font-style:normal}.vuejs3-datepicker__calendar-button.disabled,.vuejs3-datepicker__clear-button.disabled{color:#999;cursor:default}.dp-error{color:red;font-size:12px}.backdrop{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:2;cursor:pointer}";
 styleInject(css_248z);
 
-script$4.render = render$4;
-script$4.__file = "src/components/datepicker/Datepicker.vue";
+script$5.render = render$5;
+script$5.__file = "src/components/datepicker/Datepicker.vue";
 
-var script$5 = defineComponent({
+var script$6 = defineComponent({
   name: 'App-Home',
   components: {
-    'appdate-picker': script$4
+    'appdate-picker': script$5
   },
   data: function data() {
     return {
@@ -10896,68 +10939,78 @@ var script$5 = defineComponent({
   }
 });
 
+const img = "data:image/svg+xml,%3csvg data-v-e0fcf3ec='' width='32' height='32' aria-hidden='true' focusable='false' data-prefix='fab' data-icon='github' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3e%3cpath data-v-e0fcf3ec='' fill='currentColor' d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'%3e%3c/path%3e%3c/svg%3e";
+
 const _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
 
 pushScopeId("data-v-7ba5bd90");
-const _hoisted_1$4 = { class: "wrapper" };
-const _hoisted_2$4 = { class: "ind" };
-const _hoisted_3$4 = /*#__PURE__*/createVNode("label", null, "Typeable", -1 /* HOISTED */);
-const _hoisted_4$2 = { class: "ind" };
-const _hoisted_5$1 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1 /* HOISTED */);
-const _hoisted_6$1 = { class: "ind" };
-const _hoisted_7$1 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1 /* HOISTED */);
-const _hoisted_8$1 = { class: "ind" };
-const _hoisted_9$1 = /*#__PURE__*/createVNode("label", null, "Default Value", -1 /* HOISTED */);
-const _hoisted_10$1 = { class: "ind" };
+const _hoisted_1$4 = /*#__PURE__*/createVNode("div", null, [
+  /*#__PURE__*/createVNode("div", { style: { display: 'flex' } }, [
+    /*#__PURE__*/createVNode("p", { style: { 'font-size': '32px', 'margin-right': '10px' } }, "Vue 3 DatePicker"),
+    /*#__PURE__*/createVNode("img", { src: img })
+  ])
+], -1 /* HOISTED */);
+const _hoisted_2$4 = { class: "wrapper" };
+const _hoisted_3$4 = { class: "ind" };
+const _hoisted_4$2 = /*#__PURE__*/createVNode("label", null, "Typeable", -1 /* HOISTED */);
+const _hoisted_5$1 = { class: "ind" };
+const _hoisted_6$1 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1 /* HOISTED */);
+const _hoisted_7$1 = { class: "ind" };
+const _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1 /* HOISTED */);
+const _hoisted_9 = { class: "ind" };
+const _hoisted_10 = /*#__PURE__*/createVNode("label", null, "Default Value", -1 /* HOISTED */);
 const _hoisted_11 = { class: "ind" };
-const _hoisted_12 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
-const _hoisted_13 = { class: "ind" };
-const _hoisted_14 = /*#__PURE__*/createVNode("label", null, "Day View", -1 /* HOISTED */);
-const _hoisted_15 = { class: "ind" };
-const _hoisted_16 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1 /* HOISTED */);
-const _hoisted_17 = { class: "ind" };
-const _hoisted_18 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
-const _hoisted_19 = { class: "ind" };
-const _hoisted_20 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
-const _hoisted_21 = { class: "ind" };
-const _hoisted_22 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
-const _hoisted_23 = { class: "ind" };
-const _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
+const _hoisted_12 = { class: "ind" };
+const _hoisted_13 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
+const _hoisted_14 = { class: "ind" };
+const _hoisted_15 = /*#__PURE__*/createVNode("label", null, "Day View", -1 /* HOISTED */);
+const _hoisted_16 = { class: "ind" };
+const _hoisted_17 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1 /* HOISTED */);
+const _hoisted_18 = { class: "ind" };
+const _hoisted_19 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
+const _hoisted_20 = { class: "ind" };
+const _hoisted_21 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
+const _hoisted_22 = { class: "ind" };
+const _hoisted_23 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
+const _hoisted_24 = { class: "ind" };
+const _hoisted_25 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
 popScopeId();
 
-const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
+const render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_appdate_picker = resolveComponent("appdate-picker");
 
-  return (openBlock(), createBlock("div", _hoisted_1$4, [
+  return (openBlock(), createBlock(Fragment, null, [
+    _hoisted_1$4,
     createVNode("div", _hoisted_2$4, [
-      _hoisted_3$4,
-      createVNode(_component_appdate_picker, {
-        "full-month-name": true,
-        "input-class": "customClass",
-        placeholder: "Select Date",
-        typeable: true,
-        hideInput: false,
-        onInput: _ctx.dateSelected
-      }, null, 8 /* PROPS */, ["onInput"])
-    ]),
-    createVNode("div", _hoisted_4$2, [
-      _hoisted_5$1,
-      createVNode(_component_appdate_picker, {
-        "full-month-name": true,
-        placeholder: "Select Date",
-        onInput: _ctx.dateSelected,
-        "disabled-dates": {
+      createVNode("div", _hoisted_3$4, [
+        _hoisted_4$2,
+        createVNode(_component_appdate_picker, {
+          "full-month-name": true,
+          "input-class": "customClass",
+          placeholder: "Select Date",
+          typeable: true,
+          hideInput: false,
+          onInput: _ctx.dateSelected
+        }, null, 8 /* PROPS */, ["onInput"])
+      ]),
+      createVNode("div", _hoisted_5$1, [
+        _hoisted_6$1,
+        createVNode(_component_appdate_picker, {
+          "full-month-name": true,
+          placeholder: "Select Date",
+          onInput: _ctx.dateSelected,
+          "disabled-dates": {
           to: new Date(2020, 10, 5),
           from: new Date(2020, 10, 16),
         }
-      }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
-    ]),
-    createVNode("div", _hoisted_6$1, [
-      _hoisted_7$1,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        onInput: _ctx.dateSelected,
-        "disabled-dates": {
+        }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
+      ]),
+      createVNode("div", _hoisted_7$1, [
+        _hoisted_8$1,
+        createVNode(_component_appdate_picker, {
+          placeholder: "Select Date",
+          onInput: _ctx.dateSelected,
+          "disabled-dates": {
           dates: [
             new Date(2020, 11, 16),
             new Date(2020, 11, 17),
@@ -10966,122 +11019,123 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
             new Date(2020, 11, 20),
           ],
         }
-      }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
-    ]),
-    createVNode("div", _hoisted_8$1, [
-      _hoisted_9$1,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        onInput: _ctx.dateSelected,
-        value: _ctx.defaultValue,
-        "disabled-dates": {
+        }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
+      ]),
+      createVNode("div", _hoisted_9, [
+        _hoisted_10,
+        createVNode(_component_appdate_picker, {
+          placeholder: "Select Date",
+          onInput: _ctx.dateSelected,
+          value: _ctx.defaultValue,
+          "disabled-dates": {
           dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
         },
-        highlighted: {
+          highlighted: {
           to: new Date(2020, 12, 16),
           from: new Date(2020, 11, 17),
         }
-      }, null, 8 /* PROPS */, ["onInput", "value", "disabled-dates", "highlighted"]),
-      createVNode("button", {
-        onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.changeDefaultValue(...args)))
-      }, "Change Default Value")
-    ]),
-    createVNode("div", _hoisted_10$1, [
-      createVNode("div", null, [
-        createVNode("label", null, "V Model: " + toDisplayString(_ctx.dateinput), 1 /* TEXT */),
-        createVNode(_component_appdate_picker, {
-          modelValue: _ctx.dateinput,
-          "onUpdate:modelValue": [
-            _cache[2] || (_cache[2] = $event => (_ctx.dateinput = $event)),
-            _ctx.dateSelected
-          ]
-        }, null, 8 /* PROPS */, ["modelValue", "onUpdate:modelValue"])
+        }, null, 8 /* PROPS */, ["onInput", "value", "disabled-dates", "highlighted"]),
+        createVNode("button", {
+          onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.changeDefaultValue(...args)))
+        }, "Change Default Value")
       ]),
-      createVNode("button", {
-        onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.changedVmodel(...args)))
-      }, "Change Date Input")
-    ]),
-    createVNode("div", _hoisted_11, [
-      _hoisted_12,
-      createVNode(_component_appdate_picker, {
-        ref: "inputRef",
-        onSelected: _ctx.handleSelectDate,
-        highlighted: _ctx.highlightDates,
-        value: _ctx.emptyDate,
-        onClosed: _ctx.handleCalendarClose,
-        placeholder: "Select Date"
-      }, null, 8 /* PROPS */, ["onSelected", "highlighted", "value", "onClosed"]),
-      createVNode("button", {
-        onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.checkDatePicker(...args)))
-      }, "Check DatePicker")
-    ]),
-    createVNode("div", _hoisted_13, [
-      _hoisted_14,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Day",
-        "minimum-view": 'day',
-        "maximum-view": 'day',
-        onInput: _ctx.handleChangedDay
-      }, null, 8 /* PROPS */, ["onInput"])
-    ]),
-    createVNode("div", _hoisted_15, [
-      _hoisted_16,
-      createVNode(_component_appdate_picker, {
-        onInput: _ctx.dateSelected,
-        highlighted: {
+      createVNode("div", _hoisted_11, [
+        createVNode("div", null, [
+          createVNode("label", null, "V Model: " + toDisplayString(_ctx.dateinput), 1 /* TEXT */),
+          createVNode(_component_appdate_picker, {
+            modelValue: _ctx.dateinput,
+            "onUpdate:modelValue": [
+              _cache[2] || (_cache[2] = $event => (_ctx.dateinput = $event)),
+              _ctx.dateSelected
+            ]
+          }, null, 8 /* PROPS */, ["modelValue", "onUpdate:modelValue"])
+        ]),
+        createVNode("button", {
+          onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.changedVmodel(...args)))
+        }, "Change Date Input")
+      ]),
+      createVNode("div", _hoisted_12, [
+        _hoisted_13,
+        createVNode(_component_appdate_picker, {
+          ref: "inputRef",
+          onSelected: _ctx.handleSelectDate,
+          highlighted: _ctx.highlightDates,
+          value: _ctx.emptyDate,
+          onClosed: _ctx.handleCalendarClose,
+          placeholder: "Select Date"
+        }, null, 8 /* PROPS */, ["onSelected", "highlighted", "value", "onClosed"]),
+        createVNode("button", {
+          onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.checkDatePicker(...args)))
+        }, "Check DatePicker")
+      ]),
+      createVNode("div", _hoisted_14, [
+        _hoisted_15,
+        createVNode(_component_appdate_picker, {
+          placeholder: "Select Day",
+          "minimum-view": 'day',
+          "maximum-view": 'day',
+          onInput: _ctx.handleChangedDay
+        }, null, 8 /* PROPS */, ["onInput"])
+      ]),
+      createVNode("div", _hoisted_16, [
+        _hoisted_17,
+        createVNode(_component_appdate_picker, {
+          onInput: _ctx.dateSelected,
+          highlighted: {
           to: new Date(2020, 11, 16),
           from: new Date(2020, 10, 17),
         }
-      }, null, 8 /* PROPS */, ["onInput", "highlighted"])
-    ]),
-    createVNode("div", _hoisted_17, [
-      _hoisted_18,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Month",
-        value: new Date(),
-        "minimum-view": 'month',
-        "maximum-view": 'month',
-        onChangedMonth: _ctx.handleChangedMonth
-      }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
-    ]),
-    createVNode("div", _hoisted_19, [
-      _hoisted_20,
-      createVNode(_component_appdate_picker, {
-        "full-month-name": true,
-        placeholder: "Select Month",
-        value: new Date(),
-        "minimum-view": 'month',
-        "maximum-view": 'month',
-        onChangedMonth: _ctx.handleChangedMonth
-      }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
-    ]),
-    createVNode("div", _hoisted_21, [
-      _hoisted_22,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Year",
-        value: new Date(),
-        "minimum-view": 'year',
-        "maximum-view": 'year',
-        onChangedYear: _ctx.handleChangedYear
-      }, null, 8 /* PROPS */, ["value", "onChangedYear"])
-    ]),
-    createVNode("div", _hoisted_23, [
-      _hoisted_24,
-      createVNode(_component_appdate_picker, {
-        inline: true,
-        onInput: _ctx.dateSelected
-      }, null, 8 /* PROPS */, ["onInput"])
+        }, null, 8 /* PROPS */, ["onInput", "highlighted"])
+      ]),
+      createVNode("div", _hoisted_18, [
+        _hoisted_19,
+        createVNode(_component_appdate_picker, {
+          placeholder: "Select Month",
+          value: new Date(),
+          "minimum-view": 'month',
+          "maximum-view": 'month',
+          onChangedMonth: _ctx.handleChangedMonth
+        }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
+      ]),
+      createVNode("div", _hoisted_20, [
+        _hoisted_21,
+        createVNode(_component_appdate_picker, {
+          "full-month-name": true,
+          placeholder: "Select Month",
+          value: new Date(),
+          "minimum-view": 'month',
+          "maximum-view": 'month',
+          onChangedMonth: _ctx.handleChangedMonth
+        }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
+      ]),
+      createVNode("div", _hoisted_22, [
+        _hoisted_23,
+        createVNode(_component_appdate_picker, {
+          placeholder: "Select Year",
+          value: new Date(),
+          "minimum-view": 'year',
+          "maximum-view": 'year',
+          onChangedYear: _ctx.handleChangedYear
+        }, null, 8 /* PROPS */, ["value", "onChangedYear"])
+      ]),
+      createVNode("div", _hoisted_24, [
+        _hoisted_25,
+        createVNode(_component_appdate_picker, {
+          inline: true,
+          onInput: _ctx.dateSelected
+        }, null, 8 /* PROPS */, ["onInput"])
+      ])
     ])
-  ]))
+  ], 64 /* STABLE_FRAGMENT */))
 });
 
 var css_248z$1 = "button[data-v-7ba5bd90]{padding:10px;margin:10px 0}label[data-v-7ba5bd90]{text-align:left;margin:5px 0;display:block;font-size:18px}.ind[data-v-7ba5bd90]{min-width:400px;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
 styleInject(css_248z$1);
 
-script$5.render = render$5;
-script$5.__scopeId = "data-v-7ba5bd90";
-script$5.__file = "src/App.vue";
+script$6.render = render$6;
+script$6.__scopeId = "data-v-7ba5bd90";
+script$6.__file = "src/App.vue";
 
-var app = createApp(script$5);
+var app = createApp(script$6);
 app.directive('clickoutside', ClickOutside);
 app.mount('#app');

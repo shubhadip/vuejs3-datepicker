@@ -1,4 +1,10 @@
 <template>
+  <div>
+    <div v-bind:style="{ display: 'flex' }">
+      <p v-bind:style="{ 'font-size': '32px', 'margin-right': '10px' }">Vue 3 DatePicker</p>
+      <img src="./assets/github.svg" />
+    </div>
+  </div>
   <div class="wrapper">
     <div class="ind">
       <label>Typeable</label>

@@ -16,7 +16,9 @@
       </span>
     </span>
     <div v-if="typeable || !hideInput" style="position: relative">
-      <span v-if="!inline"><img src="../../assets/calendar.svg" class="vuejs3-datepicker__typeablecalendar"/></span>
+      <span v-if="!inline">
+        <IconView class="vuejs3-datepicker__typeablecalendar" />
+      </span>
       <input
         :type="inline ? 'hidden' : 'text'"
         :class="computedInputClass"
@@ -39,7 +41,7 @@
     </div>
     <div v-else @click="showCalendar">
       <div class="vuejs3-datepicker__value" v-if="!inline">
-        <span><img src="../../assets/calendar.svg"/></span>
+        <span><IconView /></span>
         <div class="vuejs3-datepicker__content" v-if="formattedValue">{{ formattedValue }}</div>
         <div v-else class="vuejs3-datepicker__content">{{ placeholder }}</div>
       </div>
@@ -62,10 +64,14 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
+import IconView from '../iconview/IconView.vue';
 import { formatDate } from './utils/DateUtils';
 
 export default defineComponent({
   name: 'DateInput',
+  components: {
+    IconView,
+  },
   props: {
     selectedDate: {
       type: Date as new () => Date,
