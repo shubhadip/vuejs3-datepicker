@@ -5,7 +5,7 @@
       <appdate-picker
         :full-month-name="true"
         input-class="customClass"
-        placeholder="select date"
+        placeholder="Select Date"
         :typeable="true"
         :hideInput="false"
         @input="dateSelected"
@@ -34,6 +34,7 @@
           :highlighted="highlightDates"
           :value="emptyDate"
           @closed="handleCalendarClose"
+          placeholder="Select Date"
         />
         <button @click="checkDatePicker">Check DatePicker</button>
       </div>
@@ -41,6 +42,7 @@
       <div class="ind">
         <label>Default Value</label>
         <appdate-picker
+          placeholder="Select Date"
           @input="dateSelected"
           :value="defaultValue"
           :disabled-dates="{

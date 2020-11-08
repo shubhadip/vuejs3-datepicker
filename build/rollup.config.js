@@ -14,10 +14,19 @@ import typescript from 'rollup-plugin-typescript2';
 import minimist from 'minimist';
 import nested from 'postcss-nested';
 import image from '@rollup/plugin-image';
+import postcssImport from 'postcss-import';
 
 import { terser } from 'rollup-plugin-terser';
 
 const postcssPluginList = [
+  postcssImport({
+    resolve(id, basedir) {
+      if (id.startsWith('@css')) {
+        return path.resolve('./src/assets/styles/css', id.slice(5));
+      }
+      return path.resolve(basedir, id);
+    },
+  }),
   simplevars,
   nested,
   autoprefixer({

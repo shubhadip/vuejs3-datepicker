@@ -6,34 +6,36 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section v-if="selectedDate">
-      <p @click="showYearCalendar">{{ currYearName }}</p>
-      <p>{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
+    <section v-if="ifDifferentViews && selectedDate" class="vuejs3-datepicker__calendar-topbar">
+      <p class="vuejs3-datepicker__calendar-topbar-year" @click="showYearCalendar">{{ currYearName }}</p>
+      <p class="vuejs3-datepicker__calendar-topbar-day">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
-    <header>
-      <span @click="isRtl ? nextMonth() : previousMonth()" class="prev" :class="{ disabled: isLeftNavDisabled }"
-        >&lt;</span
-      >
-      <span class="day__month_btn" @click="showMonthCalendar" :class="allowedToShowView('month') ? 'up' : ''"
-        >{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : currYearName }}</span
-      >
-      <span @click="isRtl ? previousMonth() : nextMonth()" class="next" :class="{ disabled: isRightNavDisabled }"
-        >&gt;</span
-      >
-    </header>
-    <div :class="isRtl ? 'flex-rtl' : ''">
-      <span class="cell day-header" v-for="d in daysOfWeek" :key="d.timestamp">{{ d }}</span>
-      <template v-if="blankDays > 0">
-        <span class="cell day blank" v-for="d in blankDays" :key="d.timestamp"></span>
-      </template>
-      <span
-        class="cell day"
-        v-for="day in days"
-        :key="day.timestamp"
-        :class="dayClasses(day)"
-        v-html="dayCellContent(day)"
-        @click="selectDate(day)"
-      ></span>
+    <div class="vuejs3-datepicker__calendar-actionarea">
+      <header>
+        <span @click="isRtl ? nextMonth() : previousMonth()" class="prev" :class="{ disabled: isLeftNavDisabled }"
+          >&lt;</span
+        >
+        <span class="day__month_btn" @click="showMonthCalendar" :class="allowedToShowView('month') ? 'up' : ''"
+          >{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : currYearName }}</span
+        >
+        <span @click="isRtl ? previousMonth() : nextMonth()" class="next" :class="{ disabled: isRightNavDisabled }"
+          >&gt;</span
+        >
+      </header>
+      <div :class="isRtl ? 'flex-rtl' : ''">
+        <span class="cell day-header" v-for="d in daysOfWeek" :key="d.timestamp">{{ d }}</span>
+        <template v-if="blankDays > 0">
+          <span class="cell day blank" v-for="d in blankDays" :key="d.timestamp"></span>
+        </template>
+        <span
+          class="cell day"
+          v-for="day in days"
+          :key="day.timestamp"
+          :class="dayClasses(day)"
+          v-html="dayCellContent(day)"
+          @click="selectDate(day)"
+        ></span>
+      </div>
     </div>
   </div>
 </template>
@@ -509,6 +511,10 @@ export default defineComponent({
       return props.selectedDate ? getDate(props.selectedDate) : null;
     });
 
+    const ifDifferentViews = computed(() => {
+      return !(props.minimumView === props.maximumView && (props.minimumView !== 'day' || props.maximumView !== 'day'));
+    });
+
     return {
       isDefined,
       showMonthCalendar,
@@ -528,6 +534,7 @@ export default defineComponent({
       getDayName,
       getDisplayDate,
       showYearCalendar,
+      ifDifferentViews,
     };
   },
 });
