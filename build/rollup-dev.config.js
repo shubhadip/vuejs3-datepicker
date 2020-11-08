@@ -12,9 +12,18 @@ import typescript from 'rollup-plugin-typescript2';
 import nested from 'postcss-nested';
 import serve from 'rollup-plugin-serve'
 import image from '@rollup/plugin-image';
-import livereload from 'rollup-plugin-livereload'
+import livereload from 'rollup-plugin-livereload';
+import postcssImport from 'postcss-import';
 
 const postcssPluginList = [
+  postcssImport({
+    resolve(id, basedir) {
+      if (id.startsWith('@css')) {
+        return path.resolve('./src/assets/styles/css', id.slice(5));
+      }
+      return path.resolve(basedir, id);
+    },
+  }),
   simplevars,
   nested,
   autoprefixer({

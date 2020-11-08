@@ -1,6 +1,4 @@
-$black: #000;
-$blue: #4bd;
-$white: #fff;
+@import "@css/_settings.css";
 
 .rtl {
   direction: rtl;
@@ -9,6 +7,46 @@ $white: #fff;
 .vuejs3-datepicker {
   position: relative;
   text-align: left;
+  &__value {
+    min-width: 200px;
+    display: inline-flex;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid ;
+  }
+  &__content{
+    margin-left: 10px;
+  }
+  &__selectedValues {
+    padding: 10px;
+    background: $blue;
+    color: $white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  &__year{
+    margin: 0px 0px 10px 0px;
+    font-size: 24px;
+  }
+  &__verbose{
+    margin: 0px 0px 10px 0px;
+    font-size: 18px;
+  }
+  &__typeablecalendar{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  &__inputvalue{
+    min-width: 200px;
+    display: inline-flex;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid ;
+    padding-left: 35px;
+  }
 }
 
 .vuejs3-datepicker * {
@@ -26,6 +64,10 @@ $white: #fff;
   background: $white;
   width: 300px;
   border: 1px solid $black;
+  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /* padding: 10px 15px; */
 }
 
 .vuejs3-datepicker__calendar header {
@@ -119,22 +161,26 @@ $white: #fff;
 .vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
 .vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
   border: 1px solid $blue;
+  border-radius: 50%;
 }
 
 .vuejs3-datepicker__calendar .cell.selected {
   background: $blue;
+  border-radius: 50%;
 }
 
 .vuejs3-datepicker__calendar .cell.selected:hover {
   background: $blue;
+  border-radius: 50%;
 }
 
 .vuejs3-datepicker__calendar .cell.selected.highlighted {
   background: $blue;
+  border-radius: 0px;
 }
 
 .vuejs3-datepicker__calendar .cell.highlighted {
-  background: #cae5ed;
+  background: $blue;
 }
 
 .vuejs3-datepicker__calendar .cell.highlighted.disabled {
@@ -142,7 +188,7 @@ $white: #fff;
 }
 
 .vuejs3-datepicker__calendar .cell.grey {
-  color: #888;
+  color: $grey-800;
 }
 
 .vuejs3-datepicker__calendar .cell.grey:hover {

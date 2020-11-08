@@ -6,9 +6,11 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section v-if="selectedDate">
-      <p @click="showYearCalendar">{{ currYearName }}</p>
-      <p>{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
+    <section v-if="selectedDate" class="vuejs3-datepicker__selectedValues">
+      <p class="vuejs3-datepicker__year" @click="showYearCalendar">{{ currYearName }}</p>
+      <p class="vuejs3-datepicker__verbose" v-if="selectedDate">
+        {{ getDayName }} {{ getDisplayDate }} {{ monthName }}
+      </p>
     </section>
     <header>
       <span @click="isRtl ? nextMonth() : previousMonth()" class="prev" :class="{ disabled: isLeftNavDisabled }"

@@ -1,0 +1,14 @@
+$important: !important;
+
+/* Color system */
+$white: #ffffff;
+$black: #000000;
+
+$blue: #00b9f5;
+$dark-blue: #012b72;
+$grey-600: #6c757d;
+$grey-800: #485e7f;
+
+$font-weight-lighter: lighter;
+$font-weight-medium: 600;
+$font-weight-bolder: bolder;

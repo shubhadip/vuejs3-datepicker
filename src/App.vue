@@ -5,7 +5,7 @@
       <appdate-picker
         :full-month-name="true"
         input-class="customClass"
-        placeholder="select date"
+        placeholder="Select Date"
         :typeable="true"
         :hideInput="false"
         @input="dateSelected"
@@ -22,6 +22,7 @@
           :highlighted="highlightDates"
           :value="emptyDate"
           @closed="handleCalendarClose"
+          placeholder="Select Date"
         />
         <button @click="checkDatePicker">Check DatePicker</button>
       </div>
@@ -29,6 +30,7 @@
       <div class="ind">
         <label>Default Value</label>
         <appdate-picker
+          placeholder="Select Date"
           @input="dateSelected"
           :value="defaultValue"
           :disabled-dates="{
@@ -44,6 +46,7 @@
       <div class="ind">
         <label> Disabled: from-to </label>
         <appdate-picker
+          placeholder="Select Date"
           @input="dateSelected"
           :disabled-dates="{
             to: new Date(2020, 10, 5),
@@ -54,6 +57,7 @@
       <div class="ind">
         <label> Disabled Dates : Array </label>
         <appdate-picker
+          placeholder="Select Date"
           @input="dateSelected"
           :disabled-dates="{
             dates: [
@@ -70,6 +74,7 @@
     <div class="ind">
       <label>Highlighted Dates</label>
       <appdate-picker
+        placeholder="Select Date"
         @input="dateSelected"
         :highlighted="{
           to: new Date(2020, 11, 16),
@@ -82,7 +87,11 @@
     <div class="ind" style="flex-direction: column">
       <div style="justify-content: space-between;display: flex;width: 100%;">
         <label>V Model</label>
-        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected"></appdate-picker>
+        <appdate-picker
+          placeholder="Select Date"
+          v-model="dateinput"
+          @update:modelValue="dateSelected"
+        ></appdate-picker>
       </div>
       <br />
       <div>{{ dateinput }}</div>
@@ -91,17 +100,23 @@
 
     <div class="ind">
       <label>Inline </label>
-      <appdate-picker :inline="true" @input="dateSelected"></appdate-picker>
+      <appdate-picker placeholder="Select Date" :inline="true" @input="dateSelected"></appdate-picker>
     </div>
 
     <div class="ind">
       <label>Day View</label>
-      <appdate-picker :minimum-view="'day'" :maximum-view="'day'" @input="handleChangedDay"></appdate-picker>
+      <appdate-picker
+        placeholder="Select Date"
+        :minimum-view="'day'"
+        :maximum-view="'day'"
+        @input="handleChangedDay"
+      ></appdate-picker>
     </div>
 
     <div class="ind">
       <label>Month View</label>
       <appdate-picker
+        placeholder="Select Date"
         :value="new Date()"
         :minimum-view="'month'"
         :maximum-view="'month'"
@@ -112,6 +127,7 @@
     <div class="ind">
       <label>Year View</label>
       <appdate-picker
+        placeholder="Select Date"
         :value="new Date()"
         :minimum-view="'year'"
         :maximum-view="'year'"
@@ -122,6 +138,7 @@
     <div class="ind">
       <label>Year View</label>
       <appdate-picker
+        placeholder="Select Date"
         :value="new Date()"
         :minimum-view="'year'"
         :maximum-view="'year'"
