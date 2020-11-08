@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="wrapper">
     <div class="ind">
       <label>Typeable</label>
       <appdate-picker
@@ -11,6 +11,18 @@
         @input="dateSelected"
       >
       </appdate-picker>
+    </div>
+    <div class="ind">
+      <label>With Programmatic Access</label>
+      <appdate-picker
+        ref="inputRef"
+        @selected="handleSelectDate"
+        :highlighted="highlightDates"
+        :value="emptyDate"
+        @closed="handleCalendarClose"
+        placeholder="Select Date"
+      />
+      <button @click="checkDatePicker">Check DatePicker</button>
     </div>
 
     <div class="wrapper">
@@ -81,8 +93,8 @@
       </appdate-picker>
     </div>
 
-    <div class="ind" style="flex-direction: column">
-      <div style="justify-content: space-between;display: flex;width: 100%;">
+    <div class="ind">
+      <div>
         <label>V Model</label>
         <appdate-picker v-model="dateinput" @update:modelValue="dateSelected"></appdate-picker>
       </div>
@@ -194,14 +206,13 @@ export default defineComponent({
 </script>
 <style scoped>
 .ind {
-  display: flex;
-  align-items: center;
-  max-width: 400px;
+  min-width: 400px;
   padding: 20px;
-  justify-content: space-between;
 }
 .wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 </style>

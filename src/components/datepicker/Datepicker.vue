@@ -63,6 +63,7 @@
       @showYearCalendar="showYearCalendar"
       :minimumView="minimumView"
       :maximumView="maximumView"
+      :preventDisableDateSelection="preventDisableDateSelection"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -237,6 +238,10 @@ export default defineComponent({
       type: Boolean,
     },
     hideInput: {
+      type: Boolean,
+      default: true,
+    },
+    preventDisableDateSelection: {
       type: Boolean,
       default: true,
     },

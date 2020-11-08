@@ -129,6 +129,10 @@ export default defineComponent({
       type: String,
       default: 'year',
     },
+    preventDisableDateSelection: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
   setup(props, { emit }) {
@@ -141,8 +145,12 @@ export default defineComponent({
     function selectDate(date: { isDisabled: any }): void {
       if (date.isDisabled) {
         emit('selected-disabled', date);
+        if (!props.preventDisableDateSelection) {
+          emit('select-date', date);
+        }
+      } else {
+        emit('select-date', date);
       }
-      emit('select-date', date);
     }
 
     /**
