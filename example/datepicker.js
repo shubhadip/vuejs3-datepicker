@@ -1,3 +1,35 @@
+var _ErrorTypeStrings;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 (function (l, r) {
   if (l.getElementById('livereloadscript')) return;
   r = l.createElement('script');
@@ -6,135 +38,6 @@
   r.id = 'livereloadscript';
   l.getElementsByTagName('head')[0].appendChild(r);
 })(window.document);
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-var _ErrorTypeStrings;
 /**
  * Make a map and return a function for checking if a key
  * is in that map.
@@ -892,9 +795,9 @@ var getProto = function getProto(v) {
 
 function get$1(target, key) {
   var isReadonly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  var isShallow = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false; // #1772: readonly(reactive(Map)) should return readonly + reactive version
+  var isShallow = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+  // #1772: readonly(reactive(Map)) should return readonly + reactive version
   // of the value
-
   target = target["__v_raw"
   /* RAW */
   ];
@@ -1438,7 +1341,7 @@ function proxyRefs(objectWithRefs) {
 
 var ComputedRefImpl = /*#__PURE__*/function () {
   function ComputedRefImpl(getter, _setter, isReadonly) {
-    var _this2 = this;
+    var _this = this;
 
     _classCallCheck(this, ComputedRefImpl);
 
@@ -1448,9 +1351,9 @@ var ComputedRefImpl = /*#__PURE__*/function () {
     this.effect = effect(getter, {
       lazy: true,
       scheduler: function scheduler() {
-        if (!_this2._dirty) {
-          _this2._dirty = true;
-          trigger(toRaw(_this2), "set"
+        if (!_this._dirty) {
+          _this._dirty = true;
+          trigger(toRaw(_this), "set"
           /* SET */
           , 'value');
         }
@@ -2672,8 +2575,7 @@ function updateHOCHostEl(_ref9, el // HostNode
 
 var isSuspense = function isSuspense(type) {
   return type.__isSuspense;
-}; // Suspense exposes a component-like API, and is treated like a component
-
+};
 
 function normalizeSuspenseChildren(vnode) {
   var shapeFlag = vnode.shapeFlag,
@@ -3393,7 +3295,7 @@ var onErrorCaptured = function onErrorCaptured(hook) {
   injectHook("ec"
   /* ERROR_CAPTURED */
   , hook, target);
-}; // Simple effect.
+}; // initial value for watchers to trigger on undefined initial values
 
 
 var INITIAL_WATCHER_VALUE = {}; // implementation
@@ -3407,12 +3309,12 @@ function watch(source, cb, options) {
 }
 
 function doWatch(source, cb) {
-  var _ref11 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : EMPTY_OBJ,
-      immediate = _ref11.immediate,
-      deep = _ref11.deep,
-      flush = _ref11.flush,
-      onTrack = _ref11.onTrack,
-      onTrigger = _ref11.onTrigger;
+  var _ref10 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : EMPTY_OBJ,
+      immediate = _ref10.immediate,
+      deep = _ref10.deep,
+      flush = _ref10.flush,
+      onTrack = _ref10.onTrack,
+      onTrigger = _ref10.onTrigger;
 
   var instance = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : currentInstance;
 
@@ -3644,10 +3546,11 @@ function onDeactivated(hook, target) {
 }
 
 function registerKeepAliveHook(hook, type) {
-  var target = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : currentInstance; // cache the deactivate branch check wrapper for injected hooks so the same
+  var target = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : currentInstance;
+
+  // cache the deactivate branch check wrapper for injected hooks so the same
   // hook can be properly deduped by the scheduler. "__wdc" stands for "with
   // deactivation check".
-
   var wrappedHook = hook.__wdc || (hook.__wdc = function () {
     // only fire the hook if the target instance is NOT in a deactivated branch.
     var current = target;
@@ -4236,7 +4139,7 @@ var setRef = function setRef(rawRef, oldRawRef, parentComponent, parentSuspense,
 
 function createRenderer(options) {
   return baseCreateRenderer(options);
-} // Separate API for creating hydration-enabled renderer.
+} // implementation
 
 
 function baseCreateRenderer(options, createHydrationFns) {
@@ -4262,8 +4165,9 @@ function baseCreateRenderer(options, createHydrationFns) {
     var parentComponent = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
     var parentSuspense = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
     var isSVG = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
-    var optimized = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : false; // patching & not same type, unmount old tree
+    var optimized = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : false;
 
+    // patching & not same type, unmount old tree
     if (n1 && !isSameVNodeType(n1, n2)) {
       anchor = getNextHostNode(n1);
       unmount(n1, parentComponent, parentSuspense, true);
@@ -5137,12 +5041,12 @@ function baseCreateRenderer(options, createHydrationFns) {
 
 
     while (i <= e1 && i <= e2) {
-      var _n = c1[e1];
+      var _n2 = c1[e1];
 
-      var _n2 = c2[e2] = optimized ? cloneIfMounted(c2[e2]) : normalizeVNode(c2[e2]);
+      var _n3 = c2[e2] = optimized ? cloneIfMounted(c2[e2]) : normalizeVNode(c2[e2]);
 
-      if (isSameVNodeType(_n, _n2)) {
-        patch(_n, _n2, container, null, parentComponent, parentSuspense, isSVG, optimized);
+      if (isSameVNodeType(_n2, _n3)) {
+        patch(_n2, _n3, container, null, parentComponent, parentSuspense, isSVG, optimized);
       } else {
         break;
       }
@@ -5271,17 +5175,17 @@ function baseCreateRenderer(options, createHydrationFns) {
             var nextIndex = s2 + i;
             var _nextChild = c2[nextIndex];
 
-            var _anchor2 = nextIndex + 1 < l2 ? c2[nextIndex + 1].el : parentAnchor;
+            var _anchor = nextIndex + 1 < l2 ? c2[nextIndex + 1].el : parentAnchor;
 
             if (newIndexToOldIndexMap[i] === 0) {
               // mount new
-              patch(null, _nextChild, container, _anchor2, parentComponent, parentSuspense, isSVG);
+              patch(null, _nextChild, container, _anchor, parentComponent, parentSuspense, isSVG);
             } else if (moved) {
               // move if:
               // There is no stable subsequence (e.g. a reverse)
               // OR current node is not among the stable sequence
               if (j < 0 || i !== increasingNewIndexSequence[j]) {
-                move(_nextChild, container, _anchor2, 2
+                move(_nextChild, container, _anchor, 2
                 /* REORDER */
                 );
               } else {
@@ -5443,8 +5347,8 @@ function baseCreateRenderer(options, createHydrationFns) {
       ) || !optimized && shapeFlag & 16
       /* ARRAY_CHILDREN */
       ) {
-          unmountChildren(children, parentComponent, parentSuspense);
-        } // an unmounted teleport should always remove its children if not disabled
+        unmountChildren(children, parentComponent, parentSuspense);
+      } // an unmounted teleport should always remove its children if not disabled
 
 
       if (shapeFlag & 64
@@ -5850,8 +5754,7 @@ function openBlock() {
 function closeBlock() {
   blockStack.pop();
   currentBlock = blockStack[blockStack.length - 1] || null;
-} // Whether we should be tracking dynamic child nodes inside a block.
-
+}
 /**
  * Create a block root vnode. Takes the same exact arguments as `createVNode`.
  * A block root keeps track of dynamic nodes within the block in the
@@ -5894,22 +5797,18 @@ function isSameVNodeType(n1, n2) {
 }
 
 var createVNodeWithArgsTransform = function createVNodeWithArgsTransform() {
-  for (var _len8 = arguments.length, args = new Array(_len8), _key13 = 0; _key13 < _len8; _key13++) {
-    args[_key13] = arguments[_key13];
-  }
-
-  return _createVNode.apply(void 0, _toConsumableArray(args));
+  return _createVNode.apply(void 0, arguments);
 };
 
 var InternalObjectKey = "__vInternal";
 
-var normalizeKey = function normalizeKey(_ref19) {
-  var key = _ref19.key;
+var normalizeKey = function normalizeKey(_ref11) {
+  var key = _ref11.key;
   return key != null ? key : null;
 };
 
-var normalizeRef = function normalizeRef(_ref20) {
-  var ref = _ref20.ref;
+var normalizeRef = function normalizeRef(_ref12) {
+  var ref = _ref12.ref;
   return ref != null ? isArray(ref) ? ref : {
     i: currentRenderingInstance,
     r: ref
@@ -6044,28 +5943,28 @@ function _createVNode(type) {
 }
 
 function cloneVNode(vnode, extraProps) {
-  var _ref21;
+  var _ref13;
 
-  var mergeRef = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false; // This is intentionally NOT using spread or extend to avoid the runtime
+  var mergeRef = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  // This is intentionally NOT using spread or extend to avoid the runtime
   // key enumeration cost.
-
   var props = vnode.props,
       ref = vnode.ref,
       patchFlag = vnode.patchFlag;
   var mergedProps = extraProps ? mergeProps(props || {}, extraProps) : props;
-  return _ref21 = {
+  return _ref13 = {
     __v_isVNode: true
-  }, _defineProperty(_ref21, "__v_skip"
+  }, _defineProperty(_ref13, "__v_skip"
   /* SKIP */
-  , true), _defineProperty(_ref21, "type", vnode.type), _defineProperty(_ref21, "props", mergedProps), _defineProperty(_ref21, "key", mergedProps && normalizeKey(mergedProps)), _defineProperty(_ref21, "ref", extraProps && extraProps.ref ? // #2078 in the case of <component :is="vnode" ref="extra"/>
+  , true), _defineProperty(_ref13, "type", vnode.type), _defineProperty(_ref13, "props", mergedProps), _defineProperty(_ref13, "key", mergedProps && normalizeKey(mergedProps)), _defineProperty(_ref13, "ref", extraProps && extraProps.ref ? // #2078 in the case of <component :is="vnode" ref="extra"/>
   // if the vnode itself already has a ref, cloneVNode will need to merge
   // the refs so the single vnode can be set on multiple refs
-  mergeRef && ref ? isArray(ref) ? ref.concat(normalizeRef(extraProps)) : [ref, normalizeRef(extraProps)] : normalizeRef(extraProps) : ref), _defineProperty(_ref21, "scopeId", vnode.scopeId), _defineProperty(_ref21, "children", vnode.children), _defineProperty(_ref21, "target", vnode.target), _defineProperty(_ref21, "targetAnchor", vnode.targetAnchor), _defineProperty(_ref21, "staticCount", vnode.staticCount), _defineProperty(_ref21, "shapeFlag", vnode.shapeFlag), _defineProperty(_ref21, "patchFlag", extraProps && vnode.type !== Fragment ? patchFlag === -1 // hoisted node
+  mergeRef && ref ? isArray(ref) ? ref.concat(normalizeRef(extraProps)) : [ref, normalizeRef(extraProps)] : normalizeRef(extraProps) : ref), _defineProperty(_ref13, "scopeId", vnode.scopeId), _defineProperty(_ref13, "children", vnode.children), _defineProperty(_ref13, "target", vnode.target), _defineProperty(_ref13, "targetAnchor", vnode.targetAnchor), _defineProperty(_ref13, "staticCount", vnode.staticCount), _defineProperty(_ref13, "shapeFlag", vnode.shapeFlag), _defineProperty(_ref13, "patchFlag", extraProps && vnode.type !== Fragment ? patchFlag === -1 // hoisted node
   ? 16
   /* FULL_PROPS */
   : patchFlag | 16
   /* FULL_PROPS */
-  : patchFlag), _defineProperty(_ref21, "dynamicProps", vnode.dynamicProps), _defineProperty(_ref21, "dynamicChildren", vnode.dynamicChildren), _defineProperty(_ref21, "appContext", vnode.appContext), _defineProperty(_ref21, "dirs", vnode.dirs), _defineProperty(_ref21, "transition", vnode.transition), _defineProperty(_ref21, "component", vnode.component), _defineProperty(_ref21, "suspense", vnode.suspense), _defineProperty(_ref21, "ssContent", vnode.ssContent && cloneVNode(vnode.ssContent)), _defineProperty(_ref21, "ssFallback", vnode.ssFallback && cloneVNode(vnode.ssFallback)), _defineProperty(_ref21, "el", vnode.el), _defineProperty(_ref21, "anchor", vnode.anchor), _ref21;
+  : patchFlag), _defineProperty(_ref13, "dynamicProps", vnode.dynamicProps), _defineProperty(_ref13, "dynamicChildren", vnode.dynamicChildren), _defineProperty(_ref13, "appContext", vnode.appContext), _defineProperty(_ref13, "dirs", vnode.dirs), _defineProperty(_ref13, "transition", vnode.transition), _defineProperty(_ref13, "component", vnode.component), _defineProperty(_ref13, "suspense", vnode.suspense), _defineProperty(_ref13, "ssContent", vnode.ssContent && cloneVNode(vnode.ssContent)), _defineProperty(_ref13, "ssFallback", vnode.ssFallback && cloneVNode(vnode.ssFallback)), _defineProperty(_ref13, "el", vnode.el), _defineProperty(_ref13, "anchor", vnode.anchor), _ref13;
 }
 /**
  * @private
@@ -6248,9 +6147,9 @@ function provide(key, value) {
 }
 
 function inject(key, defaultValue) {
-  var treatDefaultAsFactory = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false; // fallback to `currentRenderingInstance` so that this can be called in
+  var treatDefaultAsFactory = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  // fallback to `currentRenderingInstance` so that this can be called in
   // a functional component
-
   var instance = currentInstance || currentRenderingInstance;
 
   if (instance) {
@@ -6366,48 +6265,48 @@ function applyOptions(instance, options) {
   if (injectOptions) {
     if (isArray(injectOptions)) {
       for (var i = 0; i < injectOptions.length; i++) {
-        var _key14 = injectOptions[i];
-        ctx[_key14] = inject(_key14);
+        var _key13 = injectOptions[i];
+        ctx[_key13] = inject(_key13);
+        {
+          checkDuplicateProperties("Inject"
+          /* INJECT */
+          , _key13);
+        }
+      }
+    } else {
+      for (var _key14 in injectOptions) {
+        var opt = injectOptions[_key14];
+
+        if (isObject(opt)) {
+          ctx[_key14] = inject(opt.from || _key14, opt.default, true
+          /* treat default function as factory */
+          );
+        } else {
+          ctx[_key14] = inject(opt);
+        }
+
         {
           checkDuplicateProperties("Inject"
           /* INJECT */
           , _key14);
         }
       }
-    } else {
-      for (var _key15 in injectOptions) {
-        var opt = injectOptions[_key15];
-
-        if (isObject(opt)) {
-          ctx[_key15] = inject(opt.from || _key15, opt.default, true
-          /* treat default function as factory */
-          );
-        } else {
-          ctx[_key15] = inject(opt);
-        }
-
-        {
-          checkDuplicateProperties("Inject"
-          /* INJECT */
-          , _key15);
-        }
-      }
     }
   }
 
   if (methods) {
-    for (var _key16 in methods) {
-      var methodHandler = methods[_key16];
+    for (var _key15 in methods) {
+      var methodHandler = methods[_key15];
 
       if (isFunction(methodHandler)) {
-        ctx[_key16] = methodHandler.bind(publicThis);
+        ctx[_key15] = methodHandler.bind(publicThis);
         {
           checkDuplicateProperties("Methods"
           /* METHODS */
-          , _key16);
+          , _key15);
         }
       } else {
-        warn("Method \"".concat(_key16, "\" has type \"").concat(_typeof(methodHandler), "\" in the component definition. ") + "Did you reference the function correctly?");
+        warn("Method \"".concat(_key15, "\" has type \"").concat(_typeof(methodHandler), "\" in the component definition. ") + "Did you reference the function correctly?");
       }
     }
   }
@@ -6427,25 +6326,25 @@ function applyOptions(instance, options) {
       (function () {
         var rawData = toRaw(instance.data);
 
-        var _loop = function _loop(_key17) {
+        var _loop = function _loop(_key16) {
           checkDuplicateProperties("Data"
           /* DATA */
-          , _key17); // expose data on ctx during dev
+          , _key16); // expose data on ctx during dev
 
-          if (_key17[0] !== '$' && _key17[0] !== '_') {
-            Object.defineProperty(ctx, _key17, {
+          if (_key16[0] !== '$' && _key16[0] !== '_') {
+            Object.defineProperty(ctx, _key16, {
               configurable: true,
               enumerable: true,
               get: function get() {
-                return rawData[_key17];
+                return rawData[_key16];
               },
               set: NOOP
             });
           }
         };
 
-        for (var _key17 in rawData) {
-          _loop(_key17);
+        for (var _key16 in rawData) {
+          _loop(_key16);
         }
       })();
     }
@@ -6454,22 +6353,22 @@ function applyOptions(instance, options) {
   }
 
   if (computedOptions) {
-    var _loop2 = function _loop2(_key18) {
-      var opt = computedOptions[_key18];
+    var _loop2 = function _loop2(_key17) {
+      var opt = computedOptions[_key17];
       var get = isFunction(opt) ? opt.bind(publicThis, publicThis) : isFunction(opt.get) ? opt.get.bind(publicThis, publicThis) : NOOP;
 
       if (get === NOOP) {
-        warn("Computed property \"".concat(_key18, "\" has no getter."));
+        warn("Computed property \"".concat(_key17, "\" has no getter."));
       }
 
       var set = !isFunction(opt) && isFunction(opt.set) ? opt.set.bind(publicThis) : function () {
-        warn("Write operation failed: computed property \"".concat(_key18, "\" is readonly."));
+        warn("Write operation failed: computed property \"".concat(_key17, "\" is readonly."));
       };
       var c = computed$1({
         get: get,
         set: set
       });
-      Object.defineProperty(ctx, _key18, {
+      Object.defineProperty(ctx, _key17, {
         enumerable: true,
         configurable: true,
         get: function get() {
@@ -6482,12 +6381,12 @@ function applyOptions(instance, options) {
       {
         checkDuplicateProperties("Computed"
         /* COMPUTED */
-        , _key18);
+        , _key17);
       }
     };
 
-    for (var _key18 in computedOptions) {
-      _loop2(_key18);
+    for (var _key17 in computedOptions) {
+      _loop2(_key17);
     }
   }
 
@@ -6497,8 +6396,8 @@ function applyOptions(instance, options) {
 
   if (!asMixin && deferredWatch.length) {
     deferredWatch.forEach(function (watchOptions) {
-      for (var _key19 in watchOptions) {
-        createWatcher(watchOptions[_key19], ctx, publicThis, _key19);
+      for (var _key18 in watchOptions) {
+        createWatcher(watchOptions[_key18], ctx, publicThis, _key18);
       }
     });
   }
@@ -6511,8 +6410,8 @@ function applyOptions(instance, options) {
     deferredProvide.forEach(function (provideOptions) {
       var provides = isFunction(provideOptions) ? provideOptions.call(publicThis) : provideOptions;
 
-      for (var _key20 in provides) {
-        provide(_key20, provides[_key20]);
+      for (var _key19 in provides) {
+        provide(_key19, provides[_key19]);
       }
     });
   } // asset options.
@@ -6793,8 +6692,8 @@ var publicPropertiesMap = extend(Object.create(null), {
   }
 });
 var PublicInstanceProxyHandlers = {
-  get: function get(_ref22, key) {
-    var instance = _ref22._;
+  get: function get(_ref14, key) {
+    var instance = _ref14._;
     var ctx = instance.ctx,
         setupState = instance.setupState,
         data = instance.data,
@@ -6911,8 +6810,8 @@ var PublicInstanceProxyHandlers = {
       }
     }
   },
-  set: function set(_ref23, key, value) {
-    var instance = _ref23._;
+  set: function set(_ref15, key, value) {
+    var instance = _ref15._;
     var data = instance.data,
         setupState = instance.setupState,
         ctx = instance.ctx;
@@ -6943,14 +6842,14 @@ var PublicInstanceProxyHandlers = {
 
     return true;
   },
-  has: function has(_ref24, key) {
-    var _ref24$_ = _ref24._,
-        data = _ref24$_.data,
-        setupState = _ref24$_.setupState,
-        accessCache = _ref24$_.accessCache,
-        ctx = _ref24$_.ctx,
-        appContext = _ref24$_.appContext,
-        propsOptions = _ref24$_.propsOptions;
+  has: function has(_ref16, key) {
+    var _ref16$_ = _ref16._,
+        data = _ref16$_.data,
+        setupState = _ref16$_.setupState,
+        accessCache = _ref16$_.accessCache,
+        ctx = _ref16$_.ctx,
+        appContext = _ref16$_.appContext,
+        propsOptions = _ref16$_.propsOptions;
     var normalizedProps;
     return accessCache[key] !== undefined || data !== EMPTY_OBJ && hasOwn(data, key) || setupState !== EMPTY_OBJ && hasOwn(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn(normalizedProps, key) || hasOwn(ctx, key) || hasOwn(publicPropertiesMap, key) || hasOwn(appContext.config.globalProperties, key);
   }
@@ -7326,8 +7225,8 @@ function createSetupContext(instance) {
 
       get emit() {
         return function (event) {
-          for (var _len9 = arguments.length, args = new Array(_len9 > 1 ? _len9 - 1 : 0), _key21 = 1; _key21 < _len9; _key21++) {
-            args[_key21 - 1] = arguments[_key21];
+          for (var _len8 = arguments.length, args = new Array(_len8 > 1 ? _len8 - 1 : 0), _key20 = 1; _key20 < _len8; _key20++) {
+            args[_key20 - 1] = arguments[_key20];
           }
 
           return instance.emit.apply(instance, [event].concat(args));
@@ -7615,7 +7514,8 @@ function renderList(source, renderItem) {
   }
 
   return ret;
-}
+} // Core API ------------------------------------------------------------------
+
 
 var version = "3.0.2";
 var svgNS = 'http://www.w3.org/2000/svg';
@@ -7723,9 +7623,9 @@ function patchStyle(el, prev, next) {
     }
 
     if (prev && !isString(prev)) {
-      for (var _key22 in prev) {
-        if (next[_key22] == null) {
-          setStyle(style, _key22, '');
+      for (var _key21 in prev) {
+        if (next[_key21] == null) {
+          setStyle(style, _key21, '');
         }
       }
     }
@@ -7891,8 +7791,8 @@ function removeEventListener(el, event, handler, options) {
 }
 
 function patchEvent(el, rawName, prevValue, nextValue) {
-  var instance = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null; // vei = vue event invokers
-
+  var instance = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+  // vei = vue event invokers
   var invokers = el._vei || (el._vei = {});
   var existingInvoker = invokers[rawName];
 
@@ -8119,19 +8019,18 @@ var withModifiers = function withModifiers(fn, modifiers) {
       if (guard && guard(event, modifiers)) return;
     }
 
-    for (var _len10 = arguments.length, args = new Array(_len10 > 1 ? _len10 - 1 : 0), _key23 = 1; _key23 < _len10; _key23++) {
-      args[_key23 - 1] = arguments[_key23];
+    for (var _len9 = arguments.length, args = new Array(_len9 > 1 ? _len9 - 1 : 0), _key22 = 1; _key22 < _len9; _key22++) {
+      args[_key22 - 1] = arguments[_key22];
     }
 
     return fn.apply(void 0, [event].concat(args));
   };
-}; // Kept for 2.x compat.
-
+};
 
 var vShow = {
-  beforeMount: function beforeMount(el, _ref37, _ref38) {
-    var value = _ref37.value;
-    var transition = _ref38.transition;
+  beforeMount: function beforeMount(el, _ref17, _ref18) {
+    var value = _ref17.value;
+    var transition = _ref18.transition;
     el._vod = el.style.display === 'none' ? '' : el.style.display;
 
     if (transition && value) {
@@ -8140,18 +8039,18 @@ var vShow = {
       setDisplay(el, value);
     }
   },
-  mounted: function mounted(el, _ref39, _ref40) {
-    var value = _ref39.value;
-    var transition = _ref40.transition;
+  mounted: function mounted(el, _ref19, _ref20) {
+    var value = _ref19.value;
+    var transition = _ref20.transition;
 
     if (transition && value) {
       transition.enter(el);
     }
   },
-  updated: function updated(el, _ref41, _ref42) {
-    var value = _ref41.value,
-        oldValue = _ref41.oldValue;
-    var transition = _ref42.transition;
+  updated: function updated(el, _ref21, _ref22) {
+    var value = _ref21.value,
+        oldValue = _ref21.oldValue;
+    var transition = _ref22.transition;
     if (!value === !oldValue) return;
 
     if (transition) {
@@ -8168,8 +8067,8 @@ var vShow = {
       setDisplay(el, value);
     }
   },
-  beforeUnmount: function beforeUnmount(el, _ref43) {
-    var value = _ref43.value;
+  beforeUnmount: function beforeUnmount(el, _ref23) {
+    var value = _ref23.value;
     setDisplay(el, value);
   }
 };
@@ -8191,9 +8090,9 @@ function ensureRenderer() {
 }
 
 var createApp = function createApp() {
-  var _ensureRenderer2;
+  var _ensureRenderer;
 
-  var app = (_ensureRenderer2 = ensureRenderer()).createApp.apply(_ensureRenderer2, arguments);
+  var app = (_ensureRenderer = ensureRenderer()).createApp.apply(_ensureRenderer, arguments);
 
   {
     injectNativeTagCheck(app);
@@ -8274,8 +8173,8 @@ var ClickOutside = {
   unmounted: unbind
 };
 
-function bind(el, _ref) {
-  var value = _ref.value;
+function bind(el, _ref24) {
+  var value = _ref24.value;
   unbind(el);
   var bindingValue = value;
   var isFunction = typeof bindingValue === 'function';
@@ -8288,9 +8187,9 @@ function bind(el, _ref) {
     el: el,
     handler: handler
   });
-  instance.eventHandlers.forEach(function (_ref2) {
-    var event = _ref2.event,
-        handler = _ref2.handler;
+  instance.eventHandlers.forEach(function (_ref25) {
+    var event = _ref25.event,
+        handler = _ref25.handler;
     return setTimeout(function () {
       return document.addEventListener(event, handler, false);
     }, 0);
@@ -8304,9 +8203,9 @@ function unbind(el) {
   });
   if (instanceIndex === -1) return;
   var instance = instances[instanceIndex];
-  instance.eventHandlers.forEach(function (_ref3) {
-    var event = _ref3.event,
-        handler = _ref3.handler;
+  instance.eventHandlers.forEach(function (_ref26) {
+    var event = _ref26.event,
+        handler = _ref26.handler;
     return document.removeEventListener(event, handler, false);
   });
   instances.splice(instanceIndex, 1);
@@ -8315,9 +8214,9 @@ function unbind(el) {
 // --------------------
 
 
-function createInstance(_ref4) {
-  var el = _ref4.el,
-      _handler = _ref4.handler;
+function createInstance(_ref27) {
+  var el = _ref27.el,
+      _handler2 = _ref27.handler;
   return {
     el: el,
     eventHandlers: EVENTS.map(function (eventName) {
@@ -8327,7 +8226,7 @@ function createInstance(_ref4) {
           return onEvent({
             event: event,
             el: el,
-            handler: _handler
+            handler: _handler2
           });
         }
       };
@@ -8335,10 +8234,10 @@ function createInstance(_ref4) {
   };
 }
 
-function onEvent(_ref5) {
-  var event = _ref5.event,
-      el = _ref5.el,
-      handler = _ref5.handler;
+function onEvent(_ref28) {
+  var event = _ref28.event,
+      el = _ref28.el,
+      handler = _ref28.handler;
   var path = event.path || (event.composedPath ? event.composedPath() : undefined);
 
   if (path ? path.indexOf(el) < 0 : !el.contains(event.target)) {
@@ -8673,8 +8572,8 @@ var script = defineComponent({
     }
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref29) {
+    var emit = _ref29.emit;
     var typedDate = ref();
     var inputRef = ref(null); // computed
 
@@ -8974,8 +8873,9 @@ var script$1 = defineComponent({
     }
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref30) {
+    var emit = _ref30.emit;
+
     /** ********************************** Methods *********************************** */
 
     /**
@@ -8983,7 +8883,6 @@ var script$1 = defineComponent({
      * in the highlighted range of dates
      * @param {string | Date}
      */
-
     function selectDate(date) {
       if (date.isDisabled) {
         emit('selected-disabled', date);
@@ -9504,15 +9403,15 @@ var script$2 = defineComponent({
       default: 'year'
     }
   },
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref31) {
+    var emit = _ref31.emit;
+
     /** ********************************** Methods  *********************************** */
 
     /**
      * Emits a selectMonth event
      * @param {Object} month
      */
-
     function selectMonth(month) {
       if (!month.isDisabled) {
         emit('select-month', month);
@@ -9853,15 +9752,15 @@ var script$3 = defineComponent({
     }
   },
   emits: ['select-year', 'changed-decade'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref32) {
+    var emit = _ref32.emit;
+
     /** ********************************** Methods  *********************************** */
 
     /**
      * Select year
      * @param {year}
      */
-
     function selectYear(year) {
       if (!year.isDisabled) {
         emit('select-year', year);
@@ -9910,7 +9809,7 @@ var script$3 = defineComponent({
 
 
     function isNextDecadeDisabled() {
-      var d = props.disabledDates; // console.log(d);
+      var d = props.disabledDates;
 
       if (!d || !d.from) {
         return false;
@@ -9918,7 +9817,6 @@ var script$3 = defineComponent({
 
       var disabledYear = getFullYear(d.from);
       var firstYearInNextPage = Math.ceil(getFullYear(props.pageDate) / 10) * 10;
-      console.log(disabledYear, firstYearInNextPage);
       return disabledYear <= firstYearInNextPage;
     }
     /**
@@ -10298,8 +10196,8 @@ var script$4 = defineComponent({
     }
   },
   emits: ['input', 'cleared', 'update:modelValue', 'closed', 'changed-month', 'changed-year', 'changed-day', 'selected', 'selected-disabled'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref33) {
+    var emit = _ref33.emit;
     var initmodelvalue = new Date(props.modelValue);
     var pageTimestamp = ref(0);
     var selectedDate = ref(null);

@@ -145,13 +145,11 @@ export default defineComponent({
      */
     function isNextDecadeDisabled(): boolean {
       const d = props.disabledDates;
-      // console.log(d);
       if (!d || !d.from) {
         return false;
       }
       const disabledYear = getFullYear(d.from);
       const firstYearInNextPage = Math.ceil(getFullYear(props.pageDate) / 10) * 10;
-      console.log(disabledYear, firstYearInNextPage);
       return disabledYear <= firstYearInNextPage;
     }
 
