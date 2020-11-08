@@ -6,30 +6,33 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section v-if="ifDifferentViews">
-      <p @click="showYearCalendar">{{ currYearName }}</p>
-      <p v-if="selectedDate">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
+    <section v-if="ifDifferentViews" class="vuejs3-datepicker__calendar-topbar">
+      <p class="vuejs3-datepicker__calendar-topbar-year" @click="showYearCalendar">{{ currYearName }}</p>
+      <p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate">
+        {{ getDayName }} {{ getDisplayDate }} {{ monthName }}
+      </p>
     </section>
-
-    <header>
-      <span @click="isRtl ? nextYear() : previousYear()" class="prev" :class="{ disabled: isLeftNavDisabled }"
-        >&lt;</span
+    <div class="vuejs3-datepicker__calendar-actionarea">
+      <header>
+        <span @click="isRtl ? nextYear() : previousYear()" class="prev" :class="{ disabled: isLeftNavDisabled }"
+          >&lt;</span
+        >
+        <span class="month__year_btn" @click="showYearCalendar" :class="allowedToShowView('year') ? 'up' : ''">{{
+          pageYearName
+        }}</span>
+        <span @click="isRtl ? previousYear() : nextYear()" class="next" :class="{ disabled: isRightNavDisabled }"
+          >&gt;</span
+        >
+      </header>
+      <span
+        class="cell month"
+        v-for="month in months"
+        :key="month.timestamp"
+        :class="{ selected: month.isSelected, disabled: month.isDisabled }"
+        @click.stop="selectMonth(month)"
+        >{{ month.month }}</span
       >
-      <span class="month__year_btn" @click="showYearCalendar" :class="allowedToShowView('year') ? 'up' : ''">{{
-        pageYearName
-      }}</span>
-      <span @click="isRtl ? previousYear() : nextYear()" class="next" :class="{ disabled: isRightNavDisabled }"
-        >&gt;</span
-      >
-    </header>
-    <span
-      class="cell month"
-      v-for="month in months"
-      :key="month.timestamp"
-      :class="{ selected: month.isSelected, disabled: month.isDisabled }"
-      @click.stop="selectMonth(month)"
-      >{{ month.month }}</span
-    >
+    </div>
   </div>
 </template>
 
