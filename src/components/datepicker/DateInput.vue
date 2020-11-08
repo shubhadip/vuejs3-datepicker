@@ -139,6 +139,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    fullMonthName: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
   setup(props, { emit }) {
@@ -174,6 +178,10 @@ export default defineComponent({
       if (props.minimumView === props.maximumView) {
         const [, y, z] = date.split(' ');
         if (props.maximumView === 'month') {
+          if (props.fullMonthName) {
+            const i = props.translation?.monthsAbbr.indexOf(y);
+            return props.translation?.months[i];
+          }
           date = y;
         } else if (props.maximumView === 'year') {
           date = z;
