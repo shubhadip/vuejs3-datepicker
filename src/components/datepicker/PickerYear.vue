@@ -6,7 +6,7 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section v-if="ifDifferentViews" class="vuejs3-datepicker__calendar-topbar">
+    <section v-if="ifDifferentViews && selectedDate" class="vuejs3-datepicker__calendar-topbar">
       <p class="vuejs3-datepicker__calendar-topbar-year">{{ currYearName }}</p>
       <p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate">
         {{ getDayName }} {{ getDisplayDate }} {{ monthName }}

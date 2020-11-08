@@ -6,7 +6,7 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section v-if="selectedDate" class="vuejs3-datepicker__calendar-topbar">
+    <section v-if="ifDifferentViews && selectedDate" class="vuejs3-datepicker__calendar-topbar">
       <p class="vuejs3-datepicker__calendar-topbar-year" @click="showYearCalendar">{{ currYearName }}</p>
       <p class="vuejs3-datepicker__calendar-topbar-day">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
@@ -120,6 +120,14 @@ export default defineComponent({
     },
     useUtc: {
       type: Boolean,
+    },
+    minimumView: {
+      type: String,
+      default: 'day',
+    },
+    maximumView: {
+      type: String,
+      default: 'year',
     },
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
@@ -495,6 +503,10 @@ export default defineComponent({
       return props.selectedDate ? getDate(props.selectedDate) : null;
     });
 
+    const ifDifferentViews = computed(() => {
+      return !(props.minimumView === props.maximumView && (props.minimumView !== 'day' || props.maximumView !== 'day'));
+    });
+
     return {
       isDefined,
       showMonthCalendar,
@@ -514,6 +526,7 @@ export default defineComponent({
       getDayName,
       getDisplayDate,
       showYearCalendar,
+      ifDifferentViews,
     };
   },
 });

@@ -1,6 +1,4 @@
-$black: #000;
-$green: #40b983;
-$white: #fff;
+@import "@css/_settings.css";
 
 .rtl {
   direction: rtl;
@@ -14,6 +12,32 @@ $white: #fff;
   }
   input {
     border: 1px solid;
+  }
+  &__value {
+    min-width: 200px;
+    display: inline-flex;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid ;
+  }
+  &__content{
+    margin-left: 10px;
+  }
+
+  &__typeablecalendar{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  &__inputvalue{
+    min-width: 200px;
+    display: inline-flex;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid ;
+    padding-left: 35px;
   }
   &__calendar {
     position: absolute;

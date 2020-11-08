@@ -61,6 +61,8 @@
       @showMonthCalendar="showMonthCalendar"
       @selectedDisabled="selectDisabledDate"
       @showYearCalendar="showYearCalendar"
+      :minimumView="minimumView"
+      :maximumView="maximumView"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
