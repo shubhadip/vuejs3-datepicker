@@ -143,8 +143,10 @@ export default defineComponent({
     function selectDate(date: { isDisabled: any }): void {
       if (date.isDisabled) {
         emit('selected-disabled', date);
-      }
-      if (!props.preventDisableDateSelection) {
+        if (!props.preventDisableDateSelection) {
+          emit('select-date', date);
+        }
+      } else {
         emit('select-date', date);
       }
     }
