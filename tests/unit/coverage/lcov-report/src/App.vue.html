@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/13</span>
             </div>
         
             
@@ -279,12 +279,7 @@
 <a name='L220'></a><a href='#L220'>220</a>
 <a name='L221'></a><a href='#L221'>221</a>
 <a name='L222'></a><a href='#L222'>222</a>
-<a name='L223'></a><a href='#L223'>223</a>
-<a name='L224'></a><a href='#L224'>224</a>
-<a name='L225'></a><a href='#L225'>225</a>
-<a name='L226'></a><a href='#L226'>226</a>
-<a name='L227'></a><a href='#L227'>227</a>
-<a name='L228'></a><a href='#L228'>228</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L223'></a><a href='#L223'>223</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -295,12 +290,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -339,14 +328,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -518,7 +508,7 @@
       &lt;appdate-picker
         :full-month-name="true"
         input-class="customClass"
-        placeholder="select date"
+        placeholder="Select Date"
         :typeable="true"
 <span class="fstat-no" title="function not covered" >        :hideInput="false"</span>
 <span class="cstat-no" title="statement not covered" >        @input="dateSelected"</span>
@@ -528,34 +518,22 @@
 &nbsp;
     &lt;div class="wrapper"&gt;
       &lt;div class="ind"&gt;
-        &lt;label&gt;With Validations&lt;/label&gt;
+        &lt;label&gt;With Programmatic Access&lt;/label&gt;
         &lt;appdate-picker
-          :autoValidate="true"
+          ref="inputRef"
           @selected="handleSelectDate"
           :highlighted="highlightDates"
           :value="emptyDate"
           @closed="handleCalendarClose"
-          :validations="validations"
+          placeholder="Select Date"
         /&gt;
-      &lt;/div&gt;
-&nbsp;
-      &lt;div class="ind"&gt;
-        &lt;label&gt;With Programmatic Access&lt;/label&gt;
-        &lt;appdate-picker
-          ref="inputRef"
-          :autoValidate="true"
-          @selected="handleSelectDate"
-<span class="fstat-no" title="function not covered" >          :highlighted="highlightDates"</span>
-<span class="cstat-no" title="statement not covered" >          :value="emptyDate"</span>
-          @closed="handleCalendarClose"
-<span class="fstat-no" title="function not covered" >          :validations="validations"</span>
-<span class="cstat-no" title="statement not covered" >        /&gt;</span>
         &lt;button @click="checkDatePicker"&gt;Check DatePicker&lt;/button&gt;
-<span class="fstat-no" title="function not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-      &lt;div class="ind"&gt;
-<span class="fstat-no" title="function not covered" >        &lt;label&gt;Default Value&lt;/label&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;appdate-picker</span>
+      &lt;/div&gt;
+<span class="fstat-no" title="function not covered" ></span>
+<span class="cstat-no" title="statement not covered" >      &lt;div class="ind"&gt;</span>
+        &lt;label&gt;Default Value&lt;/label&gt;
+<span class="fstat-no" title="function not covered" >        &lt;appdate-picker</span>
+<span class="cstat-no" title="statement not covered" >          placeholder="Select Date"</span>
           @input="dateSelected"
 <span class="fstat-no" title="function not covered" >          :value="defaultValue"</span>
 <span class="cstat-no" title="statement not covered" >          :disabled-dates="{</span>
@@ -565,22 +543,24 @@
             to: new Date(2020, 12, 16),
 <span class="fstat-no" title="function not covered" >            from: new Date(2020, 11, 17),</span>
 <span class="cstat-no" title="statement not covered" >          }"</span>
-<span class="cstat-no" title="statement not covered" >        &gt;&lt;/appdate-picker&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button @click="changeDefaultValue"&gt;Change Default Value&lt;/button&gt;</span>
+        &gt;&lt;/appdate-picker&gt;
+<span class="fstat-no" title="function not covered" >        &lt;button @click="changeDefaultValue"&gt;Change Default Value&lt;/button&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
       &lt;div class="ind"&gt;
 <span class="fstat-no" title="function not covered" >        &lt;label&gt; Disabled: from-to &lt;/label&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;appdate-picker</span>
+<span class="cstat-no" title="statement not covered" >          placeholder="Select Date"</span>
           @input="dateSelected"
 <span class="fstat-no" title="function not covered" >          :disabled-dates="{</span>
 <span class="cstat-no" title="statement not covered" >            to: new Date(2020, 10, 5),</span>
             from: new Date(2020, 10, 16),
-          }"
-        &gt;&lt;/appdate-picker&gt;
+<span class="fstat-no" title="function not covered" >          }"</span>
+<span class="cstat-no" title="statement not covered" >        &gt;&lt;/appdate-picker&gt;</span>
       &lt;/div&gt;
       &lt;div class="ind"&gt;
         &lt;label&gt; Disabled Dates : Array &lt;/label&gt;
         &lt;appdate-picker
+          placeholder="Select Date"
           @input="dateSelected"
           :disabled-dates="{
             dates: [
@@ -597,6 +577,7 @@
     &lt;div class="ind"&gt;
       &lt;label&gt;Highlighted Dates&lt;/label&gt;
       &lt;appdate-picker
+        placeholder="Select Date"
         @input="dateSelected"
         :highlighted="{
           to: new Date(2020, 11, 16),
@@ -609,7 +590,11 @@
     &lt;div class="ind" style="flex-direction: column"&gt;
       &lt;div style="justify-content: space-between;display: flex;width: 100%;"&gt;
         &lt;label&gt;V Model&lt;/label&gt;
-        &lt;appdate-picker v-model="dateinput" @update:modelValue="dateSelected"&gt;&lt;/appdate-picker&gt;
+        &lt;appdate-picker
+          placeholder="Select Date"
+          v-model="dateinput"
+          @update:modelValue="dateSelected"
+        &gt;&lt;/appdate-picker&gt;
       &lt;/div&gt;
       &lt;br /&gt;
       &lt;div&gt;{{ dateinput }}&lt;/div&gt;
@@ -618,17 +603,23 @@
 &nbsp;
     &lt;div class="ind"&gt;
       &lt;label&gt;Inline &lt;/label&gt;
-      &lt;appdate-picker :inline="true" @input="dateSelected"&gt;&lt;/appdate-picker&gt;
+      &lt;appdate-picker placeholder="Select Date" :inline="true" @input="dateSelected"&gt;&lt;/appdate-picker&gt;
     &lt;/div&gt;
 &nbsp;
     &lt;div class="ind"&gt;
       &lt;label&gt;Day View&lt;/label&gt;
-      &lt;appdate-picker :minimum-view="'day'" :maximum-view="'day'" @input="handleChangedDay"&gt;&lt;/appdate-picker&gt;
+      &lt;appdate-picker
+        placeholder="Select Date"
+        :minimum-view="'day'"
+        :maximum-view="'day'"
+        @input="handleChangedDay"
+      &gt;&lt;/appdate-picker&gt;
     &lt;/div&gt;
 &nbsp;
     &lt;div class="ind"&gt;
       &lt;label&gt;Month View&lt;/label&gt;
       &lt;appdate-picker
+        placeholder="Select Date"
         :value="new Date()"
         :minimum-view="'month'"
         :maximum-view="'month'"
@@ -639,6 +630,7 @@
     &lt;div class="ind"&gt;
       &lt;label&gt;Year View&lt;/label&gt;
       &lt;appdate-picker
+        placeholder="Select Date"
         :value="new Date()"
         :minimum-view="'year'"
         :maximum-view="'year'"
@@ -649,6 +641,7 @@
     &lt;div class="ind"&gt;
       &lt;label&gt;Year View&lt;/label&gt;
       &lt;appdate-picker
+        placeholder="Select Date"
         :value="new Date()"
         :minimum-view="'year'"
         :maximum-view="'year'"
@@ -681,12 +674,6 @@ export default defineComponent({
       },
       initialDate: new Date(),
       dateinput: new Date(),
-      validations: [
-        {
-          name: 'required',
-          message: 'Oh, we can’t proceed without value. Do your bit?',
-        },
-      ],
       emptyDate: null,
     };
   },
@@ -711,9 +698,7 @@ export default defineComponent({
       console.log(payload);
     },
     checkDatePicker(): void {
-      const isValid = (this.$refs.inputRef as any).isValid();
       const { selectedDate } = this.$refs.inputRef as any;
-      console.log(isValid);
       console.log(selectedDate);
     },
     changedVmodel(): void {
@@ -745,7 +730,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Nov 07 2020 17:56:28 GMT+0530 (India Standard Time)
+                at Sun Nov 08 2020 11:18:48 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
