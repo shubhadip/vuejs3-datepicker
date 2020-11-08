@@ -119,6 +119,18 @@ export default defineComponent({
     useUtc: {
       type: Boolean,
     },
+    minimumView: {
+      type: String,
+      default: 'day',
+    },
+    maximumView: {
+      type: String,
+      default: 'year',
+    },
+    preventDisableDateSelection: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
   setup(props, { emit }) {
@@ -132,7 +144,9 @@ export default defineComponent({
       if (date.isDisabled) {
         emit('selected-disabled', date);
       }
-      emit('select-date', date);
+      if (!props.preventDisableDateSelection) {
+        emit('select-date', date);
+      }
     }
 
     /**

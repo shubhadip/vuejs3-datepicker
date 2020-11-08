@@ -8920,6 +8920,18 @@ var script$1 = defineComponent({
     },
     useUtc: {
       type: Boolean
+    },
+    minimumView: {
+      type: String,
+      default: 'day'
+    },
+    maximumView: {
+      type: String,
+      default: 'year'
+    },
+    preventDisableDateSelection: {
+      type: Boolean,
+      default: true
     }
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
@@ -8938,7 +8950,9 @@ var script$1 = defineComponent({
         emit('selected-disabled', date);
       }
 
-      emit('select-date', date);
+      if (!props.preventDisableDateSelection) {
+        emit('select-date', date);
+      }
     }
     /**
      * Emit an event to show the month picker
@@ -10190,6 +10204,10 @@ var script$4 = defineComponent({
     hideInput: {
       type: Boolean,
       default: true
+    },
+    preventDisableDateSelection: {
+      type: Boolean,
+      default: true
     }
   },
   emits: ['input', 'cleared', 'update:modelValue', 'closed', 'changed-month', 'changed-year', 'changed-day', 'selected', 'selected-disabled'],
@@ -10525,8 +10543,8 @@ var script$4 = defineComponent({
       }
     }
     /**
-    * Click Outside handler
-    */
+     * Click Outside handler
+     */
 
 
     function closeOnClickOutside() {
@@ -10656,13 +10674,16 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
           onSelectDate: _ctx.selectDate,
           onShowMonthCalendar: _ctx.showMonthCalendar,
           onSelectedDisabled: _ctx.selectDisabledDate,
-          onShowYearCalendar: _ctx.showYearCalendar
+          onShowYearCalendar: _ctx.showYearCalendar,
+          minimumView: _ctx.minimumView,
+          maximumView: _ctx.maximumView,
+          preventDisableDateSelection: _ctx.preventDisableDateSelection
         }, {
           beforeCalendarHeader: withCtx(() => [
             renderSlot(_ctx.$slots, "beforeCalendarHeader")
           ]),
           _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar"]))
+        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection"]))
       : createCommentVNode("v-if", true),
     createCommentVNode("Month View "),
     (_ctx.allowedToShowView('month'))
@@ -10718,8 +10739,8 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
       : createCommentVNode("v-if", true)
   ], 2 /* CLASS */)), [
     [_directive_clickoutside, {
-      handler: _ctx.inline ? null : _ctx.closeOnClickOutside
-  }]
+      handler: _ctx.inline ? null : _ctx.closeOnClickOutside,
+    }]
   ])
 }
 
@@ -10814,37 +10835,35 @@ var script$5 = defineComponent({
 const _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
 
 pushScopeId("data-v-7ba5bd90");
-const _hoisted_1$4 = { id: "app" };
+const _hoisted_1$4 = { class: "wrapper" };
 const _hoisted_2$3 = { class: "ind" };
 const _hoisted_3$1 = /*#__PURE__*/createVNode("label", null, "Typeable", -1 /* HOISTED */);
-const _hoisted_4$1 = { class: "wrapper" };
-const _hoisted_5$1 = { class: "ind" };
-const _hoisted_6$1 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
+const _hoisted_4$1 = { class: "ind" };
+const _hoisted_5$1 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
+const _hoisted_6$1 = { class: "wrapper" };
 const _hoisted_7$1 = { class: "ind" };
-const _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, "Default Value", -1 /* HOISTED */);
+const _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
 const _hoisted_9$1 = { class: "ind" };
-const _hoisted_10 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1 /* HOISTED */);
+const _hoisted_10 = /*#__PURE__*/createVNode("label", null, "Default Value", -1 /* HOISTED */);
 const _hoisted_11 = { class: "ind" };
-const _hoisted_12 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1 /* HOISTED */);
+const _hoisted_12 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1 /* HOISTED */);
 const _hoisted_13 = { class: "ind" };
-const _hoisted_14 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1 /* HOISTED */);
-const _hoisted_15 = {
-  class: "ind",
-  style: {"flex-direction":"column"}
-};
-const _hoisted_16 = { style: {"justify-content":"space-between","display":"flex","width":"100%"} };
-const _hoisted_17 = /*#__PURE__*/createVNode("label", null, "V Model", -1 /* HOISTED */);
-const _hoisted_18 = /*#__PURE__*/createVNode("br", null, null, -1 /* HOISTED */);
-const _hoisted_19 = { class: "ind" };
-const _hoisted_20 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
-const _hoisted_21 = { class: "ind" };
-const _hoisted_22 = /*#__PURE__*/createVNode("label", null, "Day View", -1 /* HOISTED */);
-const _hoisted_23 = { class: "ind" };
-const _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
-const _hoisted_25 = { class: "ind" };
-const _hoisted_26 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
-const _hoisted_27 = { class: "ind" };
-const _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
+const _hoisted_14 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1 /* HOISTED */);
+const _hoisted_15 = { class: "ind" };
+const _hoisted_16 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1 /* HOISTED */);
+const _hoisted_17 = { class: "ind" };
+const _hoisted_18 = /*#__PURE__*/createVNode("label", null, "V Model", -1 /* HOISTED */);
+const _hoisted_19 = /*#__PURE__*/createVNode("br", null, null, -1 /* HOISTED */);
+const _hoisted_20 = { class: "ind" };
+const _hoisted_21 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
+const _hoisted_22 = { class: "ind" };
+const _hoisted_23 = /*#__PURE__*/createVNode("label", null, "Day View", -1 /* HOISTED */);
+const _hoisted_24 = { class: "ind" };
+const _hoisted_25 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
+const _hoisted_26 = { class: "ind" };
+const _hoisted_27 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
+const _hoisted_28 = { class: "ind" };
+const _hoisted_29 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
 popScopeId();
 
 const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -10863,8 +10882,22 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
       }, null, 8 /* PROPS */, ["onInput"])
     ]),
     createVNode("div", _hoisted_4$1, [
-      createVNode("div", _hoisted_5$1, [
-        _hoisted_6$1,
+      _hoisted_5$1,
+      createVNode(_component_appdate_picker, {
+        ref: "inputRef",
+        onSelected: _ctx.handleSelectDate,
+        highlighted: _ctx.highlightDates,
+        value: _ctx.emptyDate,
+        onClosed: _ctx.handleCalendarClose,
+        placeholder: "Select Date"
+      }, null, 8 /* PROPS */, ["onSelected", "highlighted", "value", "onClosed"]),
+      createVNode("button", {
+        onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.checkDatePicker(...args)))
+      }, "Check DatePicker")
+    ]),
+    createVNode("div", _hoisted_6$1, [
+      createVNode("div", _hoisted_7$1, [
+        _hoisted_8$1,
         createVNode(_component_appdate_picker, {
           ref: "inputRef",
           onSelected: _ctx.handleSelectDate,
@@ -10873,11 +10906,11 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
           onClosed: _ctx.handleCalendarClose
         }, null, 8 /* PROPS */, ["onSelected", "highlighted", "value", "onClosed"]),
         createVNode("button", {
-          onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.checkDatePicker(...args)))
+          onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.checkDatePicker(...args)))
         }, "Check DatePicker")
       ]),
-      createVNode("div", _hoisted_7$1, [
-        _hoisted_8$1,
+      createVNode("div", _hoisted_9$1, [
+        _hoisted_10,
         createVNode(_component_appdate_picker, {
           onInput: _ctx.dateSelected,
           value: _ctx.defaultValue,
@@ -10890,11 +10923,11 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
           }
         }, null, 8 /* PROPS */, ["onInput", "value", "disabled-dates", "highlighted"]),
         createVNode("button", {
-          onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.changeDefaultValue(...args)))
+          onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.changeDefaultValue(...args)))
         }, "Change Default Value")
       ]),
-      createVNode("div", _hoisted_9$1, [
-        _hoisted_10,
+      createVNode("div", _hoisted_11, [
+        _hoisted_12,
         createVNode(_component_appdate_picker, {
           onInput: _ctx.dateSelected,
           "disabled-dates": {
@@ -10903,8 +10936,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
           }
         }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
       ]),
-      createVNode("div", _hoisted_11, [
-        _hoisted_12,
+      createVNode("div", _hoisted_13, [
+        _hoisted_14,
         createVNode(_component_appdate_picker, {
           onInput: _ctx.dateSelected,
           "disabled-dates": {
@@ -10919,8 +10952,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
       ])
     ]),
-    createVNode("div", _hoisted_13, [
-      _hoisted_14,
+    createVNode("div", _hoisted_15, [
+      _hoisted_16,
       createVNode(_component_appdate_picker, {
         onInput: _ctx.dateSelected,
         highlighted: {
@@ -10929,40 +10962,40 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         }
       }, null, 8 /* PROPS */, ["onInput", "highlighted"])
     ]),
-    createVNode("div", _hoisted_15, [
-      createVNode("div", _hoisted_16, [
-        _hoisted_17,
+    createVNode("div", _hoisted_17, [
+      createVNode("div", null, [
+        _hoisted_18,
         createVNode(_component_appdate_picker, {
           modelValue: _ctx.dateinput,
           "onUpdate:modelValue": [
-            _cache[3] || (_cache[3] = $event => (_ctx.dateinput = $event)),
+            _cache[4] || (_cache[4] = $event => (_ctx.dateinput = $event)),
             _ctx.dateSelected
           ]
         }, null, 8 /* PROPS */, ["modelValue", "onUpdate:modelValue"])
       ]),
-      _hoisted_18,
+      _hoisted_19,
       createVNode("div", null, toDisplayString(_ctx.dateinput), 1 /* TEXT */),
       createVNode("button", {
-        onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.changedVmodel(...args)))
+        onClick: _cache[5] || (_cache[5] = (...args) => (_ctx.changedVmodel(...args)))
       }, "Change Date Input")
     ]),
-    createVNode("div", _hoisted_19, [
-      _hoisted_20,
+    createVNode("div", _hoisted_20, [
+      _hoisted_21,
       createVNode(_component_appdate_picker, {
         inline: true,
         onInput: _ctx.dateSelected
       }, null, 8 /* PROPS */, ["onInput"])
     ]),
-    createVNode("div", _hoisted_21, [
-      _hoisted_22,
+    createVNode("div", _hoisted_22, [
+      _hoisted_23,
       createVNode(_component_appdate_picker, {
         "minimum-view": 'day',
         "maximum-view": 'day',
         onInput: _ctx.handleChangedDay
       }, null, 8 /* PROPS */, ["onInput"])
     ]),
-    createVNode("div", _hoisted_23, [
-      _hoisted_24,
+    createVNode("div", _hoisted_24, [
+      _hoisted_25,
       createVNode(_component_appdate_picker, {
         value: new Date(),
         "minimum-view": 'month',
@@ -10970,8 +11003,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         onChangedMonth: _ctx.handleChangedMonth
       }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
     ]),
-    createVNode("div", _hoisted_25, [
-      _hoisted_26,
+    createVNode("div", _hoisted_26, [
+      _hoisted_27,
       createVNode(_component_appdate_picker, {
         value: new Date(),
         "minimum-view": 'year',
@@ -10979,8 +11012,8 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         onChangedYear: _ctx.handleChangedYear
       }, null, 8 /* PROPS */, ["value", "onChangedYear"])
     ]),
-    createVNode("div", _hoisted_27, [
-      _hoisted_28,
+    createVNode("div", _hoisted_28, [
+      _hoisted_29,
       createVNode(_component_appdate_picker, {
         value: new Date(),
         "minimum-view": 'year',
@@ -10991,7 +11024,7 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
   ]))
 });
 
-var css_248z$1 = ".ind[data-v-7ba5bd90]{-webkit-align-items:center;-ms-flex-align:center;align-items:center;max-width:400px;padding:20px;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}.ind[data-v-7ba5bd90],.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex}.wrapper[data-v-7ba5bd90]{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}";
+var css_248z$1 = ".ind[data-v-7ba5bd90]{min-width:400px;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
 styleInject(css_248z$1);
 
 script$5.render = render$5;
