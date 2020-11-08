@@ -19,7 +19,7 @@
     "lint": "vue-cli-service lint --fix",
     "dev": "rollup -c build/rollup-dev.config.js --watch",
     "build": "rimraf dist && rollup --config ./build/rollup.config.js",
-    "test": "jest --config tests/unit/jest.conf.js --coverage",
+    "test": "jest --config tests/unit/jest.conf.js --coverage ",
     "prepublishOnly": "npm run lint && npm run build"
   },
   "dependencies": {

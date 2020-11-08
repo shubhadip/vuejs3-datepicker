@@ -1,14 +1,21 @@
+(function (l, r) {
+  if (l.getElementById('livereloadscript')) return;
+  r = l.createElement('script');
+  r.async = 1;
+  r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1';
+  r.id = 'livereloadscript';
+  l.getElementsByTagName('head')[0].appendChild(r);
+})(window.document);
 
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
+    _typeof = function _typeof(obj) {
       return typeof obj;
     };
   } else {
-    _typeof = function (obj) {
+    _typeof = function _typeof(obj) {
       return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
@@ -112,7 +119,9 @@ function _unsupportedIterableToArray(o, minLen) {
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
 
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
 
   return arr2;
 }
@@ -126,7 +135,6 @@ function _nonIterableRest() {
 }
 
 var _ErrorTypeStrings;
-
 /**
  * Make a map and return a function for checking if a key
  * is in that map.
@@ -134,6 +142,8 @@ var _ErrorTypeStrings;
  * \/\*#\_\_PURE\_\_\*\/
  * So that rollup can tree-shake them if necessary.
  */
+
+
 function makeMap(str, expectsLowerCase) {
   var map = Object.create(null);
   var list = str.split(',');
@@ -232,7 +242,6 @@ var isSVGTag = /*#__PURE__*/makeMap(SVG_TAGS);
  * For converting {{ interpolation }} values to displayed strings.
  * @private
  */
-
 
 var toDisplayString = function toDisplayString(val) {
   return val == null ? '' : isObject(val) ? JSON.stringify(val, replacer, 2) : String(val);
@@ -883,9 +892,9 @@ var getProto = function getProto(v) {
 
 function get$1(target, key) {
   var isReadonly = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  var isShallow = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  // #1772: readonly(reactive(Map)) should return readonly + reactive version
+  var isShallow = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false; // #1772: readonly(reactive(Map)) should return readonly + reactive version
   // of the value
+
   target = target["__v_raw"
   /* RAW */
   ];
@@ -2665,6 +2674,7 @@ var isSuspense = function isSuspense(type) {
   return type.__isSuspense;
 }; // Suspense exposes a component-like API, and is treated like a component
 
+
 function normalizeSuspenseChildren(vnode) {
   var shapeFlag = vnode.shapeFlag,
       children = vnode.children;
@@ -3634,11 +3644,10 @@ function onDeactivated(hook, target) {
 }
 
 function registerKeepAliveHook(hook, type) {
-  var target = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : currentInstance;
-
-  // cache the deactivate branch check wrapper for injected hooks so the same
+  var target = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : currentInstance; // cache the deactivate branch check wrapper for injected hooks so the same
   // hook can be properly deduped by the scheduler. "__wdc" stands for "with
   // deactivation check".
+
   var wrappedHook = hook.__wdc || (hook.__wdc = function () {
     // only fire the hook if the target instance is NOT in a deactivated branch.
     var current = target;
@@ -4253,9 +4262,8 @@ function baseCreateRenderer(options, createHydrationFns) {
     var parentComponent = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
     var parentSuspense = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : null;
     var isSVG = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : false;
-    var optimized = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : false;
+    var optimized = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : false; // patching & not same type, unmount old tree
 
-    // patching & not same type, unmount old tree
     if (n1 && !isSameVNodeType(n1, n2)) {
       anchor = getNextHostNode(n1);
       unmount(n1, parentComponent, parentSuspense, true);
@@ -5435,8 +5443,8 @@ function baseCreateRenderer(options, createHydrationFns) {
       ) || !optimized && shapeFlag & 16
       /* ARRAY_CHILDREN */
       ) {
-        unmountChildren(children, parentComponent, parentSuspense);
-      } // an unmounted teleport should always remove its children if not disabled
+          unmountChildren(children, parentComponent, parentSuspense);
+        } // an unmounted teleport should always remove its children if not disabled
 
 
       if (shapeFlag & 64
@@ -5751,6 +5759,7 @@ var isTeleport = function isTeleport(type) {
 var isTeleportDisabled = function isTeleportDisabled(props) {
   return props && (props.disabled || props.disabled === '');
 };
+
 var COMPONENTS = 'components';
 var DIRECTIVES = 'directives';
 /**
@@ -5765,7 +5774,6 @@ var NULL_DYNAMIC_COMPONENT = Symbol();
 /**
  * @private
  */
-
 
 function resolveDirective(name) {
   return resolveAsset(DIRECTIVES, name);
@@ -5843,6 +5851,7 @@ function closeBlock() {
   blockStack.pop();
   currentBlock = blockStack[blockStack.length - 1] || null;
 } // Whether we should be tracking dynamic child nodes inside a block.
+
 /**
  * Create a block root vnode. Takes the same exact arguments as `createVNode`.
  * A block root keeps track of dynamic nodes within the block in the
@@ -5862,7 +5871,7 @@ function createBlock(type, props, children, patchFlag, dynamicProps) {
   closeBlock(); // a block is always going to be patched, so track it as a child of its
   // parent block
 
-  if ( currentBlock) {
+  if (currentBlock) {
     currentBlock.push(vnode);
   }
 
@@ -5889,7 +5898,7 @@ var createVNodeWithArgsTransform = function createVNodeWithArgsTransform() {
     args[_key13] = arguments[_key13];
   }
 
-  return _createVNode.apply(void 0, _toConsumableArray( args));
+  return _createVNode.apply(void 0, _toConsumableArray(args));
 };
 
 var InternalObjectKey = "__vInternal";
@@ -6037,9 +6046,9 @@ function _createVNode(type) {
 function cloneVNode(vnode, extraProps) {
   var _ref21;
 
-  var mergeRef = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  // This is intentionally NOT using spread or extend to avoid the runtime
+  var mergeRef = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false; // This is intentionally NOT using spread or extend to avoid the runtime
   // key enumeration cost.
+
   var props = vnode.props,
       ref = vnode.ref,
       patchFlag = vnode.patchFlag;
@@ -6239,9 +6248,9 @@ function provide(key, value) {
 }
 
 function inject(key, defaultValue) {
-  var treatDefaultAsFactory = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  // fallback to `currentRenderingInstance` so that this can be called in
+  var treatDefaultAsFactory = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false; // fallback to `currentRenderingInstance` so that this can be called in
   // a functional component
+
   var instance = currentInstance || currentRenderingInstance;
 
   if (instance) {
@@ -7257,7 +7266,6 @@ function finishComponentSetup(instance, isSSR) {
   var Component = instance.type; // template / render function normalization
 
   if (!instance.render) {
-
     instance.render = Component.render || NOOP; // for runtime-compiled render functions using `with` blocks, the render
     // proxy used needs a different `has` handler which is more performant and
     // also only allows a whitelist of globals to fallthrough.
@@ -7276,7 +7284,7 @@ function finishComponentSetup(instance, isSSR) {
 
   if (!Component.render && instance.render === NOOP) {
     /* istanbul ignore if */
-    if ( Component.template) {
+    if (Component.template) {
       warn("Component provided template option but " + "runtime compilation is not supported in this build of Vue." + " Use \"vue.esm-browser.js\" instead."
       /* should not happen */
       );
@@ -7609,7 +7617,6 @@ function renderList(source, renderItem) {
   return ret;
 }
 
-
 var version = "3.0.2";
 var svgNS = 'http://www.w3.org/2000/svg';
 var doc = typeof document !== 'undefined' ? document : null;
@@ -7884,8 +7891,8 @@ function removeEventListener(el, event, handler, options) {
 }
 
 function patchEvent(el, rawName, prevValue, nextValue) {
-  var instance = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
-  // vei = vue event invokers
+  var instance = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null; // vei = vue event invokers
+
   var invokers = el._vei || (el._vei = {});
   var existingInvoker = invokers[rawName];
 
@@ -8120,6 +8127,7 @@ var withModifiers = function withModifiers(fn, modifiers) {
   };
 }; // Kept for 2.x compat.
 
+
 var vShow = {
   beforeMount: function beforeMount(el, _ref37, _ref38) {
     var value = _ref37.value;
@@ -8249,11 +8257,11 @@ function initDev() {
 
 
 initDev();
-
 /* eslint-disable */
 // https://github.com/simplesmiler/vue-clickaway
 // https://github.com/ndelvalle/v-click-outside/blob/master/lib/v-click-outside.js
 // Mixed both :)
+
 var EVENTS = ['click'];
 var instances = [];
 var ClickOutside = {
@@ -8336,14 +8344,14 @@ function onEvent(_ref5) {
   if (path ? path.indexOf(el) < 0 : !el.contains(event.target)) {
     return handler && handler(event, el);
   }
-}
-
-// import en from '@/components/datepicker/locale/translations/en';
+} // import en from '@/components/datepicker/locale/translations/en';
 
 /**
  * Returns the full year, using UTC or not
  * @param {Date} date
  */
+
+
 var getFullYear = function getFullYear(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   return useUtc ? date.getUTCFullYear() : date.getFullYear();
@@ -8352,6 +8360,7 @@ var getFullYear = function getFullYear(date) {
  * Returns the month, using UTC or not
  * @param {Date} date
  */
+
 
 var getMonth = function getMonth(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -8362,6 +8371,7 @@ var getMonth = function getMonth(date) {
  * @param {Date} date
  */
 
+
 var getDate = function getDate(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   return useUtc ? date.getUTCDate() : date.getDate();
@@ -8370,6 +8380,7 @@ var getDate = function getDate(date) {
  * Returns the day, using UTC or not
  * @param {Date} date
  */
+
 
 var getDay = function getDay(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -8380,6 +8391,7 @@ var getDay = function getDay(date) {
  * @param {Date} date
  */
 
+
 var setFullYear = function setFullYear(date, value) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   return useUtc ? date.setUTCFullYear(value) : date.setFullYear(value);
@@ -8388,6 +8400,7 @@ var setFullYear = function setFullYear(date, value) {
  * Sets the month, using UTC or not
  * @param {Date} date
  */
+
 
 var setMonth = function setMonth(date, value) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -8399,6 +8412,7 @@ var setMonth = function setMonth(date, value) {
  * @param {Number} value
  */
 
+
 var setDate = function setDate(date, value) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   return useUtc ? date.setUTCDate(value) : date.setDate(value);
@@ -8409,6 +8423,7 @@ var setDate = function setDate(date, value) {
  * @param {Date} date1
  * @param {Date} date2
  */
+
 
 var compareDates = function compareDates(date1, date2) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
@@ -8431,6 +8446,7 @@ var compareDates = function compareDates(date1, date2) {
  * @return {Boolean}
  */
 
+
 var isValidDate = function isValidDate(date) {
   if (Object.prototype.toString.call(date) !== '[object Date]') {
     return false;
@@ -8445,6 +8461,7 @@ var isValidDate = function isValidDate(date) {
  * @return {String}
  */
 
+
 var getDayNameAbbr = function getDayNameAbbr(date, days) {
   if (_typeof(date) !== 'object') {
     throw TypeError('Invalid Type');
@@ -8458,6 +8475,7 @@ var getDayNameAbbr = function getDayNameAbbr(date, days) {
  * @param {Array}
  * @return {String}
  */
+
 
 var getMonthName = function getMonthName(month, months) {
   if (!months) {
@@ -8480,6 +8498,7 @@ var getMonthName = function getMonthName(month, months) {
  * @return {String}
  */
 
+
 var getMonthNameAbbr = function getMonthNameAbbr(month, monthsAbbr) {
   if (!monthsAbbr) {
     throw Error('missing 2nd paramter Months array');
@@ -8501,6 +8520,7 @@ var getMonthNameAbbr = function getMonthNameAbbr(month, monthsAbbr) {
  * @param {Number} m
  * @return {Number}
  */
+
 
 var daysInMonth = function daysInMonth(year, month) {
   if (/8|3|5|10/.test(month)) {
@@ -8529,6 +8549,7 @@ var daysInMonth = function daysInMonth(year, month) {
  * @return {String}
  */
 
+
 var getNthSuffix = function getNthSuffix(day) {
   switch (day) {
     case 1:
@@ -8556,6 +8577,7 @@ var getNthSuffix = function getNthSuffix(day) {
  * @return {String}
  */
 
+
 var formatDate = function formatDate(date, format, translation) {
   var year = getFullYear(date);
   var month = getMonth(date) + 1;
@@ -8568,6 +8590,7 @@ var formatDate = function formatDate(date, format, translation) {
  * @param {*} val
  * @return {Boolean}
  */
+
 
 var validateDateInput = function validateDateInput(val) {
   return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number';
@@ -8765,126 +8788,137 @@ var script = defineComponent({
     };
   }
 });
+var img = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' height='16' width='16' role='img' aria-hidden='true' data-icon='calendarAlt'%3e%3cpath fill='currentColor' d='M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z'%3e%3c/path%3e%3c/svg%3e";
+var _hoisted_1 = {
+  key: 0
+};
+var _hoisted_2 = {
+  key: 1
+};
+var _hoisted_3 = {
+  key: 0
+};
 
-const img = "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' height='16' width='16' role='img' aria-hidden='true' data-icon='calendarAlt'%3e%3cpath fill='currentColor' d='M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z'%3e%3c/path%3e%3c/svg%3e";
+var _hoisted_4 = /*#__PURE__*/createVNode("img", {
+  src: img
+}, null, -1
+/* HOISTED */
+);
 
-const _hoisted_1 = { key: 0 };
-const _hoisted_2 = {
-  key: 1,
-  style: {"position":"relative"}
+var _hoisted_5 = {
+  key: 0
 };
-const _hoisted_3 = { key: 0 };
-const _hoisted_4 = /*#__PURE__*/createVNode("img", {
-  src: img,
-  class: "vuejs3-datepicker__typeablecalendar"
-}, null, -1 /* HOISTED */);
-const _hoisted_5 = {
-  key: 0,
-  class: "vuejs3-datepicker__value"
+
+var _hoisted_6 = /*#__PURE__*/createVNode("img", {
+  src: img
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  key: 1
 };
-const _hoisted_6 = /*#__PURE__*/createVNode("span", null, [
-  /*#__PURE__*/createVNode("img", { src: img })
-], -1 /* HOISTED */);
-const _hoisted_7 = {
-  key: 0,
-  class: "vuejs3-datepicker__content"
+var _hoisted_8 = {
+  key: 0
 };
-const _hoisted_8 = {
-  key: 1,
-  class: "vuejs3-datepicker__content"
-};
-const _hoisted_9 = { key: 0 };
-const _hoisted_10 = /*#__PURE__*/createTextVNode("Default");
+
+var _hoisted_9 = /*#__PURE__*/createTextVNode("Default");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (openBlock(), createBlock("div", {
-    class: { 'input-group': _ctx.addBootstrapClass }
-  }, [
-    createCommentVNode(" Calendar Button "),
-    (_ctx.calendarButton)
-      ? (openBlock(), createBlock("span", {
-          key: 0,
-          class: ["vuejs3-datepicker__calendar-button", { 'input-group-prepend': _ctx.addBootstrapClass }],
-          onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showCalendar(...args))),
-          style: { 'cursor:not-allowed;': _ctx.disabled }
-        }, [
-          createVNode("span", {
-            class: { 'input-group-text': _ctx.addBootstrapClass }
-          }, [
-            createVNode("i", { class: _ctx.calendarButtonIcon }, [
-              createTextVNode(toDisplayString(_ctx.calendarButtonIconContent) + " ", 1 /* TEXT */),
-              (!_ctx.calendarButtonIcon)
-                ? (openBlock(), createBlock("span", _hoisted_1, "…"))
-                : createCommentVNode("v-if", true)
-            ], 2 /* CLASS */)
-          ], 2 /* CLASS */)
-        ], 6 /* CLASS, STYLE */))
-      : createCommentVNode("v-if", true),
-    (_ctx.typeable || !_ctx.hideInput)
-      ? (openBlock(), createBlock("div", _hoisted_2, [
-          (!_ctx.inline)
-            ? (openBlock(), createBlock("span", _hoisted_3, [
-                _hoisted_4
-              ]))
-            : createCommentVNode("v-if", true),
-          createVNode("input", {
-            type: _ctx.inline ? 'hidden' : 'text',
-            class: [_ctx.computedInputClass, "vuejs3-datepicker__inputvalue"],
-            name: _ctx.name,
-            ref: "inputRef",
-            id: _ctx.id,
-            value: _ctx.formattedValue,
-            "open-date": _ctx.openDate,
-            placeholder: _ctx.placeholder,
-            "clear-button": _ctx.clearButton,
-            disabled: _ctx.disabled,
-            required: _ctx.required,
-            readonly: !_ctx.typeable,
-            onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.showCalendar(...args))),
-            onKeyup: _cache[3] || (_cache[3] = (...args) => (_ctx.parseTypedDate(...args))),
-            onBlur: _cache[4] || (_cache[4] = (...args) => (_ctx.inputBlurred(...args))),
-            autocomplete: "off"
-          }, null, 42 /* CLASS, PROPS, HYDRATE_EVENTS */, ["type", "name", "id", "value", "open-date", "placeholder", "clear-button", "disabled", "required", "readonly"])
-        ]))
-      : (openBlock(), createBlock("div", {
-          key: 2,
-          onClick: _cache[5] || (_cache[5] = (...args) => (_ctx.showCalendar(...args)))
-        }, [
-          (!_ctx.inline)
-            ? (openBlock(), createBlock("div", _hoisted_5, [
-                _hoisted_6,
-                (_ctx.formattedValue)
-                  ? (openBlock(), createBlock("div", _hoisted_7, toDisplayString(_ctx.formattedValue), 1 /* TEXT */))
-                  : (openBlock(), createBlock("div", _hoisted_8, toDisplayString(_ctx.placeholder), 1 /* TEXT */))
-              ]))
-            : createCommentVNode("v-if", true)
-        ])),
-    (_ctx.clearButton && _ctx.selectedDate)
-      ? (openBlock(), createBlock("span", {
-          key: 3,
-          class: ["vuejs3-datepicker__clear-button", { 'input-group-append': _ctx.addBootstrapClass }],
-          onClick: _cache[6] || (_cache[6] = $event => (_ctx.clearDate()))
-        }, [
-          createVNode("span", {
-            class: { 'input-group-text': _ctx.addBootstrapClass }
-          }, [
-            createVNode("i", { class: _ctx.clearButtonIcon }, [
-              (!_ctx.clearButtonIcon)
-                ? (openBlock(), createBlock("span", _hoisted_9, "×"))
-                : createCommentVNode("v-if", true)
-            ], 2 /* CLASS */)
-          ], 2 /* CLASS */)
-        ], 2 /* CLASS */))
-      : createCommentVNode("v-if", true),
-    renderSlot(_ctx.$slots, "afterDateInput", {}, () => [
-      _hoisted_10
-    ])
-  ], 2 /* CLASS */))
+  return openBlock(), createBlock("div", {
+    class: {
+      'input-group': _ctx.addBootstrapClass
+    }
+  }, [createCommentVNode(" Calendar Button "), _ctx.calendarButton ? (openBlock(), createBlock("span", {
+    key: 0,
+    class: ["vuejs3-datepicker__calendar-button", {
+      'input-group-prepend': _ctx.addBootstrapClass
+    }],
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.showCalendar.apply(_ctx, arguments);
+    }),
+    style: {
+      'cursor:not-allowed;': _ctx.disabled
+    }
+  }, [createVNode("span", {
+    class: {
+      'input-group-text': _ctx.addBootstrapClass
+    }
+  }, [createVNode("i", {
+    class: _ctx.calendarButtonIcon
+  }, [createTextVNode(toDisplayString(_ctx.calendarButtonIconContent) + " ", 1
+  /* TEXT */
+  ), !_ctx.calendarButtonIcon ? (openBlock(), createBlock("span", _hoisted_1, "…")) : createCommentVNode("v-if", true)], 2
+  /* CLASS */
+  )], 2
+  /* CLASS */
+  )], 6
+  /* CLASS, STYLE */
+  )) : createCommentVNode("v-if", true), _ctx.typeable || !_ctx.hideInput ? (openBlock(), createBlock("div", _hoisted_2, [!_ctx.inline ? (openBlock(), createBlock("span", _hoisted_3, [_hoisted_4])) : createCommentVNode("v-if", true), createVNode("input", {
+    type: _ctx.inline ? 'hidden' : 'text',
+    class: _ctx.computedInputClass,
+    name: _ctx.name,
+    ref: "inputRef",
+    id: _ctx.id,
+    value: _ctx.formattedValue,
+    "open-date": _ctx.openDate,
+    placeholder: _ctx.placeholder,
+    "clear-button": _ctx.clearButton,
+    disabled: _ctx.disabled,
+    required: _ctx.required,
+    readonly: !_ctx.typeable,
+    onClick: _cache[2] || (_cache[2] = function () {
+      return _ctx.showCalendar.apply(_ctx, arguments);
+    }),
+    onKeyup: _cache[3] || (_cache[3] = function () {
+      return _ctx.parseTypedDate.apply(_ctx, arguments);
+    }),
+    onBlur: _cache[4] || (_cache[4] = function () {
+      return _ctx.inputBlurred.apply(_ctx, arguments);
+    }),
+    autocomplete: "off"
+  }, null, 42
+  /* CLASS, PROPS, HYDRATE_EVENTS */
+  , ["type", "name", "id", "value", "open-date", "placeholder", "clear-button", "disabled", "required", "readonly"])])) : (openBlock(), createBlock("div", {
+    key: 2,
+    onClick: _cache[5] || (_cache[5] = function () {
+      return _ctx.showCalendar.apply(_ctx, arguments);
+    }),
+    style: {
+      "width": "400px",
+      "border": "1px solid black"
+    }
+  }, [!_ctx.inline ? (openBlock(), createBlock("span", _hoisted_5, [_hoisted_6])) : createCommentVNode("v-if", true), !_ctx.inline ? (openBlock(), createBlock("div", _hoisted_7, toDisplayString(_ctx.formattedValue), 1
+  /* TEXT */
+  )) : createCommentVNode("v-if", true)])), _ctx.clearButton && _ctx.selectedDate ? (openBlock(), createBlock("span", {
+    key: 3,
+    class: ["vuejs3-datepicker__clear-button", {
+      'input-group-append': _ctx.addBootstrapClass
+    }],
+    onClick: _cache[6] || (_cache[6] = function ($event) {
+      return _ctx.clearDate();
+    })
+  }, [createVNode("span", {
+    class: {
+      'input-group-text': _ctx.addBootstrapClass
+    }
+  }, [createVNode("i", {
+    class: _ctx.clearButtonIcon
+  }, [!_ctx.clearButtonIcon ? (openBlock(), createBlock("span", _hoisted_8, "×")) : createCommentVNode("v-if", true)], 2
+  /* CLASS */
+  )], 2
+  /* CLASS */
+  )], 2
+  /* CLASS */
+  )) : createCommentVNode("v-if", true), renderSlot(_ctx.$slots, "afterDateInput", {}, function () {
+    return [_hoisted_9];
+  })], 2
+  /* CLASS */
+  );
 }
 
 script.render = render;
 script.__file = "src/components/datepicker/DateInput.vue";
-
 var script$1 = defineComponent({
   name: 'PickerDay',
   props: {
@@ -8942,7 +8976,6 @@ var script$1 = defineComponent({
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
-
     /** ********************************** Methods *********************************** */
 
     /**
@@ -8950,6 +8983,7 @@ var script$1 = defineComponent({
      * in the highlighted range of dates
      * @param {string | Date}
      */
+
     function selectDate(date) {
       if (date.isDisabled) {
         emit('selected-disabled', date);
@@ -9336,82 +9370,90 @@ var script$1 = defineComponent({
     };
   }
 });
-
-const _hoisted_1$1 = {
-  key: 0,
-  class: "vuejs3-datepicker__selectedValues"
-};
-const _hoisted_2$1 = {
-  key: 0,
-  class: "vuejs3-datepicker__verbose"
+var _hoisted_1$1 = {
+  key: 0
 };
 
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
     class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
     style: _ctx.calendarStyle,
-    onMousedown: _cache[5] || (_cache[5] = withModifiers(() => {}, ["prevent"]))
-  }, [
-    renderSlot(_ctx.$slots, "beforeCalendarHeader"),
-    (_ctx.selectedDate)
-      ? (openBlock(), createBlock("section", _hoisted_1$1, [
-          createVNode("p", {
-            class: "vuejs3-datepicker__year",
-            onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showYearCalendar(...args)))
-          }, toDisplayString(_ctx.currYearName), 1 /* TEXT */),
-          (_ctx.selectedDate)
-            ? (openBlock(), createBlock("p", _hoisted_2$1, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1 /* TEXT */))
-            : createCommentVNode("v-if", true)
-        ]))
-      : createCommentVNode("v-if", true),
-    createVNode("header", null, [
-      createVNode("span", {
-        onClick: _cache[2] || (_cache[2] = $event => (_ctx.isRtl ? _ctx.nextMonth() : _ctx.previousMonth())),
-        class: ["prev", { disabled: _ctx.isLeftNavDisabled }]
-      }, "<", 2 /* CLASS */),
-      createVNode("span", {
-        class: ["day__month_btn", _ctx.allowedToShowView('month') ? 'up' : ''],
-        onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.showMonthCalendar(...args)))
-      }, toDisplayString(_ctx.isYmd ? _ctx.currYearName : _ctx.currMonthName) + " " + toDisplayString(_ctx.isYmd ? _ctx.currMonthName : _ctx.currYearName), 3 /* TEXT, CLASS */),
-      createVNode("span", {
-        onClick: _cache[4] || (_cache[4] = $event => (_ctx.isRtl ? _ctx.previousMonth() : _ctx.nextMonth())),
-        class: ["next", { disabled: _ctx.isRightNavDisabled }]
-      }, ">", 2 /* CLASS */)
-    ]),
-    createVNode("div", {
-      class: _ctx.isRtl ? 'flex-rtl' : ''
-    }, [
-      (openBlock(true), createBlock(Fragment, null, renderList(_ctx.daysOfWeek, (d) => {
-        return (openBlock(), createBlock("span", {
-          class: "cell day-header",
-          key: d.timestamp
-        }, toDisplayString(d), 1 /* TEXT */))
-      }), 128 /* KEYED_FRAGMENT */)),
-      (_ctx.blankDays > 0)
-        ? (openBlock(true), createBlock(Fragment, { key: 0 }, renderList(_ctx.blankDays, (d) => {
-            return (openBlock(), createBlock("span", {
-              class: "cell day blank",
-              key: d.timestamp
-            }))
-          }), 128 /* KEYED_FRAGMENT */))
-        : createCommentVNode("v-if", true),
-      (openBlock(true), createBlock(Fragment, null, renderList(_ctx.days, (day) => {
-        return (openBlock(), createBlock("span", {
-          class: ["cell day", _ctx.dayClasses(day)],
-          key: day.timestamp,
-          innerHTML: _ctx.dayCellContent(day),
-          onClick: $event => (_ctx.selectDate(day))
-        }, null, 10 /* CLASS, PROPS */, ["innerHTML", "onClick"]))
-      }), 128 /* KEYED_FRAGMENT */))
-    ], 2 /* CLASS */)
-  ], 38 /* CLASS, STYLE, HYDRATE_EVENTS */)), [
-    [vShow, _ctx.showDayView]
-  ])
+    onMousedown: _cache[5] || (_cache[5] = withModifiers(function () {}, ["prevent"]))
+  }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.selectedDate ? (openBlock(), createBlock("section", _hoisted_1$1, [createVNode("p", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.showYearCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.currYearName), 1
+  /* TEXT */
+  ), createVNode("p", null, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1
+  /* TEXT */
+  )])) : createCommentVNode("v-if", true), createVNode("header", null, [createVNode("span", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.isRtl ? _ctx.nextMonth() : _ctx.previousMonth();
+    }),
+    class: ["prev", {
+      disabled: _ctx.isLeftNavDisabled
+    }]
+  }, "<", 2
+  /* CLASS */
+  ), createVNode("span", {
+    class: ["day__month_btn", _ctx.allowedToShowView('month') ? 'up' : ''],
+    onClick: _cache[3] || (_cache[3] = function () {
+      return _ctx.showMonthCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.isYmd ? _ctx.currYearName : _ctx.currMonthName) + " " + toDisplayString(_ctx.isYmd ? _ctx.currMonthName : _ctx.currYearName), 3
+  /* TEXT, CLASS */
+  ), createVNode("span", {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.isRtl ? _ctx.previousMonth() : _ctx.nextMonth();
+    }),
+    class: ["next", {
+      disabled: _ctx.isRightNavDisabled
+    }]
+  }, ">", 2
+  /* CLASS */
+  )]), createVNode("div", {
+    class: _ctx.isRtl ? 'flex-rtl' : ''
+  }, [(openBlock(true), createBlock(Fragment, null, renderList(_ctx.daysOfWeek, function (d) {
+    return openBlock(), createBlock("span", {
+      class: "cell day-header",
+      key: d.timestamp
+    }, toDisplayString(d), 1
+    /* TEXT */
+    );
+  }), 128
+  /* KEYED_FRAGMENT */
+  )), _ctx.blankDays > 0 ? (openBlock(true), createBlock(Fragment, {
+    key: 0
+  }, renderList(_ctx.blankDays, function (d) {
+    return openBlock(), createBlock("span", {
+      class: "cell day blank",
+      key: d.timestamp
+    });
+  }), 128
+  /* KEYED_FRAGMENT */
+  )) : createCommentVNode("v-if", true), (openBlock(true), createBlock(Fragment, null, renderList(_ctx.days, function (day) {
+    return openBlock(), createBlock("span", {
+      class: ["cell day", _ctx.dayClasses(day)],
+      key: day.timestamp,
+      innerHTML: _ctx.dayCellContent(day),
+      onClick: function onClick($event) {
+        return _ctx.selectDate(day);
+      }
+    }, null, 10
+    /* CLASS, PROPS */
+    , ["innerHTML", "onClick"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 2
+  /* CLASS */
+  )], 38
+  /* CLASS, STYLE, HYDRATE_EVENTS */
+  )), [[vShow, _ctx.showDayView]]);
 }
 
 script$1.render = render$1;
 script$1.__file = "src/components/datepicker/PickerDay.vue";
-
 var script$2 = defineComponent({
   name: 'PickerMonth',
   props: {
@@ -9464,13 +9506,13 @@ var script$2 = defineComponent({
   },
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
-
     /** ********************************** Methods  *********************************** */
 
     /**
      * Emits a selectMonth event
      * @param {Object} month
      */
+
     function selectMonth(month) {
       if (!month.isDisabled) {
         emit('select-month', month);
@@ -9690,58 +9732,73 @@ var script$2 = defineComponent({
     };
   }
 });
-
-const _hoisted_1$2 = {
-  key: 0,
-  class: "vuejs3-datepicker__selectedValues"
+var _hoisted_1$2 = {
+  key: 0
 };
-const _hoisted_2$2 = { class: "vuejs3-datepicker__verbose" };
+var _hoisted_2$1 = {
+  key: 0
+};
 
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
     class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
     style: _ctx.calendarStyle,
-    onMousedown: _cache[5] || (_cache[5] = withModifiers(() => {}, ["prevent"]))
-  }, [
-    renderSlot(_ctx.$slots, "beforeCalendarHeader"),
-    (_ctx.ifDifferentViews && _ctx.selectedDate)
-      ? (openBlock(), createBlock("section", _hoisted_1$2, [
-          createVNode("p", {
-            class: "vuejs3-datepicker__year",
-            onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showYearCalendar(...args)))
-          }, toDisplayString(_ctx.currYearName), 1 /* TEXT */),
-          createVNode("p", _hoisted_2$2, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1 /* TEXT */)
-        ]))
-      : createCommentVNode("v-if", true),
-    createVNode("header", null, [
-      createVNode("span", {
-        onClick: _cache[2] || (_cache[2] = $event => (_ctx.isRtl ? _ctx.nextYear() : _ctx.previousYear())),
-        class: ["prev", { disabled: _ctx.isLeftNavDisabled }]
-      }, "<", 2 /* CLASS */),
-      createVNode("span", {
-        class: ["month__year_btn", _ctx.allowedToShowView('year') ? 'up' : ''],
-        onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.showYearCalendar(...args)))
-      }, toDisplayString(_ctx.pageYearName), 3 /* TEXT, CLASS */),
-      createVNode("span", {
-        onClick: _cache[4] || (_cache[4] = $event => (_ctx.isRtl ? _ctx.previousYear() : _ctx.nextYear())),
-        class: ["next", { disabled: _ctx.isRightNavDisabled }]
-      }, ">", 2 /* CLASS */)
-    ]),
-    (openBlock(true), createBlock(Fragment, null, renderList(_ctx.months, (month) => {
-      return (openBlock(), createBlock("span", {
-        class: ["cell month", { selected: month.isSelected, disabled: month.isDisabled }],
-        key: month.timestamp,
-        onClick: withModifiers($event => (_ctx.selectMonth(month)), ["stop"])
-      }, toDisplayString(month.month), 11 /* TEXT, CLASS, PROPS */, ["onClick"]))
-    }), 128 /* KEYED_FRAGMENT */))
-  ], 38 /* CLASS, STYLE, HYDRATE_EVENTS */)), [
-    [vShow, _ctx.showMonthView]
-  ])
+    onMousedown: _cache[5] || (_cache[5] = withModifiers(function () {}, ["prevent"]))
+  }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews ? (openBlock(), createBlock("section", _hoisted_1$2, [createVNode("p", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.showYearCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.currYearName), 1
+  /* TEXT */
+  ), _ctx.selectedDate ? (openBlock(), createBlock("p", _hoisted_2$1, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1
+  /* TEXT */
+  )) : createCommentVNode("v-if", true)])) : createCommentVNode("v-if", true), createVNode("header", null, [createVNode("span", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.isRtl ? _ctx.nextYear() : _ctx.previousYear();
+    }),
+    class: ["prev", {
+      disabled: _ctx.isLeftNavDisabled
+    }]
+  }, "<", 2
+  /* CLASS */
+  ), createVNode("span", {
+    class: ["month__year_btn", _ctx.allowedToShowView('year') ? 'up' : ''],
+    onClick: _cache[3] || (_cache[3] = function () {
+      return _ctx.showYearCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.pageYearName), 3
+  /* TEXT, CLASS */
+  ), createVNode("span", {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.isRtl ? _ctx.previousYear() : _ctx.nextYear();
+    }),
+    class: ["next", {
+      disabled: _ctx.isRightNavDisabled
+    }]
+  }, ">", 2
+  /* CLASS */
+  )]), (openBlock(true), createBlock(Fragment, null, renderList(_ctx.months, function (month) {
+    return openBlock(), createBlock("span", {
+      class: ["cell month", {
+        selected: month.isSelected,
+        disabled: month.isDisabled
+      }],
+      key: month.timestamp,
+      onClick: withModifiers(function ($event) {
+        return _ctx.selectMonth(month);
+      }, ["stop"])
+    }, toDisplayString(month.month), 11
+    /* TEXT, CLASS, PROPS */
+    , ["onClick"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 38
+  /* CLASS, STYLE, HYDRATE_EVENTS */
+  )), [[vShow, _ctx.showMonthView]]);
 }
 
 script$2.render = render$2;
 script$2.__file = "src/components/datepicker/PickerMonth.vue";
-
 var script$3 = defineComponent({
   name: 'PickerYear',
   props: {
@@ -9795,15 +9852,16 @@ var script$3 = defineComponent({
       default: 'year'
     }
   },
+  emits: ['select-year', 'changed-decade'],
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
-
     /** ********************************** Methods  *********************************** */
 
     /**
      * Select year
      * @param {year}
      */
+
     function selectYear(year) {
       if (!year.isDisabled) {
         emit('select-year', year);
@@ -9852,7 +9910,7 @@ var script$3 = defineComponent({
 
 
     function isNextDecadeDisabled() {
-      var d = props.disabledDates;
+      var d = props.disabledDates; // console.log(d);
 
       if (!d || !d.from) {
         return false;
@@ -9860,7 +9918,8 @@ var script$3 = defineComponent({
 
       var disabledYear = getFullYear(d.from);
       var firstYearInNextPage = Math.ceil(getFullYear(props.pageDate) / 10) * 10;
-      return disabledYear < firstYearInNextPage;
+      console.log(disabledYear, firstYearInNextPage);
+      return disabledYear <= firstYearInNextPage;
     }
     /**
      * moves year to next decade
@@ -9908,8 +9967,8 @@ var script$3 = defineComponent({
         }
       }
 
-      if (typeof props.disabledDates.customPredictor === 'function' && props.disabledDates.customPredictor(date)) {
-        disabledDates = true;
+      if (typeof props.disabledDates.customPredictor === 'function') {
+        disabledDates = props.disabledDates.customPredictor(date);
       }
 
       return disabledDates;
@@ -10010,57 +10069,68 @@ var script$3 = defineComponent({
       getDisplayDate: getDisplayDate,
       currYearName: currYearName,
       currMonthName: currMonthName,
-      ifDifferentViews: ifDifferentViews
+      ifDifferentViews: ifDifferentViews,
+      // methods
+      isNextDecadeDisabled: isNextDecadeDisabled,
+      isPreviousDecadeDisabled: isPreviousDecadeDisabled,
+      isDisabledYear: isDisabledYear
     };
   }
 });
-
-const _hoisted_1$3 = {
-  key: 0,
-  class: "vuejs3-datepicker__selectedValues"
+var _hoisted_1$3 = {
+  key: 0
 };
-const _hoisted_2$3 = { class: "vuejs3-datepicker__year" };
-const _hoisted_3$1 = {
-  key: 0,
-  class: "vuejs3-datepicker__verbose"
+var _hoisted_2$2 = {
+  key: 0
 };
 
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
     class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
     style: _ctx.calendarStyle,
-    onMousedown: _cache[3] || (_cache[3] = withModifiers(() => {}, ["prevent"]))
-  }, [
-    renderSlot(_ctx.$slots, "beforeCalendarHeader"),
-    (_ctx.ifDifferentViews && _ctx.selectedDate)
-      ? (openBlock(), createBlock("section", _hoisted_1$3, [
-          createVNode("p", _hoisted_2$3, toDisplayString(_ctx.currYearName), 1 /* TEXT */),
-          (_ctx.selectedDate)
-            ? (openBlock(), createBlock("p", _hoisted_3$1, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1 /* TEXT */))
-            : createCommentVNode("v-if", true)
-        ]))
-      : createCommentVNode("v-if", true),
-    createVNode("header", null, [
-      createVNode("span", {
-        onClick: _cache[1] || (_cache[1] = $event => (_ctx.isRtl ? _ctx.nextDecade() : _ctx.previousDecade())),
-        class: ["prev", { disabled: _ctx.isLeftNavDisabled }]
-      }, "<", 2 /* CLASS */),
-      createVNode("span", null, toDisplayString(_ctx.getPageDecade), 1 /* TEXT */),
-      createVNode("span", {
-        onClick: _cache[2] || (_cache[2] = $event => (_ctx.isRtl ? _ctx.previousDecade() : _ctx.nextDecade())),
-        class: ["next", { disabled: _ctx.isRightNavDisabled }]
-      }, ">", 2 /* CLASS */)
-    ]),
-    (openBlock(true), createBlock(Fragment, null, renderList(_ctx.years, (year) => {
-      return (openBlock(), createBlock("span", {
-        class: ["cell year", { selected: year.isSelected, disabled: year.isDisabled }],
-        key: year.timestamp,
-        onClick: withModifiers($event => (_ctx.selectYear(year)), ["stop"])
-      }, toDisplayString(year.year), 11 /* TEXT, CLASS, PROPS */, ["onClick"]))
-    }), 128 /* KEYED_FRAGMENT */))
-  ], 38 /* CLASS, STYLE, HYDRATE_EVENTS */)), [
-    [vShow, _ctx.showYearView]
-  ])
+    onMousedown: _cache[3] || (_cache[3] = withModifiers(function () {}, ["prevent"]))
+  }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews ? (openBlock(), createBlock("section", _hoisted_1$3, [createVNode("p", null, toDisplayString(_ctx.currYearName), 1
+  /* TEXT */
+  ), _ctx.selectedDate ? (openBlock(), createBlock("p", _hoisted_2$2, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1
+  /* TEXT */
+  )) : createCommentVNode("v-if", true)])) : createCommentVNode("v-if", true), createVNode("header", null, [createVNode("span", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.isRtl ? _ctx.nextDecade() : _ctx.previousDecade();
+    }),
+    class: ["prev", {
+      disabled: _ctx.isLeftNavDisabled
+    }]
+  }, "<", 2
+  /* CLASS */
+  ), createVNode("span", null, toDisplayString(_ctx.getPageDecade), 1
+  /* TEXT */
+  ), createVNode("span", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.isRtl ? _ctx.previousDecade() : _ctx.nextDecade();
+    }),
+    class: ["next", {
+      disabled: _ctx.isRightNavDisabled
+    }]
+  }, ">", 2
+  /* CLASS */
+  )]), (openBlock(true), createBlock(Fragment, null, renderList(_ctx.years, function (year) {
+    return openBlock(), createBlock("span", {
+      class: ["cell year", {
+        selected: year.isSelected,
+        disabled: year.isDisabled
+      }],
+      key: year.timestamp,
+      onClick: withModifiers(function ($event) {
+        return _ctx.selectYear(year);
+      }, ["stop"])
+    }, toDisplayString(year.year), 11
+    /* TEXT, CLASS, PROPS */
+    , ["onClick"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 38
+  /* CLASS, STYLE, HYDRATE_EVENTS */
+  )), [[vShow, _ctx.showYearView]]);
 }
 
 script$3.render = render$3;
@@ -10113,7 +10183,6 @@ var data = {
   af: af(),
   en: en()
 };
-
 var script$4 = defineComponent({
   name: 'Datepicker',
   components: {
@@ -10627,143 +10696,143 @@ var script$4 = defineComponent({
 });
 
 function render$4(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_date_input = resolveComponent("date-input");
-  const _component_picker_day = resolveComponent("picker-day");
-  const _component_picker_month = resolveComponent("picker-month");
-  const _component_picker_year = resolveComponent("picker-year");
-  const _directive_clickoutside = resolveDirective("clickoutside");
+  var _component_date_input = resolveComponent("date-input");
+
+  var _component_picker_day = resolveComponent("picker-day");
+
+  var _component_picker_month = resolveComponent("picker-month");
+
+  var _component_picker_year = resolveComponent("picker-year");
+
+  var _directive_clickoutside = resolveDirective("clickoutside");
 
   return withDirectives((openBlock(), createBlock("div", {
     class: ["vuejs3-datepicker", [_ctx.wrapperClass, _ctx.isRtl ? 'rtl' : '']]
-  }, [
-    createVNode(_component_date_input, {
-      selectedDate: _ctx.selectedDate,
-      resetTypedDate: _ctx.resetTypedDate,
-      format: _ctx.format,
-      translation: _ctx.translation,
-      inline: _ctx.inline,
-      id: _ctx.id,
-      name: _ctx.name,
-      openDate: _ctx.openDate,
-      placeholder: _ctx.placeholder,
-      inputClass: _ctx.inputClass,
-      typeable: _ctx.typeable,
-      clearButton: _ctx.clearButton,
-      clearButtonIcon: _ctx.clearButtonIcon,
-      calendarButton: _ctx.calendarButton,
-      calendarButtonIcon: _ctx.calendarButtonIcon,
-      calendarButtonIconContent: _ctx.calendarButtonIconContent,
-      disabled: _ctx.disabled,
-      required: _ctx.required,
-      addBootstrapClass: _ctx.addBootstrapClass,
-      "use-utc": _ctx.useUtc,
-      onShowCalendar: _ctx.showCalendar,
-      onCloseCalendar: _ctx.close,
-      onTypedDate: _ctx.setTypedDate,
-      onClearDate: _ctx.clearDate,
-      minimumView: _ctx.minimumView,
-      maximumView: _ctx.maximumView,
-      hideInput: _ctx.hideInput
-    }, {
-      afterDateInput: withCtx(() => [
-        renderSlot(_ctx.$slots, "afterDateInput")
-      ]),
-      _: 1
-    }, 8 /* PROPS */, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput"]),
-    createCommentVNode("Day View  "),
-    (_ctx.allowedToShowView('day'))
-      ? (openBlock(), createBlock(_component_picker_day, {
-          key: 0,
-          pageDate: _ctx.pageDate,
-          selectedDate: _ctx.selectedDate,
-          showDayView: _ctx.showDayView,
-          fullMonthName: _ctx.fullMonthName,
-          allowedToShowView: _ctx.allowedToShowView,
-          disabledDates: _ctx.disabledDates,
-          highlighted: _ctx.highlighted,
-          calendarClass: _ctx.calendarClass,
-          calendarStyle: _ctx.calendarStyle,
-          translation: _ctx.translation,
-          pageTimestamp: _ctx.pageTimestamp,
-          isRtl: _ctx.isRtl,
-          mondayFirst: _ctx.mondayFirst,
-          dayCellContent: _ctx.dayCellContent,
-          onChangedMonth: _ctx.handleChangedMonthFromDayPicker,
-          onSelectDate: _ctx.selectDate,
-          onShowMonthCalendar: _ctx.showMonthCalendar,
-          onSelectedDisabled: _ctx.selectDisabledDate,
-          onShowYearCalendar: _ctx.showYearCalendar
-        }, {
-          beforeCalendarHeader: withCtx(() => [
-            renderSlot(_ctx.$slots, "beforeCalendarHeader")
-          ]),
-          _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar"]))
-      : createCommentVNode("v-if", true),
-    createCommentVNode("Month View "),
-    (_ctx.allowedToShowView('month'))
-      ? (openBlock(), createBlock(_component_picker_month, {
-          key: 1,
-          pageDate: _ctx.pageDate,
-          selectedDate: _ctx.selectedDate,
-          showMonthView: _ctx.showMonthView,
-          allowedToShowView: _ctx.allowedToShowView,
-          disabledDates: _ctx.disabledDates,
-          calendarClass: _ctx.calendarClass,
-          calendarStyle: _ctx.calendarStyle,
-          translation: _ctx.translation,
-          isRtl: _ctx.isRtl,
-          "use-utc": _ctx.useUtc,
-          onSelectMonth: _ctx.selectMonth,
-          onShowYearCalendar: _ctx.showYearCalendar,
-          onChangedYear: _ctx.setPageDate,
-          minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView
-        }, {
-          beforeCalendarHeader: withCtx(() => [
-            renderSlot(_ctx.$slots, "beforeCalendarHeader")
-          ]),
-          _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView"]))
-      : createCommentVNode("v-if", true),
-    createCommentVNode(" Year View "),
-    (_ctx.allowedToShowView('year'))
-      ? (openBlock(), createBlock(_component_picker_year, {
-          key: 2,
-          pageDate: _ctx.pageDate,
-          selectedDate: _ctx.selectedDate,
-          showYearView: _ctx.showYearView,
-          allowedToShowView: _ctx.allowedToShowView,
-          disabledDates: _ctx.disabledDates,
-          calendarClass: _ctx.calendarClass,
-          calendarStyle: _ctx.calendarStyle,
-          translation: _ctx.translation,
-          isRtl: _ctx.isRtl,
-          "use-utc": _ctx.useUtc,
-          onSelectYear: _ctx.selectYear,
-          onChangedDecade: _ctx.setPageDate,
-          fullMonthName: _ctx.fullMonthName,
-          minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView
-        }, {
-          beforeCalendarHeader: withCtx(() => [
-            renderSlot(_ctx.$slots, "beforeCalendarHeader")
-          ]),
-          _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView"]))
-      : createCommentVNode("v-if", true)
-  ], 2 /* CLASS */)), [
-    [_directive_clickoutside, {
-      handler: _ctx.inline ? null : _ctx.closeOnClickOutside,
-    }]
-  ])
+  }, [createVNode(_component_date_input, {
+    selectedDate: _ctx.selectedDate,
+    resetTypedDate: _ctx.resetTypedDate,
+    format: _ctx.format,
+    translation: _ctx.translation,
+    inline: _ctx.inline,
+    id: _ctx.id,
+    name: _ctx.name,
+    openDate: _ctx.openDate,
+    placeholder: _ctx.placeholder,
+    inputClass: _ctx.inputClass,
+    typeable: _ctx.typeable,
+    clearButton: _ctx.clearButton,
+    clearButtonIcon: _ctx.clearButtonIcon,
+    calendarButton: _ctx.calendarButton,
+    calendarButtonIcon: _ctx.calendarButtonIcon,
+    calendarButtonIconContent: _ctx.calendarButtonIconContent,
+    disabled: _ctx.disabled,
+    required: _ctx.required,
+    addBootstrapClass: _ctx.addBootstrapClass,
+    "use-utc": _ctx.useUtc,
+    onShowCalendar: _ctx.showCalendar,
+    onCloseCalendar: _ctx.close,
+    onTypedDate: _ctx.setTypedDate,
+    onClearDate: _ctx.clearDate,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView,
+    hideInput: _ctx.hideInput
+  }, {
+    afterDateInput: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "afterDateInput")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput"]), createCommentVNode("Day View  "), _ctx.allowedToShowView('day') ? (openBlock(), createBlock(_component_picker_day, {
+    key: 0,
+    pageDate: _ctx.pageDate,
+    selectedDate: _ctx.selectedDate,
+    showDayView: _ctx.showDayView,
+    fullMonthName: _ctx.fullMonthName,
+    allowedToShowView: _ctx.allowedToShowView,
+    disabledDates: _ctx.disabledDates,
+    highlighted: _ctx.highlighted,
+    calendarClass: _ctx.calendarClass,
+    calendarStyle: _ctx.calendarStyle,
+    translation: _ctx.translation,
+    pageTimestamp: _ctx.pageTimestamp,
+    isRtl: _ctx.isRtl,
+    mondayFirst: _ctx.mondayFirst,
+    dayCellContent: _ctx.dayCellContent,
+    onChangedMonth: _ctx.handleChangedMonthFromDayPicker,
+    onSelectDate: _ctx.selectDate,
+    onShowMonthCalendar: _ctx.showMonthCalendar,
+    onSelectedDisabled: _ctx.selectDisabledDate,
+    onShowYearCalendar: _ctx.showYearCalendar
+  }, {
+    beforeCalendarHeader: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar"])) : createCommentVNode("v-if", true), createCommentVNode("Month View "), _ctx.allowedToShowView('month') ? (openBlock(), createBlock(_component_picker_month, {
+    key: 1,
+    pageDate: _ctx.pageDate,
+    selectedDate: _ctx.selectedDate,
+    showMonthView: _ctx.showMonthView,
+    allowedToShowView: _ctx.allowedToShowView,
+    disabledDates: _ctx.disabledDates,
+    calendarClass: _ctx.calendarClass,
+    calendarStyle: _ctx.calendarStyle,
+    translation: _ctx.translation,
+    isRtl: _ctx.isRtl,
+    "use-utc": _ctx.useUtc,
+    onSelectMonth: _ctx.selectMonth,
+    onShowYearCalendar: _ctx.showYearCalendar,
+    onChangedYear: _ctx.setPageDate,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView
+  }, {
+    beforeCalendarHeader: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView"])) : createCommentVNode("v-if", true), createCommentVNode(" Year View "), _ctx.allowedToShowView('year') ? (openBlock(), createBlock(_component_picker_year, {
+    key: 2,
+    pageDate: _ctx.pageDate,
+    selectedDate: _ctx.selectedDate,
+    showYearView: _ctx.showYearView,
+    allowedToShowView: _ctx.allowedToShowView,
+    disabledDates: _ctx.disabledDates,
+    calendarClass: _ctx.calendarClass,
+    calendarStyle: _ctx.calendarStyle,
+    translation: _ctx.translation,
+    isRtl: _ctx.isRtl,
+    "use-utc": _ctx.useUtc,
+    onSelectYear: _ctx.selectYear,
+    onChangedDecade: _ctx.setPageDate,
+    fullMonthName: _ctx.fullMonthName,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView
+  }, {
+    beforeCalendarHeader: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView"])) : createCommentVNode("v-if", true)], 2
+  /* CLASS */
+  )), [[_directive_clickoutside, {
+    handler: _ctx.inline ? null : _ctx.closeOnClickOutside
+  }]]);
 }
 
 function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
+  if (ref === void 0) ref = {};
   var insertAt = ref.insertAt;
 
-  if (!css || typeof document === 'undefined') { return; }
+  if (!css || typeof document === 'undefined') {
+    return;
+  }
 
   var head = document.head || document.getElementsByTagName('head')[0];
   var style = document.createElement('style');
@@ -10786,12 +10855,10 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".rtl{direction:rtl}.vuejs3-datepicker{position:relative;text-align:left}.vuejs3-datepicker__value{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:10px;cursor:pointer;border:1px solid}.vuejs3-datepicker__content{margin-left:10px}.vuejs3-datepicker__selectedValues{padding:10px;background:#00b9f5;color:#fff;border-top-left-radius:15px;border-top-right-radius:15px}.vuejs3-datepicker__year{margin:0 0 10px;font-size:24px}.vuejs3-datepicker__verbose{margin:0 0 10px;font-size:18px}.vuejs3-datepicker__typeablecalendar{position:absolute;top:10px;left:10px}.vuejs3-datepicker__inputvalue{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;cursor:pointer;border:1px solid;padding:10px 10px 10px 35px}.vuejs3-datepicker *{box-sizing:border-box}.vuejs3-datepicker input{border:1px solid}.vuejs3-datepicker__calendar{position:absolute;z-index:100;background:#fff;width:300px;border:1px solid #000;border-radius:15px;border-top-left-radius:15px;border-top-right-radius:15px}.vuejs3-datepicker__calendar header{display:block;line-height:40px}.vuejs3-datepicker__calendar header span{text-align:center;width:71.42857142857143%;float:left}.vuejs3-datepicker__calendar header .next,.vuejs3-datepicker__calendar header .prev{width:14.285714285714286%;float:left;text-indent:-10000px;position:relative}.vuejs3-datepicker__calendar header .next:after,.vuejs3-datepicker__calendar header .prev:after{content:\"\";position:absolute;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);border:6px solid transparent}.vuejs3-datepicker__calendar header .prev:after{border-right:10px solid #000;margin-left:-5px}.vuejs3-datepicker__calendar header .prev.disabled:after{border-right:10px solid #000}.vuejs3-datepicker__calendar header .next:after{border-left:10px solid #000;margin-left:5px}.vuejs3-datepicker__calendar header .next.disabled:after{border-left:10px solid #ddd}.vuejs3-datepicker__calendar header .next:not(.disabled),.vuejs3-datepicker__calendar header .prev:not(.disabled),.vuejs3-datepicker__calendar header .up:not(.disabled){cursor:pointer}.vuejs3-datepicker__calendar header .next:not(.disabled):hover,.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,.vuejs3-datepicker__calendar header .up:not(.disabled):hover{background:#eee}.vuejs3-datepicker__calendar .disabled{color:#ddd;cursor:default}.vuejs3-datepicker__calendar .flex-rtl{display:-webkit-flex;display:-ms-flexbox;display:flex;width:inherit;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.vuejs3-datepicker__calendar .cell{display:inline-block;padding:0 5px;width:14.285714285714286%;height:40px;line-height:40px;text-align:center;vertical-align:middle;border:1px solid transparent}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year{cursor:pointer}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{border:1px solid #00b9f5;border-radius:50%}.vuejs3-datepicker__calendar .cell.selected,.vuejs3-datepicker__calendar .cell.selected:hover{background:#00b9f5;border-radius:50%}.vuejs3-datepicker__calendar .cell.selected.highlighted{background:#00b9f5;border-radius:0}.vuejs3-datepicker__calendar .cell.highlighted{background:#00b9f5}.vuejs3-datepicker__calendar .cell.highlighted.disabled{color:#a3a3a3}.vuejs3-datepicker__calendar .cell.grey{color:#485e7f}.vuejs3-datepicker__calendar .cell.grey:hover{background:inherit}.vuejs3-datepicker__calendar .cell.day-header{font-size:75%;white-space:nowrap;cursor:inherit}.vuejs3-datepicker__calendar .cell.day-header:hover{background:inherit}.vuejs3-datepicker__calendar .month,.vuejs3-datepicker__calendar .year{width:33.333%}.vuejs3-datepicker__calendar-button,.vuejs3-datepicker__clear-button{cursor:pointer;font-style:normal}.vuejs3-datepicker__calendar-button.disabled,.vuejs3-datepicker__clear-button.disabled{color:#999;cursor:default}.dp-error{color:red;font-size:12px}.backdrop{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:2;cursor:pointer}";
+var css_248z = ".rtl{direction:rtl}.vuejs3-datepicker{position:relative;text-align:left}.vuejs3-datepicker *{box-sizing:border-box}.vuejs3-datepicker input{border:1px solid}.vuejs3-datepicker__calendar{position:absolute;z-index:100;background:#fff;width:300px;border:1px solid #000}.vuejs3-datepicker__calendar header{display:block;line-height:40px}.vuejs3-datepicker__calendar header span{text-align:center;width:71.42857142857143%;float:left}.vuejs3-datepicker__calendar header .next,.vuejs3-datepicker__calendar header .prev{width:14.285714285714286%;float:left;text-indent:-10000px;position:relative}.vuejs3-datepicker__calendar header .next:after,.vuejs3-datepicker__calendar header .prev:after{content:\"\";position:absolute;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);border:6px solid transparent}.vuejs3-datepicker__calendar header .prev:after{border-right:10px solid #000;margin-left:-5px}.vuejs3-datepicker__calendar header .prev.disabled:after{border-right:10px solid #000}.vuejs3-datepicker__calendar header .next:after{border-left:10px solid #000;margin-left:5px}.vuejs3-datepicker__calendar header .next.disabled:after{border-left:10px solid #ddd}.vuejs3-datepicker__calendar header .next:not(.disabled),.vuejs3-datepicker__calendar header .prev:not(.disabled),.vuejs3-datepicker__calendar header .up:not(.disabled){cursor:pointer}.vuejs3-datepicker__calendar header .next:not(.disabled):hover,.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,.vuejs3-datepicker__calendar header .up:not(.disabled):hover{background:#eee}.vuejs3-datepicker__calendar .disabled{color:#ddd;cursor:default}.vuejs3-datepicker__calendar .flex-rtl{display:-webkit-flex;display:-ms-flexbox;display:flex;width:inherit;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.vuejs3-datepicker__calendar .cell{display:inline-block;padding:0 5px;width:14.285714285714286%;height:40px;line-height:40px;text-align:center;vertical-align:middle;border:1px solid transparent}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year{cursor:pointer}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{border:1px solid #4bd}.vuejs3-datepicker__calendar .cell.selected,.vuejs3-datepicker__calendar .cell.selected.highlighted,.vuejs3-datepicker__calendar .cell.selected:hover{background:#4bd}.vuejs3-datepicker__calendar .cell.highlighted{background:#cae5ed}.vuejs3-datepicker__calendar .cell.highlighted.disabled{color:#a3a3a3}.vuejs3-datepicker__calendar .cell.grey{color:#888}.vuejs3-datepicker__calendar .cell.grey:hover{background:inherit}.vuejs3-datepicker__calendar .cell.day-header{font-size:75%;white-space:nowrap;cursor:inherit}.vuejs3-datepicker__calendar .cell.day-header:hover{background:inherit}.vuejs3-datepicker__calendar .month,.vuejs3-datepicker__calendar .year{width:33.333%}.vuejs3-datepicker__calendar-button,.vuejs3-datepicker__clear-button{cursor:pointer;font-style:normal}.vuejs3-datepicker__calendar-button.disabled,.vuejs3-datepicker__clear-button.disabled{color:#999;cursor:default}.dp-error{color:red;font-size:12px}.backdrop{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:2;cursor:pointer}";
 styleInject(css_248z);
-
 script$4.render = render$4;
 script$4.__file = "src/components/datepicker/Datepicker.vue";
-
 var script$5 = defineComponent({
   name: 'App-Home',
   components: {
@@ -10847,204 +10914,243 @@ var script$5 = defineComponent({
   }
 });
 
-const _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
+var _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
 
 pushScopeId("data-v-7ba5bd90");
-const _hoisted_1$4 = { id: "app" };
-const _hoisted_2$4 = { class: "ind" };
-const _hoisted_3$2 = /*#__PURE__*/createVNode("label", null, "Typeable", -1 /* HOISTED */);
-const _hoisted_4$1 = { class: "wrapper" };
-const _hoisted_5$1 = { class: "ind" };
-const _hoisted_6$1 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
-const _hoisted_7$1 = { class: "ind" };
-const _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, "Default Value", -1 /* HOISTED */);
-const _hoisted_9$1 = { class: "ind" };
-const _hoisted_10$1 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1 /* HOISTED */);
-const _hoisted_11 = { class: "ind" };
-const _hoisted_12 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1 /* HOISTED */);
-const _hoisted_13 = { class: "ind" };
-const _hoisted_14 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1 /* HOISTED */);
-const _hoisted_15 = {
-  class: "ind",
-  style: {"flex-direction":"column"}
+var _hoisted_1$4 = {
+  id: "app"
 };
-const _hoisted_16 = { style: {"justify-content":"space-between","display":"flex","width":"100%"} };
-const _hoisted_17 = /*#__PURE__*/createVNode("label", null, "V Model", -1 /* HOISTED */);
-const _hoisted_18 = /*#__PURE__*/createVNode("br", null, null, -1 /* HOISTED */);
-const _hoisted_19 = { class: "ind" };
-const _hoisted_20 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
-const _hoisted_21 = { class: "ind" };
-const _hoisted_22 = /*#__PURE__*/createVNode("label", null, "Day View", -1 /* HOISTED */);
-const _hoisted_23 = { class: "ind" };
-const _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
-const _hoisted_25 = { class: "ind" };
-const _hoisted_26 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
-const _hoisted_27 = { class: "ind" };
-const _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
+var _hoisted_2$3 = {
+  class: "ind"
+};
+
+var _hoisted_3$1 = /*#__PURE__*/createVNode("label", null, "Typeable", -1
+/* HOISTED */
+);
+
+var _hoisted_4$1 = {
+  class: "wrapper"
+};
+var _hoisted_5$1 = {
+  class: "ind"
+};
+
+var _hoisted_6$1 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1
+/* HOISTED */
+);
+
+var _hoisted_7$1 = {
+  class: "ind"
+};
+
+var _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, "Default Value", -1
+/* HOISTED */
+);
+
+var _hoisted_9$1 = {
+  class: "ind"
+};
+
+var _hoisted_10 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  class: "ind"
+};
+
+var _hoisted_12 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  class: "ind"
+};
+
+var _hoisted_14 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1
+/* HOISTED */
+);
+
+var _hoisted_15 = {
+  class: "ind",
+  style: {
+    "flex-direction": "column"
+  }
+};
+var _hoisted_16 = {
+  style: {
+    "justify-content": "space-between",
+    "display": "flex",
+    "width": "100%"
+  }
+};
+
+var _hoisted_17 = /*#__PURE__*/createVNode("label", null, "V Model", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/createVNode("br", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  class: "ind"
+};
+
+var _hoisted_20 = /*#__PURE__*/createVNode("label", null, "Inline ", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = {
+  class: "ind"
+};
+
+var _hoisted_22 = /*#__PURE__*/createVNode("label", null, "Day View", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  class: "ind"
+};
+
+var _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Month View", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  class: "ind"
+};
+
+var _hoisted_26 = /*#__PURE__*/createVNode("label", null, "Year View", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  class: "ind"
+};
+
+var _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Year View", -1
+/* HOISTED */
+);
+
 popScopeId();
 
-const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_appdate_picker = resolveComponent("appdate-picker");
+var render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_appdate_picker = resolveComponent("appdate-picker");
 
-  return (openBlock(), createBlock("div", _hoisted_1$4, [
-    createVNode("div", _hoisted_2$4, [
-      _hoisted_3$2,
-      createVNode(_component_appdate_picker, {
-        "full-month-name": true,
-        "input-class": "customClass",
-        placeholder: "Select Date",
-        typeable: true,
-        hideInput: false,
-        onInput: _ctx.dateSelected
-      }, null, 8 /* PROPS */, ["onInput"])
-    ]),
-    createVNode("div", _hoisted_4$1, [
-      createVNode("div", _hoisted_5$1, [
-        _hoisted_6$1,
-        createVNode(_component_appdate_picker, {
-          ref: "inputRef",
-          onSelected: _ctx.handleSelectDate,
-          highlighted: _ctx.highlightDates,
-          value: _ctx.emptyDate,
-          onClosed: _ctx.handleCalendarClose,
-          placeholder: "Select Date"
-        }, null, 8 /* PROPS */, ["onSelected", "highlighted", "value", "onClosed"]),
-        createVNode("button", {
-          onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.checkDatePicker(...args)))
-        }, "Check DatePicker")
-      ]),
-      createVNode("div", _hoisted_7$1, [
-        _hoisted_8$1,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Date",
-          onInput: _ctx.dateSelected,
-          value: _ctx.defaultValue,
-          "disabled-dates": {
-            dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
-          },
-          highlighted: {
-            to: new Date(2020, 12, 16),
-            from: new Date(2020, 11, 17),
-          }
-        }, null, 8 /* PROPS */, ["onInput", "value", "disabled-dates", "highlighted"]),
-        createVNode("button", {
-          onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.changeDefaultValue(...args)))
-        }, "Change Default Value")
-      ]),
-      createVNode("div", _hoisted_9$1, [
-        _hoisted_10$1,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Date",
-          onInput: _ctx.dateSelected,
-          "disabled-dates": {
-            to: new Date(2020, 10, 5),
-            from: new Date(2020, 10, 16),
-          }
-        }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
-      ]),
-      createVNode("div", _hoisted_11, [
-        _hoisted_12,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Date",
-          onInput: _ctx.dateSelected,
-          "disabled-dates": {
-            dates: [
-              new Date(2020, 11, 16),
-              new Date(2020, 11, 17),
-              new Date(2020, 11, 18),
-              new Date(2020, 11, 19),
-              new Date(2020, 11, 20),
-            ],
-          }
-        }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
-      ])
-    ]),
-    createVNode("div", _hoisted_13, [
-      _hoisted_14,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        onInput: _ctx.dateSelected,
-        highlighted: {
-          to: new Date(2020, 11, 16),
-          from: new Date(2020, 10, 17),
-        }
-      }, null, 8 /* PROPS */, ["onInput", "highlighted"])
-    ]),
-    createVNode("div", _hoisted_15, [
-      createVNode("div", _hoisted_16, [
-        _hoisted_17,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Date",
-          modelValue: _ctx.dateinput,
-          "onUpdate:modelValue": [
-            _cache[3] || (_cache[3] = $event => (_ctx.dateinput = $event)),
-            _ctx.dateSelected
-          ]
-        }, null, 8 /* PROPS */, ["modelValue", "onUpdate:modelValue"])
-      ]),
-      _hoisted_18,
-      createVNode("div", null, toDisplayString(_ctx.dateinput), 1 /* TEXT */),
-      createVNode("button", {
-        onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.changedVmodel(...args)))
-      }, "Change Date Input")
-    ]),
-    createVNode("div", _hoisted_19, [
-      _hoisted_20,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        inline: true,
-        onInput: _ctx.dateSelected
-      }, null, 8 /* PROPS */, ["onInput"])
-    ]),
-    createVNode("div", _hoisted_21, [
-      _hoisted_22,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        "minimum-view": 'day',
-        "maximum-view": 'day',
-        onInput: _ctx.handleChangedDay
-      }, null, 8 /* PROPS */, ["onInput"])
-    ]),
-    createVNode("div", _hoisted_23, [
-      _hoisted_24,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        value: new Date(),
-        "minimum-view": 'month',
-        "maximum-view": 'month',
-        onChangedMonth: _ctx.handleChangedMonth
-      }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
-    ]),
-    createVNode("div", _hoisted_25, [
-      _hoisted_26,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        value: new Date(),
-        "minimum-view": 'year',
-        "maximum-view": 'year',
-        onChangedYear: _ctx.handleChangedYear
-      }, null, 8 /* PROPS */, ["value", "onChangedYear"])
-    ]),
-    createVNode("div", _hoisted_27, [
-      _hoisted_28,
-      createVNode(_component_appdate_picker, {
-        placeholder: "Select Date",
-        value: new Date(),
-        "minimum-view": 'year',
-        "maximum-view": 'year',
-        onChangedYear: _ctx.handleChangedYear
-      }, null, 8 /* PROPS */, ["value", "onChangedYear"])
-    ])
-  ]))
+  return openBlock(), createBlock("div", _hoisted_1$4, [createVNode("div", _hoisted_2$3, [_hoisted_3$1, createVNode(_component_appdate_picker, {
+    "full-month-name": true,
+    "input-class": "customClass",
+    placeholder: "select date",
+    typeable: true,
+    hideInput: false,
+    onInput: _ctx.dateSelected
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])]), createVNode("div", _hoisted_4$1, [createVNode("div", _hoisted_5$1, [_hoisted_6$1, createVNode(_component_appdate_picker, {
+    ref: "inputRef",
+    onSelected: _ctx.handleSelectDate,
+    highlighted: _ctx.highlightDates,
+    value: _ctx.emptyDate,
+    onClosed: _ctx.handleCalendarClose
+  }, null, 8
+  /* PROPS */
+  , ["onSelected", "highlighted", "value", "onClosed"]), createVNode("button", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.checkDatePicker.apply(_ctx, arguments);
+    })
+  }, "Check DatePicker")]), createVNode("div", _hoisted_7$1, [_hoisted_8$1, createVNode(_component_appdate_picker, {
+    onInput: _ctx.dateSelected,
+    value: _ctx.defaultValue,
+    "disabled-dates": {
+      dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)]
+    },
+    highlighted: {
+      to: new Date(2020, 12, 16),
+      from: new Date(2020, 11, 17)
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "value", "disabled-dates", "highlighted"]), createVNode("button", {
+    onClick: _cache[2] || (_cache[2] = function () {
+      return _ctx.changeDefaultValue.apply(_ctx, arguments);
+    })
+  }, "Change Default Value")]), createVNode("div", _hoisted_9$1, [_hoisted_10, createVNode(_component_appdate_picker, {
+    onInput: _ctx.dateSelected,
+    "disabled-dates": {
+      to: new Date(2020, 10, 5),
+      from: new Date(2020, 10, 16)
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "disabled-dates"])]), createVNode("div", _hoisted_11, [_hoisted_12, createVNode(_component_appdate_picker, {
+    onInput: _ctx.dateSelected,
+    "disabled-dates": {
+      dates: [new Date(2020, 11, 16), new Date(2020, 11, 17), new Date(2020, 11, 18), new Date(2020, 11, 19), new Date(2020, 11, 20)]
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "disabled-dates"])])]), createVNode("div", _hoisted_13, [_hoisted_14, createVNode(_component_appdate_picker, {
+    onInput: _ctx.dateSelected,
+    highlighted: {
+      to: new Date(2020, 11, 16),
+      from: new Date(2020, 10, 17)
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "highlighted"])]), createVNode("div", _hoisted_15, [createVNode("div", _hoisted_16, [_hoisted_17, createVNode(_component_appdate_picker, {
+    modelValue: _ctx.dateinput,
+    "onUpdate:modelValue": [_cache[3] || (_cache[3] = function ($event) {
+      return _ctx.dateinput = $event;
+    }), _ctx.dateSelected]
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "onUpdate:modelValue"])]), _hoisted_18, createVNode("div", null, toDisplayString(_ctx.dateinput), 1
+  /* TEXT */
+  ), createVNode("button", {
+    onClick: _cache[4] || (_cache[4] = function () {
+      return _ctx.changedVmodel.apply(_ctx, arguments);
+    })
+  }, "Change Date Input")]), createVNode("div", _hoisted_19, [_hoisted_20, createVNode(_component_appdate_picker, {
+    inline: true,
+    onInput: _ctx.dateSelected
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])]), createVNode("div", _hoisted_21, [_hoisted_22, createVNode(_component_appdate_picker, {
+    "minimum-view": 'day',
+    "maximum-view": 'day',
+    onInput: _ctx.handleChangedDay
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])]), createVNode("div", _hoisted_23, [_hoisted_24, createVNode(_component_appdate_picker, {
+    value: new Date(),
+    "minimum-view": 'month',
+    "maximum-view": 'month',
+    onChangedMonth: _ctx.handleChangedMonth
+  }, null, 8
+  /* PROPS */
+  , ["value", "onChangedMonth"])]), createVNode("div", _hoisted_25, [_hoisted_26, createVNode(_component_appdate_picker, {
+    value: new Date(),
+    "minimum-view": 'year',
+    "maximum-view": 'year',
+    onChangedYear: _ctx.handleChangedYear
+  }, null, 8
+  /* PROPS */
+  , ["value", "onChangedYear"])]), createVNode("div", _hoisted_27, [_hoisted_28, createVNode(_component_appdate_picker, {
+    value: new Date(),
+    "minimum-view": 'year',
+    "maximum-view": 'year',
+    onChangedYear: _ctx.handleChangedYear
+  }, null, 8
+  /* PROPS */
+  , ["value", "onChangedYear"])])]);
 });
 
 var css_248z$1 = ".ind[data-v-7ba5bd90]{-webkit-align-items:center;-ms-flex-align:center;align-items:center;max-width:400px;padding:20px;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}.ind[data-v-7ba5bd90],.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex}.wrapper[data-v-7ba5bd90]{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}";
 styleInject(css_248z$1);
-
 script$5.render = render$5;
 script$5.__scopeId = "data-v-7ba5bd90";
 script$5.__file = "src/App.vue";
-
 var app = createApp(script$5);
 app.directive('clickoutside', ClickOutside);
 app.mount('#app');

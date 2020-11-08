@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/42</span>
+                <span class='fraction'>0/40</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/42</span>
+                <span class='fraction'>0/40</span>
             </div>
         
             
@@ -309,13 +309,9 @@
 <a name='L250'></a><a href='#L250'>250</a>
 <a name='L251'></a><a href='#L251'>251</a>
 <a name='L252'></a><a href='#L252'>252</a>
-<a name='L253'></a><a href='#L253'>253</a>
-<a name='L254'></a><a href='#L254'>254</a>
-<a name='L255'></a><a href='#L255'>255</a>
-<a name='L256'></a><a href='#L256'>256</a>
-<a name='L257'></a><a href='#L257'>257</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L253'></a><a href='#L253'>253</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -496,10 +492,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -570,8 +562,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-<span class="cstat-no" title="statement not covered" >  &lt;div :class="{ 'input-group': addBootstrapClass }"&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;!-- Calendar Button --&gt;</span>
+  &lt;div :class="{ 'input-group': addBootstrapClass }"&gt;
+    &lt;!-- Calendar Button --&gt;
     &lt;span
       v-if="calendarButton"
       class="vuejs3-datepicker__calendar-button"
@@ -586,12 +578,11 @@
         &lt;/i&gt;
       &lt;/span&gt;
     &lt;/span&gt;
-    &lt;div v-if="typeable || !hideInput" style="position: relative"&gt;
-      &lt;span v-if="!inline"&gt;&lt;img src="../../assets/calendar.svg" class="vuejs3-datepicker__typeablecalendar"/&gt;&lt;/span&gt;
+    &lt;div v-if="typeable || !hideInput"&gt;
+      &lt;span v-if="!inline"&gt;&lt;img src="../../assets/calendar.svg"/&gt;&lt;/span&gt;
       &lt;input
         :type="inline ? 'hidden' : 'text'"
         :class="computedInputClass"
-        class="vuejs3-datepicker__inputvalue"
         :name="name"
         ref="inputRef"
         :id="id"
@@ -608,12 +599,9 @@
         autocomplete="off"
       /&gt;
     &lt;/div&gt;
-    &lt;div v-else @click="showCalendar"&gt;
-      &lt;div class="vuejs3-datepicker__value" v-if="!inline"&gt;
-        &lt;span&gt;&lt;img src="../../assets/calendar.svg"/&gt;&lt;/span&gt;
-        &lt;div class="vuejs3-datepicker__content" v-if="formattedValue"&gt;{{ formattedValue }}&lt;/div&gt;
-        &lt;div v-else class="vuejs3-datepicker__content"&gt;{{ placeholder }}&lt;/div&gt;
-      &lt;/div&gt;
+    &lt;div v-else @click="showCalendar" style="width: 400px;border: 1px solid black;"&gt;
+      &lt;span v-if="!inline"&gt;&lt;img src="../../assets/calendar.svg"/&gt;&lt;/span&gt;
+      &lt;div v-if="!inline"&gt;{{ formattedValue }}&lt;/div&gt;
     &lt;/div&gt;
     &lt;span
       v-if="clearButton &amp;&amp; selectedDate"
@@ -650,112 +638,112 @@ export default defineComponent({
     translation: {
       type: Object,
     },
-<span class="fstat-no" title="function not covered" >    inline: {</span>
-<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
+    inline: {
+      type: Boolean,
+    },
     id: {
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      type: String,</span></span>
+<span class="fstat-no" title="function not covered" >      type: String,</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >    name: {</span>
-<span class="cstat-no" title="statement not covered" >      type: String,</span>
-    },
-    openDate: {
+      type: String,
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    },</span></span>
+<span class="cstat-no" title="statement not covered" >    openDate: {</span>
 <span class="cstat-no" title="statement not covered" >      type: Date,</span>
-    },
+<span class="cstat-no" title="statement not covered" >    },</span>
     placeholder: {
       type: String,
 <span class="cstat-no" title="statement not covered" >    },</span>
     inputClass: {
       type: String,
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    },</span></span>
+    },
 <span class="cstat-no" title="statement not covered" >    clearButton: {</span>
-<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
-    },
-<span class="cstat-no" title="statement not covered" >    clearButtonIcon: {</span>
-<span class="cstat-no" title="statement not covered" >      type: String,</span>
-    },
-    calendarButton: {
-<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
-    },
-    calendarButtonIcon: {
-      type: String,
-    },
-<span class="cstat-no" title="statement not covered" >    calendarButtonIconContent: {</span>
-<span class="cstat-no" title="statement not covered" >      type: String,</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    disabled: {</span>
-<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
-<span class="cstat-no" title="statement not covered" >    },</span>
-    required: {
       type: Boolean,
     },
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    clearButtonIcon: {</span></span>
+<span class="cstat-no" title="statement not covered" >      type: String,</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+    calendarButton: {
+<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+    calendarButtonIcon: {
+      type: String,
+<span class="cstat-no" title="statement not covered" >    },</span>
+    calendarButtonIconContent: {
+      type: String,
+    },
+    disabled: {
+<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    required: {</span>
+<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
 <span class="cstat-no" title="statement not covered" >    typeable: {</span>
       type: Boolean,
     },
     addBootstrapClass: {
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      type: Boolean,</span></span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    },</span></span>
-    useUtc: {
 <span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
     },
-    minimumView: {
+    useUtc: {
+      type: Boolean,
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    },</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    minimumView: {</span></span>
       type: String,
-      default: 'day',
+<span class="cstat-no" title="statement not covered" >      default: 'day',</span>
     },
     maximumView: {
-<span class="fstat-no" title="function not covered" >      type: String,</span>
-<span class="cstat-no" title="statement not covered" >      default: 'year',</span>
+      type: String,
+      default: 'year',
     },
     hideInput: {
-      type: Boolean,
-      default: true,
+<span class="fstat-no" title="function not covered" >      type: Boolean,</span>
+<span class="cstat-no" title="statement not covered" >      default: true,</span>
     },
   },
-<span class="fstat-no" title="function not covered" >  emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],</span>
-<span class="cstat-no" title="statement not covered" >  setup(props, { emit }) {</span>
+  emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
+  setup(props, { emit }) {
     const typedDate = ref&lt;string | number&gt;();
     const inputRef = ref(null);
-    // computed
-    const computedInputClass = computed(() =&gt; {
+<span class="fstat-no" title="function not covered" >    // computed</span>
+<span class="cstat-no" title="statement not covered" >    const computedInputClass = computed(() =&gt; {</span>
       if (props.addBootstrapClass) {
-<span class="cstat-no" title="statement not covered" >        if (typeof props.inputClass === 'string') {</span>
+        if (typeof props.inputClass === 'string') {
           return [props.inputClass, 'form-control'].join(' ');
-<span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >        // tbd : need to add here props.inputClass</span>
+        }
+        // tbd : need to add here props.inputClass
 <span class="cstat-no" title="statement not covered" >        return {</span>
-<span class="cstat-no" title="statement not covered" >          'form-control': true,</span>
+          'form-control': true,
 <span class="cstat-no" title="statement not covered" >        };</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
-      return props.inputClass;
-    });
-&nbsp;
-    const formattedValue = computed(() =&gt; {
+<span class="cstat-no" title="statement not covered" >      return props.inputClass;</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const formattedValue = computed(() =&gt; {</span>
       if (!props.selectedDate) {
         return null;
       }
-<span class="fstat-no" title="function not covered" >      if (typedDate.value) {</span>
-<span class="cstat-no" title="statement not covered" >        return typedDate.value;</span>
+      if (typedDate.value) {
+        return typedDate.value;
       }
 &nbsp;
-      let date =
-        typeof props.format === 'function'
+<span class="fstat-no" title="function not covered" >      let date =</span>
+<span class="cstat-no" title="statement not covered" >        typeof props.format === 'function'</span>
           ? props.format(props.selectedDate)
           : formatDate(new Date(props.selectedDate), props.format as any, props.translation as any);
-<span class="fstat-no" title="function not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      if (props.minimumView === props.maximumView) {</span>
-<span class="cstat-no" title="statement not covered" >        const [, y, z] = date.split(' ');</span>
-        if (props.maximumView === 'month') {
-<span class="cstat-no" title="statement not covered" >          date = y;</span>
-<span class="cstat-no" title="statement not covered" >        } else if (props.maximumView === 'year') {</span>
-          date = z;
-<span class="cstat-no" title="statement not covered" >        }</span>
-      }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return date;</span>
-    });
+      if (props.minimumView === props.maximumView) {
+        const [, y, z] = date.split(' ');
+        if (props.maximumView === 'month') {
+<span class="fstat-no" title="function not covered" >          date = y;</span>
+<span class="cstat-no" title="statement not covered" >        } else if (props.maximumView === 'year') {</span>
+<span class="cstat-no" title="statement not covered" >          date = z;</span>
+        }
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+      return date;
+<span class="cstat-no" title="statement not covered" >    });</span>
 &nbsp;
     // watchers
-    watch(
+<span class="cstat-no" title="statement not covered" >    watch(</span>
       () =&gt; props.resetTypedDate,
       () =&gt; {
         typedDate.value = '';
@@ -832,7 +820,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Nov 08 2020 11:18:48 GMT+0530 (India Standard Time)
+                at Sun Nov 08 2020 13:48:41 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
