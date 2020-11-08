@@ -6,31 +6,27 @@
     @mousedown.prevent
   >
     <slot name="beforeCalendarHeader"></slot>
-    <section v-if="ifDifferentViews" class="vuejs3-datepicker__calendar-topbar">
-      <p class="vuejs3-datepicker__calendar-topbar-year">{{ currYearName }}</p>
-      <p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate">
-        {{ getDayName }} {{ getDisplayDate }} {{ monthName }}
-      </p>
+    <section v-if="ifDifferentViews">
+      <p>{{ currYearName }}</p>
+      <p v-if="selectedDate">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
     </section>
-    <div class="vuejs3-datepicker__calendar-actionarea">
-      <header>
-        <span @click="isRtl ? nextDecade() : previousDecade()" class="prev" :class="{ disabled: isLeftNavDisabled }"
-          >&lt;</span
-        >
-        <span>{{ getPageDecade }}</span>
-        <span @click="isRtl ? previousDecade() : nextDecade()" class="next" :class="{ disabled: isRightNavDisabled }"
-          >&gt;</span
-        >
-      </header>
-      <span
-        class="cell year"
-        v-for="year in years"
-        :key="year.timestamp"
-        :class="{ selected: year.isSelected, disabled: year.isDisabled }"
-        @click.stop="selectYear(year)"
-        >{{ year.year }}</span
+    <header>
+      <span @click="isRtl ? nextDecade() : previousDecade()" class="prev" :class="{ disabled: isLeftNavDisabled }"
+        >&lt;</span
       >
-    </div>
+      <span>{{ getPageDecade }}</span>
+      <span @click="isRtl ? previousDecade() : nextDecade()" class="next" :class="{ disabled: isRightNavDisabled }"
+        >&gt;</span
+      >
+    </header>
+    <span
+      class="cell year"
+      v-for="year in years"
+      :key="year.timestamp"
+      :class="{ selected: year.isSelected, disabled: year.isDisabled }"
+      @click.stop="selectYear(year)"
+      >{{ year.year }}</span
+    >
   </div>
 </template>
 <script lang="ts">
