@@ -8696,9 +8696,9 @@ var script = defineComponent({
 
             var i = (_props$translation = props.translation) === null || _props$translation === void 0 ? void 0 : _props$translation.monthsAbbr.indexOf(y);
             return (_props$translation2 = props.translation) === null || _props$translation2 === void 0 ? void 0 : _props$translation2.months[i];
-          } else {
-            date = y;
           }
+
+          date = y;
         } else if (props.maximumView === 'year') {
           date = z;
         }
@@ -10947,9 +10947,9 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         placeholder: "Select Date",
         onInput: _ctx.dateSelected,
         "disabled-dates": {
-            to: new Date(2020, 10, 5),
-            from: new Date(2020, 10, 16),
-          }
+          to: new Date(2020, 10, 5),
+          from: new Date(2020, 10, 16),
+        }
       }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
     ]),
     createVNode("div", _hoisted_6$1, [
@@ -10958,14 +10958,14 @@ const render$5 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         placeholder: "Select Date",
         onInput: _ctx.dateSelected,
         "disabled-dates": {
-            dates: [
-              new Date(2020, 11, 16),
-              new Date(2020, 11, 17),
-              new Date(2020, 11, 18),
-              new Date(2020, 11, 19),
-              new Date(2020, 11, 20),
-            ],
-          }
+          dates: [
+            new Date(2020, 11, 16),
+            new Date(2020, 11, 17),
+            new Date(2020, 11, 18),
+            new Date(2020, 11, 19),
+            new Date(2020, 11, 20),
+          ],
+        }
       }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
     ]),
     createVNode("div", _hoisted_8$1, [
