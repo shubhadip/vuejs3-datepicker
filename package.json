@@ -23,6 +23,7 @@
     "prepublishOnly": "npm run lint && npm run build"
   },
   "dependencies": {
+    "highlight.js": "^10.3.2",
     "vue": "^3.0.0"
   },
   "devDependencies": {

@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <pre v-codehigh="sourcecode">
+      <code class="javascript test"></code>
+    </pre>
     <div class="ind">
       <label>Typeable</label>
       <appdate-picker
@@ -146,11 +149,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Datepicker from './components/datepicker/Datepicker.vue';
+import codeHigh from './directives/code-highlight';
 
 export default defineComponent({
   name: 'App-Home',
   components: {
     'appdate-picker': Datepicker,
+  },
+  directives: {
+    codehigh: codeHigh,
   },
   data() {
     return {
@@ -167,6 +174,7 @@ export default defineComponent({
       initialDate: new Date(),
       dateinput: new Date(),
       emptyDate: null,
+      sourcecode: 'const s = new Date().toString()',
     };
   },
   computed: {},
@@ -222,5 +230,9 @@ label {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.test {
+  color: white;
+  background: red;
 }
 </style>

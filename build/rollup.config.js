@@ -15,7 +15,6 @@ import minimist from 'minimist';
 import nested from 'postcss-nested';
 import image from '@rollup/plugin-image';
 import postcssImport from 'postcss-import';
-
 import { terser } from 'rollup-plugin-terser';
 
 const postcssPluginList = [
@@ -115,6 +114,17 @@ const capitalize = (s) => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
+const pluginsList = [typescript(),
+  commonjs(),
+  replace(baseConfig.plugins.replace),
+  ...baseConfig.plugins.preVue,
+  vue(baseConfig.plugins.vue),
+  ...baseConfig.plugins.postVue,
+  babel({
+    ...baseConfig.plugins.babel,
+    presets: [['@babel/preset-env', { modules: false }]],
+  })];
+
 // Customize configs for individual targets
 let buildFormats = [];
 
@@ -124,47 +134,23 @@ if (!argv.format) {
     input: './src/components/datepicker/Datepicker.vue',
     external,
     output: {
-      // format: 'esm',
-      // dir: 'dist/esm',
-      // exports: 'named',
       format: 'esm',
       file: 'dist/datepicker.esm.js',
     },
     plugins: [
-      typescript(),
-      commonjs(),
-      replace(baseConfig.plugins.replace),
-      ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
-      ...baseConfig.plugins.postVue,
-      babel({
-        ...baseConfig.plugins.babel,
-        presets: [['@babel/preset-env', { modules: false }]],
-      }),
+      ...pluginsList,
     ],
   };
   const cjsBuild = {
     input: './src/components/datepicker/Datepicker.vue',
     external,
     output: {
-      // format: 'cjs',
-      // dir: 'dist/cjs',
-      // exports: 'named',
       format: 'esm',
       file: 'dist/datepicker.cjs.js',
       globals
     },
     plugins: [
-      typescript(),
-      commonjs(),
-      replace(baseConfig.plugins.replace),
-      ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
-      ...baseConfig.plugins.postVue,
-      babel({
-        ...baseConfig.plugins.babel,
-        presets: [['@babel/preset-env', { modules: false }]],
-      }),
+      ...pluginsList,
     ],
   };
   const umdBuild = {
@@ -173,28 +159,16 @@ if (!argv.format) {
     output: {
       format: 'umd',
       name: capitalize('datepicker'),
-      // dir: 'dist/umd',
-      // exports: 'named',
       file: 'dist/datepicker.min.js',
       globals
-      // globals,
     },
     plugins: [
-      typescript(),
-      commonjs(),
-      replace(baseConfig.plugins.replace),
-      ...baseConfig.plugins.preVue,
-      vue(baseConfig.plugins.vue),
-      ...baseConfig.plugins.postVue,
-      babel({
-        ...baseConfig.plugins.babel,
-        presets: [['@babel/preset-env', { modules: false }]],
-      }),
+      ...pluginsList,
       terser({
         output: {
           comments: '/^!/',
         },
-      })
+      }),
     ],
   };
   buildFormats.push(esConfig);

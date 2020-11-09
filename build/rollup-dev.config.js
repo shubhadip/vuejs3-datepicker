@@ -101,7 +101,8 @@ let buildFormats = [];
       livereload({
         verbose: true,
         watch: path.join(__dirname, '..', 'example')
-      })
+      }),
+      resolve(),
     ],
   };
   
