@@ -41,7 +41,7 @@
     </div>
     <div v-else @click="showCalendar">
       <div class="vuejs3-datepicker__value" v-if="!inline">
-        <span><IconView /></span>
+        <span class="vuejs3-datepicker__icon"><IconView /></span>
         <div class="vuejs3-datepicker__content" v-if="formattedValue">{{ formattedValue }}</div>
         <div v-else class="vuejs3-datepicker__content">{{ placeholder }}</div>
       </div>
