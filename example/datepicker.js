@@ -40473,7 +40473,7 @@ var script$5 = defineComponent({
       initialDate: new Date(),
       dateinput: new Date(),
       emptyDate: null,
-      sourcecode: "const s = new Date().toString()"
+      sourcecode: 'const s = new Date().toString()'
     };
   },
   computed: {},
