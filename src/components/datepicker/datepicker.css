@@ -6,23 +6,27 @@
 
 .vuejs3-datepicker {
   position: relative;
-  text-align: left;
+  display: inline-block;
   * {
     box-sizing: border-box;
   }
   input {
     border: 1px solid;
   }
+  &__icon {
+    display: flex;
+  }
   &__value {
     min-width: 200px;
     display: inline-flex;
     border-radius: 5px;
-    padding: 10px;
+    padding: 13px 15px;
     cursor: pointer;
     border: 1px solid ;
   }
   &__content{
     margin-left: 10px;
+    font-size: 15px;
   }
 
   &__typeablecalendar{
@@ -34,10 +38,9 @@
     min-width: 200px;
     display: inline-flex;
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px 10px 13px 35px;
     cursor: pointer;
     border: 1px solid ;
-    padding-left: 35px;
   }
   &__calendar {
     position: absolute;
@@ -46,9 +49,11 @@
     width: 300px;
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
     border-radius: 4px;
+    margin-top: 4px;
     &-topbar{
         background-color: $green;
         color: $white;
+        border-radius: 4px 4px 0px 0px;
         padding: 25px;
         &-year{
             font-size: 30px;
@@ -61,7 +66,7 @@
         }
     }
     &-actionarea{
-        padding: 10PX;
+        padding: 10px;
     }
      header {
       display: block;
@@ -80,29 +85,32 @@
           content: '';
           position: absolute;
           left: 50%;
+          width: 8px;
+          height: 8px;
           top: 50%;
-          transform: translateX(-50%) translateY(-50%);
-          border: 6px solid transparent;
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
         }
       }
       .prev:after {
-        border-right: 10px solid $black;
-        margin-left: -5px;
+        border-left: 1px solid $black;
+        border-bottom: 1px solid $black;
       }
       .prev.disabled:after {
         border-right: 10px solid $black;
       }
       .next:after {
-        border-left: 10px solid $black;
-        margin-left: 5px;
+        border-top: 1px solid $black;
+        border-right: 1px solid $black;
       }
       .next.disabled:after {
         border-left: 10px solid #ddd;
       }
       .prev:not(.disabled), .next:not(.disabled), .up:not(.disabled){
         cursor: pointer;
+        font-size: 15px;
+        border-radius: 4px;
         &:hover{
-          background: #eee;
+          background: $hovered;
         }
       }
     }
@@ -122,6 +130,7 @@
       height: 40px;
       line-height: 40px;
       text-align: center;
+      font-size: 14px;
       vertical-align: middle;
       border: 1px solid transparent;
     }
