@@ -1,4 +1,5 @@
 <template>
+  <div class="page-head"><h1>Vue 3 Datepicker</h1></div>
   <div class="wrapper">
     <div class="ind">
       <label>Typeable</label>
@@ -56,7 +57,9 @@
           from: new Date(2020, 11, 17),
         }"
       ></appdate-picker>
-      <button @click="changeDefaultValue">Change Default Value</button>
+      <div class="change-btn">
+        <button @click="changeDefaultValue">Change Default Value</button>
+      </div>
     </div>
 
     <div class="ind">
@@ -64,7 +67,9 @@
         <label>V Model: {{ dateinput }}</label>
         <appdate-picker v-model="dateinput" @update:modelValue="dateSelected"></appdate-picker>
       </div>
-      <button @click="changedVmodel">Change Date Input</button>
+      <div class="change-btn">
+        <button @click="changedVmodel">Change Date Input</button>
+      </div>
     </div>
 
     <div class="ind">
@@ -77,7 +82,9 @@
         @closed="handleCalendarClose"
         placeholder="Select Date"
       />
-      <button @click="checkDatePicker">Check DatePicker</button>
+      <div class="change-btn">
+        <button @click="checkDatePicker">Check DatePicker</button>
+      </div>
     </div>
 
     <div class="ind">
@@ -203,22 +210,52 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-button {
-  padding: 10px;
-  margin: 10px 0px;
+.page-head {
+  background-color: #2f9668;
+  text-align: center;
+  margin-bottom: 30px;
 }
+.page-head h1 {
+  color: #fff;
+  font-size: 25px;
+  padding: 20px;
+  margin: 0px;
+}
+
+button {
+  background-color: #40b983;
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  padding: 13px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  outline: none;
+  border-radius: 5px;
+  width: 200px;
+  transition: 0.45s;
+}
+button:hover {
+  background-color: #2f9668;
+}
+input {
+  outline: none;
+}
+
 label {
   text-align: left;
-  margin: 5px 0px;
+  margin: 10px 0px;
   display: block;
-  font-size: 18px;
+  font-size: 14px;
 }
 .ind {
-  min-width: 400px;
+  min-width: 30%;
   padding: 20px;
 }
 .wrapper {
   display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
