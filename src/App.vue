@@ -1,9 +1,9 @@
 <template>
   <div class="page-head">
-    <h1>Vue 3 Datepicker</h1>
     <a href="https://github.com/shubhadip/vuejs3-datepicker">
       <img src="./assets/github.svg" alt="vuejs3-datepicker" />
     </a>
+    <h1>Vue 3 Datepicker</h1>
   </div>
   <div class="wrapper">
     <div class="ind">
@@ -233,12 +233,15 @@ export default defineComponent({
   background-color: #2f9668;
   text-align: center;
   margin-bottom: 30px;
+  padding: 20px;
 }
 .page-head h1 {
   color: #fff;
   font-size: 25px;
-  padding: 20px;
   margin: 0px;
+}
+.page-head a {
+  display: inline-block;
 }
 
 button {

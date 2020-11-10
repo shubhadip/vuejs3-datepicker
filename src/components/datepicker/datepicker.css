@@ -47,7 +47,7 @@
     z-index: 100;
     background: $white;
     width: 300px;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 0.2rem 1rem rgba(0,0,0,.12);
     border-radius: 4px;
     margin-top: 4px;
     &-topbar{
@@ -130,6 +130,11 @@
       font-size: 14px;
       vertical-align: middle;
       border: 1px solid transparent;
+      &.month, &.year{
+        padding: 10px 5px;
+        height: 50px;
+        line-height: 28px;
+      }
     }
     .cell:not(.blank):not(.disabled).day, .cell:not(.blank):not(.disabled).month, .cell:not(.blank):not(.disabled).year{
       cursor: pointer;
