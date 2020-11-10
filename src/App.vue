@@ -1,7 +1,9 @@
 <template>
   <div class="page-head">
     <h1>Vue 3 Datepicker</h1>
-    <img src="./assets/github.svg" />
+    <a href="https://github.com/shubhadip/vuejs3-datepicker">
+      <img src="./assets/github.svg" alt="vuejs3-datepicker" />
+    </a>
   </div>
   <div class="wrapper">
     <div class="ind">
@@ -144,6 +146,20 @@
         :maximum-view="'year'"
         @changedYear="handleChangedYear"
       ></appdate-picker>
+    </div>
+
+    <div class="ind">
+      <label>Calendar Color </label>
+      <appdate-picker
+        :full-month-name="true"
+        input-class="customClass"
+        placeholder="Select Date"
+        @input="dateSelected"
+        iconColor="red"
+        :iconHeight="18"
+        :iconWidth="18"
+      >
+      </appdate-picker>
     </div>
 
     <div class="ind">

@@ -17,7 +17,12 @@
     </span>
     <div v-if="typeable || !hideInput" style="position: relative">
       <span v-if="!inline">
-        <IconView class="vuejs3-datepicker__typeablecalendar" />
+        <IconView
+          class="vuejs3-datepicker__typeablecalendar"
+          :color="iconColor"
+          :width="iconWidth"
+          :height="iconHeight"
+        />
       </span>
       <input
         :type="inline ? 'hidden' : 'text'"
@@ -41,7 +46,9 @@
     </div>
     <div v-else @click="showCalendar">
       <div class="vuejs3-datepicker__value" v-if="!inline">
-        <span class="vuejs3-datepicker__icon"><IconView /></span>
+        <span class="vuejs3-datepicker__icon">
+          <IconView :color="iconColor" :width="iconWidth" :height="iconHeight" />
+        </span>
         <div class="vuejs3-datepicker__content" v-if="formattedValue">{{ formattedValue }}</div>
         <div v-else class="vuejs3-datepicker__content">{{ placeholder }}</div>
       </div>
@@ -148,6 +155,18 @@ export default defineComponent({
     fullMonthName: {
       type: Boolean,
       default: false,
+    },
+    iconColor: {
+      default: 'black',
+      type: String,
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number],
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number],
     },
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],

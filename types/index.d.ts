@@ -1,6 +1,5 @@
 export interface Datepicker {
   modelValue?: [Date, string];
-  value?: [Date, string];
   format?: [string, Function];
   id?: string;
   name?: string;
@@ -28,4 +27,7 @@ export interface Datepicker {
   typeable?: boolean;
   useUtc?: boolean;
   preventDisableDateSelection?: boolean;
+  iconColor?: string;
+  iconWidth?: string;
+  iconHeight?: string;
 }

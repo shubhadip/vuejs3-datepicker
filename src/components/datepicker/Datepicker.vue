@@ -35,6 +35,9 @@
       :minimumView="minimumView"
       :maximumView="maximumView"
       :hideInput="hideInput"
+      :iconWidth="iconWidth"
+      :iconHeight="iconHeight"
+      :iconColor="iconColor"
     >
       <template v-slot:afterDateInput>
         <slot name="afterDateInput"></slot>
@@ -246,6 +249,18 @@ export default defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true,
+    },
+    iconColor: {
+      default: 'black',
+      type: String,
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number],
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number],
     },
   },
   emits: [
