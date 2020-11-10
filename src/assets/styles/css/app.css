@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #2f2f2f;
+    margin: 0px;
+    padding: 0px;
+}
+
+input, input:focus{
+    outline: none;
+}
