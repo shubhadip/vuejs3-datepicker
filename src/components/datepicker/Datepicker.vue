@@ -557,7 +557,7 @@ export default defineComponent({
     /** ********************************** Watchers  *********************************** */
     watch(
       () => props.modelValue,
-      (curr?: string | Date | number) => {
+      (curr?: any) => {
         setValue(curr);
       }
     );
@@ -568,6 +568,7 @@ export default defineComponent({
         setValue(curr);
       }
     );
+
     watch(
       () => props.openDate,
       () => {

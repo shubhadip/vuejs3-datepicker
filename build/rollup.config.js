@@ -141,15 +141,17 @@ if (!argv.format) {
         ...baseConfig.plugins.babel,
         presets: [['@babel/preset-env', { modules: false }]],
       }),
+      terser({
+        output: {
+          comments: '/^!/',
+        },
+      })
     ],
   };
   const cjsBuild = {
     input: './src/components/datepicker/Datepicker.vue',
     external,
     output: {
-      // format: 'cjs',
-      // dir: 'dist/cjs',
-      // exports: 'named',
       format: 'esm',
       file: 'dist/datepicker.cjs.js',
       globals
@@ -165,6 +167,11 @@ if (!argv.format) {
         ...baseConfig.plugins.babel,
         presets: [['@babel/preset-env', { modules: false }]],
       }),
+      terser({
+        output: {
+          comments: '/^!/',
+        },
+      })
     ],
   };
   const umdBuild = {
@@ -173,11 +180,8 @@ if (!argv.format) {
     output: {
       format: 'umd',
       name: capitalize('datepicker'),
-      // dir: 'dist/umd',
-      // exports: 'named',
       file: 'dist/datepicker.min.js',
       globals
-      // globals,
     },
     plugins: [
       typescript(),

@@ -1,5 +1,8 @@
 <template>
-  <div class="page-head"><h1>Vue 3 Datepicker</h1></div>
+  <div class="page-head">
+    <h1>Vue 3 Datepicker</h1>
+    <img src="./assets/github.svg" />
+  </div>
   <div class="wrapper">
     <div class="ind">
       <label>Typeable</label>
