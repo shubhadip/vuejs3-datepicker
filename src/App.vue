@@ -29,6 +29,7 @@
           to: new Date(2020, 10, 5),
           from: new Date(2020, 10, 16),
         }"
+        :prevent-disable-date-selection="preventDisableDateSelection"
       ></appdate-picker>
     </div>
     <div class="ind">
@@ -192,6 +193,7 @@ export default defineComponent({
       initialDate: new Date(),
       dateinput: new Date(),
       emptyDate: null,
+      preventDisableDateSelection: true,
     };
   },
   computed: {},
