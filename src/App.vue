@@ -1,170 +1,183 @@
 <template>
-  <div class="page-head">
-    <a href="https://github.com/shubhadip/vuejs3-datepicker">
-      <img src="./assets/github.svg" alt="vuejs3-datepicker" />
-    </a>
-    <h1>Vue 3 Datepicker</h1>
-  </div>
-  <div class="wrapper">
-    <div class="ind">
-      <label>Typeable</label>
-      <appdate-picker
-        :full-month-name="true"
-        input-class="customClass"
-        placeholder="YYYY-MM-DD"
-        :typeable="true"
-        :hideInput="false"
-        @input="dateSelected"
-      >
-      </appdate-picker>
+  <div class="page-wrapper">
+    <div class="app-sidebar">
+      <h1>Vue 3 Datepicker</h1>
+      <ul>
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+      </ul>
     </div>
-
-    <div class="ind">
-      <label> Disabled: from-to </label>
-      <appdate-picker
-        :full-month-name="true"
-        placeholder="Select Date"
-        @input="dateSelected"
-        :disabled-dates="{
-          to: new Date(2020, 10, 5),
-          from: new Date(2020, 10, 16),
-        }"
-        :prevent-disable-date-selection="preventDisableDateSelection"
-      ></appdate-picker>
-    </div>
-    <div class="ind">
-      <label> Disabled Dates : Array </label>
-      <appdate-picker
-        placeholder="Select Date"
-        @input="dateSelected"
-        :disabled-dates="{
-          dates: [
-            new Date(2020, 11, 16),
-            new Date(2020, 11, 17),
-            new Date(2020, 11, 18),
-            new Date(2020, 11, 19),
-            new Date(2020, 11, 20),
-          ],
-        }"
-      ></appdate-picker>
-    </div>
-
-    <div class="ind">
-      <label>Default Value</label>
-      <appdate-picker
-        placeholder="Select Date"
-        @input="dateSelected"
-        :value="defaultValue"
-        :disabled-dates="{
-          dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
-        }"
-        :highlighted="{
-          to: new Date(2020, 12, 16),
-          from: new Date(2020, 11, 17),
-        }"
-      ></appdate-picker>
-      <div class="change-btn">
-        <button @click="changeDefaultValue">Change Default Value</button>
+    <div class="app-wrapper">
+      <div class="page-head">
+        <a href="https://github.com/shubhadip/vuejs3-datepicker">
+          <img src="./assets/github.svg" alt="vuejs3-datepicker" />
+        </a>
       </div>
-    </div>
+      <div class="wrapper">
+        <div class="ind">
+          <label>Typeable</label>
+          <appdate-picker
+            :full-month-name="true"
+            input-class="customClass"
+            placeholder="YYYY-MM-DD"
+            :typeable="true"
+            :hideInput="false"
+            @input="dateSelected"
+          >
+          </appdate-picker>
+        </div>
 
-    <div class="ind">
-      <div>
-        <label>V Model: {{ dateinput }}</label>
-        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected"></appdate-picker>
+        <div class="ind">
+          <label> Disabled: from-to </label>
+          <appdate-picker
+            :full-month-name="true"
+            placeholder="Select Date"
+            @input="dateSelected"
+            :disabled-dates="{
+              to: new Date(2020, 10, 5),
+              from: new Date(2020, 10, 16),
+            }"
+            :prevent-disable-date-selection="preventDisableDateSelection"
+          ></appdate-picker>
+        </div>
+        <div class="ind">
+          <label> Disabled Dates : Array </label>
+          <appdate-picker
+            placeholder="Select Date"
+            @input="dateSelected"
+            :disabled-dates="{
+              dates: [
+                new Date(2020, 11, 16),
+                new Date(2020, 11, 17),
+                new Date(2020, 11, 18),
+                new Date(2020, 11, 19),
+                new Date(2020, 11, 20),
+              ],
+            }"
+          ></appdate-picker>
+        </div>
+
+        <div class="ind">
+          <label>Default Value</label>
+          <appdate-picker
+            placeholder="Select Date"
+            @input="dateSelected"
+            :value="defaultValue"
+            :disabled-dates="{
+              dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
+            }"
+            :highlighted="{
+              to: new Date(2020, 12, 16),
+              from: new Date(2020, 11, 17),
+            }"
+          ></appdate-picker>
+          <div class="change-btn">
+            <button @click="changeDefaultValue">Change Default Value</button>
+          </div>
+        </div>
+
+        <div class="ind">
+          <div>
+            <label>V Model: {{ dateinput }}</label>
+            <appdate-picker v-model="dateinput" @update:modelValue="dateSelected"></appdate-picker>
+          </div>
+          <div class="change-btn">
+            <button @click="changedVmodel">Change Date Input</button>
+          </div>
+        </div>
+
+        <div class="ind">
+          <label>With Programmatic Access</label>
+          <appdate-picker
+            ref="inputRef"
+            @selected="handleSelectDate"
+            :highlighted="highlightDates"
+            :value="emptyDate"
+            @closed="handleCalendarClose"
+            placeholder="Select Date"
+          />
+          <div class="change-btn">
+            <button @click="checkDatePicker">Check DatePicker</button>
+          </div>
+        </div>
+
+        <div class="ind">
+          <label>Day View</label>
+          <appdate-picker
+            placeholder="Select Day"
+            :minimum-view="'day'"
+            :maximum-view="'day'"
+            @input="handleChangedDay"
+          ></appdate-picker>
+        </div>
+
+        <div class="ind">
+          <label>Highlighted Dates</label>
+          <appdate-picker
+            @input="dateSelected"
+            :highlighted="{
+              to: new Date(2020, 11, 16),
+              from: new Date(2020, 10, 17),
+            }"
+          >
+          </appdate-picker>
+        </div>
+
+        <div class="ind">
+          <label>Month View</label>
+          <appdate-picker
+            placeholder="Select Month"
+            :value="new Date()"
+            :minimum-view="'month'"
+            :maximum-view="'month'"
+            @changedMonth="handleChangedMonth"
+          ></appdate-picker>
+        </div>
+
+        <div class="ind">
+          <label>Month View</label>
+          <appdate-picker
+            :full-month-name="true"
+            placeholder="Select Month"
+            :value="new Date()"
+            :minimum-view="'month'"
+            :maximum-view="'month'"
+            @changedMonth="handleChangedMonth"
+          ></appdate-picker>
+        </div>
+
+        <div class="ind">
+          <label>Year View</label>
+          <appdate-picker
+            placeholder="Select Year"
+            :value="new Date()"
+            :minimum-view="'year'"
+            :maximum-view="'year'"
+            @changedYear="handleChangedYear"
+          ></appdate-picker>
+        </div>
+
+        <div class="ind">
+          <label>Calendar Color </label>
+          <appdate-picker
+            :full-month-name="true"
+            input-class="customClass"
+            placeholder="Select Date"
+            @input="dateSelected"
+            iconColor="red"
+            :iconHeight="18"
+            :iconWidth="18"
+          >
+          </appdate-picker>
+        </div>
+        <div class="ind">
+          <label>Inline </label>
+          <appdate-picker :inline="true" @input="dateSelected"></appdate-picker>
+        </div>
       </div>
-      <div class="change-btn">
-        <button @click="changedVmodel">Change Date Input</button>
-      </div>
-    </div>
-
-    <div class="ind">
-      <label>With Programmatic Access</label>
-      <appdate-picker
-        ref="inputRef"
-        @selected="handleSelectDate"
-        :highlighted="highlightDates"
-        :value="emptyDate"
-        @closed="handleCalendarClose"
-        placeholder="Select Date"
-      />
-      <div class="change-btn">
-        <button @click="checkDatePicker">Check DatePicker</button>
-      </div>
-    </div>
-
-    <div class="ind">
-      <label>Day View</label>
-      <appdate-picker
-        placeholder="Select Day"
-        :minimum-view="'day'"
-        :maximum-view="'day'"
-        @input="handleChangedDay"
-      ></appdate-picker>
-    </div>
-
-    <div class="ind">
-      <label>Highlighted Dates</label>
-      <appdate-picker
-        @input="dateSelected"
-        :highlighted="{
-          to: new Date(2020, 11, 16),
-          from: new Date(2020, 10, 17),
-        }"
-      >
-      </appdate-picker>
-    </div>
-
-    <div class="ind">
-      <label>Month View</label>
-      <appdate-picker
-        placeholder="Select Month"
-        :value="new Date()"
-        :minimum-view="'month'"
-        :maximum-view="'month'"
-        @changedMonth="handleChangedMonth"
-      ></appdate-picker>
-    </div>
-
-    <div class="ind">
-      <label>Month View</label>
-      <appdate-picker
-        :full-month-name="true"
-        placeholder="Select Month"
-        :value="new Date()"
-        :minimum-view="'month'"
-        :maximum-view="'month'"
-        @changedMonth="handleChangedMonth"
-      ></appdate-picker>
-    </div>
-
-    <div class="ind">
-      <label>Year View</label>
-      <appdate-picker
-        placeholder="Select Year"
-        :value="new Date()"
-        :minimum-view="'year'"
-        :maximum-view="'year'"
-        @changedYear="handleChangedYear"
-      ></appdate-picker>
-    </div>
-
-    <div class="ind">
-      <label>Calendar Color </label>
-      <appdate-picker
-        :full-month-name="true"
-        input-class="customClass"
-        placeholder="Select Date"
-        @input="dateSelected"
-        iconColor="red"
-        :iconHeight="18"
-        :iconWidth="18"
-      >
-      </appdate-picker>
-    </div>
-    <div class="ind">
-      <label>Inline </label>
-      <appdate-picker :inline="true" @input="dateSelected"></appdate-picker>
     </div>
   </div>
 </template>
@@ -235,16 +248,21 @@ export default defineComponent({
 .page-head {
   background-color: #2f9668;
   text-align: center;
-  margin-bottom: 30px;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.page-head h1 {
+.app-sidebar h1 {
+  text-align: center;
+  padding-top: 20px;
   color: #fff;
   font-size: 25px;
   margin: 0px;
 }
 .page-head a {
   display: inline-block;
+  margin-right: 10px;
 }
 
 button {
@@ -279,10 +297,38 @@ label {
 }
 .wrapper {
   display: flex;
-  max-width: 1280px;
-  margin: 0 auto;
-  flex-direction: row;
+  padding-top: 20px;
+  flex: 1;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+}
+.app-sidebar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 280px;
+  height: 100%;
+  background-color: #2f9668;
+}
+.app-sidebar ul {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  top: 20px;
+  padding: 40px;
+  list-style: none;
+}
+.app-sidebar ul li {
+  color: #fff;
+  text-align: right;
+  font-size: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.app-wrapper {
+  width: calc(100% - 280px);
+  position: relative;
+  left: 280px;
+  flex: 1;
 }
 </style>
