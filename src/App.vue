@@ -234,7 +234,9 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
+<style scoped lang="postcss">
+@import '@css/_settings.css';
+
 .page-head {
   background-color: #2f9668;
   text-align: center;
