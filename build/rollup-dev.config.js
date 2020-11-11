@@ -43,7 +43,7 @@ const baseConfig = {
     ],
     replace: {
       'process.env.NODE_ENV': JSON.stringify('production'),
-      __VUE_OPTIONS_API__: JSON.stringify(true),
+      __VUE_OPTIONS_API__: JSON.stringify(false),
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
     },
     vue: {
@@ -104,7 +104,8 @@ let buildFormats = [];
       livereload({
         verbose: true,
         watch: path.join(__dirname, '..', 'example')
-      })
+      }),
+      resolve()
     ],
   };
   

@@ -7,7 +7,11 @@
   </div>
   <div class="wrapper">
     <div class="ind">
-      <label>Typeable</label>
+      <!-- <Prism inline language="javascript">alert("foo");</Prism>-->
+      <label>TYPEABLE</label>
+      <Prism language="javascript" class="test" data-attr="test">
+        {{ code }}
+      </Prism>
       <appdate-picker
         :full-month-name="true"
         input-class="customClass"
@@ -114,7 +118,6 @@
       >
       </appdate-picker>
     </div>
-
     <div class="ind">
       <label>Month View</label>
       <appdate-picker
@@ -172,11 +175,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Datepicker from './components/datepicker/Datepicker.vue';
+import 'prismjs';
+import 'prismjs/themes/prism.css';
+import Prism from './prismComponent';
+import { demoState } from './utils/constants';
 
 export default defineComponent({
   name: 'App-Home',
   components: {
     'appdate-picker': Datepicker,
+    Prism,
   },
   data() {
     return {
@@ -194,6 +202,8 @@ export default defineComponent({
       dateinput: new Date(),
       emptyDate: null,
       preventDisableDateSelection: true,
+
+      code: demoState,
     };
   },
   computed: {},
@@ -268,10 +278,10 @@ label {
   text-align: left;
   margin: 10px 0px;
   display: block;
-  font-size: 14px;
+  font-size: 24px;
 }
 .ind {
-  min-width: 30%;
+  width: 100%;
   padding: 20px;
 }
 .wrapper {
@@ -281,5 +291,7 @@ label {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+.test {
 }
 </style>
