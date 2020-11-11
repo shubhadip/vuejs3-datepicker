@@ -8699,6 +8699,22 @@ var script$1 = defineComponent({
     fullMonthName: {
       type: Boolean,
       default: false
+    },
+    iconColor: {
+      default: 'black',
+      type: String
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number]
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number]
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
@@ -8851,7 +8867,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_IconView = resolveComponent("IconView");
 
   return (openBlock(), createBlock("div", {
-    class: { 'input-group': _ctx.addBootstrapClass }
+    class: [_ctx.addBootstrapClass ? 'input-group' : '']
   }, [
     createCommentVNode(" Calendar Button "),
     (_ctx.calendarButton)
@@ -8877,7 +8893,12 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
       ? (openBlock(), createBlock("div", _hoisted_2, [
           (!_ctx.inline)
             ? (openBlock(), createBlock("span", _hoisted_3, [
-                createVNode(_component_IconView, { class: "vuejs3-datepicker__typeablecalendar" })
+                createVNode(_component_IconView, {
+                  class: "vuejs3-datepicker__typeablecalendar",
+                  color: _ctx.iconColor,
+                  width: _ctx.iconWidth,
+                  height: _ctx.iconHeight
+                }, null, 8 /* PROPS */, ["color", "width", "height"])
               ]))
             : createCommentVNode("v-if", true),
           createVNode("input", {
@@ -8906,7 +8927,11 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
           (!_ctx.inline)
             ? (openBlock(), createBlock("div", _hoisted_4, [
                 createVNode("span", _hoisted_5, [
-                  createVNode(_component_IconView)
+                  createVNode(_component_IconView, {
+                    color: _ctx.iconColor,
+                    width: _ctx.iconWidth,
+                    height: _ctx.iconHeight
+                  }, null, 8 /* PROPS */, ["color", "width", "height"])
                 ]),
                 (_ctx.formattedValue)
                   ? (openBlock(), createBlock("div", _hoisted_6, toDisplayString(_ctx.formattedValue), 1 /* TEXT */))
@@ -9004,6 +9029,10 @@ var script$2 = defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
@@ -9421,7 +9450,7 @@ const _hoisted_3$1 = { class: "vuejs3-datepicker__calendar-actionarea" };
 
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', `vuejs3-${_ctx.theme}`, _ctx.calendarClass],
     style: _ctx.calendarStyle,
     onMousedown: _cache[5] || (_cache[5] = withModifiers(() => {}, ["prevent"]))
   }, [
@@ -9533,6 +9562,10 @@ var script$3 = defineComponent({
     maximumView: {
       type: String,
       default: 'year'
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   setup: function setup(props, _ref) {
@@ -9776,7 +9809,7 @@ const _hoisted_3$2 = { class: "vuejs3-datepicker__calendar-actionarea" };
 
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', `vuejs3-${_ctx.theme}`, _ctx.calendarClass],
     style: _ctx.calendarStyle,
     onMousedown: _cache[5] || (_cache[5] = withModifiers(() => {}, ["prevent"]))
   }, [
@@ -9874,6 +9907,10 @@ var script$4 = defineComponent({
     maximumView: {
       type: String,
       default: 'year'
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   setup: function setup(props, _ref) {
@@ -10109,7 +10146,7 @@ const _hoisted_4$1 = { class: "vuejs3-datepicker__calendar-actionarea" };
 
 function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', `vuejs3-${_ctx.theme}`, _ctx.calendarClass],
     style: _ctx.calendarStyle,
     onMousedown: _cache[3] || (_cache[3] = withModifiers(() => {}, ["prevent"]))
   }, [
@@ -10153,8 +10190,8 @@ script$4.__file = "src/components/datepicker/PickerYear.vue";
 var af = function af() {
   var langName = 'Afrikaans';
   var monthFullName = ['Januarie', 'Februarie', 'Maart', 'April', 'Mei', 'Junie', 'Julie', 'Augustus', 'September', 'Oktober', 'November', 'Desember'];
-  var shortName = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-  var days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var shortName = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+  var days = ['So.', 'Ma.', 'Di.', 'Wo.', 'Do.', 'Vr.', 'Sa.'];
   var rtl = false;
   var ymd = false;
   var yearSuffix = '';
@@ -10174,8 +10211,8 @@ var af = function af() {
 var en = function en() {
   var langName = 'English';
   var monthFullName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var shortName = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-  var days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   var daysNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var rtl = false;
   var ymd = false;
@@ -10314,6 +10351,22 @@ var script$5 = defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true
+    },
+    iconColor: {
+      default: 'black',
+      type: String
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number]
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number]
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['input', 'cleared', 'update:modelValue', 'closed', 'changed-month', 'changed-year', 'changed-day', 'selected', 'selected-disabled'],
@@ -10722,7 +10775,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _directive_clickoutside = resolveDirective("clickoutside");
 
   return withDirectives((openBlock(), createBlock("div", {
-    class: ["vuejs3-datepicker", [_ctx.wrapperClass, _ctx.isRtl ? 'rtl' : '']]
+    class: ["vuejs3-datepicker", [_ctx.isRtl ? 'rtl' : '', `vuejs3-${_ctx.theme}`, _ctx.wrapperClass]]
   }, [
     createVNode(_component_date_input, {
       selectedDate: _ctx.selectedDate,
@@ -10752,13 +10805,17 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
       onClearDate: _ctx.clearDate,
       minimumView: _ctx.minimumView,
       maximumView: _ctx.maximumView,
-      hideInput: _ctx.hideInput
+      hideInput: _ctx.hideInput,
+      iconWidth: _ctx.iconWidth,
+      iconHeight: _ctx.iconHeight,
+      iconColor: _ctx.iconColor,
+      theme: _ctx.theme
     }, {
       afterDateInput: withCtx(() => [
         renderSlot(_ctx.$slots, "afterDateInput")
       ]),
       _: 1
-    }, 8 /* PROPS */, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput"]),
+    }, 8 /* PROPS */, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput", "iconWidth", "iconHeight", "iconColor", "theme"]),
     createCommentVNode("Day View  "),
     (_ctx.allowedToShowView('day'))
       ? (openBlock(), createBlock(_component_picker_day, {
@@ -10784,13 +10841,14 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
           onShowYearCalendar: _ctx.showYearCalendar,
           minimumView: _ctx.minimumView,
           maximumView: _ctx.maximumView,
-          preventDisableDateSelection: _ctx.preventDisableDateSelection
+          preventDisableDateSelection: _ctx.preventDisableDateSelection,
+          theme: _ctx.theme
         }, {
           beforeCalendarHeader: withCtx(() => [
             renderSlot(_ctx.$slots, "beforeCalendarHeader")
           ]),
           _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection"]))
+        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection", "theme"]))
       : createCommentVNode("v-if", true),
     createCommentVNode("Month View "),
     (_ctx.allowedToShowView('month'))
@@ -10811,13 +10869,14 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
           onShowYearCalendar: _ctx.showYearCalendar,
           onChangedYear: _ctx.setPageDate,
           minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView
+          maximumView: _ctx.maximumView,
+          theme: _ctx.theme
         }, {
           beforeCalendarHeader: withCtx(() => [
             renderSlot(_ctx.$slots, "beforeCalendarHeader")
           ]),
           _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView"]))
+        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView", "theme"]))
       : createCommentVNode("v-if", true),
     createCommentVNode(" Year View "),
     (_ctx.allowedToShowView('year'))
@@ -10837,13 +10896,14 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
           onChangedDecade: _ctx.setPageDate,
           fullMonthName: _ctx.fullMonthName,
           minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView
+          maximumView: _ctx.maximumView,
+          theme: _ctx.theme
         }, {
           beforeCalendarHeader: withCtx(() => [
             renderSlot(_ctx.$slots, "beforeCalendarHeader")
           ]),
           _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView"]))
+        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView", "theme"]))
       : createCommentVNode("v-if", true)
   ], 2 /* CLASS */)), [
     [_directive_clickoutside, {
@@ -10879,7 +10939,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "*{box-sizing:border-box}body{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}.rtl{direction:rtl}.vuejs3-datepicker{position:relative;display:inline-block}.vuejs3-datepicker *{box-sizing:border-box}.vuejs3-datepicker input{border:1px solid}.vuejs3-datepicker__icon{display:-webkit-flex;display:-ms-flexbox;display:flex}.vuejs3-datepicker__value{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:13px 15px;cursor:pointer;border:1px solid}.vuejs3-datepicker__content{margin-left:10px;font-size:15px}.vuejs3-datepicker__typeablecalendar{position:absolute;top:10px;left:10px}.vuejs3-datepicker__inputvalue{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:12px 10px 13px 35px;cursor:pointer;border:1px solid}.vuejs3-datepicker__calendar{position:absolute;z-index:100;background:#fff;width:300px;box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);border-radius:4px;margin-top:4px}.vuejs3-datepicker__calendar-topbar{background-color:#40b983;color:#fff;border-radius:4px 4px 0 0;padding:25px}.vuejs3-datepicker__calendar-topbar-year{font-size:30px;margin:0;padding-bottom:10px}.vuejs3-datepicker__calendar-topbar-day{font-size:20px;margin:0}.vuejs3-datepicker__calendar-actionarea{padding:10px}.vuejs3-datepicker__calendar header{display:block;line-height:40px}.vuejs3-datepicker__calendar header span{text-align:center;width:71.42857142857143%;float:left}.vuejs3-datepicker__calendar header .next,.vuejs3-datepicker__calendar header .prev{width:14.285714285714286%;float:left;text-indent:-10000px;position:relative}.vuejs3-datepicker__calendar header .next:after,.vuejs3-datepicker__calendar header .prev:after{content:\"\";position:absolute;left:50%;width:8px;height:8px;top:50%;-webkit-transform:translateX(-50%) translateY(-50%) rotate(45deg);transform:translateX(-50%) translateY(-50%) rotate(45deg)}.vuejs3-datepicker__calendar header .prev:after{border-left:1px solid #2f2f2f;border-bottom:1px solid #2f2f2f}.vuejs3-datepicker__calendar header .next.disabled:after,.vuejs3-datepicker__calendar header .prev.disabled:after{opacity:.5}.vuejs3-datepicker__calendar header .next:after{border-top:1px solid #2f2f2f;border-right:1px solid #2f2f2f}.vuejs3-datepicker__calendar header .next:not(.disabled),.vuejs3-datepicker__calendar header .prev:not(.disabled),.vuejs3-datepicker__calendar header .up:not(.disabled){cursor:pointer;font-size:15px;border-radius:4px}.vuejs3-datepicker__calendar header .next:not(.disabled):hover,.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,.vuejs3-datepicker__calendar header .up:not(.disabled):hover{background:#f8f8f8}.vuejs3-datepicker__calendar .disabled{color:#ddd;cursor:default}.vuejs3-datepicker__calendar .flex-rtl{display:-webkit-flex;display:-ms-flexbox;display:flex;width:inherit;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.vuejs3-datepicker__calendar .cell{display:inline-block;padding:0 5px;width:14.285714285714286%;height:40px;line-height:40px;text-align:center;font-size:14px;vertical-align:middle;border:1px solid transparent}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year{cursor:pointer;transition:.45s}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{border:1px solid #40b983}.vuejs3-datepicker__calendar .cell.selected{background:#40b983;color:#fff}.vuejs3-datepicker__calendar .cell.selected:hover{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted{background:#cae5ed}.vuejs3-datepicker__calendar .cell.highlighted.selected{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted.disabled{color:#a3a3a3}.vuejs3-datepicker__calendar .cell.grey{color:#888}.vuejs3-datepicker__calendar .cell.grey:hover{background:inherit}.vuejs3-datepicker__calendar .cell.day-header{font-size:75%;white-space:nowrap;cursor:inherit}.vuejs3-datepicker__calendar .cell.day-header:hover{background:inherit}.vuejs3-datepicker__calendar .month,.vuejs3-datepicker__calendar .year{width:33.333%}.vuejs3-datepicker__calendar-button,.vuejs3-datepicker__clear-button{cursor:pointer;font-style:normal}.vuejs3-datepicker__calendar-button.disabled,.vuejs3-datepicker__clear-button.disabled{color:#999;cursor:default}.dp-error{color:red;font-size:12px}.backdrop{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:2;cursor:pointer}";
+var css_248z = "*{box-sizing:border-box}body{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}input,input:focus{outline:none}.rtl{direction:rtl}.vuejs3-datepicker{position:relative;display:inline-block}.vuejs3-datepicker *{box-sizing:border-box}.vuejs3-datepicker input{border:1px solid}.vuejs3-datepicker__icon{display:-webkit-flex;display:-ms-flexbox;display:flex}.vuejs3-datepicker__value{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:13px 15px;cursor:pointer;border:1px solid}.vuejs3-datepicker__content{margin-left:10px;font-size:15px}.vuejs3-datepicker__typeablecalendar{position:absolute;top:10px;left:10px}.vuejs3-datepicker__inputvalue{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:12px 10px 13px 35px;cursor:pointer;border:1px solid}.vuejs3-datepicker__calendar{position:absolute;z-index:100;background:#fff;width:300px;box-shadow:0 .2rem 1rem rgba(0,0,0,.12);border-radius:4px;margin-top:4px}.vuejs3-datepicker__calendar-topbar{background-color:#40b983;color:#fff;border-radius:4px 4px 0 0;padding:25px}.vuejs3-datepicker__calendar-topbar-year{font-size:30px;margin:0;padding-bottom:10px}.vuejs3-datepicker__calendar-topbar-day{font-size:20px;margin:0}.vuejs3-datepicker__calendar-actionarea{padding:10px}.vuejs3-datepicker__calendar header{display:block;line-height:40px}.vuejs3-datepicker__calendar header span{text-align:center;width:71.42857142857143%;float:left}.vuejs3-datepicker__calendar header .next,.vuejs3-datepicker__calendar header .prev{width:14.285714285714286%;float:left;text-indent:-10000px;position:relative}.vuejs3-datepicker__calendar header .next:after,.vuejs3-datepicker__calendar header .prev:after{content:\"\";position:absolute;left:50%;width:8px;height:8px;top:50%;-webkit-transform:translateX(-50%) translateY(-50%) rotate(45deg);transform:translateX(-50%) translateY(-50%) rotate(45deg)}.vuejs3-datepicker__calendar header .prev:after{border-left:1px solid #2f2f2f;border-bottom:1px solid #2f2f2f}.vuejs3-datepicker__calendar header .next.disabled:after,.vuejs3-datepicker__calendar header .prev.disabled:after{opacity:.5}.vuejs3-datepicker__calendar header .next:after{border-top:1px solid #2f2f2f;border-right:1px solid #2f2f2f}.vuejs3-datepicker__calendar header .next:not(.disabled),.vuejs3-datepicker__calendar header .prev:not(.disabled),.vuejs3-datepicker__calendar header .up:not(.disabled){cursor:pointer;font-size:15px;border-radius:4px}.vuejs3-datepicker__calendar header .next:not(.disabled):hover,.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,.vuejs3-datepicker__calendar header .up:not(.disabled):hover{background:#f8f8f8}.vuejs3-datepicker__calendar .disabled{color:#ddd;cursor:default}.vuejs3-datepicker__calendar .flex-rtl{display:-webkit-flex;display:-ms-flexbox;display:flex;width:inherit;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.vuejs3-datepicker__calendar .cell{display:inline-block;padding:0 5px;width:14.285714285714286%;height:40px;line-height:40px;text-align:center;font-size:14px;vertical-align:middle;border:1px solid transparent}.vuejs3-datepicker__calendar .cell.month,.vuejs3-datepicker__calendar .cell.year{padding:10px 5px;height:50px;line-height:28px}.vuejs3-datepicker__calendar .cell.day-header{text-transform:uppercase}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year{cursor:pointer;transition:.45s}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{border:1px solid #40b983}.vuejs3-datepicker__calendar .cell.selected{background:#40b983;color:#fff}.vuejs3-datepicker__calendar .cell.selected:hover{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted{background:#40b983;color:#fff}.vuejs3-datepicker__calendar .cell.highlighted.selected{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted.disabled{color:#a3a3a3}.vuejs3-datepicker__calendar .cell.highlighted.highlight-start,.vuejs3-datepicker__calendar .cell.highlighted:last-child{background:#2f9668}.vuejs3-datepicker__calendar .cell.grey{color:#888}.vuejs3-datepicker__calendar .cell.grey:hover{background:inherit}.vuejs3-datepicker__calendar .cell.day-header{font-size:75%;white-space:nowrap;cursor:inherit}.vuejs3-datepicker__calendar .cell.day-header:hover{background:inherit}.vuejs3-datepicker__calendar .month,.vuejs3-datepicker__calendar .year{width:33.333%}.vuejs3-datepicker__calendar-button,.vuejs3-datepicker__clear-button{cursor:pointer;font-style:normal}.vuejs3-datepicker__calendar-button.disabled,.vuejs3-datepicker__clear-button.disabled{color:#999;cursor:default}.dp-error{color:red;font-size:12px}.backdrop{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:2;cursor:pointer}";
 styleInject(css_248z);
 
 script$5.render = render$5;
@@ -10940,14 +11000,19 @@ var script$6 = defineComponent({
   }
 });
 
-const img = "data:image/svg+xml,%3csvg data-v-e0fcf3ec='' width='32' height='32' aria-hidden='true' focusable='false' data-prefix='fab' data-icon='github' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3e%3cpath data-v-e0fcf3ec='' fill='currentColor' d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'%3e%3c/path%3e%3c/svg%3e";
+const img = "data:image/svg+xml,%3csvg data-v-e0fcf3ec='' width='32' height='32' aria-hidden='true' focusable='false' data-prefix='fab' data-icon='github' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3e%3cpath data-v-e0fcf3ec='' fill='white' d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'%3e%3c/path%3e%3c/svg%3e";
 
 const _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
 
 pushScopeId("data-v-7ba5bd90");
 const _hoisted_1$4 = /*#__PURE__*/createVNode("div", { class: "page-head" }, [
   /*#__PURE__*/createVNode("h1", null, "Vue 3 Datepicker"),
-  /*#__PURE__*/createVNode("img", { src: img })
+  /*#__PURE__*/createVNode("a", { href: "https://github.com/shubhadip/vuejs3-datepicker" }, [
+    /*#__PURE__*/createVNode("img", {
+      src: img,
+      alt: "vuejs3-datepicker"
+    })
+  ])
 ], -1 /* HOISTED */);
 const _hoisted_2$4 = { class: "wrapper" };
 const _hoisted_3$4 = { class: "ind" };
@@ -10975,7 +11040,11 @@ const _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* 
 const _hoisted_25 = { class: "ind" };
 const _hoisted_26 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
 const _hoisted_27 = { class: "ind" };
-const _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
+const _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Calendar Color ", -1 /* HOISTED */);
+const _hoisted_29 = { class: "ind" };
+const _hoisted_30 = /*#__PURE__*/createVNode("label", null, "Calendar Color ", -1 /* HOISTED */);
+const _hoisted_31 = { class: "ind" };
+const _hoisted_32 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
 popScopeId();
 
 const render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -10989,7 +11058,7 @@ const render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
         createVNode(_component_appdate_picker, {
           "full-month-name": true,
           "input-class": "customClass",
-          placeholder: "Select Date",
+          placeholder: "YYYY-MM-DD",
           typeable: true,
           hideInput: false,
           onInput: _ctx.dateSelected
@@ -11129,6 +11198,27 @@ const render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
       createVNode("div", _hoisted_27, [
         _hoisted_28,
         createVNode(_component_appdate_picker, {
+          "full-month-name": true,
+          "input-class": "customClass",
+          placeholder: "Select Date",
+          onInput: _ctx.dateSelected,
+          iconColor: "red",
+          iconHeight: 18,
+          iconWidth: 18
+        }, null, 8 /* PROPS */, ["onInput"])
+      ]),
+      createVNode("div", _hoisted_29, [
+        _hoisted_30,
+        createVNode(_component_appdate_picker, {
+          "full-month-name": true,
+          "input-class": "customClass",
+          placeholder: "Select Date",
+          onInput: _ctx.dateSelected
+        }, null, 8 /* PROPS */, ["onInput"])
+      ]),
+      createVNode("div", _hoisted_31, [
+        _hoisted_32,
+        createVNode(_component_appdate_picker, {
           inline: true,
           onInput: _ctx.dateSelected
         }, null, 8 /* PROPS */, ["onInput"])
@@ -11137,12 +11227,15 @@ const render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $set
   ], 64 /* STABLE_FRAGMENT */))
 });
 
-var css_248z$1 = ".page-head[data-v-7ba5bd90]{background-color:#2f9668;text-align:center;margin-bottom:30px}.page-head h1[data-v-7ba5bd90]{color:#fff;font-size:25px;padding:20px;margin:0}button[data-v-7ba5bd90]{background-color:#40b983;border:none;font-size:15px;color:#fff;padding:13px 15px;cursor:pointer;margin-top:10px;outline:none;border-radius:5px;width:200px;transition:.45s}button[data-v-7ba5bd90]:hover{background-color:#2f9668}input[data-v-7ba5bd90]{outline:none}label[data-v-7ba5bd90]{text-align:left;margin:10px 0;display:block;font-size:14px}.ind[data-v-7ba5bd90]{min-width:30%;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:1280px;margin:0 auto;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
+var css_248z$1 = "[data-v-7ba5bd90]{box-sizing:border-box}body[data-v-7ba5bd90]{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}.page-head[data-v-7ba5bd90]{background-color:#2f9668;text-align:center;margin-bottom:30px}.page-head h1[data-v-7ba5bd90]{color:#fff;font-size:25px;padding:20px;margin:0}button[data-v-7ba5bd90]{background-color:#40b983;border:none;font-size:15px;color:#fff;padding:13px 15px;cursor:pointer;margin-top:10px;outline:none;border-radius:5px;width:200px;transition:.45s}button[data-v-7ba5bd90]:hover{background-color:#2f9668}input[data-v-7ba5bd90]{outline:none}label[data-v-7ba5bd90]{text-align:left;margin:10px 0;display:block;font-size:14px}.ind[data-v-7ba5bd90]{min-width:30%;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:1280px;margin:0 auto;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
 styleInject(css_248z$1);
 
 script$6.render = render$6;
 script$6.__scopeId = "data-v-7ba5bd90";
 script$6.__file = "src/App.vue";
+
+var css_248z$2 = "*{box-sizing:border-box}body{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}";
+styleInject(css_248z$2);
 
 var app = createApp(script$6);
 app.directive('clickoutside', ClickOutside);

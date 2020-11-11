@@ -2,7 +2,14 @@ const path = require('path');
 
 module.exports = {
   plugins: [
-    require('postcss-import')({}),
+    require('postcss-import')({
+      resolve(id, basedir) {
+        if (id.startsWith('@css')) {
+          return path.resolve('./src/assets/styles/css', id.slice(5));
+        }
+        return path.resolve(basedir, id);
+      },
+    }),
     require('postcss-simple-vars')({}),
     require('postcss-nested')({}),
     require('autoprefixer')({
