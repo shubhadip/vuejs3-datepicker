@@ -3,5 +3,3 @@ node_modules
 .vscode
 dist/
 testumdbuild/
-/demo
-/example/datepicker.js
