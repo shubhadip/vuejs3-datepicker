@@ -3,5 +3,5 @@ node_modules
 .vscode
 dist/
 testumdbuild/
-/demo
+demo/
 example/*.js
