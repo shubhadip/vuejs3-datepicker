@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[calendarClass, 'vuejs3-datepicker__calendar']"
+    :class="['vuejs3-datepicker__calendar', `vuejs3-${theme}`, calendarClass]"
     v-show="showYearView"
     :style="calendarStyle"
     @mousedown.prevent
@@ -96,6 +96,10 @@ export default defineComponent({
     maximumView: {
       type: String,
       default: 'year',
+    },
+    theme: {
+      default: 'green',
+      type: String,
     },
   },
   emits: ['select-year', 'changed-decade'],

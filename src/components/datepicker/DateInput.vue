@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'input-group': addBootstrapClass }">
+  <div :class="[addBootstrapClass ? 'input-group' : '']">
     <!-- Calendar Button -->
     <span
       v-if="calendarButton"
@@ -168,6 +168,10 @@ export default defineComponent({
       default: 16,
       type: [String, Number],
     },
+    theme: {
+      default: 'green',
+      type: String,
+    },
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
   setup(props, { emit }) {
@@ -187,7 +191,7 @@ export default defineComponent({
       return props.inputClass;
     });
 
-    const formattedValue = computed(() => {
+    const formattedValue = computed((): string | Date | null | number => {
       if (!props.selectedDate) {
         return null;
       }

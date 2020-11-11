@@ -11,7 +11,7 @@
       <appdate-picker
         :full-month-name="true"
         input-class="customClass"
-        placeholder="Select Date"
+        placeholder="YYYY-MM-DD"
         :typeable="true"
         :hideInput="false"
         @input="dateSelected"
@@ -163,6 +163,12 @@
     </div>
 
     <div class="ind">
+      <label>Calendar Color </label>
+      <appdate-picker :full-month-name="true" input-class="customClass" placeholder="Select Date" @input="dateSelected">
+      </appdate-picker>
+    </div>
+
+    <div class="ind">
       <label>Inline </label>
       <appdate-picker :inline="true" @input="dateSelected"></appdate-picker>
     </div>
@@ -228,7 +234,9 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
+<style scoped lang="postcss">
+@import '@css/_settings.css';
+
 .page-head {
   background-color: #2f9668;
   text-align: center;
