@@ -370,7 +370,11 @@
 <a name='L311'></a><a href='#L311'>311</a>
 <a name='L312'></a><a href='#L312'>312</a>
 <a name='L313'></a><a href='#L313'>313</a>
-<a name='L314'></a><a href='#L314'>314</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L314'></a><a href='#L314'>314</a>
+<a name='L315'></a><a href='#L315'>315</a>
+<a name='L316'></a><a href='#L316'>316</a>
+<a name='L317'></a><a href='#L317'>317</a>
+<a name='L318'></a><a href='#L318'>318</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -683,6 +687,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;div
     :class="[calendarClass, 'vuejs3-datepicker__calendar']"
@@ -691,27 +699,31 @@
     @mousedown.prevent
   &gt;
     &lt;slot name="beforeCalendarHeader"&gt;&lt;/slot&gt;
-    &lt;section v-if="ifDifferentViews"&gt;
-      &lt;p&gt;{{ currYearName }}&lt;/p&gt;
-      &lt;p v-if="selectedDate"&gt;{{ getDayName }} {{ getDisplayDate }} {{ monthName }}&lt;/p&gt;
+    &lt;section v-if="ifDifferentViews &amp;&amp; selectedDate" class="vuejs3-datepicker__calendar-topbar"&gt;
+      &lt;p class="vuejs3-datepicker__calendar-topbar-year"&gt;{{ currYearName }}&lt;/p&gt;
+      &lt;p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate"&gt;
+        {{ getDayName }} {{ getDisplayDate }} {{ monthName }}
+      &lt;/p&gt;
     &lt;/section&gt;
-    &lt;header&gt;
-      &lt;span @click="isRtl ? nextDecade() : previousDecade()" class="prev" :class="{ disabled: isLeftNavDisabled }"
-        &gt;&amp;lt;&lt;/span
+    &lt;div class="vuejs3-datepicker__calendar-actionarea"&gt;
+      &lt;header&gt;
+        &lt;span @click="isRtl ? nextDecade() : previousDecade()" class="prev" :class="{ disabled: isLeftNavDisabled }"
+          &gt;&amp;lt;&lt;/span
+        &gt;
+        &lt;span&gt;{{ getPageDecade }}&lt;/span&gt;
+        &lt;span @click="isRtl ? previousDecade() : nextDecade()" class="next" :class="{ disabled: isRightNavDisabled }"
+          &gt;&amp;gt;&lt;/span
+        &gt;
+      &lt;/header&gt;
+      &lt;span
+        class="cell year"
+        v-for="year in years"
+        :key="year.timestamp"
+        :class="{ selected: year.isSelected, disabled: year.isDisabled }"
+        @click.stop="selectYear(year)"
+        &gt;{{ year.year }}&lt;/span
       &gt;
-      &lt;span&gt;{{ getPageDecade }}&lt;/span&gt;
-      &lt;span @click="isRtl ? previousDecade() : nextDecade()" class="next" :class="{ disabled: isRightNavDisabled }"
-        &gt;&amp;gt;&lt;/span
-      &gt;
-    &lt;/header&gt;
-    &lt;span
-      class="cell year"
-      v-for="year in years"
-      :key="year.timestamp"
-      :class="{ selected: year.isSelected, disabled: year.isDisabled }"
-      @click.stop="selectYear(year)"
-      &gt;{{ year.year }}&lt;/span
-    &gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 &lt;script lang="ts"&gt;
@@ -818,11 +830,11 @@ export default defineComponent({
 &nbsp;
     /**
      * changes year to previous decade
-     */
+<span class="branch-1 cbranch-no" title="branch not covered" >     */</span>
     function previousDecade(): void {
       if (!isPreviousDecadeDisabled()) {
         changeYear(-10);
-<span class="branch-1 cbranch-no" title="branch not covered" >      }</span>
+      }
     }
 &nbsp;
     /**
@@ -855,11 +867,11 @@ export default defineComponent({
     function isSelectedYear(date: Date): boolean {
       return props.selectedDate ? getFullYear(props.selectedDate) === getFullYear(date) : false;
     }
-&nbsp;
+<span class="branch-0 cbranch-no" title="branch not covered" ></span>
     /**
      * Whether a year is disabled
      * @param {Date}
-<span class="branch-0 cbranch-no" title="branch not covered" >     * @return {Boolean}</span>
+     * @return {Boolean}
      */
     function isDisabledYear(date: Date): boolean {
       let disabledDates = false;
@@ -885,19 +897,19 @@ export default defineComponent({
       return disabledDates;
     }
 &nbsp;
-    /** ********************************** Computed  *********************************** */
+<span class="branch-0 cbranch-no" title="branch not covered" >    /** ********************************** Computed  *********************************** */</span>
     const years = computed(() =&gt; {
       const d = props.pageDate;
       const tyears = [];
-<span class="branch-0 cbranch-no" title="branch not covered" >      // set up a new date object to the beginning of the current 'page'7</span>
+      // set up a new date object to the beginning of the current 'page'7
       const dObj = props.useUtc
         ? new Date(Date.UTC(Math.floor(d.getUTCFullYear() / 10) * 10, d.getUTCMonth(), d.getUTCDate()))
         : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes());
-      for (let i = 0; i &lt; 10; i += 1) {
+<span class="branch-0 cbranch-no" title="branch not covered" >      for (let i = 0; i &lt; 10; i += 1) {</span>
         tyears.push({
           year: getFullYear(dObj),
           timestamp: dObj.getTime(),
-<span class="branch-0 cbranch-no" title="branch not covered" >          isSelected: isSelectedYear(dObj),</span>
+          isSelected: isSelectedYear(dObj),
           isDisabled: isDisabledYear(dObj),
         });
         setFullYear(dObj, getFullYear(dObj) + 1);
@@ -912,11 +924,11 @@ export default defineComponent({
       const decadeStart = Math.floor(getFullYear(props.pageDate) / 10) * 10;
       const decadeEnd = decadeStart + 9;
       const yearSuffix = props.translation &amp;&amp; props.translation.yearSuffix;
-      return `${decadeStart} - ${decadeEnd}${yearSuffix}`;
+<span class="branch-1 cbranch-no" title="branch not covered" >      return `${decadeStart} - ${decadeEnd}${yearSuffix}`;</span>
     });
 &nbsp;
     /**
-<span class="branch-1 cbranch-no" title="branch not covered" >     * Is the left hand navigation button disabled?</span>
+     * Is the left hand navigation button disabled?
      * @return {Boolean}
      */
     const isLeftNavDisabled = computed(() =&gt; {
@@ -928,19 +940,19 @@ export default defineComponent({
      * @return {Boolean}
      */
     const isRightNavDisabled = computed(() =&gt; {
-      return props.isRtl ? isPreviousDecadeDisabled() : isNextDecadeDisabled();
-    });
+<span class="fstat-no" title="function not covered" >      return props.isRtl ? isPreviousDecadeDisabled() : isNextDecadeDisabled();</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
 &nbsp;
     const getDayName = computed(() =&gt; {
-<span class="fstat-no" title="function not covered" >      return props.selectedDate</span>
-<span class="cstat-no" title="statement not covered" >        ? getDayNameAbbr(props.selectedDate, props.translation &amp;&amp; props.translation.daysNames)</span>
+<span class="cstat-no" title="statement not covered" >      return props.selectedDate</span>
+        ? getDayNameAbbr(props.selectedDate, props.translation &amp;&amp; props.translation.daysNames)
         : null;
     });
-<span class="cstat-no" title="statement not covered" ></span>
+<span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ></span></span>
     /**
      * Gets the name of the month the current page is on
      * @return {String}
-<span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >     */</span></span>
+     */
     const monthName = computed(() =&gt; {
       const tempName = props.translation &amp;&amp; props.translation.months;
       return getMonthName(getMonth(props.pageDate), tempName);
@@ -1003,7 +1015,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 11 2020 09:08:53 GMT+0530 (India Standard Time)
+                at Wed Nov 11 2020 09:11:40 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

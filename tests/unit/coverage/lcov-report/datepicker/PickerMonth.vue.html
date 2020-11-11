@@ -385,7 +385,10 @@
 <a name='L326'></a><a href='#L326'>326</a>
 <a name='L327'></a><a href='#L327'>327</a>
 <a name='L328'></a><a href='#L328'>328</a>
-<a name='L329'></a><a href='#L329'>329</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L329'></a><a href='#L329'>329</a>
+<a name='L330'></a><a href='#L330'>330</a>
+<a name='L331'></a><a href='#L331'>331</a>
+<a name='L332'></a><a href='#L332'>332</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -660,6 +663,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -721,30 +727,33 @@
     @mousedown.prevent
   &gt;
     &lt;slot name="beforeCalendarHeader"&gt;&lt;/slot&gt;
-    &lt;section v-if="ifDifferentViews"&gt;
-      &lt;p @click="showYearCalendar"&gt;{{ currYearName }}&lt;/p&gt;
-      &lt;p v-if="selectedDate"&gt;{{ getDayName }} {{ getDisplayDate }} {{ monthName }}&lt;/p&gt;
+    &lt;section v-if="ifDifferentViews" class="vuejs3-datepicker__calendar-topbar"&gt;
+      &lt;p class="vuejs3-datepicker__calendar-topbar-year" @click="showYearCalendar"&gt;{{ currYearName }}&lt;/p&gt;
+      &lt;p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate"&gt;
+        {{ getDayName }} {{ getDisplayDate }} {{ monthName }}
+      &lt;/p&gt;
     &lt;/section&gt;
-&nbsp;
-    &lt;header&gt;
-      &lt;span @click="isRtl ? nextYear() : previousYear()" class="prev" :class="{ disabled: isLeftNavDisabled }"
-        &gt;&amp;lt;&lt;/span
+    &lt;div class="vuejs3-datepicker__calendar-actionarea"&gt;
+      &lt;header&gt;
+        &lt;span @click="isRtl ? nextYear() : previousYear()" class="prev" :class="{ disabled: isLeftNavDisabled }"
+          &gt;&amp;lt;&lt;/span
+        &gt;
+        &lt;span class="month__year_btn" @click="showYearCalendar" :class="allowedToShowView('year') ? 'up' : ''"&gt;{{
+          pageYearName
+        }}&lt;/span&gt;
+        &lt;span @click="isRtl ? previousYear() : nextYear()" class="next" :class="{ disabled: isRightNavDisabled }"
+          &gt;&amp;gt;&lt;/span
+        &gt;
+      &lt;/header&gt;
+      &lt;span
+        class="cell month"
+        v-for="month in months"
+        :key="month.timestamp"
+        :class="{ selected: month.isSelected, disabled: month.isDisabled }"
+        @click.stop="selectMonth(month)"
+        &gt;{{ month.month }}&lt;/span
       &gt;
-      &lt;span class="month__year_btn" @click="showYearCalendar" :class="allowedToShowView('year') ? 'up' : ''"&gt;{{
-        pageYearName
-      }}&lt;/span&gt;
-      &lt;span @click="isRtl ? previousYear() : nextYear()" class="next" :class="{ disabled: isRightNavDisabled }"
-        &gt;&amp;gt;&lt;/span
-      &gt;
-    &lt;/header&gt;
-    &lt;span
-      class="cell month"
-      v-for="month in months"
-      :key="month.timestamp"
-      :class="{ selected: month.isSelected, disabled: month.isDisabled }"
-      @click.stop="selectMonth(month)"
-      &gt;{{ month.month }}&lt;/span
-    &gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
@@ -779,215 +788,215 @@ export default defineComponent({
     },
     pageDate: {
       type: Date as PropType&lt;Date&gt;,
-      default: new Date(),
+<span class="fstat-no" title="function not covered" >      default: new Date(),</span>
     },
     pageTimestamp: {
-<span class="fstat-no" title="function not covered" >      type: Number,</span>
+      type: Number,
     },
     disabledDates: {
-      type: Object,
-    },
-    calendarClass: {
-<span class="fstat-no" title="function not covered" >      type: [String, Object, Array],</span>
+<span class="fstat-no" title="function not covered" >      type: Object,</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    calendarStyle: {</span>
+<span class="cstat-no" title="statement not covered" >    calendarClass: {</span>
+      type: [String, Object, Array],
+    },
+    calendarStyle: {
       type: Object,
     },
     translation: {
       type: Object,
-    },
-    isRtl: {
-      type: Boolean,
 <span class="fstat-no" title="function not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    allowedToShowView: {</span>
-<span class="cstat-no" title="statement not covered" >      type: Function,</span>
+<span class="cstat-no" title="statement not covered" >    isRtl: {</span>
+<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
+    allowedToShowView: {
+      type: Function,
+    },
     useUtc: {
       type: Boolean,
     },
-    fullMonthName: {
-      type: Boolean,
-    },
-<span class="fstat-no" title="function not covered" >    minimumView: {</span>
-<span class="cstat-no" title="statement not covered" >      type: String,</span>
-<span class="cstat-no" title="statement not covered" >      default: 'day',</span>
+<span class="fstat-no" title="function not covered" >    fullMonthName: {</span>
+<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    minimumView: {</span>
+      type: String,
+<span class="cstat-no" title="statement not covered" >      default: 'day',</span>
+    },
     maximumView: {
-<span class="cstat-no" title="statement not covered" >      type: String,</span>
+      type: String,
       default: 'year',
     },
-  },
-  setup(props, { emit }) {
-    /** ********************************** Methods  *********************************** */
-<span class="fstat-no" title="function not covered" >    /**</span>
-<span class="cstat-no" title="statement not covered" >     * Emits a selectMonth event</span>
-<span class="cstat-no" title="statement not covered" >     * @param {Object} month</span>
+<span class="fstat-no" title="function not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >  setup(props, { emit }) {</span>
+<span class="cstat-no" title="statement not covered" >    /** ********************************** Methods  *********************************** */</span>
+    /**
+     * Emits a selectMonth event
+     * @param {Object} month
      */
     function selectMonth(month: { isDisabled: boolean }): void {
       if (!month.isDisabled) {
         emit('select-month', month);
-      }
-    }
-&nbsp;
-<span class="fstat-no" title="function not covered" >    /**</span>
-<span class="cstat-no" title="statement not covered" >     * Changes the year up or down</span>
+<span class="fstat-no" title="function not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    /**</span>
+     * Changes the year up or down
 <span class="cstat-no" title="statement not covered" >     * @param {Number} incrementBy</span>
-<span class="cstat-no" title="statement not covered" >     */</span>
+     */
     function changeYear(incrementBy: number): void {
-<span class="cstat-no" title="statement not covered" >      const date = props.pageDate;</span>
+      const date = props.pageDate;
       setFullYear(date, getFullYear(date) + incrementBy);
       emit('changed-year', date);
-    }
-&nbsp;
-    /**
-<span class="fstat-no" title="function not covered" >     * Checks if the previous year is disabled or not</span>
-<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
-<span class="cstat-no" title="statement not covered" >     */</span>
+<span class="fstat-no" title="function not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    /**</span>
+     * Checks if the previous year is disabled or not
+     * @return {Boolean}
+     */
     function isPreviousYearDisabled(): boolean {
       const d = props.disabledDates;
       if (!d || !d.to) {
-        return false;
-      }
+<span class="fstat-no" title="function not covered" >        return false;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
       return getFullYear(d.to) &gt;= getFullYear(props.pageDate);
-<span class="fstat-no" title="function not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
+    }
+&nbsp;
     /**
      * Decrements the year
      */
     function previousYear(): void {
-      if (!isPreviousYearDisabled()) {
-        changeYear(-1);
-      }
-<span class="fstat-no" title="function not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    /**</span>
+<span class="fstat-no" title="function not covered" >      if (!isPreviousYearDisabled()) {</span>
+<span class="cstat-no" title="statement not covered" >        changeYear(-1);</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+    }
+&nbsp;
+    /**
      * Checks if the next year is disabled or not
      * @return {Boolean}
      */
     function isNextYearDisabled(): boolean {
-      const d = props.disabledDates;
-      if (!d || !d.from) {
-        return false;
-<span class="fstat-no" title="function not covered" >      }</span>
+<span class="fstat-no" title="function not covered" >      const d = props.disabledDates;</span>
+<span class="cstat-no" title="statement not covered" >      if (!d || !d.from) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >      return getFullYear(d.from) &lt;= getFullYear(props.pageDate);</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    /**</span>
-<span class="cstat-no" title="statement not covered" >     * Increments the year</span>
-     */
-    function nextYear(): void {
-<span class="cstat-no" title="statement not covered" >      if (!isNextYearDisabled()) {</span>
-<span class="cstat-no" title="statement not covered" >        changeYear(1);</span>
-      }
-    }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    /**</span>
-     * Emits an event that shows the year calendar
-     */
-<span class="cstat-no" title="statement not covered" >    function showYearCalendar(): void {</span>
-<span class="cstat-no" title="statement not covered" >      emit('show-year-calendar');</span>
-    }
 &nbsp;
     /**
-<span class="cstat-no" title="statement not covered" >     * Whether the selected date is in this month</span>
-     * @param {Date}
-     * @return {Boolean}
+<span class="cstat-no" title="statement not covered" >     * Increments the year</span>
+<span class="cstat-no" title="statement not covered" >     */</span>
+    function nextYear(): void {
+      if (!isNextYearDisabled()) {
+        changeYear(1);
+<span class="cstat-no" title="statement not covered" >      }</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    /**</span>
+<span class="cstat-no" title="statement not covered" >     * Emits an event that shows the year calendar</span>
      */
-<span class="cstat-no" title="statement not covered" >    function isSelectedMonth(date: Date): boolean {</span>
-<span class="cstat-no" title="statement not covered" >      const d = props.selectedDate;</span>
-      return d &amp;&amp; getFullYear(d) === getFullYear(date) &amp;&amp; getMonth(d) === getMonth(date);
+    function showYearCalendar(): void {
+      emit('show-year-calendar');
 <span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
     /**
-     * Whether a month is disabled
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * @param {Date}</span></span>
+     * Whether the selected date is in this month
+<span class="cstat-no" title="statement not covered" >     * @param {Date}</span>
 <span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
-<span class="cstat-no" title="statement not covered" >     */</span>
+     */
+<span class="cstat-no" title="statement not covered" >    function isSelectedMonth(date: Date): boolean {</span>
+      const d = props.selectedDate;
+      return d &amp;&amp; getFullYear(d) === getFullYear(date) &amp;&amp; getMonth(d) === getMonth(date);
+    }
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >    /**</span>
+<span class="cstat-no" title="statement not covered" >     * Whether a month is disabled</span>
+     * @param {Date}
+<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
+     */
     function isDisabledMonth(date: Date): boolean {
-<span class="cstat-no" title="statement not covered" >      let disabledDates = false;</span>
-      const d = props.disabledDates;
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >      let disabledDates = false;</span></span>
+<span class="cstat-no" title="statement not covered" >      const d = props.disabledDates;</span>
       if (!d) return false;
-<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >      if (typeof d === 'undefined') {</span></span>
-<span class="cstat-no" title="statement not covered" >        return false;</span>
+      if (typeof d === 'undefined') {
+        return false;
       }
 &nbsp;
-      if (typeof d.to !== 'undefined' &amp;&amp; d.to) {
+<span class="cstat-no" title="statement not covered" >      if (typeof d.to !== 'undefined' &amp;&amp; d.to) {</span>
         if (
-          (getMonth(date) &lt; getMonth(d.to) &amp;&amp; getFullYear(date) &lt;= getFullYear(d.to)) ||
-<span class="cstat-no" title="statement not covered" >          getFullYear(date) &lt; getFullYear(d.to)</span>
+<span class="cstat-no" title="statement not covered" >          (getMonth(date) &lt; getMonth(d.to) &amp;&amp; getFullYear(date) &lt;= getFullYear(d.to)) ||</span>
+          getFullYear(date) &lt; getFullYear(d.to)
         ) {
-<span class="cstat-no" title="statement not covered" >          disabledDates = true;</span>
+          disabledDates = true;
         }
       }
       if (typeof d.from !== 'undefined' &amp;&amp; d.from) {
-        if (
-          (getMonth(date) &gt; getMonth(d.from) &amp;&amp; getFullYear(date) &gt;= getFullYear(d.from)) ||
-          getFullYear(date) &gt; getFullYear(d.from)
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        ) {</span></span>
-<span class="cstat-no" title="statement not covered" >          disabledDates = true;</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        if (</span></span>
+<span class="cstat-no" title="statement not covered" >          (getMonth(date) &gt; getMonth(d.from) &amp;&amp; getFullYear(date) &gt;= getFullYear(d.from)) ||</span>
+<span class="cstat-no" title="statement not covered" >          getFullYear(date) &gt; getFullYear(d.from)</span>
+        ) {
+          disabledDates = true;
+        }
       }
 &nbsp;
       if (typeof d.customPredictor === 'function' &amp;&amp; d.customPredictor(date)) {
-        disabledDates = true;
-      }
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        disabledDates = true;</span></span>
+<span class="cstat-no" title="statement not covered" >      }</span>
       return disabledDates;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    }</span></span>
-<span class="cstat-no" title="statement not covered" ></span>
+    }
+&nbsp;
     /** ********************************** Computed  *********************************** */
     const months = computed((): IMonths[] =&gt; {
       const d = props.pageDate;
-      const tmonths: IMonths[] = [];
-      // set up a new date object to the beginning of the current 'page'
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      const tmonths: IMonths[] = [];</span></span>
+<span class="cstat-no" title="statement not covered" >      // set up a new date object to the beginning of the current 'page'</span>
       const dObj = props.useUtc
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        ? new Date(Date.UTC(d.getUTCFullYear(), 0, d.getUTCDate()))</span></span>
-<span class="cstat-no" title="statement not covered" >        : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes());</span>
+        ? new Date(Date.UTC(d.getUTCFullYear(), 0, d.getUTCDate()))
+        : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes());
       for (let i = 0; i &lt; 12; i += 1) {
         tmonths.push({
           month: getMonthName(i, props.translation &amp;&amp; props.translation.months),
-          timestamp: dObj.getTime(),
-          isSelected: isSelectedMonth(dObj),
-          isDisabled: isDisabledMonth(dObj),
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        });</span></span>
-<span class="cstat-no" title="statement not covered" >        setMonth(dObj, getMonth(dObj) + 1);</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-      return tmonths;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >          timestamp: dObj.getTime(),</span></span>
+<span class="cstat-no" title="statement not covered" >          isSelected: isSelectedMonth(dObj),</span>
+<span class="cstat-no" title="statement not covered" >          isDisabled: isDisabledMonth(dObj),</span>
+        });
+        setMonth(dObj, getMonth(dObj) + 1);
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      }</span></span>
+<span class="cstat-no" title="statement not covered" >      return tmonths;</span>
     });
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
-<span class="cstat-no" title="statement not covered" >    /**</span>
-     * Get year name on current page.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    /**</span></span>
+<span class="cstat-no" title="statement not covered" >     * Get year name on current page.</span>
      * @return {String}
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     */</span></span>
-<span class="cstat-no" title="statement not covered" >    const pageYearName = computed(() =&gt; {</span>
+     */
+    const pageYearName = computed(() =&gt; {
       const yearSuffix = props.translation &amp;&amp; props.translation.yearSuffix;
       return `${getFullYear(props.pageDate)}${yearSuffix}`;
     });
 &nbsp;
     /**
-     * Is the left hand navigation disabled
-     * @return {Boolean}
-     */
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    const isLeftNavDisabled = computed(() =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >      return props.isRtl ? isNextYearDisabled() : isPreviousYearDisabled();</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * Is the left hand navigation disabled</span></span>
+<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
+<span class="cstat-no" title="statement not covered" >     */</span>
+    const isLeftNavDisabled = computed(() =&gt; {
+      return props.isRtl ? isNextYearDisabled() : isPreviousYearDisabled();
+    });
 &nbsp;
     /**
      * Is the right hand navigation disabled
-     * @return {Boolean}
-     */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * @return {Boolean}</span></span>
+<span class="cstat-no" title="statement not covered" >     */</span>
     const isRightNavDisabled = computed(() =&gt; {
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      return props.isRtl ? isPreviousYearDisabled() : isNextYearDisabled();</span></span>
+      return props.isRtl ? isPreviousYearDisabled() : isNextYearDisabled();
 <span class="cstat-no" title="statement not covered" >    });</span>
 &nbsp;
     /**
-<span class="cstat-no" title="statement not covered" >     * Gets the name of the month the current page is on</span>
-     * @return {String}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * Gets the name of the month the current page is on</span></span>
+<span class="cstat-no" title="statement not covered" >     * @return {String}</span>
      */
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    const monthName = computed(() =&gt; {</span></span>
+    const monthName = computed(() =&gt; {
 <span class="cstat-no" title="statement not covered" >      const tempName = props.translation &amp;&amp; props.translation.months;</span>
       return getMonthName(getMonth(props.pageDate), tempName);
     });
-<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
     const getDisplayDate = computed(() =&gt; {
       return props.selectedDate ? getDate(props.selectedDate) : null;
     });
@@ -1048,7 +1057,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 11 2020 09:08:53 GMT+0530 (India Standard Time)
+                at Wed Nov 11 2020 09:11:40 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

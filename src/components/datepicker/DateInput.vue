@@ -15,14 +15,22 @@
         </i>
       </span>
     </span>
-    <div v-if="typeable || !hideInput">
-      <span v-if="!inline"><img src="../../assets/calendar.svg"/></span>
+    <div v-if="typeable || !hideInput" style="position: relative">
+      <span v-if="!inline">
+        <IconView
+          class="vuejs3-datepicker__typeablecalendar"
+          :color="iconColor"
+          :width="iconWidth"
+          :height="iconHeight"
+        />
+      </span>
       <input
         :type="inline ? 'hidden' : 'text'"
         :class="computedInputClass"
         :name="name"
         ref="inputRef"
         :id="id"
+        class="vuejs3-datepicker__inputvalue"
         :value="formattedValue"
         :open-date="openDate"
         :placeholder="placeholder"
@@ -36,9 +44,14 @@
         autocomplete="off"
       />
     </div>
-    <div v-else @click="showCalendar" style="width: 400px;border: 1px solid black;" id="calendar-div">
-      <span v-if="!inline"><img src="../../assets/calendar.svg"/></span>
-      <div v-if="!inline">{{ formattedValue }}</div>
+    <div v-else @click="showCalendar" id="calendar-div">
+      <div class="vuejs3-datepicker__value" v-if="!inline">
+        <span class="vuejs3-datepicker__icon">
+          <IconView :color="iconColor" :width="iconWidth" :height="iconHeight" />
+        </span>
+        <div class="vuejs3-datepicker__content" v-if="formattedValue">{{ formattedValue }}</div>
+        <div v-else class="vuejs3-datepicker__content">{{ placeholder }}</div>
+      </div>
     </div>
     <span
       v-if="clearButton && selectedDate"
@@ -58,10 +71,14 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
+import IconView from '../iconview/IconView.vue';
 import { formatDate } from './utils/DateUtils';
 
 export default defineComponent({
   name: 'DateInput',
+  components: {
+    IconView,
+  },
   props: {
     selectedDate: {
       type: Date as new () => Date,
@@ -135,6 +152,22 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    fullMonthName: {
+      type: Boolean,
+      default: false,
+    },
+    iconColor: {
+      default: 'black',
+      type: String,
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number],
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number],
+    },
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
   setup(props, { emit }) {
@@ -170,6 +203,10 @@ export default defineComponent({
       if (props.minimumView === props.maximumView) {
         const [, y, z] = date.split(' ');
         if (props.maximumView === 'month') {
+          if (props.fullMonthName) {
+            const i = props.translation?.monthsAbbr.indexOf(y);
+            return props.translation?.months[i];
+          }
           date = y;
         } else if (props.maximumView === 'year') {
           date = z;

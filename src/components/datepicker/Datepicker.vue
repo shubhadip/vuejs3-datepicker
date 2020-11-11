@@ -14,6 +14,7 @@
       :inline="inline"
       :id="id"
       :name="name"
+      :fullMonthName="fullMonthName"
       :openDate="openDate"
       :placeholder="placeholder"
       :inputClass="inputClass"
@@ -34,6 +35,9 @@
       :minimumView="minimumView"
       :maximumView="maximumView"
       :hideInput="hideInput"
+      :iconWidth="iconWidth"
+      :iconHeight="iconHeight"
+      :iconColor="iconColor"
     >
       <template v-slot:afterDateInput>
         <slot name="afterDateInput"></slot>
@@ -61,6 +65,9 @@
       @showMonthCalendar="showMonthCalendar"
       @selectedDisabled="selectDisabledDate"
       @showYearCalendar="showYearCalendar"
+      :minimumView="minimumView"
+      :maximumView="maximumView"
+      :preventDisableDateSelection="preventDisableDateSelection"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -80,6 +87,7 @@
       :translation="translation"
       :isRtl="isRtl"
       :use-utc="useUtc"
+      :fullMonthName="fullMonthName"
       @selectMonth="selectMonth"
       @showYearCalendar="showYearCalendar"
       @changedYear="setPageDate"
@@ -238,6 +246,22 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    preventDisableDateSelection: {
+      type: Boolean,
+      default: true,
+    },
+    iconColor: {
+      default: 'black',
+      type: String,
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number],
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number],
+    },
   },
   emits: [
     'input',
@@ -253,7 +277,7 @@ export default defineComponent({
   setup(props, { emit }) {
     const initmodelvalue = new Date((props.modelValue as unknown) as Date);
     const pageTimestamp = ref<number>(0);
-    const selectedDate = ref<Date | null>(null);
+    const selectedDate = ref<Date | string | null>(null);
     if (props.modelValue && isValidDate(initmodelvalue)) {
       pageTimestamp.value = setDate(initmodelvalue, 1);
       selectedDate.value = initmodelvalue;
@@ -497,18 +521,18 @@ export default defineComponent({
      * Set the datepicker value
      * @param {Date|String|Number|null} date
      */
-    function setValue(date: Date): void {
-      let tempDate: Date | null = date;
+    function setValue(date?: Date | string | number): void {
+      let tempDate = date;
       if (typeof date === 'string' || typeof date === 'number') {
         const parsed = new Date(date);
-        tempDate = Number.isNaN(parsed.valueOf()) ? null : parsed;
+        tempDate = Number.isNaN(parsed.valueOf()) ? '' : parsed;
       }
       if (!tempDate) {
         setPageDate();
         selectedDate.value = null;
         return;
       }
-      selectedDate.value = date;
+      selectedDate.value = date as Date;
       setPageDate(date);
     }
 
@@ -548,16 +572,18 @@ export default defineComponent({
     /** ********************************** Watchers  *********************************** */
     watch(
       () => props.modelValue,
-      (curr: any) => {
+      (curr?: any) => {
         setValue(curr);
       }
     );
+
     watch(
       () => props.value,
       (curr: any) => {
         setValue(curr);
       }
     );
+
     watch(
       () => props.openDate,
       () => {
