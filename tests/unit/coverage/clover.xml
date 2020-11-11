@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1605066100384" clover="3.2.0">
-  <project timestamp="1605066100384" name="All files">
-    <metrics statements="555" coveredstatements="200" conditionals="458" coveredconditionals="157" methods="138" coveredmethods="45" elements="1151" coveredelements="402" complexity="0" loc="555" ncloc="555" packages="4" files="8" classes="8"/>
+<coverage generated="1605066198350" clover="3.2.0">
+  <project timestamp="1605066198350" name="All files">
+    <metrics statements="553" coveredstatements="199" conditionals="458" coveredconditionals="157" methods="137" coveredmethods="45" elements="1148" coveredelements="401" complexity="0" loc="553" ncloc="553" packages="3" files="7" classes="7"/>
     <package name="datepicker">
       <metrics statements="453" coveredstatements="109" conditionals="361" coveredconditionals="70" methods="116" coveredmethods="26"/>
       <file name="DateInput.vue" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/datepicker/DateInput.vue">
@@ -583,14 +583,6 @@
         <line num="269" count="1" type="stmt"/>
         <line num="277" count="5" type="stmt"/>
         <line num="278" count="0" type="cond" truecount="0" falsecount="4"/>
-      </file>
-    </package>
-    <package name="iconview">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="IconView.vue" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/iconview/IconView.vue">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
       </file>
     </package>
   </project>

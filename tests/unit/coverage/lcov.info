@@ -1346,16 +1346,3 @@ BRDA:278,43,3,0
 BRF:97
 BRH:87
 end_of_record
-TN:
-SF:src/components/iconview/IconView.vue
-FN:20,setup
-FNF:1
-FNH:0
-FNDA:0,setup
-DA:2,2
-DA:21,0
-LF:2
-LH:1
-BRF:0
-BRH:0
-end_of_record
