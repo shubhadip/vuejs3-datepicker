@@ -8786,7 +8786,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     style: {
       "width": "400px",
       "border": "1px solid black"
-    }
+    },
+    id: "calendar-div"
   }, [!_ctx.inline ? (openBlock(), createBlock("span", _hoisted_5, [_hoisted_6])) : createCommentVNode("v-if", true), !_ctx.inline ? (openBlock(), createBlock("div", _hoisted_7, toDisplayString(_ctx.formattedValue), 1
   /* TEXT */
   )) : createCommentVNode("v-if", true)])), _ctx.clearButton && _ctx.selectedDate ? (openBlock(), createBlock("span", {

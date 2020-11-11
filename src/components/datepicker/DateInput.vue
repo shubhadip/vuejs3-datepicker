@@ -36,7 +36,7 @@
         autocomplete="off"
       />
     </div>
-    <div v-else @click="showCalendar" style="width: 400px;border: 1px solid black;">
+    <div v-else @click="showCalendar" style="width: 400px;border: 1px solid black;" id="calendar-div">
       <span v-if="!inline"><img src="../../assets/calendar.svg"/></span>
       <div v-if="!inline">{{ formattedValue }}</div>
     </div>

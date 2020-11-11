@@ -14,5 +14,5 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/tests/unit/setup'],
   coverageDirectory: '<rootDir>/tests/unit/coverage',
-  collectCoverageFrom: ['src/**/*.{ts,js,vue}', '!src/locale/translations/**/*.ts'],
+  collectCoverageFrom: ['src/components/**/*.{ts,js,vue}', '!src/locale/translations/**/*.ts'],
 };
