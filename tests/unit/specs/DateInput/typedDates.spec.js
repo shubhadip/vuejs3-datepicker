@@ -22,22 +22,18 @@ describe('DateInput', () => {
     })
   })
 
-  // it('does not format the date when typed', async () => {
-  //   const dateString = '2018-04-24'
-    
-  //   wrapper.vm.inputRef.value = dateString
-  //   expect(wrapper.vm.inputRef.value).toEqual(dateString)
-  //   // wrapper.setData({
-  //   //   typedDate: dateString
-  //   // })
-  //   // console.log('test',wrapper.vm);
-  //   await wrapper.setProps({
-  //     selectedDate: new Date(dateString),
-      
-  //   })
-  //   expect(wrapper.vm.typedDate).toEqual(dateString)
-  //   expect(wrapper.vm.formattedValue).toEqual(dateString)
-  // })
+  it('does not format the date when typed', async () => {
+    const dateString = '2018-04-24'
+    const input = await wrapper.find('input')
+    wrapper.vm.inputRef.value = dateString
+    expect(wrapper.vm.inputRef.value).toEqual(dateString)
+    input.trigger('keyup')
+    await wrapper.setProps({
+      selectedDate: new Date(dateString)
+    })
+    expect(wrapper.vm.typedDate).toEqual(dateString)
+    expect(wrapper.vm.formattedValue).toEqual(dateString)
+  })
 
   it('emits the date when typed', async () => {
     const input = await wrapper.find('input')

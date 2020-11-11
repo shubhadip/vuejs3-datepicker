@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1605066198350" clover="3.2.0">
-  <project timestamp="1605066198350" name="All files">
-    <metrics statements="553" coveredstatements="199" conditionals="458" coveredconditionals="157" methods="137" coveredmethods="45" elements="1148" coveredelements="401" complexity="0" loc="553" ncloc="553" packages="3" files="7" classes="7"/>
+<coverage generated="1605066687746" clover="3.2.0">
+  <project timestamp="1605066687746" name="All files">
+    <metrics statements="553" coveredstatements="202" conditionals="458" coveredconditionals="163" methods="137" coveredmethods="45" elements="1148" coveredelements="410" complexity="0" loc="553" ncloc="553" packages="3" files="7" classes="7"/>
     <package name="datepicker">
-      <metrics statements="453" coveredstatements="109" conditionals="361" coveredconditionals="70" methods="116" coveredmethods="26"/>
+      <metrics statements="453" coveredstatements="112" conditionals="361" coveredconditionals="76" methods="116" coveredmethods="26"/>
       <file name="DateInput.vue" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/datepicker/DateInput.vue">
-        <metrics statements="46" coveredstatements="42" conditionals="32" coveredconditionals="24" methods="9" coveredmethods="8"/>
+        <metrics statements="46" coveredstatements="45" conditionals="32" coveredconditionals="30" methods="9" coveredmethods="8"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="103" count="17" type="stmt"/>
-        <line num="104" count="17" type="stmt"/>
-        <line num="106" count="17" type="stmt"/>
-        <line num="107" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="103" count="19" type="stmt"/>
+        <line num="104" count="19" type="stmt"/>
+        <line num="106" count="19" type="stmt"/>
+        <line num="107" count="20" type="cond" truecount="2" falsecount="0"/>
         <line num="108" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="109" count="1" type="stmt"/>
         <line num="112" count="1" type="stmt"/>
-        <line num="116" count="16" type="stmt"/>
-        <line num="119" count="17" type="stmt"/>
-        <line num="120" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="121" count="6" type="stmt"/>
-        <line num="123" count="16" type="cond" truecount="1" falsecount="1"/>
-        <line num="124" count="0" type="stmt"/>
-        <line num="127" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="132" count="16" type="cond" truecount="2" falsecount="0"/>
-        <line num="133" count="6" type="stmt"/>
-        <line num="134" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="135" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="136" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="137" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="116" count="18" type="stmt"/>
+        <line num="119" count="19" type="stmt"/>
+        <line num="120" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="121" count="7" type="stmt"/>
+        <line num="123" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="127" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="132" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="133" count="9" type="stmt"/>
+        <line num="134" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="135" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="136" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="137" count="1" type="cond" truecount="2" falsecount="0"/>
         <line num="139" count="1" type="stmt"/>
         <line num="140" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="141" count="1" type="stmt"/>
-        <line num="145" count="16" type="stmt"/>
-        <line num="149" count="17" type="stmt"/>
-        <line num="150" count="17" type="stmt"/>
+        <line num="145" count="17" type="stmt"/>
+        <line num="149" count="19" type="stmt"/>
+        <line num="150" count="19" type="stmt"/>
         <line num="152" count="0" type="stmt"/>
         <line num="160" count="1" type="stmt"/>
-        <line num="168" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="168" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="174" count="1" type="stmt"/>
-        <line num="176" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="177" count="2" type="stmt"/>
-        <line num="178" count="2" type="stmt"/>
-        <line num="179" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="180" count="1" type="stmt"/>
-        <line num="181" count="1" type="stmt"/>
+        <line num="176" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="177" count="3" type="stmt"/>
+        <line num="178" count="3" type="stmt"/>
+        <line num="179" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="180" count="2" type="stmt"/>
+        <line num="181" count="2" type="stmt"/>
         <line num="190" count="1" type="stmt"/>
         <line num="198" count="2" type="cond" truecount="4" falsecount="0"/>
         <line num="199" count="1" type="stmt"/>
         <line num="201" count="1" type="stmt"/>
         <line num="202" count="1" type="stmt"/>
         <line num="204" count="2" type="stmt"/>
-        <line num="207" count="17" type="stmt"/>
+        <line num="207" count="19" type="stmt"/>
       </file>
       <file name="Datepicker.vue" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/datepicker/Datepicker.vue">
         <metrics statements="148" coveredstatements="0" conditionals="62" coveredconditionals="0" methods="36" coveredmethods="0"/>
@@ -503,14 +503,14 @@
       <metrics statements="80" coveredstatements="70" conditionals="97" coveredconditionals="87" methods="19" coveredmethods="17"/>
       <file name="DateUtils.ts" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/datepicker/utils/DateUtils.ts">
         <metrics statements="80" coveredstatements="70" conditionals="97" coveredconditionals="87" methods="19" coveredmethods="17"/>
-        <line num="7" count="1326" type="cond" truecount="4" falsecount="0"/>
-        <line num="8" count="1326" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="104" type="cond" truecount="4" falsecount="0"/>
-        <line num="16" count="104" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="77" type="cond" truecount="4" falsecount="0"/>
-        <line num="24" count="77" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="45" type="cond" truecount="4" falsecount="0"/>
-        <line num="32" count="45" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1328" type="cond" truecount="4" falsecount="0"/>
+        <line num="8" count="1328" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="110" type="cond" truecount="4" falsecount="0"/>
+        <line num="16" count="110" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="81" type="cond" truecount="4" falsecount="0"/>
+        <line num="24" count="81" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="47" type="cond" truecount="4" falsecount="0"/>
+        <line num="32" count="47" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="5" type="cond" truecount="4" falsecount="0"/>
         <line num="40" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="47" count="5" type="cond" truecount="4" falsecount="0"/>
@@ -536,24 +536,24 @@
         <line num="107" count="4" type="stmt"/>
         <line num="109" count="1" type="stmt"/>
         <line num="118" count="5" type="stmt"/>
-        <line num="119" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="119" count="46" type="cond" truecount="2" falsecount="0"/>
         <line num="120" count="1" type="stmt"/>
-        <line num="122" count="43" type="stmt"/>
+        <line num="122" count="45" type="stmt"/>
         <line num="131" count="5" type="stmt"/>
-        <line num="132" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="132" count="52" type="cond" truecount="2" falsecount="0"/>
         <line num="133" count="1" type="stmt"/>
-        <line num="135" count="49" type="cond" truecount="2" falsecount="0"/>
+        <line num="135" count="51" type="cond" truecount="2" falsecount="0"/>
         <line num="136" count="1" type="stmt"/>
-        <line num="138" count="48" type="cond" truecount="2" falsecount="0"/>
-        <line num="139" count="47" type="stmt"/>
+        <line num="138" count="50" type="cond" truecount="2" falsecount="0"/>
+        <line num="139" count="49" type="stmt"/>
         <line num="141" count="1" type="stmt"/>
         <line num="149" count="5" type="stmt"/>
-        <line num="150" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="150" count="33" type="cond" truecount="2" falsecount="0"/>
         <line num="151" count="1" type="stmt"/>
-        <line num="153" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="153" count="32" type="cond" truecount="2" falsecount="0"/>
         <line num="154" count="1" type="stmt"/>
-        <line num="156" count="29" type="cond" truecount="2" falsecount="0"/>
-        <line num="157" count="28" type="stmt"/>
+        <line num="156" count="31" type="cond" truecount="2" falsecount="0"/>
+        <line num="157" count="30" type="stmt"/>
         <line num="159" count="1" type="stmt"/>
         <line num="169" count="5" type="stmt"/>
         <line num="170" count="28" type="cond" truecount="2" falsecount="0"/>
@@ -564,17 +564,17 @@
         <line num="177" count="2" type="stmt"/>
         <line num="179" count="16" type="stmt"/>
         <line num="195" count="5" type="stmt"/>
-        <line num="196" count="27" type="stmt"/>
+        <line num="196" count="29" type="stmt"/>
         <line num="200" count="4" type="stmt"/>
         <line num="203" count="3" type="stmt"/>
         <line num="206" count="1" type="stmt"/>
-        <line num="208" count="19" type="stmt"/>
+        <line num="208" count="21" type="stmt"/>
         <line num="219" count="5" type="stmt"/>
-        <line num="240" count="27" type="stmt"/>
-        <line num="241" count="27" type="stmt"/>
-        <line num="242" count="27" type="stmt"/>
-        <line num="243" count="27" type="stmt"/>
-        <line num="254" count="27" type="stmt"/>
+        <line num="240" count="29" type="stmt"/>
+        <line num="241" count="29" type="stmt"/>
+        <line num="242" count="29" type="stmt"/>
+        <line num="243" count="29" type="stmt"/>
+        <line num="254" count="29" type="stmt"/>
         <line num="263" count="5" type="stmt"/>
         <line num="264" count="1" type="stmt"/>
         <line num="265" count="1" type="stmt"/>

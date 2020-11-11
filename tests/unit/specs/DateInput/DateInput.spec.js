@@ -104,4 +104,13 @@ describe('DateInput', () => {
     })
     expect(wrapper.vm.formattedValue).toEqual('2018')
   })
+
+  it('month for minimum, maximum view', async () => {
+    await wrapper.setProps({
+      minimumView: 'month',
+      maximumView: 'month',
+      'full-month-name': true
+    })
+    expect(wrapper.vm.formattedValue).toEqual('March')
+  })
 })
