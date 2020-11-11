@@ -1,12 +1,10 @@
-// rollup.config.js
-import fs from 'fs';
 import path from 'path';
 import vue from 'rollup-plugin-vue';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import babel from '@rollup/plugin-babel';
+import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import PostCSS from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import simplevars from 'postcss-simple-vars';
@@ -79,7 +77,7 @@ const baseConfig = {
     babel: {
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
     },
   },
 };
@@ -90,7 +88,8 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   'vue',
-  'vue-slider-component'
+  'vue-slider-component',
+  '/@babel\/runtime/'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -101,14 +100,6 @@ const globals = {
   vue: 'Vue',
   'vue-slider-component': 'VueSlider'
 };
-
-const baseFolder = './src/';
-const componentsFolder = 'components/';
-
-const components = fs
-  .readdirSync(baseFolder + componentsFolder)
-  .filter((f) => fs.statSync(path.join(baseFolder + componentsFolder, f)).isDirectory());
-
 
 const capitalize = (s) => {
   if (typeof s !== 'string') return '';
@@ -124,9 +115,6 @@ if (!argv.format) {
     input: './src/components/datepicker/Datepicker.vue',
     external,
     output: {
-      // format: 'esm',
-      // dir: 'dist/esm',
-      // exports: 'named',
       format: 'esm',
       file: 'dist/datepicker.esm.js',
     },
@@ -137,9 +125,12 @@ if (!argv.format) {
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
       ...baseConfig.plugins.postVue,
-      babel({
-        ...baseConfig.plugins.babel,
-        presets: [['@babel/preset-env', { modules: false }]],
+      // babel({
+      //   ...baseConfig.plugins.babel,
+      //   presets: [['@babel/preset-env', { modules: false }]],
+      // }),
+      getBabelOutputPlugin({
+        presets: [['@babel/preset-env', { modules: false}]]
       }),
       terser({
         output: {
@@ -163,9 +154,12 @@ if (!argv.format) {
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
       ...baseConfig.plugins.postVue,
-      babel({
-        ...baseConfig.plugins.babel,
-        presets: [['@babel/preset-env', { modules: false }]],
+      // babel({
+      //   ...baseConfig.plugins.babel,
+      //   presets: [['@babel/preset-env', { modules: false }]],
+      // }),
+      getBabelOutputPlugin({
+        presets: [['@babel/preset-env', { modules: false}]]
       }),
       terser({
         output: {
@@ -194,6 +188,9 @@ if (!argv.format) {
         ...baseConfig.plugins.babel,
         presets: [['@babel/preset-env', { modules: false }]],
       }),
+      // getBabelOutputPlugin({
+      //   presets: [['@babel/preset-env', { modules: false}]]
+      // }),
       terser({
         output: {
           comments: '/^!/',
@@ -208,5 +205,4 @@ if (!argv.format) {
 
 }
 
-// Export config
 export default buildFormats;

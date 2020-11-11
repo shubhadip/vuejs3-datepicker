@@ -44,7 +44,7 @@
         autocomplete="off"
       />
     </div>
-    <div v-else @click="showCalendar">
+    <div v-else @click="showCalendar" id="calendar-div">
       <div class="vuejs3-datepicker__value" v-if="!inline">
         <span class="vuejs3-datepicker__icon">
           <IconView :color="iconColor" :width="iconWidth" :height="iconHeight" />
