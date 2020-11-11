@@ -696,7 +696,15 @@
 <a name='L637'></a><a href='#L637'>637</a>
 <a name='L638'></a><a href='#L638'>638</a>
 <a name='L639'></a><a href='#L639'>639</a>
-<a name='L640'></a><a href='#L640'>640</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L640'></a><a href='#L640'>640</a>
+<a name='L641'></a><a href='#L641'>641</a>
+<a name='L642'></a><a href='#L642'>642</a>
+<a name='L643'></a><a href='#L643'>643</a>
+<a name='L644'></a><a href='#L644'>644</a>
+<a name='L645'></a><a href='#L645'>645</a>
+<a name='L646'></a><a href='#L646'>646</a>
+<a name='L647'></a><a href='#L647'>647</a>
+<a name='L648'></a><a href='#L648'>648</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -846,6 +854,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1171,6 +1183,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1338,7 +1354,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
 <span class="cstat-no" title="statement not covered" >  &lt;div</span>
 <span class="cstat-no" title="statement not covered" >    class="vuejs3-datepicker"</span>
-<span class="cstat-no" title="statement not covered" >    :class="[wrapperClass, isRtl ? 'rtl' : '']"</span>
+<span class="cstat-no" title="statement not covered" >    :class="[isRtl ? 'rtl' : '', `vuejs3-${theme}`, wrapperClass]"</span>
 <span class="cstat-no" title="statement not covered" >    v-clickoutside="{</span>
 <span class="cstat-no" title="statement not covered" >      handler: inline ? null : closeOnClickOutside,</span>
 <span class="cstat-no" title="statement not covered" >    }"</span>
@@ -1375,6 +1391,7 @@
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      :iconWidth="iconWidth"</span></span>
       :iconHeight="iconHeight"
       :iconColor="iconColor"
+      :theme="theme"
     &gt;
       &lt;template v-slot:afterDateInput&gt;
         &lt;slot name="afterDateInput"&gt;&lt;/slot&gt;
@@ -1405,6 +1422,7 @@
       :minimumView="minimumView"
       :maximumView="maximumView"
       :preventDisableDateSelection="preventDisableDateSelection"
+      :theme="theme"
     &gt;
       &lt;template v-slot:beforeCalendarHeader&gt;
         &lt;slot name="beforeCalendarHeader"&gt;&lt;/slot&gt;
@@ -1430,6 +1448,7 @@
       @changedYear="setPageDate"
       :minimumView="minimumView"
       :maximumView="maximumView"
+      :theme="theme"
     &gt;
       &lt;template v-slot:beforeCalendarHeader&gt;
         &lt;slot name="beforeCalendarHeader"&gt;&lt;/slot&gt;
@@ -1454,6 +1473,7 @@
       :fullMonthName="fullMonthName"
       :minimumView="minimumView"
       :maximumView="maximumView"
+      :theme="theme"
     &gt;
       &lt;template v-slot:beforeCalendarHeader&gt;
         &lt;slot name="beforeCalendarHeader"&gt;&lt;/slot&gt;
@@ -1599,217 +1619,221 @@ export default defineComponent({
 <span class="cstat-no" title="statement not covered" >      default: 16,</span>
 <span class="cstat-no" title="statement not covered" >      type: [String, Number],</span>
     },
-<span class="cstat-no" title="statement not covered" >  },</span>
-<span class="cstat-no" title="statement not covered" >  emits: [</span>
-<span class="cstat-no" title="statement not covered" >    'input',</span>
+<span class="cstat-no" title="statement not covered" >    theme: {</span>
+<span class="cstat-no" title="statement not covered" >      default: 'green',</span>
+<span class="cstat-no" title="statement not covered" >      type: String,</span>
+    },
+  },
+  emits: [
+    'input',
     'cleared',
-    'update:modelValue',
-    'closed',
-    'changed-month',
+<span class="fstat-no" title="function not covered" >    'update:modelValue',</span>
+<span class="cstat-no" title="statement not covered" >    'closed',</span>
+<span class="cstat-no" title="statement not covered" >    'changed-month',</span>
     'changed-year',
-<span class="fstat-no" title="function not covered" >    'changed-day',</span>
+<span class="cstat-no" title="statement not covered" >    'changed-day',</span>
 <span class="cstat-no" title="statement not covered" >    'selected',</span>
 <span class="cstat-no" title="statement not covered" >    'selected-disabled',</span>
   ],
-<span class="cstat-no" title="statement not covered" >  setup(props, { emit }) {</span>
-<span class="cstat-no" title="statement not covered" >    const initmodelvalue = new Date((props.modelValue as unknown) as Date);</span>
-<span class="cstat-no" title="statement not covered" >    const pageTimestamp = ref&lt;number&gt;(0);</span>
-    const selectedDate = ref&lt;Date | string | null&gt;(null);
-    if (props.modelValue &amp;&amp; isValidDate(initmodelvalue)) {
-      pageTimestamp.value = setDate(initmodelvalue, 1);
-      selectedDate.value = initmodelvalue;
-<span class="fstat-no" title="function not covered" >    } else {</span>
-<span class="cstat-no" title="statement not covered" >      pageTimestamp.value = setDate(new Date(), 1);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+  setup(props, { emit }) {
+    const initmodelvalue = new Date((props.modelValue as unknown) as Date);
+    const pageTimestamp = ref&lt;number&gt;(0);
+<span class="fstat-no" title="function not covered" >    const selectedDate = ref&lt;Date | string | null&gt;(null);</span>
+<span class="cstat-no" title="statement not covered" >    if (props.modelValue &amp;&amp; isValidDate(initmodelvalue)) {</span>
+<span class="cstat-no" title="statement not covered" >      pageTimestamp.value = setDate(initmodelvalue, 1);</span>
+<span class="cstat-no" title="statement not covered" >      selectedDate.value = initmodelvalue;</span>
+    } else {
+      pageTimestamp.value = setDate(new Date(), 1);
+    }
 <span class="cstat-no" title="statement not covered" >    const showDayView = ref(false);</span>
     const showMonthView = ref(false);
-    const showYearView = ref(false);
-    const calendarHeight = ref(0);
-<span class="cstat-no" title="statement not covered" >    const resetTypedDate = ref(new Date());</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    /** ********************************** Computed  *********************************** */</span>
-<span class="cstat-no" title="statement not covered" >    const computedInitialView = computed(() =&gt; {</span>
-      if (!props.initialView) {
-<span class="cstat-no" title="statement not covered" >        return props.minimumView;</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-      return props.initialView;
-<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >    const showYearView = ref(false);</span>
+<span class="cstat-no" title="statement not covered" >    const calendarHeight = ref(0);</span>
+    const resetTypedDate = ref(new Date());
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    /** ********************************** Computed  *********************************** */</span>
+    const computedInitialView = computed(() =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (!props.initialView) {</span>
+<span class="cstat-no" title="statement not covered" >        return props.minimumView;</span>
+      }
+      return props.initialView;
+    });
+&nbsp;
     const pageDate = computed(() =&gt; {
       return new Date(pageTimestamp.value);
-    });
-&nbsp;
-    const translation = computed(() =&gt; {
-      const temp = (Langlist as any).data;
-<span class="fstat-no" title="function not covered" >      return temp[props.language as any];</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-    const isInline = computed(() =&gt; {
-<span class="cstat-no" title="statement not covered" >      return !!props.inline;</span>
-<span class="cstat-no" title="statement not covered" >    });</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    const calendarStyle = computed(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      return {</span>
-        position: isInline.value ? 'static' : undefined,
-      };
-    });
-&nbsp;
-    const isOpen = computed(() =&gt; {
-      return showDayView.value || showMonthView.value || showYearView.value;
 <span class="fstat-no" title="function not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const isRtl = computed(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      return translation.value &amp;&amp; translation.value.rtl === true;</span>
+<span class="cstat-no" title="statement not covered" >    const translation = computed(() =&gt; {</span>
+      const temp = (Langlist as any).data;
+<span class="cstat-no" title="statement not covered" >      return temp[props.language as any];</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
-<span class="cstat-no" title="statement not covered" >    /** ********************************** Methods  *********************************** */</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    const isInline = computed(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return !!props.inline;</span>
+    });
+&nbsp;
+    const calendarStyle = computed(() =&gt; {
+      return {
+        position: isInline.value ? 'static' : undefined,
+      };
+<span class="fstat-no" title="function not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const isOpen = computed(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return showDayView.value || showMonthView.value || showYearView.value;</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    const isRtl = computed(() =&gt; {</span>
+      return translation.value &amp;&amp; translation.value.rtl === true;
+<span class="cstat-no" title="statement not covered" >    });</span>
+    /** ********************************** Methods  *********************************** */
+&nbsp;
     /**
-<span class="cstat-no" title="statement not covered" >     * Sets the date that the calendar should open on</span>
+     * Sets the date that the calendar should open on
      */
     function setPageDate(date?: string | number | Date | undefined): void {
-      if (!date) {
-        if (props.openDate) {
-          date = new Date(props.openDate);
-        } else {
-<span class="fstat-no" title="function not covered" >          date = new Date();</span>
+<span class="fstat-no" title="function not covered" >      if (!date) {</span>
+<span class="cstat-no" title="statement not covered" >        if (props.openDate) {</span>
+<span class="cstat-no" title="statement not covered" >          date = new Date(props.openDate);</span>
+<span class="cstat-no" title="statement not covered" >        } else {</span>
+<span class="cstat-no" title="statement not covered" >          date = new Date();</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
+      }
 <span class="cstat-no" title="statement not covered" >      pageTimestamp.value = setDate(new Date(date), 1);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    }
 <span class="cstat-no" title="statement not covered" ></span>
     /**
-<span class="cstat-no" title="statement not covered" >     * Are we allowed to show a specific picker view?</span>
+     * Are we allowed to show a specific picker view?
      * @param {String} view
-<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
+     * @return {Boolean}
      */
-    function allowedToShowView(view: string): boolean {
-      const views = ['day', 'month', 'year'];
-      const minimumViewIndex = views.indexOf(props.minimumView);
-      const maximumViewIndex = views.indexOf(props.maximumView);
-<span class="fstat-no" title="function not covered" >      const viewIndex = views.indexOf(view);</span>
+<span class="fstat-no" title="function not covered" >    function allowedToShowView(view: string): boolean {</span>
+<span class="cstat-no" title="statement not covered" >      const views = ['day', 'month', 'year'];</span>
+<span class="cstat-no" title="statement not covered" >      const minimumViewIndex = views.indexOf(props.minimumView);</span>
+<span class="cstat-no" title="statement not covered" >      const maximumViewIndex = views.indexOf(props.maximumView);</span>
+      const viewIndex = views.indexOf(view);
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >      return viewIndex &gt;= minimumViewIndex &amp;&amp; viewIndex &lt;= maximumViewIndex;</span>
+      return viewIndex &gt;= minimumViewIndex &amp;&amp; viewIndex &lt;= maximumViewIndex;
+    }
+&nbsp;
+    /**
+<span class="fstat-no" title="function not covered" >     * Close all calendar layers</span>
+<span class="cstat-no" title="statement not covered" >     * @param {Boolean} emitEvent - emit close event</span>
+     */
+    function close(emitEvent?: boolean): void {
+      showDayView.value = false;
+      showMonthView.value = false;
+<span class="fstat-no" title="function not covered" >      showYearView.value = false;</span>
+<span class="cstat-no" title="statement not covered" >      if (!isInline.value) {</span>
+<span class="cstat-no" title="statement not covered" >        if (emitEvent) {</span>
+<span class="cstat-no" title="statement not covered" >          emit('closed');</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+      }
 <span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    /**</span>
-     * Close all calendar layers
-     * @param {Boolean} emitEvent - emit close event
-     */
-    function close(emitEvent?: boolean): void {
-<span class="fstat-no" title="function not covered" >      showDayView.value = false;</span>
-<span class="cstat-no" title="statement not covered" >      showMonthView.value = false;</span>
-      showYearView.value = false;
-      if (!isInline.value) {
-        if (emitEvent) {
-          emit('closed');
-<span class="fstat-no" title="function not covered" >        }</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    /**</span>
      * Show the day picker
-<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
+     * @return {Boolean}
      */
-<span class="cstat-no" title="statement not covered" >    function showDayCalendar(): boolean {</span>
+    function showDayCalendar(): boolean {
       if (!allowedToShowView('day')) {
-        return false;
-      }
-      close();
-      showDayView.value = true;
-<span class="fstat-no" title="function not covered" >      return true;</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
-<span class="cstat-no" title="statement not covered" >    /**</span>
-<span class="cstat-no" title="statement not covered" >     * Show the month picker</span>
-<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
-     */
-<span class="cstat-no" title="statement not covered" >    function showMonthCalendar(): boolean {</span>
-      if (!allowedToShowView('month')) {
-<span class="cstat-no" title="statement not covered" >        return false;</span>
-      }
-      close();
-      showMonthView.value = true;
-      return true;
-    }
-    /**
-<span class="fstat-no" title="function not covered" >     * Show the year picker</span>
-<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
-<span class="cstat-no" title="statement not covered" >     */</span>
-<span class="cstat-no" title="statement not covered" >    function showYearCalendar(): boolean {</span>
-<span class="cstat-no" title="statement not covered" >      if (!allowedToShowView('year')) {</span>
-        return false;
+<span class="fstat-no" title="function not covered" >        return false;</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >      close();</span>
-<span class="cstat-no" title="statement not covered" >      showYearView.value = true;</span>
+<span class="cstat-no" title="statement not covered" >      showDayView.value = true;</span>
 <span class="cstat-no" title="statement not covered" >      return true;</span>
     }
 <span class="cstat-no" title="statement not covered" >    /**</span>
-<span class="cstat-no" title="statement not covered" >     * Sets the initial picker page view: day, month or year</span>
+     * Show the month picker
+<span class="cstat-no" title="statement not covered" >     * @return {Boolean}</span>
      */
-    function setInitialView(): void {
-      const initialView = computedInitialView.value;
-      if (!allowedToShowView(initialView)) {
-        throw new Error(
-<span class="fstat-no" title="function not covered" >          `initialView '${initialView}' cannot be rendered based on minimum '${props.minimumView}' and maximum '${props.maximumView}'`</span>
-<span class="cstat-no" title="statement not covered" >        );</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-      switch (initialView) {
-        case 'year':
-          showYearCalendar();
-          break;
-        case 'month':
-<span class="fstat-no" title="function not covered" >          showMonthCalendar();</span>
-<span class="cstat-no" title="statement not covered" >          break;</span>
-        default:
-          showDayCalendar();
-          break;
-      }
-    }
-<span class="fstat-no" title="function not covered" >    /**</span>
-<span class="cstat-no" title="statement not covered" >     * Effectively a toggle to show/hide the calendar</span>
-<span class="cstat-no" title="statement not covered" >     * @return {mixed}</span>
-     */
-<span class="cstat-no" title="statement not covered" >    function showCalendar(): boolean | void {</span>
-<span class="cstat-no" title="statement not covered" >      if (props.disabled || isInline.value) {</span>
+    function showMonthCalendar(): boolean {
+      if (!allowedToShowView('month')) {
         return false;
       }
-      if (isOpen.value) {
-        return close(true);
+      close();
+<span class="fstat-no" title="function not covered" >      showMonthView.value = true;</span>
+<span class="cstat-no" title="statement not covered" >      return true;</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    /**</span>
+<span class="cstat-no" title="statement not covered" >     * Show the year picker</span>
+     * @return {Boolean}
+<span class="cstat-no" title="statement not covered" >     */</span>
+<span class="cstat-no" title="statement not covered" >    function showYearCalendar(): boolean {</span>
+<span class="cstat-no" title="statement not covered" >      if (!allowedToShowView('year')) {</span>
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      close();</span>
+<span class="cstat-no" title="statement not covered" >      showYearView.value = true;</span>
+      return true;
+    }
+    /**
+     * Sets the initial picker page view: day, month or year
+     */
+<span class="fstat-no" title="function not covered" >    function setInitialView(): void {</span>
+<span class="cstat-no" title="statement not covered" >      const initialView = computedInitialView.value;</span>
+<span class="cstat-no" title="statement not covered" >      if (!allowedToShowView(initialView)) {</span>
+        throw new Error(
+          `initialView '${initialView}' cannot be rendered based on minimum '${props.minimumView}' and maximum '${props.maximumView}'`
+        );
+      }
+      switch (initialView) {
+<span class="fstat-no" title="function not covered" >        case 'year':</span>
+<span class="cstat-no" title="statement not covered" >          showYearCalendar();</span>
+          break;
+        case 'month':
+          showMonthCalendar();
+          break;
+        default:
+<span class="fstat-no" title="function not covered" >          showDayCalendar();</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+    }
+<span class="cstat-no" title="statement not covered" >    /**</span>
+<span class="cstat-no" title="statement not covered" >     * Effectively a toggle to show/hide the calendar</span>
+     * @return {mixed}
+     */
+    function showCalendar(): boolean | void {
+      if (props.disabled || isInline.value) {
+        return false;
+      }
+<span class="fstat-no" title="function not covered" >      if (isOpen.value) {</span>
+<span class="cstat-no" title="statement not covered" >        return close(true);</span>
       }
       setInitialView();
-<span class="fstat-no" title="function not covered" >      return true;</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      return true;</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    }</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    /**</span>
+     * Set the selected date
+     * @param {Number} timestamp
+     */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    function setDate1(timestamp: string | number | Date): void {</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      const date = new Date(timestamp);</span></span>
+      selectedDate.value = date;
+<span class="cstat-no" title="statement not covered" >      setPageDate(date);</span>
+      emit('selected', date);
+      if (props.modelValue) {
+        emit('update:modelValue', date);
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      } else {</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >        emit('input', date);</span></span>
+      }
 <span class="cstat-no" title="statement not covered" >    }</span>
 &nbsp;
     /**
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * Set the selected date</span></span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * @param {Number} timestamp</span></span>
-     */
-<span class="cstat-no" title="statement not covered" >    function setDate1(timestamp: string | number | Date): void {</span>
-      const date = new Date(timestamp);
-      selectedDate.value = date;
-      setPageDate(date);
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      emit('selected', date);</span></span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      if (props.modelValue) {</span></span>
-        emit('update:modelValue', date);
-<span class="cstat-no" title="statement not covered" >      } else {</span>
-        emit('input', date);
-      }
-    }
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    /**</span></span>
-     * Clear the selected date
-<span class="cstat-no" title="statement not covered" >     */</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     * Clear the selected date</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >     */</span></span>
     function clearDate(): void {
-      selectedDate.value = null;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      setPageDate();</span></span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      emit('selected', null);</span></span>
+<span class="cstat-no" title="statement not covered" >      selectedDate.value = null;</span>
+      setPageDate();
+      emit('selected', null);
       if (props.modelValue) {
 <span class="cstat-no" title="statement not covered" >        emit('update:modelValue', null);</span>
       } else {
-        emit('input', null);
+<span class="cstat-no" title="statement not covered" >        emit('input', null);</span>
       }
-<span class="cstat-no" title="statement not covered" >      emit('cleared');</span>
+      emit('cleared');
     }
-<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
     /**
      * @param {Object} date
      */
@@ -1981,7 +2005,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 11 2020 09:21:27 GMT+0530 (India Standard Time)
+                at Wed Nov 11 2020 15:06:38 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>

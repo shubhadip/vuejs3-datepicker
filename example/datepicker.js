@@ -8632,6 +8632,10 @@ var script$1 = defineComponent({
     iconWidth: {
       default: 16,
       type: [String, Number]
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
@@ -8794,9 +8798,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_IconView = resolveComponent("IconView");
 
   return openBlock(), createBlock("div", {
-    class: {
-      'input-group': _ctx.addBootstrapClass
-    }
+    class: [_ctx.addBootstrapClass ? 'input-group' : '']
   }, [createCommentVNode(" Calendar Button "), _ctx.calendarButton ? (openBlock(), createBlock("span", {
     key: 0,
     class: ["vuejs3-datepicker__calendar-button", {
@@ -8963,6 +8965,10 @@ var script$2 = defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
@@ -9383,7 +9389,7 @@ var _hoisted_3$1 = {
 
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', "vuejs3-".concat(_ctx.theme), _ctx.calendarClass],
     style: _ctx.calendarStyle,
     onMousedown: _cache[5] || (_cache[5] = withModifiers(function () {}, ["prevent"]))
   }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews && _ctx.selectedDate ? (openBlock(), createBlock("section", _hoisted_1$1, [createVNode("p", {
@@ -9510,6 +9516,10 @@ var script$3 = defineComponent({
     maximumView: {
       type: String,
       default: 'year'
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   setup: function setup(props, _ref31) {
@@ -9754,7 +9764,7 @@ var _hoisted_3$2 = {
 
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', "vuejs3-".concat(_ctx.theme), _ctx.calendarClass],
     style: _ctx.calendarStyle,
     onMousedown: _cache[5] || (_cache[5] = withModifiers(function () {}, ["prevent"]))
   }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews ? (openBlock(), createBlock("section", _hoisted_1$2, [createVNode("p", {
@@ -9864,6 +9874,10 @@ var script$4 = defineComponent({
     maximumView: {
       type: String,
       default: 'year'
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['select-year', 'changed-decade'],
@@ -10107,7 +10121,7 @@ var _hoisted_4$1 = {
 
 function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', "vuejs3-".concat(_ctx.theme), _ctx.calendarClass],
     style: _ctx.calendarStyle,
     onMousedown: _cache[3] || (_cache[3] = withModifiers(function () {}, ["prevent"]))
   }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews && _ctx.selectedDate ? (openBlock(), createBlock("section", _hoisted_1$3, [createVNode("p", _hoisted_2$3, toDisplayString(_ctx.currYearName), 1
@@ -10332,6 +10346,10 @@ var script$5 = defineComponent({
     iconWidth: {
       default: 16,
       type: [String, Number]
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['input', 'cleared', 'update:modelValue', 'closed', 'changed-month', 'changed-year', 'changed-day', 'selected', 'selected-disabled'],
@@ -10744,7 +10762,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   var _directive_clickoutside = resolveDirective("clickoutside");
 
   return withDirectives((openBlock(), createBlock("div", {
-    class: ["vuejs3-datepicker", [_ctx.wrapperClass, _ctx.isRtl ? 'rtl' : '']]
+    class: ["vuejs3-datepicker", [_ctx.isRtl ? 'rtl' : '', "vuejs3-".concat(_ctx.theme), _ctx.wrapperClass]]
   }, [createVNode(_component_date_input, {
     selectedDate: _ctx.selectedDate,
     resetTypedDate: _ctx.resetTypedDate,
@@ -10776,7 +10794,8 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     hideInput: _ctx.hideInput,
     iconWidth: _ctx.iconWidth,
     iconHeight: _ctx.iconHeight,
-    iconColor: _ctx.iconColor
+    iconColor: _ctx.iconColor,
+    theme: _ctx.theme
   }, {
     afterDateInput: withCtx(function () {
       return [renderSlot(_ctx.$slots, "afterDateInput")];
@@ -10784,7 +10803,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8
   /* PROPS */
-  , ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput", "iconWidth", "iconHeight", "iconColor"]), createCommentVNode("Day View  "), _ctx.allowedToShowView('day') ? (openBlock(), createBlock(_component_picker_day, {
+  , ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput", "iconWidth", "iconHeight", "iconColor", "theme"]), createCommentVNode("Day View  "), _ctx.allowedToShowView('day') ? (openBlock(), createBlock(_component_picker_day, {
     key: 0,
     pageDate: _ctx.pageDate,
     selectedDate: _ctx.selectedDate,
@@ -10807,7 +10826,8 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     onShowYearCalendar: _ctx.showYearCalendar,
     minimumView: _ctx.minimumView,
     maximumView: _ctx.maximumView,
-    preventDisableDateSelection: _ctx.preventDisableDateSelection
+    preventDisableDateSelection: _ctx.preventDisableDateSelection,
+    theme: _ctx.theme
   }, {
     beforeCalendarHeader: withCtx(function () {
       return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
@@ -10815,7 +10835,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8
   /* PROPS */
-  , ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection"])) : createCommentVNode("v-if", true), createCommentVNode("Month View "), _ctx.allowedToShowView('month') ? (openBlock(), createBlock(_component_picker_month, {
+  , ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection", "theme"])) : createCommentVNode("v-if", true), createCommentVNode("Month View "), _ctx.allowedToShowView('month') ? (openBlock(), createBlock(_component_picker_month, {
     key: 1,
     pageDate: _ctx.pageDate,
     selectedDate: _ctx.selectedDate,
@@ -10832,7 +10852,8 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     onShowYearCalendar: _ctx.showYearCalendar,
     onChangedYear: _ctx.setPageDate,
     minimumView: _ctx.minimumView,
-    maximumView: _ctx.maximumView
+    maximumView: _ctx.maximumView,
+    theme: _ctx.theme
   }, {
     beforeCalendarHeader: withCtx(function () {
       return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
@@ -10840,7 +10861,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8
   /* PROPS */
-  , ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView"])) : createCommentVNode("v-if", true), createCommentVNode(" Year View "), _ctx.allowedToShowView('year') ? (openBlock(), createBlock(_component_picker_year, {
+  , ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView", "theme"])) : createCommentVNode("v-if", true), createCommentVNode(" Year View "), _ctx.allowedToShowView('year') ? (openBlock(), createBlock(_component_picker_year, {
     key: 2,
     pageDate: _ctx.pageDate,
     selectedDate: _ctx.selectedDate,
@@ -10856,7 +10877,8 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     onChangedDecade: _ctx.setPageDate,
     fullMonthName: _ctx.fullMonthName,
     minimumView: _ctx.minimumView,
-    maximumView: _ctx.maximumView
+    maximumView: _ctx.maximumView,
+    theme: _ctx.theme
   }, {
     beforeCalendarHeader: withCtx(function () {
       return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
@@ -10864,7 +10886,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8
   /* PROPS */
-  , ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView"])) : createCommentVNode("v-if", true)], 2
+  , ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView", "theme"])) : createCommentVNode("v-if", true)], 2
   /* CLASS */
   )), [[_directive_clickoutside, {
     handler: _ctx.inline ? null : _ctx.closeOnClickOutside
@@ -11094,7 +11116,7 @@ var render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
   return openBlock(), createBlock(Fragment, null, [_hoisted_1$4, createVNode("div", _hoisted_2$4, [createVNode("div", _hoisted_3$4, [_hoisted_4$2, createVNode(_component_appdate_picker, {
     "full-month-name": true,
     "input-class": "customClass",
-    placeholder: "Select Date",
+    placeholder: "YYYY-MM-DD",
     typeable: true,
     hideInput: false,
     onInput: _ctx.dateSelected
@@ -11221,11 +11243,13 @@ var render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup
   );
 });
 
-var css_248z$1 = ".page-head[data-v-7ba5bd90]{background-color:#2f9668;text-align:center;margin-bottom:30px}.page-head h1[data-v-7ba5bd90]{color:#fff;font-size:25px;padding:20px;margin:0}button[data-v-7ba5bd90]{background-color:#40b983;border:none;font-size:15px;color:#fff;padding:13px 15px;cursor:pointer;margin-top:10px;outline:none;border-radius:5px;width:200px;transition:.45s}button[data-v-7ba5bd90]:hover{background-color:#2f9668}input[data-v-7ba5bd90]{outline:none}label[data-v-7ba5bd90]{text-align:left;margin:10px 0;display:block;font-size:14px}.ind[data-v-7ba5bd90]{min-width:30%;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:1280px;margin:0 auto;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
+var css_248z$1 = "[data-v-7ba5bd90]{box-sizing:border-box}body[data-v-7ba5bd90]{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}.page-head[data-v-7ba5bd90]{background-color:#2f9668;text-align:center;margin-bottom:30px}.page-head h1[data-v-7ba5bd90]{color:#fff;font-size:25px;padding:20px;margin:0}button[data-v-7ba5bd90]{background-color:#40b983;border:none;font-size:15px;color:#fff;padding:13px 15px;cursor:pointer;margin-top:10px;outline:none;border-radius:5px;width:200px;transition:.45s}button[data-v-7ba5bd90]:hover{background-color:#2f9668}input[data-v-7ba5bd90]{outline:none}label[data-v-7ba5bd90]{text-align:left;margin:10px 0;display:block;font-size:14px}.ind[data-v-7ba5bd90]{min-width:30%;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:1280px;margin:0 auto;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
 styleInject(css_248z$1);
 script$6.render = render$6;
 script$6.__scopeId = "data-v-7ba5bd90";
 script$6.__file = "src/App.vue";
+var css_248z$2 = "*{box-sizing:border-box}body{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}";
+styleInject(css_248z$2);
 var app = createApp(script$6);
 app.directive('clickoutside', ClickOutside);
 app.mount('#app');

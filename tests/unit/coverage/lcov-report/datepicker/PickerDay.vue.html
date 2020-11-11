@@ -598,7 +598,11 @@
 <a name='L539'></a><a href='#L539'>539</a>
 <a name='L540'></a><a href='#L540'>540</a>
 <a name='L541'></a><a href='#L541'>541</a>
-<a name='L542'></a><a href='#L542'>542</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L542'></a><a href='#L542'>542</a>
+<a name='L543'></a><a href='#L543'>543</a>
+<a name='L544'></a><a href='#L544'>544</a>
+<a name='L545'></a><a href='#L545'>545</a>
+<a name='L546'></a><a href='#L546'>546</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -654,6 +658,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1141,7 +1149,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
 <span class="cstat-no" title="statement not covered" >  &lt;div</span>
-<span class="cstat-no" title="statement not covered" >    :class="[calendarClass, 'vuejs3-datepicker__calendar']"</span>
+<span class="cstat-no" title="statement not covered" >    :class="['vuejs3-datepicker__calendar', `vuejs3-${theme}`, calendarClass]"</span>
     v-show="showDayView"
     :style="calendarStyle"
     @mousedown.prevent
@@ -1234,45 +1242,49 @@ export default defineComponent({
     allowedToShowView: {
       type: Function,
     },
-<span class="fstat-no" title="function not covered" >    dayCellContent: {</span>
+    dayCellContent: {
       type: Function,
       default: (day: { date: Date }): Date =&gt; day.date,
     },
-    disabledDates: {
+<span class="fstat-no" title="function not covered" >    disabledDates: {</span>
       type: Object,
     },
-<span class="fstat-no" title="function not covered" >    highlighted: {</span>
+    highlighted: {
+      type: Object,
+    },
+    calendarClass: {
+<span class="fstat-no" title="function not covered" >      type: [String, Object, Array],</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    calendarStyle: {</span>
 <span class="cstat-no" title="statement not covered" >      type: Object,</span>
 <span class="cstat-no" title="statement not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    calendarClass: {</span>
-<span class="cstat-no" title="statement not covered" >      type: [String, Object, Array],</span>
-    },
-    calendarStyle: {
-<span class="cstat-no" title="statement not covered" >      type: Object,</span>
-    },
     translation: {
       type: Object,
-    },
+<span class="cstat-no" title="statement not covered" >    },</span>
     isRtl: {
       type: Boolean,
-<span class="fstat-no" title="function not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    mondayFirst: {</span>
+    },
+    mondayFirst: {
       type: Boolean,
     },
-    useUtc: {
-      type: Boolean,
+<span class="fstat-no" title="function not covered" >    useUtc: {</span>
+<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
     },
-<span class="fstat-no" title="function not covered" >    minimumView: {</span>
-<span class="cstat-no" title="statement not covered" >      type: String,</span>
+    minimumView: {
+      type: String,
       default: 'day',
     },
-    maximumView: {
-      type: String,
+<span class="fstat-no" title="function not covered" >    maximumView: {</span>
+<span class="cstat-no" title="statement not covered" >      type: String,</span>
       default: 'year',
+    },
+    preventDisableDateSelection: {
+      type: Boolean,
+      default: true,
 <span class="fstat-no" title="function not covered" >    },</span>
-<span class="cstat-no" title="statement not covered" >    preventDisableDateSelection: {</span>
-<span class="cstat-no" title="statement not covered" >      type: Boolean,</span>
-<span class="cstat-no" title="statement not covered" >      default: true,</span>
+<span class="cstat-no" title="statement not covered" >    theme: {</span>
+<span class="cstat-no" title="statement not covered" >      default: 'green',</span>
+<span class="cstat-no" title="statement not covered" >      type: String,</span>
     },
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
@@ -1687,7 +1699,7 @@ export default defineComponent({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Nov 11 2020 09:21:27 GMT+0530 (India Standard Time)
+                at Wed Nov 11 2020 15:06:38 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
