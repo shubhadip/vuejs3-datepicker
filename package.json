@@ -1,31 +1,30 @@
 {
   "name": "vuejs3-datepicker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Vue 3 datepicker",
   "files": [
     "dist/*",
     "src/*",
     "types/*"
   ],
-  "sideEffects": [
-    "*.css",
-    "*.scss"
-  ],
   "main": "dist/datepicker.cjs.js",
   "module": "dist/datepicker.esm.js",
   "unpkg": "dist/datepicker.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
+    "build-demo": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
     "dev": "rollup -c build/rollup-dev.config.js --watch",
-    "build": "rimraf dist && rollup --config ./build/rollup.config.js",
-    "test": "jest --config tests/unit/jest.conf.js --coverage",
-    "prepublishOnly": "npm run lint && npm run build"
+    "build:lib": "rimraf dist && rollup --config ./build/rollup.config.js",
+    "test": "jest --config tests/unit/jest.conf.js --coverage ",
+    "prepublishOnly": "npm run lint && npm run build:lib"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "@babel/runtime": "^7.12.5"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-typescript": "^7.12.0",
     "@rollup/plugin-alias": "2.2.0",

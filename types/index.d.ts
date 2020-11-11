@@ -30,4 +30,5 @@ export interface Datepicker {
   iconColor?: string;
   iconWidth?: string;
   iconHeight?: string;
+  addBootstrapClass?: boolean;
 }

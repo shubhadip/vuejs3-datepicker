@@ -102,6 +102,7 @@ export default defineComponent({
       type: String,
     },
   },
+  emits: ['select-year', 'changed-decade'],
   setup(props, { emit }) {
     /** ********************************** Methods  *********************************** */
 
@@ -157,7 +158,7 @@ export default defineComponent({
       }
       const disabledYear = getFullYear(d.from);
       const firstYearInNextPage = Math.ceil(getFullYear(props.pageDate) / 10) * 10;
-      return disabledYear < firstYearInNextPage;
+      return disabledYear <= firstYearInNextPage;
     }
 
     /**
@@ -200,8 +201,8 @@ export default defineComponent({
         }
       }
 
-      if (typeof props.disabledDates.customPredictor === 'function' && props.disabledDates.customPredictor(date)) {
-        disabledDates = true;
+      if (typeof props.disabledDates.customPredictor === 'function') {
+        disabledDates = props.disabledDates.customPredictor(date);
       }
 
       return disabledDates;
@@ -310,6 +311,10 @@ export default defineComponent({
       currYearName,
       currMonthName,
       ifDifferentViews,
+      // methods
+      isNextDecadeDisabled,
+      isPreviousDecadeDisabled,
+      isDisabledYear,
     };
   },
 });

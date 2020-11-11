@@ -11,7 +11,7 @@
       <appdate-picker
         :full-month-name="true"
         input-class="customClass"
-        placeholder="Select Date"
+        placeholder="YYYY-MM-DD"
         :typeable="true"
         :hideInput="false"
         @input="dateSelected"
@@ -29,6 +29,7 @@
           to: new Date(2020, 10, 5),
           from: new Date(2020, 10, 16),
         }"
+        :prevent-disable-date-selection="preventDisableDateSelection"
       ></appdate-picker>
     </div>
     <div class="ind">
@@ -161,13 +162,6 @@
       >
       </appdate-picker>
     </div>
-
-    <div class="ind">
-      <label>Calendar Color </label>
-      <appdate-picker :full-month-name="true" input-class="customClass" placeholder="Select Date" @input="dateSelected">
-      </appdate-picker>
-    </div>
-
     <div class="ind">
       <label>Inline </label>
       <appdate-picker :inline="true" @input="dateSelected"></appdate-picker>
@@ -199,6 +193,7 @@ export default defineComponent({
       initialDate: new Date(),
       dateinput: new Date(),
       emptyDate: null,
+      preventDisableDateSelection: true,
     };
   },
   computed: {},
@@ -234,7 +229,9 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
+<style scoped lang="postcss">
+@import '@css/_settings.css';
+
 .page-head {
   background-color: #2f9668;
   text-align: center;

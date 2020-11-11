@@ -1,132 +1,43 @@
-
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
-  return arr2;
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
 var _ErrorTypeStrings;
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+(function (l, r) {
+  if (l.getElementById('livereloadscript')) return;
+  r = l.createElement('script');
+  r.async = 1;
+  r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1';
+  r.id = 'livereloadscript';
+  l.getElementsByTagName('head')[0].appendChild(r);
+})(window.document);
 /**
  * Make a map and return a function for checking if a key
  * is in that map.
@@ -134,6 +45,8 @@ var _ErrorTypeStrings;
  * \/\*#\_\_PURE\_\_\*\/
  * So that rollup can tree-shake them if necessary.
  */
+
+
 function makeMap(str, expectsLowerCase) {
   var map = Object.create(null);
   var list = str.split(',');
@@ -232,7 +145,6 @@ var isSVGTag = /*#__PURE__*/makeMap(SVG_TAGS);
  * For converting {{ interpolation }} values to displayed strings.
  * @private
  */
-
 
 var toDisplayString = function toDisplayString(val) {
   return val == null ? '' : isObject(val) ? JSON.stringify(val, replacer, 2) : String(val);
@@ -1429,7 +1341,7 @@ function proxyRefs(objectWithRefs) {
 
 var ComputedRefImpl = /*#__PURE__*/function () {
   function ComputedRefImpl(getter, _setter, isReadonly) {
-    var _this2 = this;
+    var _this = this;
 
     _classCallCheck(this, ComputedRefImpl);
 
@@ -1439,9 +1351,9 @@ var ComputedRefImpl = /*#__PURE__*/function () {
     this.effect = effect(getter, {
       lazy: true,
       scheduler: function scheduler() {
-        if (!_this2._dirty) {
-          _this2._dirty = true;
-          trigger(toRaw(_this2), "set"
+        if (!_this._dirty) {
+          _this._dirty = true;
+          trigger(toRaw(_this), "set"
           /* SET */
           , 'value');
         }
@@ -2663,7 +2575,7 @@ function updateHOCHostEl(_ref9, el // HostNode
 
 var isSuspense = function isSuspense(type) {
   return type.__isSuspense;
-}; // Suspense exposes a component-like API, and is treated like a component
+};
 
 function normalizeSuspenseChildren(vnode) {
   var shapeFlag = vnode.shapeFlag,
@@ -3383,7 +3295,7 @@ var onErrorCaptured = function onErrorCaptured(hook) {
   injectHook("ec"
   /* ERROR_CAPTURED */
   , hook, target);
-}; // Simple effect.
+}; // initial value for watchers to trigger on undefined initial values
 
 
 var INITIAL_WATCHER_VALUE = {}; // implementation
@@ -3397,12 +3309,12 @@ function watch(source, cb, options) {
 }
 
 function doWatch(source, cb) {
-  var _ref11 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : EMPTY_OBJ,
-      immediate = _ref11.immediate,
-      deep = _ref11.deep,
-      flush = _ref11.flush,
-      onTrack = _ref11.onTrack,
-      onTrigger = _ref11.onTrigger;
+  var _ref10 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : EMPTY_OBJ,
+      immediate = _ref10.immediate,
+      deep = _ref10.deep,
+      flush = _ref10.flush,
+      onTrack = _ref10.onTrack,
+      onTrigger = _ref10.onTrigger;
 
   var instance = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : currentInstance;
 
@@ -4227,7 +4139,7 @@ var setRef = function setRef(rawRef, oldRawRef, parentComponent, parentSuspense,
 
 function createRenderer(options) {
   return baseCreateRenderer(options);
-} // Separate API for creating hydration-enabled renderer.
+} // implementation
 
 
 function baseCreateRenderer(options, createHydrationFns) {
@@ -5129,12 +5041,12 @@ function baseCreateRenderer(options, createHydrationFns) {
 
 
     while (i <= e1 && i <= e2) {
-      var _n = c1[e1];
+      var _n2 = c1[e1];
 
-      var _n2 = c2[e2] = optimized ? cloneIfMounted(c2[e2]) : normalizeVNode(c2[e2]);
+      var _n3 = c2[e2] = optimized ? cloneIfMounted(c2[e2]) : normalizeVNode(c2[e2]);
 
-      if (isSameVNodeType(_n, _n2)) {
-        patch(_n, _n2, container, null, parentComponent, parentSuspense, isSVG, optimized);
+      if (isSameVNodeType(_n2, _n3)) {
+        patch(_n2, _n3, container, null, parentComponent, parentSuspense, isSVG, optimized);
       } else {
         break;
       }
@@ -5263,17 +5175,17 @@ function baseCreateRenderer(options, createHydrationFns) {
             var nextIndex = s2 + i;
             var _nextChild = c2[nextIndex];
 
-            var _anchor2 = nextIndex + 1 < l2 ? c2[nextIndex + 1].el : parentAnchor;
+            var _anchor = nextIndex + 1 < l2 ? c2[nextIndex + 1].el : parentAnchor;
 
             if (newIndexToOldIndexMap[i] === 0) {
               // mount new
-              patch(null, _nextChild, container, _anchor2, parentComponent, parentSuspense, isSVG);
+              patch(null, _nextChild, container, _anchor, parentComponent, parentSuspense, isSVG);
             } else if (moved) {
               // move if:
               // There is no stable subsequence (e.g. a reverse)
               // OR current node is not among the stable sequence
               if (j < 0 || i !== increasingNewIndexSequence[j]) {
-                move(_nextChild, container, _anchor2, 2
+                move(_nextChild, container, _anchor, 2
                 /* REORDER */
                 );
               } else {
@@ -5751,6 +5663,7 @@ var isTeleport = function isTeleport(type) {
 var isTeleportDisabled = function isTeleportDisabled(props) {
   return props && (props.disabled || props.disabled === '');
 };
+
 var COMPONENTS = 'components';
 var DIRECTIVES = 'directives';
 /**
@@ -5765,7 +5678,6 @@ var NULL_DYNAMIC_COMPONENT = Symbol();
 /**
  * @private
  */
-
 
 function resolveDirective(name) {
   return resolveAsset(DIRECTIVES, name);
@@ -5842,7 +5754,7 @@ function openBlock() {
 function closeBlock() {
   blockStack.pop();
   currentBlock = blockStack[blockStack.length - 1] || null;
-} // Whether we should be tracking dynamic child nodes inside a block.
+}
 /**
  * Create a block root vnode. Takes the same exact arguments as `createVNode`.
  * A block root keeps track of dynamic nodes within the block in the
@@ -5862,7 +5774,7 @@ function createBlock(type, props, children, patchFlag, dynamicProps) {
   closeBlock(); // a block is always going to be patched, so track it as a child of its
   // parent block
 
-  if ( currentBlock) {
+  if (currentBlock) {
     currentBlock.push(vnode);
   }
 
@@ -5885,22 +5797,18 @@ function isSameVNodeType(n1, n2) {
 }
 
 var createVNodeWithArgsTransform = function createVNodeWithArgsTransform() {
-  for (var _len8 = arguments.length, args = new Array(_len8), _key13 = 0; _key13 < _len8; _key13++) {
-    args[_key13] = arguments[_key13];
-  }
-
-  return _createVNode.apply(void 0, _toConsumableArray( args));
+  return _createVNode.apply(void 0, arguments);
 };
 
 var InternalObjectKey = "__vInternal";
 
-var normalizeKey = function normalizeKey(_ref19) {
-  var key = _ref19.key;
+var normalizeKey = function normalizeKey(_ref11) {
+  var key = _ref11.key;
   return key != null ? key : null;
 };
 
-var normalizeRef = function normalizeRef(_ref20) {
-  var ref = _ref20.ref;
+var normalizeRef = function normalizeRef(_ref12) {
+  var ref = _ref12.ref;
   return ref != null ? isArray(ref) ? ref : {
     i: currentRenderingInstance,
     r: ref
@@ -6035,7 +5943,7 @@ function _createVNode(type) {
 }
 
 function cloneVNode(vnode, extraProps) {
-  var _ref21;
+  var _ref13;
 
   var mergeRef = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   // This is intentionally NOT using spread or extend to avoid the runtime
@@ -6044,19 +5952,19 @@ function cloneVNode(vnode, extraProps) {
       ref = vnode.ref,
       patchFlag = vnode.patchFlag;
   var mergedProps = extraProps ? mergeProps(props || {}, extraProps) : props;
-  return _ref21 = {
+  return _ref13 = {
     __v_isVNode: true
-  }, _defineProperty(_ref21, "__v_skip"
+  }, _defineProperty(_ref13, "__v_skip"
   /* SKIP */
-  , true), _defineProperty(_ref21, "type", vnode.type), _defineProperty(_ref21, "props", mergedProps), _defineProperty(_ref21, "key", mergedProps && normalizeKey(mergedProps)), _defineProperty(_ref21, "ref", extraProps && extraProps.ref ? // #2078 in the case of <component :is="vnode" ref="extra"/>
+  , true), _defineProperty(_ref13, "type", vnode.type), _defineProperty(_ref13, "props", mergedProps), _defineProperty(_ref13, "key", mergedProps && normalizeKey(mergedProps)), _defineProperty(_ref13, "ref", extraProps && extraProps.ref ? // #2078 in the case of <component :is="vnode" ref="extra"/>
   // if the vnode itself already has a ref, cloneVNode will need to merge
   // the refs so the single vnode can be set on multiple refs
-  mergeRef && ref ? isArray(ref) ? ref.concat(normalizeRef(extraProps)) : [ref, normalizeRef(extraProps)] : normalizeRef(extraProps) : ref), _defineProperty(_ref21, "scopeId", vnode.scopeId), _defineProperty(_ref21, "children", vnode.children), _defineProperty(_ref21, "target", vnode.target), _defineProperty(_ref21, "targetAnchor", vnode.targetAnchor), _defineProperty(_ref21, "staticCount", vnode.staticCount), _defineProperty(_ref21, "shapeFlag", vnode.shapeFlag), _defineProperty(_ref21, "patchFlag", extraProps && vnode.type !== Fragment ? patchFlag === -1 // hoisted node
+  mergeRef && ref ? isArray(ref) ? ref.concat(normalizeRef(extraProps)) : [ref, normalizeRef(extraProps)] : normalizeRef(extraProps) : ref), _defineProperty(_ref13, "scopeId", vnode.scopeId), _defineProperty(_ref13, "children", vnode.children), _defineProperty(_ref13, "target", vnode.target), _defineProperty(_ref13, "targetAnchor", vnode.targetAnchor), _defineProperty(_ref13, "staticCount", vnode.staticCount), _defineProperty(_ref13, "shapeFlag", vnode.shapeFlag), _defineProperty(_ref13, "patchFlag", extraProps && vnode.type !== Fragment ? patchFlag === -1 // hoisted node
   ? 16
   /* FULL_PROPS */
   : patchFlag | 16
   /* FULL_PROPS */
-  : patchFlag), _defineProperty(_ref21, "dynamicProps", vnode.dynamicProps), _defineProperty(_ref21, "dynamicChildren", vnode.dynamicChildren), _defineProperty(_ref21, "appContext", vnode.appContext), _defineProperty(_ref21, "dirs", vnode.dirs), _defineProperty(_ref21, "transition", vnode.transition), _defineProperty(_ref21, "component", vnode.component), _defineProperty(_ref21, "suspense", vnode.suspense), _defineProperty(_ref21, "ssContent", vnode.ssContent && cloneVNode(vnode.ssContent)), _defineProperty(_ref21, "ssFallback", vnode.ssFallback && cloneVNode(vnode.ssFallback)), _defineProperty(_ref21, "el", vnode.el), _defineProperty(_ref21, "anchor", vnode.anchor), _ref21;
+  : patchFlag), _defineProperty(_ref13, "dynamicProps", vnode.dynamicProps), _defineProperty(_ref13, "dynamicChildren", vnode.dynamicChildren), _defineProperty(_ref13, "appContext", vnode.appContext), _defineProperty(_ref13, "dirs", vnode.dirs), _defineProperty(_ref13, "transition", vnode.transition), _defineProperty(_ref13, "component", vnode.component), _defineProperty(_ref13, "suspense", vnode.suspense), _defineProperty(_ref13, "ssContent", vnode.ssContent && cloneVNode(vnode.ssContent)), _defineProperty(_ref13, "ssFallback", vnode.ssFallback && cloneVNode(vnode.ssFallback)), _defineProperty(_ref13, "el", vnode.el), _defineProperty(_ref13, "anchor", vnode.anchor), _ref13;
 }
 /**
  * @private
@@ -6357,48 +6265,48 @@ function applyOptions(instance, options) {
   if (injectOptions) {
     if (isArray(injectOptions)) {
       for (var i = 0; i < injectOptions.length; i++) {
-        var _key14 = injectOptions[i];
-        ctx[_key14] = inject(_key14);
+        var _key13 = injectOptions[i];
+        ctx[_key13] = inject(_key13);
+        {
+          checkDuplicateProperties("Inject"
+          /* INJECT */
+          , _key13);
+        }
+      }
+    } else {
+      for (var _key14 in injectOptions) {
+        var opt = injectOptions[_key14];
+
+        if (isObject(opt)) {
+          ctx[_key14] = inject(opt.from || _key14, opt.default, true
+          /* treat default function as factory */
+          );
+        } else {
+          ctx[_key14] = inject(opt);
+        }
+
         {
           checkDuplicateProperties("Inject"
           /* INJECT */
           , _key14);
         }
       }
-    } else {
-      for (var _key15 in injectOptions) {
-        var opt = injectOptions[_key15];
-
-        if (isObject(opt)) {
-          ctx[_key15] = inject(opt.from || _key15, opt.default, true
-          /* treat default function as factory */
-          );
-        } else {
-          ctx[_key15] = inject(opt);
-        }
-
-        {
-          checkDuplicateProperties("Inject"
-          /* INJECT */
-          , _key15);
-        }
-      }
     }
   }
 
   if (methods) {
-    for (var _key16 in methods) {
-      var methodHandler = methods[_key16];
+    for (var _key15 in methods) {
+      var methodHandler = methods[_key15];
 
       if (isFunction(methodHandler)) {
-        ctx[_key16] = methodHandler.bind(publicThis);
+        ctx[_key15] = methodHandler.bind(publicThis);
         {
           checkDuplicateProperties("Methods"
           /* METHODS */
-          , _key16);
+          , _key15);
         }
       } else {
-        warn("Method \"".concat(_key16, "\" has type \"").concat(_typeof(methodHandler), "\" in the component definition. ") + "Did you reference the function correctly?");
+        warn("Method \"".concat(_key15, "\" has type \"").concat(_typeof(methodHandler), "\" in the component definition. ") + "Did you reference the function correctly?");
       }
     }
   }
@@ -6418,25 +6326,25 @@ function applyOptions(instance, options) {
       (function () {
         var rawData = toRaw(instance.data);
 
-        var _loop = function _loop(_key17) {
+        var _loop = function _loop(_key16) {
           checkDuplicateProperties("Data"
           /* DATA */
-          , _key17); // expose data on ctx during dev
+          , _key16); // expose data on ctx during dev
 
-          if (_key17[0] !== '$' && _key17[0] !== '_') {
-            Object.defineProperty(ctx, _key17, {
+          if (_key16[0] !== '$' && _key16[0] !== '_') {
+            Object.defineProperty(ctx, _key16, {
               configurable: true,
               enumerable: true,
               get: function get() {
-                return rawData[_key17];
+                return rawData[_key16];
               },
               set: NOOP
             });
           }
         };
 
-        for (var _key17 in rawData) {
-          _loop(_key17);
+        for (var _key16 in rawData) {
+          _loop(_key16);
         }
       })();
     }
@@ -6445,22 +6353,22 @@ function applyOptions(instance, options) {
   }
 
   if (computedOptions) {
-    var _loop2 = function _loop2(_key18) {
-      var opt = computedOptions[_key18];
+    var _loop2 = function _loop2(_key17) {
+      var opt = computedOptions[_key17];
       var get = isFunction(opt) ? opt.bind(publicThis, publicThis) : isFunction(opt.get) ? opt.get.bind(publicThis, publicThis) : NOOP;
 
       if (get === NOOP) {
-        warn("Computed property \"".concat(_key18, "\" has no getter."));
+        warn("Computed property \"".concat(_key17, "\" has no getter."));
       }
 
       var set = !isFunction(opt) && isFunction(opt.set) ? opt.set.bind(publicThis) : function () {
-        warn("Write operation failed: computed property \"".concat(_key18, "\" is readonly."));
+        warn("Write operation failed: computed property \"".concat(_key17, "\" is readonly."));
       };
       var c = computed$1({
         get: get,
         set: set
       });
-      Object.defineProperty(ctx, _key18, {
+      Object.defineProperty(ctx, _key17, {
         enumerable: true,
         configurable: true,
         get: function get() {
@@ -6473,12 +6381,12 @@ function applyOptions(instance, options) {
       {
         checkDuplicateProperties("Computed"
         /* COMPUTED */
-        , _key18);
+        , _key17);
       }
     };
 
-    for (var _key18 in computedOptions) {
-      _loop2(_key18);
+    for (var _key17 in computedOptions) {
+      _loop2(_key17);
     }
   }
 
@@ -6488,8 +6396,8 @@ function applyOptions(instance, options) {
 
   if (!asMixin && deferredWatch.length) {
     deferredWatch.forEach(function (watchOptions) {
-      for (var _key19 in watchOptions) {
-        createWatcher(watchOptions[_key19], ctx, publicThis, _key19);
+      for (var _key18 in watchOptions) {
+        createWatcher(watchOptions[_key18], ctx, publicThis, _key18);
       }
     });
   }
@@ -6502,8 +6410,8 @@ function applyOptions(instance, options) {
     deferredProvide.forEach(function (provideOptions) {
       var provides = isFunction(provideOptions) ? provideOptions.call(publicThis) : provideOptions;
 
-      for (var _key20 in provides) {
-        provide(_key20, provides[_key20]);
+      for (var _key19 in provides) {
+        provide(_key19, provides[_key19]);
       }
     });
   } // asset options.
@@ -6784,8 +6692,8 @@ var publicPropertiesMap = extend(Object.create(null), {
   }
 });
 var PublicInstanceProxyHandlers = {
-  get: function get(_ref22, key) {
-    var instance = _ref22._;
+  get: function get(_ref14, key) {
+    var instance = _ref14._;
     var ctx = instance.ctx,
         setupState = instance.setupState,
         data = instance.data,
@@ -6902,8 +6810,8 @@ var PublicInstanceProxyHandlers = {
       }
     }
   },
-  set: function set(_ref23, key, value) {
-    var instance = _ref23._;
+  set: function set(_ref15, key, value) {
+    var instance = _ref15._;
     var data = instance.data,
         setupState = instance.setupState,
         ctx = instance.ctx;
@@ -6934,14 +6842,14 @@ var PublicInstanceProxyHandlers = {
 
     return true;
   },
-  has: function has(_ref24, key) {
-    var _ref24$_ = _ref24._,
-        data = _ref24$_.data,
-        setupState = _ref24$_.setupState,
-        accessCache = _ref24$_.accessCache,
-        ctx = _ref24$_.ctx,
-        appContext = _ref24$_.appContext,
-        propsOptions = _ref24$_.propsOptions;
+  has: function has(_ref16, key) {
+    var _ref16$_ = _ref16._,
+        data = _ref16$_.data,
+        setupState = _ref16$_.setupState,
+        accessCache = _ref16$_.accessCache,
+        ctx = _ref16$_.ctx,
+        appContext = _ref16$_.appContext,
+        propsOptions = _ref16$_.propsOptions;
     var normalizedProps;
     return accessCache[key] !== undefined || data !== EMPTY_OBJ && hasOwn(data, key) || setupState !== EMPTY_OBJ && hasOwn(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn(normalizedProps, key) || hasOwn(ctx, key) || hasOwn(publicPropertiesMap, key) || hasOwn(appContext.config.globalProperties, key);
   }
@@ -7257,7 +7165,6 @@ function finishComponentSetup(instance, isSSR) {
   var Component = instance.type; // template / render function normalization
 
   if (!instance.render) {
-
     instance.render = Component.render || NOOP; // for runtime-compiled render functions using `with` blocks, the render
     // proxy used needs a different `has` handler which is more performant and
     // also only allows a whitelist of globals to fallthrough.
@@ -7276,7 +7183,7 @@ function finishComponentSetup(instance, isSSR) {
 
   if (!Component.render && instance.render === NOOP) {
     /* istanbul ignore if */
-    if ( Component.template) {
+    if (Component.template) {
       warn("Component provided template option but " + "runtime compilation is not supported in this build of Vue." + " Use \"vue.esm-browser.js\" instead."
       /* should not happen */
       );
@@ -7318,8 +7225,8 @@ function createSetupContext(instance) {
 
       get emit() {
         return function (event) {
-          for (var _len9 = arguments.length, args = new Array(_len9 > 1 ? _len9 - 1 : 0), _key21 = 1; _key21 < _len9; _key21++) {
-            args[_key21 - 1] = arguments[_key21];
+          for (var _len8 = arguments.length, args = new Array(_len8 > 1 ? _len8 - 1 : 0), _key20 = 1; _key20 < _len8; _key20++) {
+            args[_key20 - 1] = arguments[_key20];
           }
 
           return instance.emit.apply(instance, [event].concat(args));
@@ -7607,7 +7514,7 @@ function renderList(source, renderItem) {
   }
 
   return ret;
-}
+} // Core API ------------------------------------------------------------------
 
 
 var version = "3.0.2";
@@ -7716,9 +7623,9 @@ function patchStyle(el, prev, next) {
     }
 
     if (prev && !isString(prev)) {
-      for (var _key22 in prev) {
-        if (next[_key22] == null) {
-          setStyle(style, _key22, '');
+      for (var _key21 in prev) {
+        if (next[_key21] == null) {
+          setStyle(style, _key21, '');
         }
       }
     }
@@ -8112,18 +8019,18 @@ var withModifiers = function withModifiers(fn, modifiers) {
       if (guard && guard(event, modifiers)) return;
     }
 
-    for (var _len10 = arguments.length, args = new Array(_len10 > 1 ? _len10 - 1 : 0), _key23 = 1; _key23 < _len10; _key23++) {
-      args[_key23 - 1] = arguments[_key23];
+    for (var _len9 = arguments.length, args = new Array(_len9 > 1 ? _len9 - 1 : 0), _key22 = 1; _key22 < _len9; _key22++) {
+      args[_key22 - 1] = arguments[_key22];
     }
 
     return fn.apply(void 0, [event].concat(args));
   };
-}; // Kept for 2.x compat.
+};
 
 var vShow = {
-  beforeMount: function beforeMount(el, _ref37, _ref38) {
-    var value = _ref37.value;
-    var transition = _ref38.transition;
+  beforeMount: function beforeMount(el, _ref17, _ref18) {
+    var value = _ref17.value;
+    var transition = _ref18.transition;
     el._vod = el.style.display === 'none' ? '' : el.style.display;
 
     if (transition && value) {
@@ -8132,18 +8039,18 @@ var vShow = {
       setDisplay(el, value);
     }
   },
-  mounted: function mounted(el, _ref39, _ref40) {
-    var value = _ref39.value;
-    var transition = _ref40.transition;
+  mounted: function mounted(el, _ref19, _ref20) {
+    var value = _ref19.value;
+    var transition = _ref20.transition;
 
     if (transition && value) {
       transition.enter(el);
     }
   },
-  updated: function updated(el, _ref41, _ref42) {
-    var value = _ref41.value,
-        oldValue = _ref41.oldValue;
-    var transition = _ref42.transition;
+  updated: function updated(el, _ref21, _ref22) {
+    var value = _ref21.value,
+        oldValue = _ref21.oldValue;
+    var transition = _ref22.transition;
     if (!value === !oldValue) return;
 
     if (transition) {
@@ -8160,8 +8067,8 @@ var vShow = {
       setDisplay(el, value);
     }
   },
-  beforeUnmount: function beforeUnmount(el, _ref43) {
-    var value = _ref43.value;
+  beforeUnmount: function beforeUnmount(el, _ref23) {
+    var value = _ref23.value;
     setDisplay(el, value);
   }
 };
@@ -8183,9 +8090,9 @@ function ensureRenderer() {
 }
 
 var createApp = function createApp() {
-  var _ensureRenderer2;
+  var _ensureRenderer;
 
-  var app = (_ensureRenderer2 = ensureRenderer()).createApp.apply(_ensureRenderer2, arguments);
+  var app = (_ensureRenderer = ensureRenderer()).createApp.apply(_ensureRenderer, arguments);
 
   {
     injectNativeTagCheck(app);
@@ -8249,11 +8156,11 @@ function initDev() {
 
 
 initDev();
-
 /* eslint-disable */
 // https://github.com/simplesmiler/vue-clickaway
 // https://github.com/ndelvalle/v-click-outside/blob/master/lib/v-click-outside.js
 // Mixed both :)
+
 var EVENTS = ['click'];
 var instances = [];
 var ClickOutside = {
@@ -8266,8 +8173,8 @@ var ClickOutside = {
   unmounted: unbind
 };
 
-function bind(el, _ref) {
-  var value = _ref.value;
+function bind(el, _ref24) {
+  var value = _ref24.value;
   unbind(el);
   var bindingValue = value;
   var isFunction = typeof bindingValue === 'function';
@@ -8280,9 +8187,9 @@ function bind(el, _ref) {
     el: el,
     handler: handler
   });
-  instance.eventHandlers.forEach(function (_ref2) {
-    var event = _ref2.event,
-        handler = _ref2.handler;
+  instance.eventHandlers.forEach(function (_ref25) {
+    var event = _ref25.event,
+        handler = _ref25.handler;
     return setTimeout(function () {
       return document.addEventListener(event, handler, false);
     }, 0);
@@ -8296,9 +8203,9 @@ function unbind(el) {
   });
   if (instanceIndex === -1) return;
   var instance = instances[instanceIndex];
-  instance.eventHandlers.forEach(function (_ref3) {
-    var event = _ref3.event,
-        handler = _ref3.handler;
+  instance.eventHandlers.forEach(function (_ref26) {
+    var event = _ref26.event,
+        handler = _ref26.handler;
     return document.removeEventListener(event, handler, false);
   });
   instances.splice(instanceIndex, 1);
@@ -8307,9 +8214,9 @@ function unbind(el) {
 // --------------------
 
 
-function createInstance(_ref4) {
-  var el = _ref4.el,
-      _handler = _ref4.handler;
+function createInstance(_ref27) {
+  var el = _ref27.el,
+      _handler2 = _ref27.handler;
   return {
     el: el,
     eventHandlers: EVENTS.map(function (eventName) {
@@ -8319,7 +8226,7 @@ function createInstance(_ref4) {
           return onEvent({
             event: event,
             el: el,
-            handler: _handler
+            handler: _handler2
           });
         }
       };
@@ -8327,10 +8234,10 @@ function createInstance(_ref4) {
   };
 }
 
-function onEvent(_ref5) {
-  var event = _ref5.event,
-      el = _ref5.el,
-      handler = _ref5.handler;
+function onEvent(_ref28) {
+  var event = _ref28.event,
+      el = _ref28.el,
+      handler = _ref28.handler;
   var path = event.path || (event.composedPath ? event.composedPath() : undefined);
 
   if (path ? path.indexOf(el) < 0 : !el.contains(event.target)) {
@@ -8360,35 +8267,34 @@ var script = defineComponent({
 });
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (openBlock(), createBlock(Fragment, null, [
-    createCommentVNode(" eslint-disable "),
-    (openBlock(), createBlock("svg", {
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 448 512",
-      height: _ctx.height,
-      width: _ctx.width,
-      role: "img",
-      "aria-hidden": "true",
-      "data-icon": "calendarAlt"
-    }, [
-      createVNode("path", {
-        fill: _ctx.color,
-        d: "M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"
-      }, null, 8 /* PROPS */, ["fill"])
-    ], 8 /* PROPS */, ["height", "width"])),
-    createCommentVNode("eslint-enable")
-  ], 64 /* STABLE_FRAGMENT */))
+  return openBlock(), createBlock(Fragment, null, [createCommentVNode(" eslint-disable "), (openBlock(), createBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 448 512",
+    height: _ctx.height,
+    width: _ctx.width,
+    role: "img",
+    "aria-hidden": "true",
+    "data-icon": "calendarAlt"
+  }, [createVNode("path", {
+    fill: _ctx.color,
+    d: "M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"
+  }, null, 8
+  /* PROPS */
+  , ["fill"])], 8
+  /* PROPS */
+  , ["height", "width"])), createCommentVNode("eslint-enable")], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 script.render = render;
-script.__file = "src/components/iconview/IconView.vue";
-
-// import en from '@/components/datepicker/locale/translations/en';
+script.__file = "src/components/iconview/IconView.vue"; // import en from '@/components/datepicker/locale/translations/en';
 
 /**
  * Returns the full year, using UTC or not
  * @param {Date} date
  */
+
 var getFullYear = function getFullYear(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   return useUtc ? date.getUTCFullYear() : date.getFullYear();
@@ -8397,6 +8303,7 @@ var getFullYear = function getFullYear(date) {
  * Returns the month, using UTC or not
  * @param {Date} date
  */
+
 
 var getMonth = function getMonth(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -8407,6 +8314,7 @@ var getMonth = function getMonth(date) {
  * @param {Date} date
  */
 
+
 var getDate = function getDate(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
   return useUtc ? date.getUTCDate() : date.getDate();
@@ -8415,6 +8323,7 @@ var getDate = function getDate(date) {
  * Returns the day, using UTC or not
  * @param {Date} date
  */
+
 
 var getDay = function getDay(date) {
   var useUtc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -8425,6 +8334,7 @@ var getDay = function getDay(date) {
  * @param {Date} date
  */
 
+
 var setFullYear = function setFullYear(date, value) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   return useUtc ? date.setUTCFullYear(value) : date.setFullYear(value);
@@ -8433,6 +8343,7 @@ var setFullYear = function setFullYear(date, value) {
  * Sets the month, using UTC or not
  * @param {Date} date
  */
+
 
 var setMonth = function setMonth(date, value) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -8444,6 +8355,7 @@ var setMonth = function setMonth(date, value) {
  * @param {Number} value
  */
 
+
 var setDate = function setDate(date, value) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
   return useUtc ? date.setUTCDate(value) : date.setDate(value);
@@ -8454,6 +8366,7 @@ var setDate = function setDate(date, value) {
  * @param {Date} date1
  * @param {Date} date2
  */
+
 
 var compareDates = function compareDates(date1, date2) {
   var useUtc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
@@ -8476,6 +8389,7 @@ var compareDates = function compareDates(date1, date2) {
  * @return {Boolean}
  */
 
+
 var isValidDate = function isValidDate(date) {
   if (Object.prototype.toString.call(date) !== '[object Date]') {
     return false;
@@ -8490,6 +8404,7 @@ var isValidDate = function isValidDate(date) {
  * @return {String}
  */
 
+
 var getDayNameAbbr = function getDayNameAbbr(date, days) {
   if (_typeof(date) !== 'object') {
     throw TypeError('Invalid Type');
@@ -8503,6 +8418,7 @@ var getDayNameAbbr = function getDayNameAbbr(date, days) {
  * @param {Array}
  * @return {String}
  */
+
 
 var getMonthName = function getMonthName(month, months) {
   if (!months) {
@@ -8525,6 +8441,7 @@ var getMonthName = function getMonthName(month, months) {
  * @return {String}
  */
 
+
 var getMonthNameAbbr = function getMonthNameAbbr(month, monthsAbbr) {
   if (!monthsAbbr) {
     throw Error('missing 2nd paramter Months array');
@@ -8546,6 +8463,7 @@ var getMonthNameAbbr = function getMonthNameAbbr(month, monthsAbbr) {
  * @param {Number} m
  * @return {Number}
  */
+
 
 var daysInMonth = function daysInMonth(year, month) {
   if (/8|3|5|10/.test(month)) {
@@ -8574,6 +8492,7 @@ var daysInMonth = function daysInMonth(year, month) {
  * @return {String}
  */
 
+
 var getNthSuffix = function getNthSuffix(day) {
   switch (day) {
     case 1:
@@ -8601,6 +8520,7 @@ var getNthSuffix = function getNthSuffix(day) {
  * @return {String}
  */
 
+
 var formatDate = function formatDate(date, format, translation) {
   var year = getFullYear(date);
   var month = getMonth(date) + 1;
@@ -8613,6 +8533,7 @@ var formatDate = function formatDate(date, format, translation) {
  * @param {*} val
  * @return {Boolean}
  */
+
 
 var validateDateInput = function validateDateInput(val) {
   return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number';
@@ -8699,11 +8620,27 @@ var script$1 = defineComponent({
     fullMonthName: {
       type: Boolean,
       default: false
+    },
+    iconColor: {
+      default: 'black',
+      type: String
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number]
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number]
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref29) {
+    var emit = _ref29.emit;
     var typedDate = ref();
     var inputRef = ref(null); // computed
 
@@ -8824,122 +8761,146 @@ var script$1 = defineComponent({
     };
   }
 });
-
-const _hoisted_1 = { key: 0 };
-const _hoisted_2 = {
-  key: 1,
-  style: {"position":"relative"}
+var _hoisted_1 = {
+  key: 0
 };
-const _hoisted_3 = { key: 0 };
-const _hoisted_4 = {
+var _hoisted_2 = {
+  key: 1,
+  style: {
+    "position": "relative"
+  }
+};
+var _hoisted_3 = {
+  key: 0
+};
+var _hoisted_4 = {
   key: 0,
   class: "vuejs3-datepicker__value"
 };
-const _hoisted_5 = { class: "vuejs3-datepicker__icon" };
-const _hoisted_6 = {
+var _hoisted_5 = {
+  class: "vuejs3-datepicker__icon"
+};
+var _hoisted_6 = {
   key: 0,
   class: "vuejs3-datepicker__content"
 };
-const _hoisted_7 = {
+var _hoisted_7 = {
   key: 1,
   class: "vuejs3-datepicker__content"
 };
-const _hoisted_8 = { key: 0 };
-const _hoisted_9 = /*#__PURE__*/createTextVNode("Default");
+var _hoisted_8 = {
+  key: 0
+};
+
+var _hoisted_9 = /*#__PURE__*/createTextVNode("Default");
 
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_IconView = resolveComponent("IconView");
+  var _component_IconView = resolveComponent("IconView");
 
-  return (openBlock(), createBlock("div", {
-    class: { 'input-group': _ctx.addBootstrapClass }
-  }, [
-    createCommentVNode(" Calendar Button "),
-    (_ctx.calendarButton)
-      ? (openBlock(), createBlock("span", {
-          key: 0,
-          class: ["vuejs3-datepicker__calendar-button", { 'input-group-prepend': _ctx.addBootstrapClass }],
-          onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showCalendar(...args))),
-          style: { 'cursor:not-allowed;': _ctx.disabled }
-        }, [
-          createVNode("span", {
-            class: { 'input-group-text': _ctx.addBootstrapClass }
-          }, [
-            createVNode("i", { class: _ctx.calendarButtonIcon }, [
-              createTextVNode(toDisplayString(_ctx.calendarButtonIconContent) + " ", 1 /* TEXT */),
-              (!_ctx.calendarButtonIcon)
-                ? (openBlock(), createBlock("span", _hoisted_1, "…"))
-                : createCommentVNode("v-if", true)
-            ], 2 /* CLASS */)
-          ], 2 /* CLASS */)
-        ], 6 /* CLASS, STYLE */))
-      : createCommentVNode("v-if", true),
-    (_ctx.typeable || !_ctx.hideInput)
-      ? (openBlock(), createBlock("div", _hoisted_2, [
-          (!_ctx.inline)
-            ? (openBlock(), createBlock("span", _hoisted_3, [
-                createVNode(_component_IconView, { class: "vuejs3-datepicker__typeablecalendar" })
-              ]))
-            : createCommentVNode("v-if", true),
-          createVNode("input", {
-            type: _ctx.inline ? 'hidden' : 'text',
-            class: [_ctx.computedInputClass, "vuejs3-datepicker__inputvalue"],
-            name: _ctx.name,
-            ref: "inputRef",
-            id: _ctx.id,
-            value: _ctx.formattedValue,
-            "open-date": _ctx.openDate,
-            placeholder: _ctx.placeholder,
-            "clear-button": _ctx.clearButton,
-            disabled: _ctx.disabled,
-            required: _ctx.required,
-            readonly: !_ctx.typeable,
-            onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.showCalendar(...args))),
-            onKeyup: _cache[3] || (_cache[3] = (...args) => (_ctx.parseTypedDate(...args))),
-            onBlur: _cache[4] || (_cache[4] = (...args) => (_ctx.inputBlurred(...args))),
-            autocomplete: "off"
-          }, null, 42 /* CLASS, PROPS, HYDRATE_EVENTS */, ["type", "name", "id", "value", "open-date", "placeholder", "clear-button", "disabled", "required", "readonly"])
-        ]))
-      : (openBlock(), createBlock("div", {
-          key: 2,
-          onClick: _cache[5] || (_cache[5] = (...args) => (_ctx.showCalendar(...args)))
-        }, [
-          (!_ctx.inline)
-            ? (openBlock(), createBlock("div", _hoisted_4, [
-                createVNode("span", _hoisted_5, [
-                  createVNode(_component_IconView)
-                ]),
-                (_ctx.formattedValue)
-                  ? (openBlock(), createBlock("div", _hoisted_6, toDisplayString(_ctx.formattedValue), 1 /* TEXT */))
-                  : (openBlock(), createBlock("div", _hoisted_7, toDisplayString(_ctx.placeholder), 1 /* TEXT */))
-              ]))
-            : createCommentVNode("v-if", true)
-        ])),
-    (_ctx.clearButton && _ctx.selectedDate)
-      ? (openBlock(), createBlock("span", {
-          key: 3,
-          class: ["vuejs3-datepicker__clear-button", { 'input-group-append': _ctx.addBootstrapClass }],
-          onClick: _cache[6] || (_cache[6] = $event => (_ctx.clearDate()))
-        }, [
-          createVNode("span", {
-            class: { 'input-group-text': _ctx.addBootstrapClass }
-          }, [
-            createVNode("i", { class: _ctx.clearButtonIcon }, [
-              (!_ctx.clearButtonIcon)
-                ? (openBlock(), createBlock("span", _hoisted_8, "×"))
-                : createCommentVNode("v-if", true)
-            ], 2 /* CLASS */)
-          ], 2 /* CLASS */)
-        ], 2 /* CLASS */))
-      : createCommentVNode("v-if", true),
-    renderSlot(_ctx.$slots, "afterDateInput", {}, () => [
-      _hoisted_9
-    ])
-  ], 2 /* CLASS */))
+  return openBlock(), createBlock("div", {
+    class: [_ctx.addBootstrapClass ? 'input-group' : '']
+  }, [createCommentVNode(" Calendar Button "), _ctx.calendarButton ? (openBlock(), createBlock("span", {
+    key: 0,
+    class: ["vuejs3-datepicker__calendar-button", {
+      'input-group-prepend': _ctx.addBootstrapClass
+    }],
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.showCalendar.apply(_ctx, arguments);
+    }),
+    style: {
+      'cursor:not-allowed;': _ctx.disabled
+    }
+  }, [createVNode("span", {
+    class: {
+      'input-group-text': _ctx.addBootstrapClass
+    }
+  }, [createVNode("i", {
+    class: _ctx.calendarButtonIcon
+  }, [createTextVNode(toDisplayString(_ctx.calendarButtonIconContent) + " ", 1
+  /* TEXT */
+  ), !_ctx.calendarButtonIcon ? (openBlock(), createBlock("span", _hoisted_1, "…")) : createCommentVNode("v-if", true)], 2
+  /* CLASS */
+  )], 2
+  /* CLASS */
+  )], 6
+  /* CLASS, STYLE */
+  )) : createCommentVNode("v-if", true), _ctx.typeable || !_ctx.hideInput ? (openBlock(), createBlock("div", _hoisted_2, [!_ctx.inline ? (openBlock(), createBlock("span", _hoisted_3, [createVNode(_component_IconView, {
+    class: "vuejs3-datepicker__typeablecalendar",
+    color: _ctx.iconColor,
+    width: _ctx.iconWidth,
+    height: _ctx.iconHeight
+  }, null, 8
+  /* PROPS */
+  , ["color", "width", "height"])])) : createCommentVNode("v-if", true), createVNode("input", {
+    type: _ctx.inline ? 'hidden' : 'text',
+    class: [_ctx.computedInputClass, "vuejs3-datepicker__inputvalue"],
+    name: _ctx.name,
+    ref: "inputRef",
+    id: _ctx.id,
+    value: _ctx.formattedValue,
+    "open-date": _ctx.openDate,
+    placeholder: _ctx.placeholder,
+    "clear-button": _ctx.clearButton,
+    disabled: _ctx.disabled,
+    required: _ctx.required,
+    readonly: !_ctx.typeable,
+    onClick: _cache[2] || (_cache[2] = function () {
+      return _ctx.showCalendar.apply(_ctx, arguments);
+    }),
+    onKeyup: _cache[3] || (_cache[3] = function () {
+      return _ctx.parseTypedDate.apply(_ctx, arguments);
+    }),
+    onBlur: _cache[4] || (_cache[4] = function () {
+      return _ctx.inputBlurred.apply(_ctx, arguments);
+    }),
+    autocomplete: "off"
+  }, null, 42
+  /* CLASS, PROPS, HYDRATE_EVENTS */
+  , ["type", "name", "id", "value", "open-date", "placeholder", "clear-button", "disabled", "required", "readonly"])])) : (openBlock(), createBlock("div", {
+    key: 2,
+    onClick: _cache[5] || (_cache[5] = function () {
+      return _ctx.showCalendar.apply(_ctx, arguments);
+    }),
+    id: "calendar-div"
+  }, [!_ctx.inline ? (openBlock(), createBlock("div", _hoisted_4, [createVNode("span", _hoisted_5, [createVNode(_component_IconView, {
+    color: _ctx.iconColor,
+    width: _ctx.iconWidth,
+    height: _ctx.iconHeight
+  }, null, 8
+  /* PROPS */
+  , ["color", "width", "height"])]), _ctx.formattedValue ? (openBlock(), createBlock("div", _hoisted_6, toDisplayString(_ctx.formattedValue), 1
+  /* TEXT */
+  )) : (openBlock(), createBlock("div", _hoisted_7, toDisplayString(_ctx.placeholder), 1
+  /* TEXT */
+  ))])) : createCommentVNode("v-if", true)])), _ctx.clearButton && _ctx.selectedDate ? (openBlock(), createBlock("span", {
+    key: 3,
+    class: ["vuejs3-datepicker__clear-button", {
+      'input-group-append': _ctx.addBootstrapClass
+    }],
+    onClick: _cache[6] || (_cache[6] = function ($event) {
+      return _ctx.clearDate();
+    })
+  }, [createVNode("span", {
+    class: {
+      'input-group-text': _ctx.addBootstrapClass
+    }
+  }, [createVNode("i", {
+    class: _ctx.clearButtonIcon
+  }, [!_ctx.clearButtonIcon ? (openBlock(), createBlock("span", _hoisted_8, "×")) : createCommentVNode("v-if", true)], 2
+  /* CLASS */
+  )], 2
+  /* CLASS */
+  )], 2
+  /* CLASS */
+  )) : createCommentVNode("v-if", true), renderSlot(_ctx.$slots, "afterDateInput", {}, function () {
+    return [_hoisted_9];
+  })], 2
+  /* CLASS */
+  );
 }
 
 script$1.render = render$1;
 script$1.__file = "src/components/datepicker/DateInput.vue";
-
 var script$2 = defineComponent({
   name: 'PickerDay',
   props: {
@@ -9004,11 +8965,15 @@ var script$2 = defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref30) {
+    var emit = _ref30.emit;
 
     /** ********************************** Methods *********************************** */
 
@@ -9411,80 +9376,98 @@ var script$2 = defineComponent({
     };
   }
 });
-
-const _hoisted_1$1 = {
+var _hoisted_1$1 = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar"
 };
-const _hoisted_2$1 = { class: "vuejs3-datepicker__calendar-topbar-day" };
-const _hoisted_3$1 = { class: "vuejs3-datepicker__calendar-actionarea" };
+var _hoisted_2$1 = {
+  class: "vuejs3-datepicker__calendar-topbar-day"
+};
+var _hoisted_3$1 = {
+  class: "vuejs3-datepicker__calendar-actionarea"
+};
 
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', "vuejs3-".concat(_ctx.theme), _ctx.calendarClass],
     style: _ctx.calendarStyle,
-    onMousedown: _cache[5] || (_cache[5] = withModifiers(() => {}, ["prevent"]))
-  }, [
-    renderSlot(_ctx.$slots, "beforeCalendarHeader"),
-    (_ctx.ifDifferentViews && _ctx.selectedDate)
-      ? (openBlock(), createBlock("section", _hoisted_1$1, [
-          createVNode("p", {
-            class: "vuejs3-datepicker__calendar-topbar-year",
-            onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showYearCalendar(...args)))
-          }, toDisplayString(_ctx.currYearName), 1 /* TEXT */),
-          createVNode("p", _hoisted_2$1, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1 /* TEXT */)
-        ]))
-      : createCommentVNode("v-if", true),
-    createVNode("div", _hoisted_3$1, [
-      createVNode("header", null, [
-        createVNode("span", {
-          onClick: _cache[2] || (_cache[2] = $event => (_ctx.isRtl ? _ctx.nextMonth() : _ctx.previousMonth())),
-          class: ["prev", { disabled: _ctx.isLeftNavDisabled }]
-        }, "<", 2 /* CLASS */),
-        createVNode("span", {
-          class: ["day__month_btn", _ctx.allowedToShowView('month') ? 'up' : ''],
-          onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.showMonthCalendar(...args)))
-        }, toDisplayString(_ctx.isYmd ? _ctx.currYearName : _ctx.currMonthName) + " " + toDisplayString(_ctx.isYmd ? _ctx.currMonthName : _ctx.currYearName), 3 /* TEXT, CLASS */),
-        createVNode("span", {
-          onClick: _cache[4] || (_cache[4] = $event => (_ctx.isRtl ? _ctx.previousMonth() : _ctx.nextMonth())),
-          class: ["next", { disabled: _ctx.isRightNavDisabled }]
-        }, ">", 2 /* CLASS */)
-      ]),
-      createVNode("div", {
-        class: _ctx.isRtl ? 'flex-rtl' : ''
-      }, [
-        (openBlock(true), createBlock(Fragment, null, renderList(_ctx.daysOfWeek, (d) => {
-          return (openBlock(), createBlock("span", {
-            class: "cell day-header",
-            key: d.timestamp
-          }, toDisplayString(d), 1 /* TEXT */))
-        }), 128 /* KEYED_FRAGMENT */)),
-        (_ctx.blankDays > 0)
-          ? (openBlock(true), createBlock(Fragment, { key: 0 }, renderList(_ctx.blankDays, (d) => {
-              return (openBlock(), createBlock("span", {
-                class: "cell day blank",
-                key: d.timestamp
-              }))
-            }), 128 /* KEYED_FRAGMENT */))
-          : createCommentVNode("v-if", true),
-        (openBlock(true), createBlock(Fragment, null, renderList(_ctx.days, (day) => {
-          return (openBlock(), createBlock("span", {
-            class: ["cell day", _ctx.dayClasses(day)],
-            key: day.timestamp,
-            innerHTML: _ctx.dayCellContent(day),
-            onClick: $event => (_ctx.selectDate(day))
-          }, null, 10 /* CLASS, PROPS */, ["innerHTML", "onClick"]))
-        }), 128 /* KEYED_FRAGMENT */))
-      ], 2 /* CLASS */)
-    ])
-  ], 38 /* CLASS, STYLE, HYDRATE_EVENTS */)), [
-    [vShow, _ctx.showDayView]
-  ])
+    onMousedown: _cache[5] || (_cache[5] = withModifiers(function () {}, ["prevent"]))
+  }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews && _ctx.selectedDate ? (openBlock(), createBlock("section", _hoisted_1$1, [createVNode("p", {
+    class: "vuejs3-datepicker__calendar-topbar-year",
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.showYearCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.currYearName), 1
+  /* TEXT */
+  ), createVNode("p", _hoisted_2$1, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1
+  /* TEXT */
+  )])) : createCommentVNode("v-if", true), createVNode("div", _hoisted_3$1, [createVNode("header", null, [createVNode("span", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.isRtl ? _ctx.nextMonth() : _ctx.previousMonth();
+    }),
+    class: ["prev", {
+      disabled: _ctx.isLeftNavDisabled
+    }]
+  }, "<", 2
+  /* CLASS */
+  ), createVNode("span", {
+    class: ["day__month_btn", _ctx.allowedToShowView('month') ? 'up' : ''],
+    onClick: _cache[3] || (_cache[3] = function () {
+      return _ctx.showMonthCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.isYmd ? _ctx.currYearName : _ctx.currMonthName) + " " + toDisplayString(_ctx.isYmd ? _ctx.currMonthName : _ctx.currYearName), 3
+  /* TEXT, CLASS */
+  ), createVNode("span", {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.isRtl ? _ctx.previousMonth() : _ctx.nextMonth();
+    }),
+    class: ["next", {
+      disabled: _ctx.isRightNavDisabled
+    }]
+  }, ">", 2
+  /* CLASS */
+  )]), createVNode("div", {
+    class: _ctx.isRtl ? 'flex-rtl' : ''
+  }, [(openBlock(true), createBlock(Fragment, null, renderList(_ctx.daysOfWeek, function (d) {
+    return openBlock(), createBlock("span", {
+      class: "cell day-header",
+      key: d.timestamp
+    }, toDisplayString(d), 1
+    /* TEXT */
+    );
+  }), 128
+  /* KEYED_FRAGMENT */
+  )), _ctx.blankDays > 0 ? (openBlock(true), createBlock(Fragment, {
+    key: 0
+  }, renderList(_ctx.blankDays, function (d) {
+    return openBlock(), createBlock("span", {
+      class: "cell day blank",
+      key: d.timestamp
+    });
+  }), 128
+  /* KEYED_FRAGMENT */
+  )) : createCommentVNode("v-if", true), (openBlock(true), createBlock(Fragment, null, renderList(_ctx.days, function (day) {
+    return openBlock(), createBlock("span", {
+      class: ["cell day", _ctx.dayClasses(day)],
+      key: day.timestamp,
+      innerHTML: _ctx.dayCellContent(day),
+      onClick: function onClick($event) {
+        return _ctx.selectDate(day);
+      }
+    }, null, 10
+    /* CLASS, PROPS */
+    , ["innerHTML", "onClick"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 2
+  /* CLASS */
+  )])], 38
+  /* CLASS, STYLE, HYDRATE_EVENTS */
+  )), [[vShow, _ctx.showDayView]]);
 }
 
 script$2.render = render$2;
 script$2.__file = "src/components/datepicker/PickerDay.vue";
-
 var script$3 = defineComponent({
   name: 'PickerMonth',
   props: {
@@ -9533,10 +9516,14 @@ var script$3 = defineComponent({
     maximumView: {
       type: String,
       default: 'year'
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref31) {
+    var emit = _ref31.emit;
 
     /** ********************************** Methods  *********************************** */
 
@@ -9763,66 +9750,79 @@ var script$3 = defineComponent({
     };
   }
 });
-
-const _hoisted_1$2 = {
+var _hoisted_1$2 = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar"
 };
-const _hoisted_2$2 = {
+var _hoisted_2$2 = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar-day"
 };
-const _hoisted_3$2 = { class: "vuejs3-datepicker__calendar-actionarea" };
+var _hoisted_3$2 = {
+  class: "vuejs3-datepicker__calendar-actionarea"
+};
 
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', "vuejs3-".concat(_ctx.theme), _ctx.calendarClass],
     style: _ctx.calendarStyle,
-    onMousedown: _cache[5] || (_cache[5] = withModifiers(() => {}, ["prevent"]))
-  }, [
-    renderSlot(_ctx.$slots, "beforeCalendarHeader"),
-    (_ctx.ifDifferentViews)
-      ? (openBlock(), createBlock("section", _hoisted_1$2, [
-          createVNode("p", {
-            class: "vuejs3-datepicker__calendar-topbar-year",
-            onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.showYearCalendar(...args)))
-          }, toDisplayString(_ctx.currYearName), 1 /* TEXT */),
-          (_ctx.selectedDate)
-            ? (openBlock(), createBlock("p", _hoisted_2$2, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1 /* TEXT */))
-            : createCommentVNode("v-if", true)
-        ]))
-      : createCommentVNode("v-if", true),
-    createVNode("div", _hoisted_3$2, [
-      createVNode("header", null, [
-        createVNode("span", {
-          onClick: _cache[2] || (_cache[2] = $event => (_ctx.isRtl ? _ctx.nextYear() : _ctx.previousYear())),
-          class: ["prev", { disabled: _ctx.isLeftNavDisabled }]
-        }, "<", 2 /* CLASS */),
-        createVNode("span", {
-          class: ["month__year_btn", _ctx.allowedToShowView('year') ? 'up' : ''],
-          onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.showYearCalendar(...args)))
-        }, toDisplayString(_ctx.pageYearName), 3 /* TEXT, CLASS */),
-        createVNode("span", {
-          onClick: _cache[4] || (_cache[4] = $event => (_ctx.isRtl ? _ctx.previousYear() : _ctx.nextYear())),
-          class: ["next", { disabled: _ctx.isRightNavDisabled }]
-        }, ">", 2 /* CLASS */)
-      ]),
-      (openBlock(true), createBlock(Fragment, null, renderList(_ctx.months, (month) => {
-        return (openBlock(), createBlock("span", {
-          class: ["cell month", { selected: month.isSelected, disabled: month.isDisabled }],
-          key: month.timestamp,
-          onClick: withModifiers($event => (_ctx.selectMonth(month)), ["stop"])
-        }, toDisplayString(month.month), 11 /* TEXT, CLASS, PROPS */, ["onClick"]))
-      }), 128 /* KEYED_FRAGMENT */))
-    ])
-  ], 38 /* CLASS, STYLE, HYDRATE_EVENTS */)), [
-    [vShow, _ctx.showMonthView]
-  ])
+    onMousedown: _cache[5] || (_cache[5] = withModifiers(function () {}, ["prevent"]))
+  }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews ? (openBlock(), createBlock("section", _hoisted_1$2, [createVNode("p", {
+    class: "vuejs3-datepicker__calendar-topbar-year",
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.showYearCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.currYearName), 1
+  /* TEXT */
+  ), _ctx.selectedDate ? (openBlock(), createBlock("p", _hoisted_2$2, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1
+  /* TEXT */
+  )) : createCommentVNode("v-if", true)])) : createCommentVNode("v-if", true), createVNode("div", _hoisted_3$2, [createVNode("header", null, [createVNode("span", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.isRtl ? _ctx.nextYear() : _ctx.previousYear();
+    }),
+    class: ["prev", {
+      disabled: _ctx.isLeftNavDisabled
+    }]
+  }, "<", 2
+  /* CLASS */
+  ), createVNode("span", {
+    class: ["month__year_btn", _ctx.allowedToShowView('year') ? 'up' : ''],
+    onClick: _cache[3] || (_cache[3] = function () {
+      return _ctx.showYearCalendar.apply(_ctx, arguments);
+    })
+  }, toDisplayString(_ctx.pageYearName), 3
+  /* TEXT, CLASS */
+  ), createVNode("span", {
+    onClick: _cache[4] || (_cache[4] = function ($event) {
+      return _ctx.isRtl ? _ctx.previousYear() : _ctx.nextYear();
+    }),
+    class: ["next", {
+      disabled: _ctx.isRightNavDisabled
+    }]
+  }, ">", 2
+  /* CLASS */
+  )]), (openBlock(true), createBlock(Fragment, null, renderList(_ctx.months, function (month) {
+    return openBlock(), createBlock("span", {
+      class: ["cell month", {
+        selected: month.isSelected,
+        disabled: month.isDisabled
+      }],
+      key: month.timestamp,
+      onClick: withModifiers(function ($event) {
+        return _ctx.selectMonth(month);
+      }, ["stop"])
+    }, toDisplayString(month.month), 11
+    /* TEXT, CLASS, PROPS */
+    , ["onClick"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])], 38
+  /* CLASS, STYLE, HYDRATE_EVENTS */
+  )), [[vShow, _ctx.showMonthView]]);
 }
 
 script$3.render = render$3;
 script$3.__file = "src/components/datepicker/PickerMonth.vue";
-
 var script$4 = defineComponent({
   name: 'PickerYear',
   props: {
@@ -9874,10 +9874,15 @@ var script$4 = defineComponent({
     maximumView: {
       type: String,
       default: 'year'
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  emits: ['select-year', 'changed-decade'],
+  setup: function setup(props, _ref32) {
+    var emit = _ref32.emit;
 
     /** ********************************** Methods  *********************************** */
 
@@ -9941,7 +9946,7 @@ var script$4 = defineComponent({
 
       var disabledYear = getFullYear(d.from);
       var firstYearInNextPage = Math.ceil(getFullYear(props.pageDate) / 10) * 10;
-      return disabledYear < firstYearInNextPage;
+      return disabledYear <= firstYearInNextPage;
     }
     /**
      * moves year to next decade
@@ -9989,8 +9994,8 @@ var script$4 = defineComponent({
         }
       }
 
-      if (typeof props.disabledDates.customPredictor === 'function' && props.disabledDates.customPredictor(date)) {
-        disabledDates = true;
+      if (typeof props.disabledDates.customPredictor === 'function') {
+        disabledDates = props.disabledDates.customPredictor(date);
       }
 
       return disabledDates;
@@ -10091,60 +10096,76 @@ var script$4 = defineComponent({
       getDisplayDate: getDisplayDate,
       currYearName: currYearName,
       currMonthName: currMonthName,
-      ifDifferentViews: ifDifferentViews
+      ifDifferentViews: ifDifferentViews,
+      // methods
+      isNextDecadeDisabled: isNextDecadeDisabled,
+      isPreviousDecadeDisabled: isPreviousDecadeDisabled,
+      isDisabledYear: isDisabledYear
     };
   }
 });
-
-const _hoisted_1$3 = {
+var _hoisted_1$3 = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar"
 };
-const _hoisted_2$3 = { class: "vuejs3-datepicker__calendar-topbar-year" };
-const _hoisted_3$3 = {
+var _hoisted_2$3 = {
+  class: "vuejs3-datepicker__calendar-topbar-year"
+};
+var _hoisted_3$3 = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar-day"
 };
-const _hoisted_4$1 = { class: "vuejs3-datepicker__calendar-actionarea" };
+var _hoisted_4$1 = {
+  class: "vuejs3-datepicker__calendar-actionarea"
+};
 
 function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createBlock("div", {
-    class: [_ctx.calendarClass, 'vuejs3-datepicker__calendar'],
+    class: ['vuejs3-datepicker__calendar', "vuejs3-".concat(_ctx.theme), _ctx.calendarClass],
     style: _ctx.calendarStyle,
-    onMousedown: _cache[3] || (_cache[3] = withModifiers(() => {}, ["prevent"]))
-  }, [
-    renderSlot(_ctx.$slots, "beforeCalendarHeader"),
-    (_ctx.ifDifferentViews && _ctx.selectedDate)
-      ? (openBlock(), createBlock("section", _hoisted_1$3, [
-          createVNode("p", _hoisted_2$3, toDisplayString(_ctx.currYearName), 1 /* TEXT */),
-          (_ctx.selectedDate)
-            ? (openBlock(), createBlock("p", _hoisted_3$3, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1 /* TEXT */))
-            : createCommentVNode("v-if", true)
-        ]))
-      : createCommentVNode("v-if", true),
-    createVNode("div", _hoisted_4$1, [
-      createVNode("header", null, [
-        createVNode("span", {
-          onClick: _cache[1] || (_cache[1] = $event => (_ctx.isRtl ? _ctx.nextDecade() : _ctx.previousDecade())),
-          class: ["prev", { disabled: _ctx.isLeftNavDisabled }]
-        }, "<", 2 /* CLASS */),
-        createVNode("span", null, toDisplayString(_ctx.getPageDecade), 1 /* TEXT */),
-        createVNode("span", {
-          onClick: _cache[2] || (_cache[2] = $event => (_ctx.isRtl ? _ctx.previousDecade() : _ctx.nextDecade())),
-          class: ["next", { disabled: _ctx.isRightNavDisabled }]
-        }, ">", 2 /* CLASS */)
-      ]),
-      (openBlock(true), createBlock(Fragment, null, renderList(_ctx.years, (year) => {
-        return (openBlock(), createBlock("span", {
-          class: ["cell year", { selected: year.isSelected, disabled: year.isDisabled }],
-          key: year.timestamp,
-          onClick: withModifiers($event => (_ctx.selectYear(year)), ["stop"])
-        }, toDisplayString(year.year), 11 /* TEXT, CLASS, PROPS */, ["onClick"]))
-      }), 128 /* KEYED_FRAGMENT */))
-    ])
-  ], 38 /* CLASS, STYLE, HYDRATE_EVENTS */)), [
-    [vShow, _ctx.showYearView]
-  ])
+    onMousedown: _cache[3] || (_cache[3] = withModifiers(function () {}, ["prevent"]))
+  }, [renderSlot(_ctx.$slots, "beforeCalendarHeader"), _ctx.ifDifferentViews && _ctx.selectedDate ? (openBlock(), createBlock("section", _hoisted_1$3, [createVNode("p", _hoisted_2$3, toDisplayString(_ctx.currYearName), 1
+  /* TEXT */
+  ), _ctx.selectedDate ? (openBlock(), createBlock("p", _hoisted_3$3, toDisplayString(_ctx.getDayName) + " " + toDisplayString(_ctx.getDisplayDate) + " " + toDisplayString(_ctx.monthName), 1
+  /* TEXT */
+  )) : createCommentVNode("v-if", true)])) : createCommentVNode("v-if", true), createVNode("div", _hoisted_4$1, [createVNode("header", null, [createVNode("span", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return _ctx.isRtl ? _ctx.nextDecade() : _ctx.previousDecade();
+    }),
+    class: ["prev", {
+      disabled: _ctx.isLeftNavDisabled
+    }]
+  }, "<", 2
+  /* CLASS */
+  ), createVNode("span", null, toDisplayString(_ctx.getPageDecade), 1
+  /* TEXT */
+  ), createVNode("span", {
+    onClick: _cache[2] || (_cache[2] = function ($event) {
+      return _ctx.isRtl ? _ctx.previousDecade() : _ctx.nextDecade();
+    }),
+    class: ["next", {
+      disabled: _ctx.isRightNavDisabled
+    }]
+  }, ">", 2
+  /* CLASS */
+  )]), (openBlock(true), createBlock(Fragment, null, renderList(_ctx.years, function (year) {
+    return openBlock(), createBlock("span", {
+      class: ["cell year", {
+        selected: year.isSelected,
+        disabled: year.isDisabled
+      }],
+      key: year.timestamp,
+      onClick: withModifiers(function ($event) {
+        return _ctx.selectYear(year);
+      }, ["stop"])
+    }, toDisplayString(year.year), 11
+    /* TEXT, CLASS, PROPS */
+    , ["onClick"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])], 38
+  /* CLASS, STYLE, HYDRATE_EVENTS */
+  )), [[vShow, _ctx.showYearView]]);
 }
 
 script$4.render = render$4;
@@ -10153,8 +10174,8 @@ script$4.__file = "src/components/datepicker/PickerYear.vue";
 var af = function af() {
   var langName = 'Afrikaans';
   var monthFullName = ['Januarie', 'Februarie', 'Maart', 'April', 'Mei', 'Junie', 'Julie', 'Augustus', 'September', 'Oktober', 'November', 'Desember'];
-  var shortName = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-  var days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var shortName = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'];
+  var days = ['So.', 'Ma.', 'Di.', 'Wo.', 'Do.', 'Vr.', 'Sa.'];
   var rtl = false;
   var ymd = false;
   var yearSuffix = '';
@@ -10174,8 +10195,8 @@ var af = function af() {
 var en = function en() {
   var langName = 'English';
   var monthFullName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var shortName = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-  var days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  var shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   var daysNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var rtl = false;
   var ymd = false;
@@ -10197,7 +10218,6 @@ var data = {
   af: af(),
   en: en()
 };
-
 var script$5 = defineComponent({
   name: 'Datepicker',
   components: {
@@ -10314,11 +10334,27 @@ var script$5 = defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true
+    },
+    iconColor: {
+      default: 'black',
+      type: String
+    },
+    iconHeight: {
+      default: 16,
+      type: [String, Number]
+    },
+    iconWidth: {
+      default: 16,
+      type: [String, Number]
+    },
+    theme: {
+      default: 'green',
+      type: String
     }
   },
   emits: ['input', 'cleared', 'update:modelValue', 'closed', 'changed-month', 'changed-year', 'changed-day', 'selected', 'selected-disabled'],
-  setup: function setup(props, _ref) {
-    var emit = _ref.emit;
+  setup: function setup(props, _ref33) {
+    var emit = _ref33.emit;
     var initmodelvalue = new Date(props.modelValue);
     var pageTimestamp = ref(0);
     var selectedDate = ref(null);
@@ -10715,148 +10751,155 @@ var script$5 = defineComponent({
 });
 
 function render$5(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_date_input = resolveComponent("date-input");
-  const _component_picker_day = resolveComponent("picker-day");
-  const _component_picker_month = resolveComponent("picker-month");
-  const _component_picker_year = resolveComponent("picker-year");
-  const _directive_clickoutside = resolveDirective("clickoutside");
+  var _component_date_input = resolveComponent("date-input");
+
+  var _component_picker_day = resolveComponent("picker-day");
+
+  var _component_picker_month = resolveComponent("picker-month");
+
+  var _component_picker_year = resolveComponent("picker-year");
+
+  var _directive_clickoutside = resolveDirective("clickoutside");
 
   return withDirectives((openBlock(), createBlock("div", {
-    class: ["vuejs3-datepicker", [_ctx.wrapperClass, _ctx.isRtl ? 'rtl' : '']]
-  }, [
-    createVNode(_component_date_input, {
-      selectedDate: _ctx.selectedDate,
-      resetTypedDate: _ctx.resetTypedDate,
-      format: _ctx.format,
-      translation: _ctx.translation,
-      inline: _ctx.inline,
-      id: _ctx.id,
-      name: _ctx.name,
-      fullMonthName: _ctx.fullMonthName,
-      openDate: _ctx.openDate,
-      placeholder: _ctx.placeholder,
-      inputClass: _ctx.inputClass,
-      typeable: _ctx.typeable,
-      clearButton: _ctx.clearButton,
-      clearButtonIcon: _ctx.clearButtonIcon,
-      calendarButton: _ctx.calendarButton,
-      calendarButtonIcon: _ctx.calendarButtonIcon,
-      calendarButtonIconContent: _ctx.calendarButtonIconContent,
-      disabled: _ctx.disabled,
-      required: _ctx.required,
-      addBootstrapClass: _ctx.addBootstrapClass,
-      "use-utc": _ctx.useUtc,
-      onShowCalendar: _ctx.showCalendar,
-      onCloseCalendar: _ctx.close,
-      onTypedDate: _ctx.setTypedDate,
-      onClearDate: _ctx.clearDate,
-      minimumView: _ctx.minimumView,
-      maximumView: _ctx.maximumView,
-      hideInput: _ctx.hideInput
-    }, {
-      afterDateInput: withCtx(() => [
-        renderSlot(_ctx.$slots, "afterDateInput")
-      ]),
-      _: 1
-    }, 8 /* PROPS */, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput"]),
-    createCommentVNode("Day View  "),
-    (_ctx.allowedToShowView('day'))
-      ? (openBlock(), createBlock(_component_picker_day, {
-          key: 0,
-          pageDate: _ctx.pageDate,
-          selectedDate: _ctx.selectedDate,
-          showDayView: _ctx.showDayView,
-          fullMonthName: _ctx.fullMonthName,
-          allowedToShowView: _ctx.allowedToShowView,
-          disabledDates: _ctx.disabledDates,
-          highlighted: _ctx.highlighted,
-          calendarClass: _ctx.calendarClass,
-          calendarStyle: _ctx.calendarStyle,
-          translation: _ctx.translation,
-          pageTimestamp: _ctx.pageTimestamp,
-          isRtl: _ctx.isRtl,
-          mondayFirst: _ctx.mondayFirst,
-          dayCellContent: _ctx.dayCellContent,
-          onChangedMonth: _ctx.handleChangedMonthFromDayPicker,
-          onSelectDate: _ctx.selectDate,
-          onShowMonthCalendar: _ctx.showMonthCalendar,
-          onSelectedDisabled: _ctx.selectDisabledDate,
-          onShowYearCalendar: _ctx.showYearCalendar,
-          minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView,
-          preventDisableDateSelection: _ctx.preventDisableDateSelection
-        }, {
-          beforeCalendarHeader: withCtx(() => [
-            renderSlot(_ctx.$slots, "beforeCalendarHeader")
-          ]),
-          _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection"]))
-      : createCommentVNode("v-if", true),
-    createCommentVNode("Month View "),
-    (_ctx.allowedToShowView('month'))
-      ? (openBlock(), createBlock(_component_picker_month, {
-          key: 1,
-          pageDate: _ctx.pageDate,
-          selectedDate: _ctx.selectedDate,
-          showMonthView: _ctx.showMonthView,
-          allowedToShowView: _ctx.allowedToShowView,
-          disabledDates: _ctx.disabledDates,
-          calendarClass: _ctx.calendarClass,
-          calendarStyle: _ctx.calendarStyle,
-          translation: _ctx.translation,
-          isRtl: _ctx.isRtl,
-          "use-utc": _ctx.useUtc,
-          fullMonthName: _ctx.fullMonthName,
-          onSelectMonth: _ctx.selectMonth,
-          onShowYearCalendar: _ctx.showYearCalendar,
-          onChangedYear: _ctx.setPageDate,
-          minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView
-        }, {
-          beforeCalendarHeader: withCtx(() => [
-            renderSlot(_ctx.$slots, "beforeCalendarHeader")
-          ]),
-          _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView"]))
-      : createCommentVNode("v-if", true),
-    createCommentVNode(" Year View "),
-    (_ctx.allowedToShowView('year'))
-      ? (openBlock(), createBlock(_component_picker_year, {
-          key: 2,
-          pageDate: _ctx.pageDate,
-          selectedDate: _ctx.selectedDate,
-          showYearView: _ctx.showYearView,
-          allowedToShowView: _ctx.allowedToShowView,
-          disabledDates: _ctx.disabledDates,
-          calendarClass: _ctx.calendarClass,
-          calendarStyle: _ctx.calendarStyle,
-          translation: _ctx.translation,
-          isRtl: _ctx.isRtl,
-          "use-utc": _ctx.useUtc,
-          onSelectYear: _ctx.selectYear,
-          onChangedDecade: _ctx.setPageDate,
-          fullMonthName: _ctx.fullMonthName,
-          minimumView: _ctx.minimumView,
-          maximumView: _ctx.maximumView
-        }, {
-          beforeCalendarHeader: withCtx(() => [
-            renderSlot(_ctx.$slots, "beforeCalendarHeader")
-          ]),
-          _: 1
-        }, 8 /* PROPS */, ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView"]))
-      : createCommentVNode("v-if", true)
-  ], 2 /* CLASS */)), [
-    [_directive_clickoutside, {
-      handler: _ctx.inline ? null : _ctx.closeOnClickOutside,
-    }]
-  ])
+    class: ["vuejs3-datepicker", [_ctx.isRtl ? 'rtl' : '', "vuejs3-".concat(_ctx.theme), _ctx.wrapperClass]]
+  }, [createVNode(_component_date_input, {
+    selectedDate: _ctx.selectedDate,
+    resetTypedDate: _ctx.resetTypedDate,
+    format: _ctx.format,
+    translation: _ctx.translation,
+    inline: _ctx.inline,
+    id: _ctx.id,
+    name: _ctx.name,
+    fullMonthName: _ctx.fullMonthName,
+    openDate: _ctx.openDate,
+    placeholder: _ctx.placeholder,
+    inputClass: _ctx.inputClass,
+    typeable: _ctx.typeable,
+    clearButton: _ctx.clearButton,
+    clearButtonIcon: _ctx.clearButtonIcon,
+    calendarButton: _ctx.calendarButton,
+    calendarButtonIcon: _ctx.calendarButtonIcon,
+    calendarButtonIconContent: _ctx.calendarButtonIconContent,
+    disabled: _ctx.disabled,
+    required: _ctx.required,
+    addBootstrapClass: _ctx.addBootstrapClass,
+    "use-utc": _ctx.useUtc,
+    onShowCalendar: _ctx.showCalendar,
+    onCloseCalendar: _ctx.close,
+    onTypedDate: _ctx.setTypedDate,
+    onClearDate: _ctx.clearDate,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView,
+    hideInput: _ctx.hideInput,
+    iconWidth: _ctx.iconWidth,
+    iconHeight: _ctx.iconHeight,
+    iconColor: _ctx.iconColor,
+    theme: _ctx.theme
+  }, {
+    afterDateInput: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "afterDateInput")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput", "iconWidth", "iconHeight", "iconColor", "theme"]), createCommentVNode("Day View  "), _ctx.allowedToShowView('day') ? (openBlock(), createBlock(_component_picker_day, {
+    key: 0,
+    pageDate: _ctx.pageDate,
+    selectedDate: _ctx.selectedDate,
+    showDayView: _ctx.showDayView,
+    fullMonthName: _ctx.fullMonthName,
+    allowedToShowView: _ctx.allowedToShowView,
+    disabledDates: _ctx.disabledDates,
+    highlighted: _ctx.highlighted,
+    calendarClass: _ctx.calendarClass,
+    calendarStyle: _ctx.calendarStyle,
+    translation: _ctx.translation,
+    pageTimestamp: _ctx.pageTimestamp,
+    isRtl: _ctx.isRtl,
+    mondayFirst: _ctx.mondayFirst,
+    dayCellContent: _ctx.dayCellContent,
+    onChangedMonth: _ctx.handleChangedMonthFromDayPicker,
+    onSelectDate: _ctx.selectDate,
+    onShowMonthCalendar: _ctx.showMonthCalendar,
+    onSelectedDisabled: _ctx.selectDisabledDate,
+    onShowYearCalendar: _ctx.showYearCalendar,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView,
+    preventDisableDateSelection: _ctx.preventDisableDateSelection,
+    theme: _ctx.theme
+  }, {
+    beforeCalendarHeader: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection", "theme"])) : createCommentVNode("v-if", true), createCommentVNode("Month View "), _ctx.allowedToShowView('month') ? (openBlock(), createBlock(_component_picker_month, {
+    key: 1,
+    pageDate: _ctx.pageDate,
+    selectedDate: _ctx.selectedDate,
+    showMonthView: _ctx.showMonthView,
+    allowedToShowView: _ctx.allowedToShowView,
+    disabledDates: _ctx.disabledDates,
+    calendarClass: _ctx.calendarClass,
+    calendarStyle: _ctx.calendarStyle,
+    translation: _ctx.translation,
+    isRtl: _ctx.isRtl,
+    "use-utc": _ctx.useUtc,
+    fullMonthName: _ctx.fullMonthName,
+    onSelectMonth: _ctx.selectMonth,
+    onShowYearCalendar: _ctx.showYearCalendar,
+    onChangedYear: _ctx.setPageDate,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView,
+    theme: _ctx.theme
+  }, {
+    beforeCalendarHeader: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView", "theme"])) : createCommentVNode("v-if", true), createCommentVNode(" Year View "), _ctx.allowedToShowView('year') ? (openBlock(), createBlock(_component_picker_year, {
+    key: 2,
+    pageDate: _ctx.pageDate,
+    selectedDate: _ctx.selectedDate,
+    showYearView: _ctx.showYearView,
+    allowedToShowView: _ctx.allowedToShowView,
+    disabledDates: _ctx.disabledDates,
+    calendarClass: _ctx.calendarClass,
+    calendarStyle: _ctx.calendarStyle,
+    translation: _ctx.translation,
+    isRtl: _ctx.isRtl,
+    "use-utc": _ctx.useUtc,
+    onSelectYear: _ctx.selectYear,
+    onChangedDecade: _ctx.setPageDate,
+    fullMonthName: _ctx.fullMonthName,
+    minimumView: _ctx.minimumView,
+    maximumView: _ctx.maximumView,
+    theme: _ctx.theme
+  }, {
+    beforeCalendarHeader: withCtx(function () {
+      return [renderSlot(_ctx.$slots, "beforeCalendarHeader")];
+    }),
+    _: 1
+  }, 8
+  /* PROPS */
+  , ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView", "theme"])) : createCommentVNode("v-if", true)], 2
+  /* CLASS */
+  )), [[_directive_clickoutside, {
+    handler: _ctx.inline ? null : _ctx.closeOnClickOutside
+  }]]);
 }
 
 function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
+  if (ref === void 0) ref = {};
   var insertAt = ref.insertAt;
 
-  if (!css || typeof document === 'undefined') { return; }
+  if (!css || typeof document === 'undefined') {
+    return;
+  }
 
   var head = document.head || document.getElementsByTagName('head')[0];
   var style = document.createElement('style');
@@ -10881,10 +10924,8 @@ function styleInject(css, ref) {
 
 var css_248z = "*{box-sizing:border-box}body{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}.rtl{direction:rtl}.vuejs3-datepicker{position:relative;display:inline-block}.vuejs3-datepicker *{box-sizing:border-box}.vuejs3-datepicker input{border:1px solid}.vuejs3-datepicker__icon{display:-webkit-flex;display:-ms-flexbox;display:flex}.vuejs3-datepicker__value{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:13px 15px;cursor:pointer;border:1px solid}.vuejs3-datepicker__content{margin-left:10px;font-size:15px}.vuejs3-datepicker__typeablecalendar{position:absolute;top:10px;left:10px}.vuejs3-datepicker__inputvalue{min-width:200px;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;border-radius:5px;padding:12px 10px 13px 35px;cursor:pointer;border:1px solid}.vuejs3-datepicker__calendar{position:absolute;z-index:100;background:#fff;width:300px;box-shadow:0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);border-radius:4px;margin-top:4px}.vuejs3-datepicker__calendar-topbar{background-color:#40b983;color:#fff;border-radius:4px 4px 0 0;padding:25px}.vuejs3-datepicker__calendar-topbar-year{font-size:30px;margin:0;padding-bottom:10px}.vuejs3-datepicker__calendar-topbar-day{font-size:20px;margin:0}.vuejs3-datepicker__calendar-actionarea{padding:10px}.vuejs3-datepicker__calendar header{display:block;line-height:40px}.vuejs3-datepicker__calendar header span{text-align:center;width:71.42857142857143%;float:left}.vuejs3-datepicker__calendar header .next,.vuejs3-datepicker__calendar header .prev{width:14.285714285714286%;float:left;text-indent:-10000px;position:relative}.vuejs3-datepicker__calendar header .next:after,.vuejs3-datepicker__calendar header .prev:after{content:\"\";position:absolute;left:50%;width:8px;height:8px;top:50%;-webkit-transform:translateX(-50%) translateY(-50%) rotate(45deg);transform:translateX(-50%) translateY(-50%) rotate(45deg)}.vuejs3-datepicker__calendar header .prev:after{border-left:1px solid #2f2f2f;border-bottom:1px solid #2f2f2f}.vuejs3-datepicker__calendar header .next.disabled:after,.vuejs3-datepicker__calendar header .prev.disabled:after{opacity:.5}.vuejs3-datepicker__calendar header .next:after{border-top:1px solid #2f2f2f;border-right:1px solid #2f2f2f}.vuejs3-datepicker__calendar header .next:not(.disabled),.vuejs3-datepicker__calendar header .prev:not(.disabled),.vuejs3-datepicker__calendar header .up:not(.disabled){cursor:pointer;font-size:15px;border-radius:4px}.vuejs3-datepicker__calendar header .next:not(.disabled):hover,.vuejs3-datepicker__calendar header .prev:not(.disabled):hover,.vuejs3-datepicker__calendar header .up:not(.disabled):hover{background:#f8f8f8}.vuejs3-datepicker__calendar .disabled{color:#ddd;cursor:default}.vuejs3-datepicker__calendar .flex-rtl{display:-webkit-flex;display:-ms-flexbox;display:flex;width:inherit;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.vuejs3-datepicker__calendar .cell{display:inline-block;padding:0 5px;width:14.285714285714286%;height:40px;line-height:40px;text-align:center;font-size:14px;vertical-align:middle;border:1px solid transparent}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year{cursor:pointer;transition:.45s}.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,.vuejs3-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{border:1px solid #40b983}.vuejs3-datepicker__calendar .cell.selected{background:#40b983;color:#fff}.vuejs3-datepicker__calendar .cell.selected:hover{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted{background:#cae5ed}.vuejs3-datepicker__calendar .cell.highlighted.selected{background:#40b983}.vuejs3-datepicker__calendar .cell.highlighted.disabled{color:#a3a3a3}.vuejs3-datepicker__calendar .cell.grey{color:#888}.vuejs3-datepicker__calendar .cell.grey:hover{background:inherit}.vuejs3-datepicker__calendar .cell.day-header{font-size:75%;white-space:nowrap;cursor:inherit}.vuejs3-datepicker__calendar .cell.day-header:hover{background:inherit}.vuejs3-datepicker__calendar .month,.vuejs3-datepicker__calendar .year{width:33.333%}.vuejs3-datepicker__calendar-button,.vuejs3-datepicker__clear-button{cursor:pointer;font-style:normal}.vuejs3-datepicker__calendar-button.disabled,.vuejs3-datepicker__clear-button.disabled{color:#999;cursor:default}.dp-error{color:red;font-size:12px}.backdrop{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:2;cursor:pointer}";
 styleInject(css_248z);
-
 script$5.render = render$5;
 script$5.__file = "src/components/datepicker/Datepicker.vue";
-
 var script$6 = defineComponent({
   name: 'App-Home',
   components: {
@@ -10939,211 +10980,276 @@ var script$6 = defineComponent({
     }
   }
 });
+var img = "data:image/svg+xml,%3csvg data-v-e0fcf3ec='' width='32' height='32' aria-hidden='true' focusable='false' data-prefix='fab' data-icon='github' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3e%3cpath data-v-e0fcf3ec='' fill='white' d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'%3e%3c/path%3e%3c/svg%3e";
 
-const img = "data:image/svg+xml,%3csvg data-v-e0fcf3ec='' width='32' height='32' aria-hidden='true' focusable='false' data-prefix='fab' data-icon='github' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3e%3cpath data-v-e0fcf3ec='' fill='currentColor' d='M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z'%3e%3c/path%3e%3c/svg%3e";
-
-const _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
+var _withId = /*#__PURE__*/withScopeId("data-v-7ba5bd90");
 
 pushScopeId("data-v-7ba5bd90");
-const _hoisted_1$4 = /*#__PURE__*/createVNode("div", { class: "page-head" }, [
-  /*#__PURE__*/createVNode("h1", null, "Vue 3 Datepicker"),
-  /*#__PURE__*/createVNode("img", { src: img })
-], -1 /* HOISTED */);
-const _hoisted_2$4 = { class: "wrapper" };
-const _hoisted_3$4 = { class: "ind" };
-const _hoisted_4$2 = /*#__PURE__*/createVNode("label", null, "Typeable", -1 /* HOISTED */);
-const _hoisted_5$1 = { class: "ind" };
-const _hoisted_6$1 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1 /* HOISTED */);
-const _hoisted_7$1 = { class: "ind" };
-const _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1 /* HOISTED */);
-const _hoisted_9$1 = { class: "ind" };
-const _hoisted_10 = /*#__PURE__*/createVNode("label", null, "Default Value", -1 /* HOISTED */);
-const _hoisted_11 = { class: "change-btn" };
-const _hoisted_12 = { class: "ind" };
-const _hoisted_13 = { class: "change-btn" };
-const _hoisted_14 = { class: "ind" };
-const _hoisted_15 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1 /* HOISTED */);
-const _hoisted_16 = { class: "change-btn" };
-const _hoisted_17 = { class: "ind" };
-const _hoisted_18 = /*#__PURE__*/createVNode("label", null, "Day View", -1 /* HOISTED */);
-const _hoisted_19 = { class: "ind" };
-const _hoisted_20 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1 /* HOISTED */);
-const _hoisted_21 = { class: "ind" };
-const _hoisted_22 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
-const _hoisted_23 = { class: "ind" };
-const _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Month View", -1 /* HOISTED */);
-const _hoisted_25 = { class: "ind" };
-const _hoisted_26 = /*#__PURE__*/createVNode("label", null, "Year View", -1 /* HOISTED */);
-const _hoisted_27 = { class: "ind" };
-const _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Inline ", -1 /* HOISTED */);
+
+var _hoisted_1$4 = /*#__PURE__*/createVNode("div", {
+  class: "page-head"
+}, [/*#__PURE__*/createVNode("h1", null, "Vue 3 Datepicker"), /*#__PURE__*/createVNode("a", {
+  href: "https://github.com/shubhadip/vuejs3-datepicker"
+}, [/*#__PURE__*/createVNode("img", {
+  src: img,
+  alt: "vuejs3-datepicker"
+})])], -1
+/* HOISTED */
+);
+
+var _hoisted_2$4 = {
+  class: "wrapper"
+};
+var _hoisted_3$4 = {
+  class: "ind"
+};
+
+var _hoisted_4$2 = /*#__PURE__*/createVNode("label", null, "Typeable", -1
+/* HOISTED */
+);
+
+var _hoisted_5$1 = {
+  class: "ind"
+};
+
+var _hoisted_6$1 = /*#__PURE__*/createVNode("label", null, " Disabled: from-to ", -1
+/* HOISTED */
+);
+
+var _hoisted_7$1 = {
+  class: "ind"
+};
+
+var _hoisted_8$1 = /*#__PURE__*/createVNode("label", null, " Disabled Dates : Array ", -1
+/* HOISTED */
+);
+
+var _hoisted_9$1 = {
+  class: "ind"
+};
+
+var _hoisted_10 = /*#__PURE__*/createVNode("label", null, "Default Value", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  class: "change-btn"
+};
+var _hoisted_12 = {
+  class: "ind"
+};
+var _hoisted_13 = {
+  class: "change-btn"
+};
+var _hoisted_14 = {
+  class: "ind"
+};
+
+var _hoisted_15 = /*#__PURE__*/createVNode("label", null, "With Programmatic Access", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  class: "change-btn"
+};
+var _hoisted_17 = {
+  class: "ind"
+};
+
+var _hoisted_18 = /*#__PURE__*/createVNode("label", null, "Day View", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  class: "ind"
+};
+
+var _hoisted_20 = /*#__PURE__*/createVNode("label", null, "Highlighted Dates", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = {
+  class: "ind"
+};
+
+var _hoisted_22 = /*#__PURE__*/createVNode("label", null, "Month View", -1
+/* HOISTED */
+);
+
+var _hoisted_23 = {
+  class: "ind"
+};
+
+var _hoisted_24 = /*#__PURE__*/createVNode("label", null, "Month View", -1
+/* HOISTED */
+);
+
+var _hoisted_25 = {
+  class: "ind"
+};
+
+var _hoisted_26 = /*#__PURE__*/createVNode("label", null, "Year View", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = {
+  class: "ind"
+};
+
+var _hoisted_28 = /*#__PURE__*/createVNode("label", null, "Calendar Color ", -1
+/* HOISTED */
+);
+
+var _hoisted_29 = {
+  class: "ind"
+};
+
+var _hoisted_30 = /*#__PURE__*/createVNode("label", null, "Inline ", -1
+/* HOISTED */
+);
+
 popScopeId();
 
-const render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_appdate_picker = resolveComponent("appdate-picker");
+var render$6 = /*#__PURE__*/_withId(function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_appdate_picker = resolveComponent("appdate-picker");
 
-  return (openBlock(), createBlock(Fragment, null, [
-    _hoisted_1$4,
-    createVNode("div", _hoisted_2$4, [
-      createVNode("div", _hoisted_3$4, [
-        _hoisted_4$2,
-        createVNode(_component_appdate_picker, {
-          "full-month-name": true,
-          "input-class": "customClass",
-          placeholder: "Select Date",
-          typeable: true,
-          hideInput: false,
-          onInput: _ctx.dateSelected
-        }, null, 8 /* PROPS */, ["onInput"])
-      ]),
-      createVNode("div", _hoisted_5$1, [
-        _hoisted_6$1,
-        createVNode(_component_appdate_picker, {
-          "full-month-name": true,
-          placeholder: "Select Date",
-          onInput: _ctx.dateSelected,
-          "disabled-dates": {
-          to: new Date(2020, 10, 5),
-          from: new Date(2020, 10, 16),
-        }
-        }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
-      ]),
-      createVNode("div", _hoisted_7$1, [
-        _hoisted_8$1,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Date",
-          onInput: _ctx.dateSelected,
-          "disabled-dates": {
-          dates: [
-            new Date(2020, 11, 16),
-            new Date(2020, 11, 17),
-            new Date(2020, 11, 18),
-            new Date(2020, 11, 19),
-            new Date(2020, 11, 20),
-          ],
-        }
-        }, null, 8 /* PROPS */, ["onInput", "disabled-dates"])
-      ]),
-      createVNode("div", _hoisted_9$1, [
-        _hoisted_10,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Date",
-          onInput: _ctx.dateSelected,
-          value: _ctx.defaultValue,
-          "disabled-dates": {
-          dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)],
-        },
-          highlighted: {
-          to: new Date(2020, 12, 16),
-          from: new Date(2020, 11, 17),
-        }
-        }, null, 8 /* PROPS */, ["onInput", "value", "disabled-dates", "highlighted"]),
-        createVNode("div", _hoisted_11, [
-          createVNode("button", {
-            onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.changeDefaultValue(...args)))
-          }, "Change Default Value")
-        ])
-      ]),
-      createVNode("div", _hoisted_12, [
-        createVNode("div", null, [
-          createVNode("label", null, "V Model: " + toDisplayString(_ctx.dateinput), 1 /* TEXT */),
-          createVNode(_component_appdate_picker, {
-            modelValue: _ctx.dateinput,
-            "onUpdate:modelValue": [
-              _cache[2] || (_cache[2] = $event => (_ctx.dateinput = $event)),
-              _ctx.dateSelected
-            ]
-          }, null, 8 /* PROPS */, ["modelValue", "onUpdate:modelValue"])
-        ]),
-        createVNode("div", _hoisted_13, [
-          createVNode("button", {
-            onClick: _cache[3] || (_cache[3] = (...args) => (_ctx.changedVmodel(...args)))
-          }, "Change Date Input")
-        ])
-      ]),
-      createVNode("div", _hoisted_14, [
-        _hoisted_15,
-        createVNode(_component_appdate_picker, {
-          ref: "inputRef",
-          onSelected: _ctx.handleSelectDate,
-          highlighted: _ctx.highlightDates,
-          value: _ctx.emptyDate,
-          onClosed: _ctx.handleCalendarClose,
-          placeholder: "Select Date"
-        }, null, 8 /* PROPS */, ["onSelected", "highlighted", "value", "onClosed"]),
-        createVNode("div", _hoisted_16, [
-          createVNode("button", {
-            onClick: _cache[4] || (_cache[4] = (...args) => (_ctx.checkDatePicker(...args)))
-          }, "Check DatePicker")
-        ])
-      ]),
-      createVNode("div", _hoisted_17, [
-        _hoisted_18,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Day",
-          "minimum-view": 'day',
-          "maximum-view": 'day',
-          onInput: _ctx.handleChangedDay
-        }, null, 8 /* PROPS */, ["onInput"])
-      ]),
-      createVNode("div", _hoisted_19, [
-        _hoisted_20,
-        createVNode(_component_appdate_picker, {
-          onInput: _ctx.dateSelected,
-          highlighted: {
-          to: new Date(2020, 11, 16),
-          from: new Date(2020, 10, 17),
-        }
-        }, null, 8 /* PROPS */, ["onInput", "highlighted"])
-      ]),
-      createVNode("div", _hoisted_21, [
-        _hoisted_22,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Month",
-          value: new Date(),
-          "minimum-view": 'month',
-          "maximum-view": 'month',
-          onChangedMonth: _ctx.handleChangedMonth
-        }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
-      ]),
-      createVNode("div", _hoisted_23, [
-        _hoisted_24,
-        createVNode(_component_appdate_picker, {
-          "full-month-name": true,
-          placeholder: "Select Month",
-          value: new Date(),
-          "minimum-view": 'month',
-          "maximum-view": 'month',
-          onChangedMonth: _ctx.handleChangedMonth
-        }, null, 8 /* PROPS */, ["value", "onChangedMonth"])
-      ]),
-      createVNode("div", _hoisted_25, [
-        _hoisted_26,
-        createVNode(_component_appdate_picker, {
-          placeholder: "Select Year",
-          value: new Date(),
-          "minimum-view": 'year',
-          "maximum-view": 'year',
-          onChangedYear: _ctx.handleChangedYear
-        }, null, 8 /* PROPS */, ["value", "onChangedYear"])
-      ]),
-      createVNode("div", _hoisted_27, [
-        _hoisted_28,
-        createVNode(_component_appdate_picker, {
-          inline: true,
-          onInput: _ctx.dateSelected
-        }, null, 8 /* PROPS */, ["onInput"])
-      ])
-    ])
-  ], 64 /* STABLE_FRAGMENT */))
+  return openBlock(), createBlock(Fragment, null, [_hoisted_1$4, createVNode("div", _hoisted_2$4, [createVNode("div", _hoisted_3$4, [_hoisted_4$2, createVNode(_component_appdate_picker, {
+    "full-month-name": true,
+    "input-class": "customClass",
+    placeholder: "YYYY-MM-DD",
+    typeable: true,
+    hideInput: false,
+    onInput: _ctx.dateSelected
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])]), createVNode("div", _hoisted_5$1, [_hoisted_6$1, createVNode(_component_appdate_picker, {
+    "full-month-name": true,
+    placeholder: "Select Date",
+    onInput: _ctx.dateSelected,
+    "disabled-dates": {
+      to: new Date(2020, 10, 5),
+      from: new Date(2020, 10, 16)
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "disabled-dates"])]), createVNode("div", _hoisted_7$1, [_hoisted_8$1, createVNode(_component_appdate_picker, {
+    placeholder: "Select Date",
+    onInput: _ctx.dateSelected,
+    "disabled-dates": {
+      dates: [new Date(2020, 11, 16), new Date(2020, 11, 17), new Date(2020, 11, 18), new Date(2020, 11, 19), new Date(2020, 11, 20)]
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "disabled-dates"])]), createVNode("div", _hoisted_9$1, [_hoisted_10, createVNode(_component_appdate_picker, {
+    placeholder: "Select Date",
+    onInput: _ctx.dateSelected,
+    value: _ctx.defaultValue,
+    "disabled-dates": {
+      dates: [new Date(2020, 10, 16), new Date(2020, 10, 17), new Date(2020, 10, 18)]
+    },
+    highlighted: {
+      to: new Date(2020, 12, 16),
+      from: new Date(2020, 11, 17)
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "value", "disabled-dates", "highlighted"]), createVNode("div", _hoisted_11, [createVNode("button", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return _ctx.changeDefaultValue.apply(_ctx, arguments);
+    })
+  }, "Change Default Value")])]), createVNode("div", _hoisted_12, [createVNode("div", null, [createVNode("label", null, "V Model: " + toDisplayString(_ctx.dateinput), 1
+  /* TEXT */
+  ), createVNode(_component_appdate_picker, {
+    modelValue: _ctx.dateinput,
+    "onUpdate:modelValue": [_cache[2] || (_cache[2] = function ($event) {
+      return _ctx.dateinput = $event;
+    }), _ctx.dateSelected]
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "onUpdate:modelValue"])]), createVNode("div", _hoisted_13, [createVNode("button", {
+    onClick: _cache[3] || (_cache[3] = function () {
+      return _ctx.changedVmodel.apply(_ctx, arguments);
+    })
+  }, "Change Date Input")])]), createVNode("div", _hoisted_14, [_hoisted_15, createVNode(_component_appdate_picker, {
+    ref: "inputRef",
+    onSelected: _ctx.handleSelectDate,
+    highlighted: _ctx.highlightDates,
+    value: _ctx.emptyDate,
+    onClosed: _ctx.handleCalendarClose,
+    placeholder: "Select Date"
+  }, null, 8
+  /* PROPS */
+  , ["onSelected", "highlighted", "value", "onClosed"]), createVNode("div", _hoisted_16, [createVNode("button", {
+    onClick: _cache[4] || (_cache[4] = function () {
+      return _ctx.checkDatePicker.apply(_ctx, arguments);
+    })
+  }, "Check DatePicker")])]), createVNode("div", _hoisted_17, [_hoisted_18, createVNode(_component_appdate_picker, {
+    placeholder: "Select Day",
+    "minimum-view": 'day',
+    "maximum-view": 'day',
+    onInput: _ctx.handleChangedDay
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])]), createVNode("div", _hoisted_19, [_hoisted_20, createVNode(_component_appdate_picker, {
+    onInput: _ctx.dateSelected,
+    highlighted: {
+      to: new Date(2020, 11, 16),
+      from: new Date(2020, 10, 17)
+    }
+  }, null, 8
+  /* PROPS */
+  , ["onInput", "highlighted"])]), createVNode("div", _hoisted_21, [_hoisted_22, createVNode(_component_appdate_picker, {
+    placeholder: "Select Month",
+    value: new Date(),
+    "minimum-view": 'month',
+    "maximum-view": 'month',
+    onChangedMonth: _ctx.handleChangedMonth
+  }, null, 8
+  /* PROPS */
+  , ["value", "onChangedMonth"])]), createVNode("div", _hoisted_23, [_hoisted_24, createVNode(_component_appdate_picker, {
+    "full-month-name": true,
+    placeholder: "Select Month",
+    value: new Date(),
+    "minimum-view": 'month',
+    "maximum-view": 'month',
+    onChangedMonth: _ctx.handleChangedMonth
+  }, null, 8
+  /* PROPS */
+  , ["value", "onChangedMonth"])]), createVNode("div", _hoisted_25, [_hoisted_26, createVNode(_component_appdate_picker, {
+    placeholder: "Select Year",
+    value: new Date(),
+    "minimum-view": 'year',
+    "maximum-view": 'year',
+    onChangedYear: _ctx.handleChangedYear
+  }, null, 8
+  /* PROPS */
+  , ["value", "onChangedYear"])]), createVNode("div", _hoisted_27, [_hoisted_28, createVNode(_component_appdate_picker, {
+    "full-month-name": true,
+    "input-class": "customClass",
+    placeholder: "Select Date",
+    onInput: _ctx.dateSelected,
+    iconColor: "red",
+    iconHeight: 18,
+    iconWidth: 18
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])]), createVNode("div", _hoisted_29, [_hoisted_30, createVNode(_component_appdate_picker, {
+    inline: true,
+    onInput: _ctx.dateSelected
+  }, null, 8
+  /* PROPS */
+  , ["onInput"])])])], 64
+  /* STABLE_FRAGMENT */
+  );
 });
 
-var css_248z$1 = ".page-head[data-v-7ba5bd90]{background-color:#2f9668;text-align:center;margin-bottom:30px}.page-head h1[data-v-7ba5bd90]{color:#fff;font-size:25px;padding:20px;margin:0}button[data-v-7ba5bd90]{background-color:#40b983;border:none;font-size:15px;color:#fff;padding:13px 15px;cursor:pointer;margin-top:10px;outline:none;border-radius:5px;width:200px;transition:.45s}button[data-v-7ba5bd90]:hover{background-color:#2f9668}input[data-v-7ba5bd90]{outline:none}label[data-v-7ba5bd90]{text-align:left;margin:10px 0;display:block;font-size:14px}.ind[data-v-7ba5bd90]{min-width:30%;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:1280px;margin:0 auto;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
+var css_248z$1 = "[data-v-7ba5bd90]{box-sizing:border-box}body[data-v-7ba5bd90]{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}.page-head[data-v-7ba5bd90]{background-color:#2f9668;text-align:center;margin-bottom:30px}.page-head h1[data-v-7ba5bd90]{color:#fff;font-size:25px;padding:20px;margin:0}button[data-v-7ba5bd90]{background-color:#40b983;border:none;font-size:15px;color:#fff;padding:13px 15px;cursor:pointer;margin-top:10px;outline:none;border-radius:5px;width:200px;transition:.45s}button[data-v-7ba5bd90]:hover{background-color:#2f9668}input[data-v-7ba5bd90]{outline:none}label[data-v-7ba5bd90]{text-align:left;margin:10px 0;display:block;font-size:14px}.ind[data-v-7ba5bd90]{min-width:30%;padding:20px}.wrapper[data-v-7ba5bd90]{display:-webkit-flex;display:-ms-flexbox;display:flex;max-width:1280px;margin:0 auto;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:space-evenly;-ms-flex-pack:space-evenly;justify-content:space-evenly}";
 styleInject(css_248z$1);
-
 script$6.render = render$6;
 script$6.__scopeId = "data-v-7ba5bd90";
 script$6.__file = "src/App.vue";
-
+var css_248z$2 = "*{box-sizing:border-box}body{font-family:Open Sans,sans-serif;color:#2f2f2f;margin:0;padding:0}";
+styleInject(css_248z$2);
 var app = createApp(script$6);
 app.directive('clickoutside', ClickOutside);
 app.mount('#app');

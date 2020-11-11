@@ -4,7 +4,7 @@ import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import babel from '@rollup/plugin-babel';
+import {getBabelOutputPlugin} from '@rollup/plugin-babel';
 import PostCSS from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import simplevars from 'postcss-simple-vars';
@@ -67,7 +67,7 @@ const baseConfig = {
     babel: {
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
     },
   },
 };
@@ -88,9 +88,12 @@ let buildFormats = [];
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
       ...baseConfig.plugins.postVue,
-      babel({
-        ...baseConfig.plugins.babel,
-        presets: [['@babel/preset-env', { modules: false }]],
+      // babel({
+      //   ...baseConfig.plugins.babel,
+      //   presets: [['@babel/preset-env', { modules: false }]],
+      // }),
+      getBabelOutputPlugin({
+        presets: ['@babel/preset-env']
       }),
       serve({
         open: true,

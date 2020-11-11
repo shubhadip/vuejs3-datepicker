@@ -72,12 +72,16 @@ Programtic Acess of value of datepicker
 const { selectedDate } = (inputRef.value  as any).value; 
 ```
 
+icon color, icon height, icon width of calendar
+``` html
+<datepicker :icon-color="color" :icon-width="width" :icon-height="height" ></datepicker>
+```
+
 ## Available props
 
 | Prop                          | Type            | Default     | Description                              |
 |-------------------------------|-----------------|-------------|------------------------------------------|
 | modelValue                    | Date\|String    |             | Date value of the datepicker             |
-| value                         | Date\|String    |             | Date value of the datepicker             |
 | format                        | String\|Function| dd MMM yyyy | Date formatting string or function       |
 | full-month-name               | Boolean         | false       | To show the full month name              |
 | disabled-dates                | Object          |             | See below for configuration              |
@@ -101,6 +105,11 @@ const { selectedDate } = (inputRef.value  as any).value;
 | open-date                     | Date\|String    |             | If set, open on that date                |
 | minimum-view                  | String          | 'day'       | If set, lower-level views won't show     |
 | maximum-view                  | String          | 'year'      | If set, higher-level views won't show    |
+| preventDisableDateSelection   | Boolean         | true        | will prevent selection of disabled date  |
+| iconColor                     | String          | black       | will change calendar icon color          |
+| iconWidth                     | String|Number   | 16          | will change calendar icon width          |
+| iconHeight                    | String|Number   | 16          | will change calendar icon height         |
+
 
 
 ## Events
@@ -132,11 +141,13 @@ var state = {
       new Date(2016, 9, 16),
       new Date(2016, 9, 17),
       new Date(2016, 9, 18)
-    ]
+    ],
+    preventDisableDateSelection: true
   }
 }
 </script>
-<datepicker :disabled-dates="state.disabledDates"></datepicker>
+
+<datepicker :disabled-dates="state.disabledDates" :prevent-disable-date-selection="preventDisableDateSelection"></datepicker>
 ```
 
 ## Highlighted Dates
