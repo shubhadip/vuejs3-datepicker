@@ -4,4 +4,4 @@ node_modules
 dist/
 testumdbuild/
 /demo
-/example/datepicker.js
+example/*.js
