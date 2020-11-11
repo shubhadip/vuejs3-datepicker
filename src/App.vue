@@ -11,7 +11,7 @@
       <appdate-picker
         :full-month-name="true"
         input-class="customClass"
-        placeholder="Select Date"
+        placeholder="YYYY-MM-DD"
         :typeable="true"
         :hideInput="false"
         @input="dateSelected"
