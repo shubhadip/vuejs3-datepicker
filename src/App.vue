@@ -163,6 +163,12 @@
     </div>
 
     <div class="ind">
+      <label>Calendar Color </label>
+      <appdate-picker :full-month-name="true" input-class="customClass" placeholder="Select Date" @input="dateSelected">
+      </appdate-picker>
+    </div>
+
+    <div class="ind">
       <label>Inline </label>
       <appdate-picker :inline="true" @input="dateSelected"></appdate-picker>
     </div>

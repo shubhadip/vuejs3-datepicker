@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[calendarClass, 'vuejs3-datepicker__calendar']"
+    :class="['vuejs3-datepicker__calendar', `vuejs3-${theme}`, calendarClass]"
     v-show="showDayView"
     :style="calendarStyle"
     @mousedown.prevent
@@ -132,6 +132,10 @@ export default defineComponent({
     preventDisableDateSelection: {
       type: Boolean,
       default: true,
+    },
+    theme: {
+      default: 'green',
+      type: String,
     },
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],

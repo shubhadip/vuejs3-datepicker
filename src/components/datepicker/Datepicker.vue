@@ -1,7 +1,7 @@
 <template>
   <div
     class="vuejs3-datepicker"
-    :class="[wrapperClass, isRtl ? 'rtl' : '']"
+    :class="[isRtl ? 'rtl' : '', `vuejs3-${theme}`, wrapperClass]"
     v-clickoutside="{
       handler: inline ? null : closeOnClickOutside,
     }"
@@ -38,6 +38,7 @@
       :iconWidth="iconWidth"
       :iconHeight="iconHeight"
       :iconColor="iconColor"
+      :theme="theme"
     >
       <template v-slot:afterDateInput>
         <slot name="afterDateInput"></slot>
@@ -68,6 +69,7 @@
       :minimumView="minimumView"
       :maximumView="maximumView"
       :preventDisableDateSelection="preventDisableDateSelection"
+      :theme="theme"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -93,6 +95,7 @@
       @changedYear="setPageDate"
       :minimumView="minimumView"
       :maximumView="maximumView"
+      :theme="theme"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -117,6 +120,7 @@
       :fullMonthName="fullMonthName"
       :minimumView="minimumView"
       :maximumView="maximumView"
+      :theme="theme"
     >
       <template v-slot:beforeCalendarHeader>
         <slot name="beforeCalendarHeader"></slot>
@@ -261,6 +265,10 @@ export default defineComponent({
     iconWidth: {
       default: 16,
       type: [String, Number],
+    },
+    theme: {
+      default: 'green',
+      type: String,
     },
   },
   emits: [
