@@ -11,7 +11,7 @@ A datepicker Vue component. Compatible with Vue 3 Only
 - [Disabled dates](#disabled-dates)
 - [Highlighted dates](#highlighted-dates)
 
-To view demo examples locally clone the repo and run `npm install && npm run serve`
+To view demo examples locally clone the repo and run `npm install && npm run dev`
 
 ## Demo
 
