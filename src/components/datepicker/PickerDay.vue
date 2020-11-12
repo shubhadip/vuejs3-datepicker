@@ -248,7 +248,8 @@ export default defineComponent({
 
       if (typeof t.dates !== 'undefined') {
         t.dates.forEach((d: { getTime: () => string | number | Date }): void => {
-          if (compareDates(date as Date, d)) {
+          const isEqual = compareDates(date as Date, d);
+          if (isEqual) {
             disabledDates = true;
             // return true;
           }

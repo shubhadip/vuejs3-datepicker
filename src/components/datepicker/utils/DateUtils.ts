@@ -82,7 +82,7 @@ export const setDate = (date: Date, value: any, useUtc = false): number => {
 export const compareDates = (
   date1: { getTime: () => string | number | Date },
   date2: { getTime: () => string | number | Date },
-  useUtc = true
+  useUtc = false
 ): boolean => {
   const d1 = new Date(date1.getTime());
   const d2 = new Date(date2.getTime());

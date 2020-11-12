@@ -2,6 +2,7 @@
 
 A datepicker Vue component. Compatible with Vue 3 Only
 
+- [Demo](#demo)
 - [Install](#install)
 - [Usage](#usage)
 - [Date Formatting](#date-formatting)
@@ -11,6 +12,10 @@ A datepicker Vue component. Compatible with Vue 3 Only
 - [Highlighted dates](#highlighted-dates)
 
 To view demo examples locally clone the repo and run `npm install && npm run serve`
+
+## Demo
+
+To view a demo online: <https://vuejs3-datepicker.netlify.app/>
 
 ## Install
 
@@ -81,7 +86,8 @@ icon color, icon height, icon width of calendar
 
 | Prop                          | Type            | Default     | Description                              |
 |-------------------------------|-----------------|-------------|------------------------------------------|
-| modelValue                    | Date\|String    |             | Date value of the datepicker             |
+| modelValue                    | Date\|String    |             | Date value of the datepicker via v-model |
+| value                         | Date\|String    |             | Date value of the datepicker             |
 | format                        | String\|Function| dd MMM yyyy | Date formatting string or function       |
 | full-month-name               | Boolean         | false       | To show the full month name              |
 | disabled-dates                | Object          |             | See below for configuration              |
@@ -99,7 +105,6 @@ icon color, icon height, icon width of calendar
 | day-cell-content              | Function        |             | Use to render custom content in day cell |
 | initial-view                  | String          | minimumView | If set, open on that view                |
 | disabled                      | Boolean         | false       | If true, disable Datepicker on screen    |
-| required                      | Boolean         | false       | Sets html required attribute on input    |
 | typeable                      | Boolean         | false       | If true, allow the user to type the date |
 | use-utc                       | Boolean         | false       | use UTC for time calculations            |
 | open-date                     | Date\|String    |             | If set, open on that date                |
@@ -109,8 +114,6 @@ icon color, icon height, icon width of calendar
 | iconColor                     | String          | black       | will change calendar icon color          |
 | iconWidth                     | String|Number   | 16          | will change calendar icon width          |
 | iconHeight                    | String|Number   | 16          | will change calendar icon height         |
-
-
 
 ## Events
 
@@ -169,3 +172,9 @@ var state = {
 </script>
 <datepicker :highlighted="state.highlighted"></datepicker>
 ```
+
+Contributors:
+
+* [Shubhadip Maity](https://github.com/shubhadip)
+* [Vivek Singh](https://github.com/viveksinghup)
+

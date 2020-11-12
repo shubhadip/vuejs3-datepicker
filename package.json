@@ -12,7 +12,7 @@
   "unpkg": "dist/datepicker.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build-demo": "vue-cli-service build",
+    "build:demo": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
     "dev": "rollup -c build/rollup-dev.config.js --watch",
     "build:lib": "rimraf dist && rollup --config ./build/rollup.config.js",
@@ -20,8 +20,9 @@
     "prepublishOnly": "npm run lint && npm run build:lib"
   },
   "dependencies": {
-    "vue": "^3.0.0",
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.5",
+    "prismjs": "^1.22.0",
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.12.1",
