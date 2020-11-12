@@ -157,8 +157,16 @@ label {
   margin-bottom: 10px;
   cursor: pointer;
   background-color: #228257;
-  padding: 10px;
   border-radius: 2px;
+  transition: 0.45s;
+}
+.app-sidebar ul li a {
+  padding: 10px;
+  display: block;
+}
+.app-sidebar ul li:hover {
+  transform: translateX(5px);
+  background-color: #196f49;
 }
 .app-wrapper {
   width: calc(100% - 280px);
