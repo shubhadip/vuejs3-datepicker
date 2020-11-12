@@ -1,59 +1,61 @@
 <template>
-  <div class="app-sidebar">
-    <h1>Vue 3 Datepicker</h1>
-    <ul>
-      <li href="#typeable">typeable</li>
-      <li href="#disabled">disabled</li>
-      <li href="#defaultValue">defaultValue</li>
-      <li href="#programmaticaccess">programmaticaccess</li>
-      <li href="#dayview">dayview</li>
-      <li href="#hview">hview</li>
-      <li href="#defaultValue">defaultValue</li>
-      <li href="#month-view">month-view</li>
-      <li href="#year-view">year-view</li>
-      <li href="#calendar-icon">calendar-icon</li>
-      <li href="#inline-view">inline-view</li>
-    </ul>
-  </div>
-  <div class="app-wrapper">
-    <div class="page-head">
-      <a href="https://github.com/shubhadip/vuejs3-datepicker">
-        <img src="./assets/github.svg" alt="vuejs3-datepicker" />
-      </a>
+  <div class="page-wrapper">
+    <div class="app-sidebar">
+      <h1>Vue 3 Datepicker</h1>
+      <ul>
+        <li><a href="#typeable">Typeable</a></li>
+        <li><a href="#disabled">Disabled</a></li>
+        <li><a href="#defaultValue">Default Value</a></li>
+        <li><a href="#Vmodel">V Model</a></li>
+        <li><a href="#programmaticaccess">ProgrammaticAccess</a></li>
+        <li><a href="#dayview">Day View</a></li>
+        <li><a href="#hview">Highlighted View</a></li>
+        <li><a href="#month-view">Month View</a></li>
+        <li><a href="#year-view">Year View</a></li>
+        <li><a href="#calendar-icon">Calendar Icon</a></li>
+        <li><a href="#inline-view">Inline View</a></li>
+      </ul>
     </div>
-    <div class="wrapper">
-      <div class="ind" id="typeable">
-        <Typeable />
+    <div class="app-wrapper">
+      <div class="page-head">
+        <a href="https://github.com/shubhadip/vuejs3-datepicker">
+          <img src="./assets/github.svg" alt="vuejs3-datepicker" />
+        </a>
       </div>
-      <div class="ind" id="disabled">
-        <Disabled />
-      </div>
-      <div class="ind" id="defaultValue">
-        <DefaultValue />
-      </div>
-      <div class="ind" id="Vmodel">
-        <VModel />
-      </div>
-      <div class="ind" id="programmaticaccess">
-        <ProgrammaticAccess />
-      </div>
-      <div class="ind" id="dayview">
-        <DayView />
-      </div>
-      <div class="ind" id="hview">
-        <HighlightedView />
-      </div>
-      <div class="ind" id="month-view">
-        <MonthView />
-      </div>
-      <div class="ind" id="year-view">
-        <YearView />
-      </div>
-      <div class="ind" id="calendar-icon">
-        <CalendarIcon />
-      </div>
-      <div class="ind" id="inline-view">
-        <InlineView />
+      <div class="wrapper">
+        <div class="ind" id="typeable">
+          <Typeable />
+        </div>
+        <div class="ind" id="disabled">
+          <Disabled />
+        </div>
+        <div class="ind" id="defaultValue">
+          <DefaultValue />
+        </div>
+        <div class="ind" id="Vmodel">
+          <VModel />
+        </div>
+        <div class="ind" id="programmaticaccess">
+          <ProgrammaticAccess />
+        </div>
+        <div class="ind" id="dayview">
+          <DayView />
+        </div>
+        <div class="ind" id="hview">
+          <HighlightedView />
+        </div>
+        <div class="ind" id="month-view">
+          <MonthView />
+        </div>
+        <div class="ind" id="year-view">
+          <YearView />
+        </div>
+        <div class="ind" id="calendar-icon">
+          <CalendarIcon />
+        </div>
+        <div class="ind" id="inline-view">
+          <InlineView />
+        </div>
       </div>
     </div>
   </div>
@@ -151,15 +153,21 @@ label {
 }
 .app-sidebar ul li {
   color: #fff;
-  text-align: right;
   font-size: 15px;
   margin-bottom: 10px;
   cursor: pointer;
+  background-color: #228257;
+  padding: 10px;
+  border-radius: 2px;
 }
 .app-wrapper {
   width: calc(100% - 280px);
   position: relative;
   left: 280px;
   flex: 1;
+}
+a {
+  color: white;
+  text-decoration: none;
 }
 </style>
