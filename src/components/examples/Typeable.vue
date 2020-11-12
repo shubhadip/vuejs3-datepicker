@@ -4,14 +4,16 @@
       TYPEABLE
     </template>
     <template v-slot:content>
-      <appdate-picker
-        :input-class="customClass"
-        placeholder="YYYY-MM-DD"
-        :typeable="true"
-        :hideInput="false"
-        @input="dateSelected"
-      >
-      </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker
+          :input-class="customClass"
+          placeholder="YYYY-MM-DD"
+          :typeable="true"
+          :hideInput="false"
+          @input="dateSelected"
+        >
+        </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

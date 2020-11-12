@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #2f2f2f;
+    margin: 0px;
+    padding: 0px;
+}
+
+input, input:focus{
+    outline: none;
+}
+.flex-block{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  .change-btn{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    button{
+        margin-right: 20px;
+    }
+  }
+}
+button {
+  background-color: #40b983;
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  padding: 16px 15px;
+    border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  width: 200px;
+  transition: 0.45s;
+}
+button:hover {
+  background-color: #217751;
+}

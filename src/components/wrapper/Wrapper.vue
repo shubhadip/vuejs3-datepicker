@@ -55,17 +55,21 @@ export default defineComponent({
 <style scoped>
 .codesnippet {
   width: 48%;
+  border: 1px solid #222;
+  border-radius: 5px;
 }
 
 .container {
-  background-color: lightgray;
+  background-color: #f6f7f6;
   margin-top: 20px;
   padding: 25px;
   border-radius: 10px;
 }
 
 label {
-  text-transform: capitalize;
-  font-size: 24px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: bold;
 }
 </style>

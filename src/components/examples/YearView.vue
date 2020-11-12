@@ -4,7 +4,9 @@
       Year View
     </template>
     <template v-slot:content>
-      <appdate-picker placeholder="Select Year" :minimum-view="'year'" :maximum-view="'year'"> </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker placeholder="Select Year" :minimum-view="'year'" :maximum-view="'year'"> </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

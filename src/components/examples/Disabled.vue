@@ -4,17 +4,19 @@
       Disabled
     </template>
     <template v-slot:content>
-      <appdate-picker
-        placeholder="Select Date"
-        @input="dateSelected"
-        :disabled-dates="{
-          to: new Date(2020, 10, 5),
-          from: new Date(2020, 10, 16),
-          dates: [new Date(2020, 10, 10), new Date(2020, 10, 11)],
-        }"
-        :prevent-disable-date-selection="preventDisableDateSelection"
-      >
-      </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker
+          placeholder="Select Date"
+          @input="dateSelected"
+          :disabled-dates="{
+            to: new Date(2020, 10, 5),
+            from: new Date(2020, 10, 16),
+            dates: [new Date(2020, 10, 10), new Date(2020, 10, 11)],
+          }"
+          :prevent-disable-date-selection="preventDisableDateSelection"
+        >
+        </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

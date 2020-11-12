@@ -4,20 +4,11 @@ $important: !important;
 $white: #ffffff;
 $black: #2f2f2f;
 $green: #40b983;
+$darkGreen: #2f9668;
 $blue: #00b9f5;
 $dark-blue: #012b72;
 $grey-600: #6c757d;
 $grey-800: #485e7f;
 $hovered: #f8f8f8;
-
-*{
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    color: #2f2f2f;
-    margin: 0px;
-    padding: 0px;
-}
+$highlight: $green;
 

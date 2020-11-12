@@ -4,10 +4,12 @@
       V-Model
     </template>
     <template v-slot:content>
-      <appdate-picker v-model="dateinput" @update:modelValue="dateSelected" />
-      <div class="change-btn">
-        <button @click="changeValue">Change Value</button>
-        <p>UpdateValue : {{ dateinput }}</p>
+      <div class="flex-block">
+        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected" />
+        <div class="change-btn">
+          <button @click="changeValue">Change Value</button>
+          <p>UpdateValue : {{ dateinput }}</p>
+        </div>
       </div>
     </template>
   </Wrapper>

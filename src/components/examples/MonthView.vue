@@ -4,14 +4,16 @@
       Month View
     </template>
     <template v-slot:content>
-      <appdate-picker
-        :full-month-name="true"
-        placeholder="Select Month"
-        :minimum-view="'month'"
-        :maximum-view="'month'"
-        @changedMonth="handleChangedMonth"
-      >
-      </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker
+          :full-month-name="true"
+          placeholder="Select Month"
+          :minimum-view="'month'"
+          :maximum-view="'month'"
+          @changedMonth="handleChangedMonth"
+        >
+        </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

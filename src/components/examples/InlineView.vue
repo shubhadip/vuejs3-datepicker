@@ -4,7 +4,9 @@
       Inline View
     </template>
     <template v-slot:content>
-      <appdate-picker :inline="true"></appdate-picker>
+      <div class="flex-block">
+        <appdate-picker :inline="true"></appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

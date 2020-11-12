@@ -4,17 +4,19 @@
       ProgrammaticAccess
     </template>
     <template v-slot:content>
-      <appdate-picker
-        :ref="
-          (el) => {
-            inputRef = el;
-          }
-        "
-      >
-      </appdate-picker>
-      <div class="change-btn">
-        <button @click="accessDatePicker">Access DatePicker</button>
-        <p>Value : {{ accessValue }}</p>
+      <div class="flex-block">
+        <appdate-picker
+          :ref="
+            (el) => {
+              inputRef = el;
+            }
+          "
+        >
+        </appdate-picker>
+        <div class="change-btn">
+          <button @click="accessDatePicker">Access DatePicker</button>
+          <p>Value : {{ accessValue }}</p>
+        </div>
       </div>
     </template>
   </Wrapper>

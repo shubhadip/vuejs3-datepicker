@@ -1,12 +1,12 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      Default Value
-    </template>
+    <template v-slot:label> Default Value </template>
     <template v-slot:content>
-      <appdate-picker placeholder="Select Date" @input="dateSelected" :value="defaultValue"> </appdate-picker>
-      <div class="change-btn">
-        <button @click="changeDefaultValue">Change Default Value</button>
+      <div class="flex-block">
+        <appdate-picker placeholder="Select Date" @input="dateSelected" :value="defaultValue"> </appdate-picker>
+        <div class="change-btn">
+          <button @click="changeDefaultValue">Change Default Value</button>
+        </div>
       </div>
     </template>
   </Wrapper>

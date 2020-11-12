@@ -4,8 +4,10 @@
       Day View
     </template>
     <template v-slot:content>
-      <appdate-picker placeholder="Select Day" :minimum-view="'day'" :maximum-view="'day'" @input="handleChangedDay">
-      </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker placeholder="Select Day" :minimum-view="'day'" :maximum-view="'day'" @input="handleChangedDay">
+        </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

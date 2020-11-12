@@ -4,7 +4,9 @@
       Calendar Icon Details
     </template>
     <template v-slot:content>
-      <appdate-picker placeholder="Select Date" iconColor="red" :iconHeight="18" :iconWidth="18"> </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker placeholder="Select Date" iconColor="red" :iconHeight="18" :iconWidth="18"> </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>

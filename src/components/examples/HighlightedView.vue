@@ -4,14 +4,16 @@
       HighlightedView
     </template>
     <template v-slot:content>
-      <appdate-picker
-        placeholder="Select Date"
-        :highlighted="{
-          to: new Date(2020, 11, 16),
-          from: new Date(2020, 10, 17),
-        }"
-      >
-      </appdate-picker>
+      <div class="flex-block">
+        <appdate-picker
+          placeholder="Select Date"
+          :highlighted="{
+            to: new Date(2020, 11, 16),
+            from: new Date(2020, 10, 17),
+          }"
+        >
+        </appdate-picker>
+      </div>
     </template>
   </Wrapper>
 </template>
