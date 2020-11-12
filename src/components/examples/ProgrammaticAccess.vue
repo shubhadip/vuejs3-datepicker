@@ -14,6 +14,7 @@
       </appdate-picker>
       <div class="change-btn">
         <button @click="accessDatePicker">Access DatePicker</button>
+        <p>Value : {{ accessValue }}</p>
       </div>
     </template>
   </Wrapper>
@@ -56,13 +57,13 @@ export default defineComponent({
   }
   <script>`;
     const inputRef = ref<typeof Datepicker | null>(null);
-
+    const accessValue = ref<Date | null>(null);
     /**
      * Handler for programmatic access of selected date
      */
     function accessDatePicker(): void {
       const value = ((inputRef.value as unknown) as InstanceType<typeof Datepicker>).selectedDate;
-      console.log(value);
+      accessValue.value = value as Date;
     }
 
     return {
@@ -70,6 +71,7 @@ export default defineComponent({
       template,
       script,
       accessDatePicker,
+      accessValue,
     };
   },
 });
