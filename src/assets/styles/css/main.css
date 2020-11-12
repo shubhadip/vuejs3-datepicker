@@ -1,0 +1,18 @@
+@import './_settings.css';
+
+button {
+  background-color: #40b983;
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  padding: 13px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  outline: none;
+  border-radius: 5px;
+  width: 200px;
+  transition: 0.45s;
+}
+button:hover {
+  background-color: #2f9668;
+}
