@@ -12,7 +12,7 @@
   "unpkg": "dist/datepicker.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build-demo": "vue-cli-service build",
+    "build:demo": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix",
     "dev": "rollup -c build/rollup-dev.config.js --watch",
     "build:lib": "rimraf dist && rollup --config ./build/rollup.config.js",

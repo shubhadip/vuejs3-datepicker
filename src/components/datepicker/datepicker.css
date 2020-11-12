@@ -180,6 +180,9 @@
       cursor: default;
     }
   }
+  #calendar-div{
+    background-color: white;
+  }
 }
 
 .dp-error {

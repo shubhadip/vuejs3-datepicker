@@ -77,7 +77,7 @@ let buildFormats = [];
   const umdBuild = {
     input: path.join(__dirname, '..', 'src', 'main.ts'),
     output: { 
-      file: path.join(__dirname, '..', 'example', 'datepicker.js'),
+      file: path.join(__dirname, '..', 'serve', 'datepicker.js'),
       format: 'es',
       name: 'datepicker'
     },
@@ -88,22 +88,18 @@ let buildFormats = [];
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
       ...baseConfig.plugins.postVue,
-      // babel({
-      //   ...baseConfig.plugins.babel,
-      //   presets: [['@babel/preset-env', { modules: false }]],
-      // }),
       getBabelOutputPlugin({
         presets: ['@babel/preset-env']
       }),
       serve({
         open: true,
-        contentBase: path.join(__dirname, '..', 'example'),
+        contentBase: path.join(__dirname, '..', 'serve'),
         host: 'localhost',
         port: 4545
       }),
       livereload({
         verbose: true,
-        watch: path.join(__dirname, '..', 'example')
+        watch: path.join(__dirname, '..', 'serve')
       }),
       resolve()
     ],
@@ -113,5 +109,4 @@ let buildFormats = [];
   buildFormats
 
 
-// Export config
 export default buildFormats;

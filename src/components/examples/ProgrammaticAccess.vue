@@ -1,0 +1,76 @@
+<template>
+  <Wrapper :templatecontent="template" :scriptcontent="script">
+    <template v-slot:label>
+      ProgrammaticAccess
+    </template>
+    <template v-slot:content>
+      <appdate-picker
+        :ref="
+          (el) => {
+            inputRef = el;
+          }
+        "
+      >
+      </appdate-picker>
+      <div class="change-btn">
+        <button @click="accessDatePicker">Access DatePicker</button>
+      </div>
+    </template>
+  </Wrapper>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+import Wrapper from '../wrapper/Wrapper.vue';
+import Datepicker from '../datepicker/Datepicker.vue';
+
+export default defineComponent({
+  name: 'ProgrammaticAccess',
+  components: {
+    Wrapper,
+    'appdate-picker': Datepicker,
+  },
+  setup() {
+    const template = `<appdate-picker
+        :ref="(el) => {
+          inputRef = el;
+        }"
+      >
+      </appdate-picker>
+      <div class="change-btn">
+        <button @click="accessDatePicker">
+          Access DatePicker
+        </button>
+      </div>`;
+
+    const script = `<script lang="js">
+  import { ref } from 'vue';
+  export default {
+    setup(){
+      const inputRef = ref(null);
+      function accessDatePicker(): void {
+        (inputRef.value).value
+      }
+      return {inputRef,accessDatePicker}
+    }
+  }
+  <script>`;
+    const inputRef = ref<typeof Datepicker | null>(null);
+
+    /**
+     * Handler for programmatic access of selected date
+     */
+    function accessDatePicker(): void {
+      const value = ((inputRef.value as unknown) as InstanceType<typeof Datepicker>).selectedDate;
+      console.log(value);
+    }
+
+    return {
+      inputRef,
+      template,
+      script,
+      accessDatePicker,
+    };
+  },
+});
+</script>
