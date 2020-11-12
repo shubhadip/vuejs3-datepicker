@@ -1,5 +1,6 @@
 export interface Datepicker {
   modelValue?: [Date, string];
+  value?: [Date, string];
   format?: [string, Function];
   id?: string;
   name?: string;

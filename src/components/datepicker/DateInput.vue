@@ -272,7 +272,6 @@ export default defineComponent({
     function inputBlurred(): void {
       if (props.typeable && Number.isNaN(Date.parse((inputRef.value as any).value))) {
         clearDate();
-        // need to check this if required
         (inputRef.value as any).value = null;
         typedDate.value = '';
       }

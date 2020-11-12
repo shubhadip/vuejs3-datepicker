@@ -193,6 +193,10 @@
       cursor: default;
     }
   }
+  #calendar-div{
+    background-color: white;
+    border-radius:5px;
+  }
 }
 
 .dp-error {
