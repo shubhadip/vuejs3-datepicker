@@ -40,8 +40,8 @@
       :iconColor="iconColor"
       :theme="theme"
     >
-      <template v-slot:afterDateInput>
-        <slot name="afterDateInput"></slot>
+      <template v-slot:belowDate>
+        <slot name="belowDate"></slot>
       </template>
     </date-input>
     <!--Day View  -->
@@ -71,8 +71,8 @@
       :preventDisableDateSelection="preventDisableDateSelection"
       :theme="theme"
     >
-      <template v-slot:beforeCalendarHeader>
-        <slot name="beforeCalendarHeader"></slot>
+      <template v-slot:customCalendarHeader>
+        <slot name="customCalendarHeader"></slot>
       </template>
     </picker-day>
 
@@ -97,8 +97,8 @@
       :maximumView="maximumView"
       :theme="theme"
     >
-      <template v-slot:beforeCalendarHeader>
-        <slot name="beforeCalendarHeader"></slot>
+      <template v-slot:customCalendarHeader>
+        <slot name="customCalendarHeader"></slot>
       </template>
     </picker-month>
 
@@ -122,8 +122,8 @@
       :maximumView="maximumView"
       :theme="theme"
     >
-      <template v-slot:beforeCalendarHeader>
-        <slot name="beforeCalendarHeader"></slot>
+      <template v-slot:customCalendarHeader>
+        <slot name="customCalendarHeader"></slot>
       </template>
     </picker-year>
   </div>
@@ -152,10 +152,10 @@ export default defineComponent({
   },
   props: {
     modelValue: {
-      type: [Date as new () => Date, String],
+      type: [Date as new () => Date, String, Number],
     },
     value: {
-      type: [Date as new () => Date, String],
+      type: [Date as new () => Date, String, Number],
     },
     format: {
       type: [String, Function],
@@ -287,7 +287,7 @@ export default defineComponent({
     const pageTimestamp = ref<number>(0);
     const selectedDate = ref<Date | string | null>(null);
     if (props.modelValue && isValidDate(initmodelvalue)) {
-      pageTimestamp.value = setDate(initmodelvalue, 1);
+      pageTimestamp.value = initmodelvalue.getTime();
       selectedDate.value = initmodelvalue;
     } else {
       pageTimestamp.value = setDate(new Date(), 1);
@@ -540,7 +540,7 @@ export default defineComponent({
         selectedDate.value = null;
         return;
       }
-      selectedDate.value = date as Date;
+      selectedDate.value = tempDate as Date;
       setPageDate(date);
     }
 
@@ -637,6 +637,11 @@ export default defineComponent({
       setPageDate,
       selectDate,
       closeOnClickOutside,
+      showDayCalendar,
+      computedInitialView,
+      setDate,
+      setDate1,
+      setValue,
     };
   },
 });

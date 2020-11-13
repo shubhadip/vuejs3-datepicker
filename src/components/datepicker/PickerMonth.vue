@@ -5,7 +5,7 @@
     :style="calendarStyle"
     @mousedown.prevent
   >
-    <slot name="beforeCalendarHeader"></slot>
+    <slot name="customCalendarHeader"></slot>
     <section v-if="ifDifferentViews" class="vuejs3-datepicker__calendar-topbar">
       <p class="vuejs3-datepicker__calendar-topbar-year" @click="showYearCalendar">{{ currYearName }}</p>
       <p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate">
@@ -47,6 +47,7 @@ import {
   getDate,
   getMonthNameAbbr,
   getDayNameAbbr,
+  stringToDate,
 } from './utils/DateUtils';
 
 interface IMonths {
@@ -62,7 +63,7 @@ export default defineComponent({
       type: Boolean,
     },
     selectedDate: {
-      type: Date as PropType<Date>,
+      type: [String, Date],
       default: new Date(),
     },
     pageDate: {
@@ -186,7 +187,7 @@ export default defineComponent({
      * @return {Boolean}
      */
     function isSelectedMonth(date: Date): boolean {
-      const d = props.selectedDate;
+      const d = stringToDate(props.selectedDate);
       return d && getFullYear(d) === getFullYear(date) && getMonth(d) === getMonth(date);
     }
 
@@ -281,13 +282,13 @@ export default defineComponent({
     });
 
     const getDisplayDate = computed(() => {
-      return props.selectedDate ? getDate(props.selectedDate) : null;
+      const propDate = stringToDate(props.selectedDate);
+      return props.selectedDate ? getDate(propDate) : null;
     });
 
     const getDayName = computed(() => {
-      return props.selectedDate
-        ? getDayNameAbbr(props.selectedDate, props.translation && props.translation.daysNames)
-        : null;
+      const propDate = stringToDate(props.selectedDate);
+      return props.selectedDate ? getDayNameAbbr(propDate, props.translation && props.translation.daysNames) : null;
     });
 
     /**
@@ -329,6 +330,8 @@ export default defineComponent({
       getDayName,
       currMonthName,
       ifDifferentViews,
+      isSelectedMonth,
+      isDisabledMonth,
     };
   },
 });

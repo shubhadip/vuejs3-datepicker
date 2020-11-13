@@ -1,7 +1,7 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
     <template v-slot:label>
-      ProgrammaticAccess
+      Programmatic Access
     </template>
     <template v-slot:content>
       <div class="flex-block">

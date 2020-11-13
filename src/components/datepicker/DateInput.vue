@@ -65,14 +65,14 @@
         </i>
       </span>
     </span>
-    <slot name="afterDateInput">Default</slot>
+    <slot name="belowDate">Default</slot>
   </div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
 import IconView from '../iconview/IconView.vue';
-import { formatDate } from './utils/DateUtils';
+import { formatDate, stringToDate } from './utils/DateUtils';
 
 export default defineComponent({
   name: 'DateInput',
@@ -81,7 +81,7 @@ export default defineComponent({
   },
   props: {
     selectedDate: {
-      type: Date as new () => Date,
+      type: [Date, String],
     },
     resetTypedDate: {
       type: [Date as new () => Date],
@@ -199,10 +199,12 @@ export default defineComponent({
         return typedDate.value;
       }
 
+      const propDate = stringToDate(props.selectedDate);
+
       let date =
         typeof props.format === 'function'
-          ? props.format(props.selectedDate)
-          : formatDate(new Date(props.selectedDate), props.format as any, props.translation as any);
+          ? props.format(propDate)
+          : formatDate(propDate, props.format as any, props.translation as any);
 
       if (props.minimumView === props.maximumView) {
         const [, y, z] = date.split(' ');

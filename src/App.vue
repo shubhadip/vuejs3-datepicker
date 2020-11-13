@@ -13,6 +13,8 @@
         <li><a href="#month-view">Month View</a></li>
         <li><a href="#year-view">Year View</a></li>
         <li><a href="#calendar-icon">Calendar Icon</a></li>
+        <li><a href="#slot-view">Custom Slots</a></li>
+        <li><a href="#string-view">Date as String</a></li>
         <li><a href="#inline-view">Inline View</a></li>
       </ul>
     </div>
@@ -53,6 +55,12 @@
         <div class="ind" id="calendar-icon">
           <CalendarIcon />
         </div>
+        <div class="ind" id="slot-view">
+          <SlotView />
+        </div>
+        <div class="ind" id="string-view">
+          <StringView />
+        </div>
         <div class="ind" id="inline-view">
           <InlineView />
         </div>
@@ -74,6 +82,8 @@ import DayView from './components/examples/DayView.vue';
 import HighlightedView from './components/examples/HighlightedView.vue';
 import VModel from './components/examples/VModel.vue';
 import ProgrammaticAccess from './components/examples/ProgrammaticAccess.vue';
+import SlotView from './components/examples/Slotview.vue';
+import StringView from './components/examples/StringView.vue';
 
 export default defineComponent({
   name: 'App-Home',
@@ -89,6 +99,8 @@ export default defineComponent({
     HighlightedView,
     VModel,
     ProgrammaticAccess,
+    SlotView,
+    StringView,
   },
 });
 </script>

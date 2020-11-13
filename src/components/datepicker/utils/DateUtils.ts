@@ -277,3 +277,10 @@ export const createDateArray = (start: string | number | Date, end: number): Dat
 export const validateDateInput = (val: any): boolean => {
   return val === null || val instanceof Date || typeof val === 'string' || typeof val === 'number';
 };
+
+export const stringToDate = (value: string | Date): Date => {
+  if (typeof value === 'string') {
+    return new Date(value);
+  }
+  return value;
+};
