@@ -1,17 +1,32 @@
+@import '@css/_settings.css';
+
 *{
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #2f2f2f;
+    color: $black;
     margin: 0px;
     padding: 0px;
+    input {
+    outline: none;
+    &:focus{
+      outline: none;
+    }
+  }
+  label {
+    text-align: left;
+    margin: 10px 0px;
+    display: block;
+    font-size: 24px;
+  }
+  a {
+     color: $white;
+    text-decoration: none;
+  }
 }
 
-input, input:focus{
-    outline: none;
-}
 .flex-block{
   display: flex;
   align-items: center;
@@ -24,19 +39,190 @@ input, input:focus{
         margin-right: 20px;
     }
   }
+  @media screen and (max-width: 768px) {
+    flex-flow: row wrap;
+    .change-btn{
+      margin-top: 20px;
+      margin-left: 0px;
+      flex-flow: row wrap;
+      button{
+          margin-right: 0px;
+      }
+    }
+  }
 }
 button {
-  background-color: #40b983;
+  background-color: $green;
   border: none;
   font-size: 15px;
-  color: #fff;
+  color: $white;
   padding: 16px 15px;
-    border-radius: 5px;
+  border-radius: 5px;
   cursor: pointer;
   outline: none;
   width: 200px;
   transition: 0.45s;
+  &:hover {
+    background-color: $darkestGreen;
+  }
 }
-button:hover {
-  background-color: #217751;
+
+.page-head {
+  background-color: $darkGreen;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.ind {
+  width: 100%;
+  padding: 30px;
+}
+.app-wrapper {
+  width: calc(100% - 280px);
+  position: relative;
+  left: 280px;
+  flex: 1;
+  .wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    left: auto;
+  }
+  .code-block{
+    display: flex;
+    justify-content: space-around;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      .codesnippet{
+        width: 100%;
+      }
+    }
+  }
+}
+.app-sidebar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 280px;
+  height: 100%;
+  background-color: $darkGreen;
+  h1 {
+    text-align: center;
+    padding-top: 20px;
+    color: $white;
+    font-size: 25px;
+    margin: 0px;
+    @media screen and (max-width: 768px) {
+      padding: 0px;
+      font-size: 18px;
+      margin-top: -10px;
+    }
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 20px;
+    padding: 40px;
+    list-style: none;
+    @media screen and (max-width: 768px) {
+      padding-top: 0px;
+    }
+    li {
+      color: $white;
+      font-size: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      background-color: $darkestGreen;
+      border-radius: 2px;
+      transition: 0.45s;
+      a {
+        padding: 10px;
+        display: block;
+      }
+      &:hover {
+        transform: translateX(5px);
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    position: relative;
+    width: 100%;
+  }
+}
+.md-hidden{
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+.sm-hidden{
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.hamburger-icon {
+  position: absolute;
+  height: 25px;
+  width: 30px;
+  display: block;
+  z-index: 3;
+  right: 40px;
+  z-index: 10;
+  hr {
+    background-color: $white;
+    position: absolute;
+    height: 3px;
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0px;
+    top: 11px;
+    transition: 0.45s;
+  }
+  &.active {
+    hr {
+      opacity: 0;
+    }
+  }
+  &:after,
+  &:before {
+    content: '';
+    transform-origin: center;
+    left: 0px;
+    height: 3px;
+    border-radius: 10px;
+    transition: 0.45s;
+    width: 100%;
+    background-color: $white;
+    position: absolute;
+  }
+  &:after {
+    top: 0px;
+  }
+  &:before {
+    bottom: 0px;
+  }
+  &.active {
+    &:before {
+      transform: rotate(45deg);
+      top: 11px;
+      left: 1px;
+    }
+    &:after {
+      transform: rotate(-45deg);
+      top: 11px;
+      left: 1px;
+    }
+  }
 }
