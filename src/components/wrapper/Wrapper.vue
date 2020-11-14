@@ -3,7 +3,7 @@
     <label>
       <slot name="label"></slot>
     </label>
-    <div style="display: flex;justify-content:space-between">
+    <div class="code-block">
       <Prism language="javascript" class="codesnippet">
         {{ $props.templatecontent }}
       </Prism>

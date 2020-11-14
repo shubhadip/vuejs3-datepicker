@@ -1,6 +1,18 @@
 <template>
   <div class="page-wrapper">
-    <div class="app-sidebar">
+    <div class="page-head md-hidden">
+      <a href="https://github.com/shubhadip/vuejs3-datepicker">
+        <img src="./assets/github.svg" alt="vuejs3-datepicker" />
+      </a>
+      <span
+        class="hamburger-icon md-hidden"
+        :class="{ active: isHamburgerOpen }"
+        @click="isHamburgerOpen = !isHamburgerOpen"
+      >
+        <hr />
+      </span>
+    </div>
+    <div class="app-sidebar" :class="`${isHamburgerOpen ? '' : 'sm-hidden'}`">
       <h1>Vue 3 Datepicker</h1>
       <ul>
         <li><a href="#typeable">Typeable</a></li>
@@ -19,7 +31,7 @@
       </ul>
     </div>
     <div class="app-wrapper">
-      <div class="page-head">
+      <div class="page-head sm-hidden">
         <a href="https://github.com/shubhadip/vuejs3-datepicker">
           <img src="./assets/github.svg" alt="vuejs3-datepicker" />
         </a>
@@ -102,92 +114,11 @@ export default defineComponent({
     SlotView,
     StringView,
   },
+  data: () => ({
+    isHamburgerOpen: false,
+  }),
 });
 </script>
 <style scoped lang="postcss">
-@import '@css/_settings.css';
-
-.page-head {
-  background-color: #2f9668;
-  text-align: center;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.app-sidebar h1 {
-  text-align: center;
-  padding-top: 20px;
-  color: #fff;
-  font-size: 25px;
-  margin: 0px;
-}
-.page-head a {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-input {
-  outline: none;
-}
-
-label {
-  text-align: left;
-  margin: 10px 0px;
-  display: block;
-  font-size: 24px;
-}
-.ind {
-  width: 100%;
-  padding: 30px;
-}
-.wrapper {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.app-sidebar {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 280px;
-  height: 100%;
-  background-color: #2f9668;
-}
-.app-sidebar ul {
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-  top: 20px;
-  padding: 40px;
-  list-style: none;
-}
-.app-sidebar ul li {
-  color: #fff;
-  font-size: 15px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  background-color: #228257;
-  border-radius: 2px;
-  transition: 0.45s;
-}
-.app-sidebar ul li a {
-  padding: 10px;
-  display: block;
-}
-.app-sidebar ul li:hover {
-  transform: translateX(5px);
-  background-color: #196f49;
-}
-.app-wrapper {
-  width: calc(100% - 280px);
-  position: relative;
-  left: 280px;
-  flex: 1;
-}
-a {
-  color: white;
-  text-decoration: none;
-}
+@import '@css/app.css';
 </style>
