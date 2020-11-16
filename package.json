@@ -17,7 +17,8 @@
     "dev": "rollup -c build/rollup-dev.config.js --watch",
     "build:lib": "rimraf dist && rollup --config ./build/rollup.config.js",
     "test": "jest --config tests/unit/jest.conf.js --coverage ",
-    "prepublishOnly": "npm run lint && npm run build:lib"
+    "prepublishOnly": "npm run lint && npm run build:lib",
+    "commit-message": "yarn commitlint -e -V"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
@@ -28,6 +29,8 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-typescript": "^7.12.0",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@rollup/plugin-alias": "2.2.0",
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-commonjs": "^15.1.0",
@@ -88,7 +91,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e -V"
     }
   },
   "lint-staged": {
