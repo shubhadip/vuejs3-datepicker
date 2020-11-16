@@ -18,8 +18,10 @@
     "dev": "rollup -c build/rollup-dev.config.js --watch",
     "build:lib": "rimraf dist && rollup --config ./build/rollup.config.js",
     "test": "jest --config tests/unit/jest.conf.js --coverage ",
-    "prepublishOnly": "npm run lint && npm run build:lib",
-    "commit-message": "yarn commitlint -e -V"
+    "prepublishOnly": "yarn lint && yarn build:lib",
+    "commit-message": "yarn commitlint -e -V", 
+    "semantic-release:local": "yarn run build:lib && yarn build:demo && semantic-release --no-ci",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
@@ -90,7 +92,13 @@
     "vue-cli-plugin-vue-next": "~0.1.4",
     "vue-jest": "^5.0.0-alpha.5",
     "vue-loader": "^15.9.3",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.6",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "semantic-release": "17.2.1"
   },
   "husky": {
     "hooks": {
