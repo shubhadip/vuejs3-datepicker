@@ -177,15 +177,15 @@ export default defineComponent({
   setup(props, { emit }) {
     const typedDate = ref<string | number>();
     const inputRef = ref(null);
-    // computed
+
     const computedInputClass = computed(() => {
       if (props.addBootstrapClass) {
         if (typeof props.inputClass === 'string') {
           return [props.inputClass, 'form-control'].join(' ');
         }
-        // tbd : need to add here props.inputClass
         return {
           'form-control': true,
+          ...((props.inputClass as unknown) as Record<string, any>),
         };
       }
       return props.inputClass;
