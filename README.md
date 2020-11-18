@@ -1,5 +1,7 @@
 # Vue 3 Datepicker
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9289e513-2cf9-4b4f-a3a5-f265d691c26c/deploy-status)](https://app.netlify.com/sites/vuejs3-datepicker/deploys)
+
 A datepicker Vue component. Compatible with Vue 3 Only
 
 - [Demo](#demo)
