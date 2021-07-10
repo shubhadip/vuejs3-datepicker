@@ -51,21 +51,6 @@ body {
     }
   }
 }
-button {
-  background-color: $green;
-  border: none;
-  font-size: 15px;
-  color: $white;
-  padding: 16px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
-  width: 200px;
-  transition: 0.45s;
-  &:hover {
-    background-color: $darkestGreen;
-  }
-}
 
 .page-head {
   background-color: $darkGreen;
