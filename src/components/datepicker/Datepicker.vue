@@ -270,6 +270,14 @@ export default defineComponent({
       default: 'green',
       type: String,
     },
+    startFromFutureDate: {
+      default: false,
+      boolean: true,
+    },
+    futureDate: {
+      validator: (val: Date): boolean => validateDateInput(val),
+      type: Date as new () => Date,
+    },
   },
   emits: [
     'input',
@@ -291,6 +299,9 @@ export default defineComponent({
       selectedDate.value = initmodelvalue;
     } else {
       pageTimestamp.value = setDate(new Date(), 1);
+      if (props.startFromFutureDate && props.futureDate) {
+        pageTimestamp.value = setDate(new Date(props.futureDate), 1);
+      }
     }
     const showDayView = ref(false);
     const showMonthView = ref(false);
@@ -598,6 +609,7 @@ export default defineComponent({
         setPageDate();
       }
     );
+
     watch(
       () => props.initialView,
       () => {

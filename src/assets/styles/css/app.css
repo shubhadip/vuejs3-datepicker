@@ -1,17 +1,17 @@
 @import '@css/_settings.css';
 
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    color: $black;
-    margin: 0px;
-    padding: 0px;
-    input {
+  font-family: 'Open Sans', sans-serif;
+  color: $black;
+  margin: 0px;
+  padding: 0px;
+  input {
     outline: none;
-    &:focus{
+    &:focus {
       outline: none;
     }
   }
@@ -22,31 +22,31 @@ body {
     font-size: 24px;
   }
   a {
-     color: $white;
+    color: $white;
     text-decoration: none;
   }
 }
 
-.flex-block{
+.flex-block {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  .change-btn{
+  .change-btn {
     margin-left: 20px;
     display: flex;
     align-items: center;
-    button{
-        margin-right: 20px;
+    button {
+      margin-right: 20px;
     }
   }
   @media screen and (max-width: 768px) {
     flex-flow: row wrap;
-    .change-btn{
+    .change-btn {
       margin-top: 20px;
       margin-left: 0px;
       flex-flow: row wrap;
-      button{
-          margin-right: 0px;
+      button {
+        margin-right: 0px;
       }
     }
   }
@@ -84,12 +84,12 @@ body {
     width: 100%;
     left: auto;
   }
-  .code-block{
+  .code-block {
     display: flex;
     justify-content: space-around;
     @media screen and (max-width: 768px) {
       flex-direction: column;
-      .codesnippet{
+      .codesnippet {
         width: 100%;
       }
     }
@@ -146,68 +146,13 @@ body {
     width: 100%;
   }
 }
-.md-hidden{
+.md-hidden {
   @media screen and (min-width: 768px) {
     display: none;
   }
 }
-.sm-hidden{
+.sm-hidden {
   @media screen and (max-width: 768px) {
     display: none;
-  }
-}
-.hamburger-icon {
-  position: absolute;
-  height: 25px;
-  width: 30px;
-  display: block;
-  z-index: 3;
-  right: 40px;
-  z-index: 10;
-  hr {
-    background-color: $white;
-    position: absolute;
-    height: 3px;
-    border: none;
-    width: 100%;
-    border-radius: 10px;
-    margin: 0px;
-    top: 11px;
-    transition: 0.45s;
-  }
-  &.active {
-    hr {
-      opacity: 0;
-    }
-  }
-  &:after,
-  &:before {
-    content: '';
-    transform-origin: center;
-    left: 0px;
-    height: 3px;
-    border-radius: 10px;
-    transition: 0.45s;
-    width: 100%;
-    background-color: $white;
-    position: absolute;
-  }
-  &:after {
-    top: 0px;
-  }
-  &:before {
-    bottom: 0px;
-  }
-  &.active {
-    &:before {
-      transform: rotate(45deg);
-      top: 11px;
-      left: 1px;
-    }
-    &:after {
-      transform: rotate(-45deg);
-      top: 11px;
-      left: 1px;
-    }
   }
 }
