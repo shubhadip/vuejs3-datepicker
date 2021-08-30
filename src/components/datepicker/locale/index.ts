@@ -67,6 +67,41 @@ const en = (): any => {
   };
 };
 
+const fr = (): any => {
+  const langName = 'Français';
+  const monthFullName = [
+    'Janvier',
+    'Février',
+    'Mars',
+    'Avril',
+    'Mai',
+    'Juin',
+    'Juillet',
+    'Août',
+    'Septembre',
+    'Octobre',
+    'Novembre',
+    'Décembre',
+  ];
+  const shortName = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+  const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+  const daysNames = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 const hi = (): any => {
   const langName = 'Hindi';
   const monthFullName = [
@@ -106,4 +141,5 @@ export const data = {
   af: af(),
   hi: hi(),
   en: en(),
+  fr: fr(),
 };
