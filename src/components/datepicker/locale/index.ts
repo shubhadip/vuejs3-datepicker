@@ -137,9 +137,44 @@ const hi = (): any => {
   };
 };
 
+const nl = (): any => {
+  const langName = 'Dutch';
+  const monthFullName = [
+    'januari',
+    'februari',
+    'maart',
+    'april',
+    'mei',
+    'juni',
+    'juli',
+    'augustus',
+    'september',
+    'oktober',
+    'november',
+    'december',
+  ];
+  const shortName = ['jan.', 'feb.', 'mrt.', 'apr.', 'mei', 'juni', 'juli', 'aug.', 'sep.', 'okt.', 'nov.', 'dec.'];
+  const days = ['zo.', 'ma.', 'di.', 'wo.', 'do.', 'vr.', 'za.'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    // tbd: need fullName of days
+    daysNames: days,
+  };
+};
+
 export const data = {
   af: af(),
   hi: hi(),
   en: en(),
   fr: fr(),
+  nl: nl()
 };
