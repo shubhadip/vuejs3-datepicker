@@ -32,6 +32,41 @@ const af = (): any => {
   };
 };
 
+const de = (): any => {
+  const langName = 'German';
+  const monthFullName = [
+    'Januar',
+    'Februar',
+    'März',
+    'April',
+    'Mai',
+    'Juni',
+    'Juli',
+    'August',
+    'September',
+    'Oktober',
+    'November',
+    'Dezember',
+  ];
+  const shortName = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+  const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  const daysNames = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 const en = (): any => {
   const langName = 'English';
   const monthFullName = [
@@ -140,6 +175,7 @@ const hi = (): any => {
 export const data = {
   af: af(),
   hi: hi(),
+  de: de(),
   en: en(),
   fr: fr(),
 };
