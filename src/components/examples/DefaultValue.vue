@@ -3,7 +3,13 @@
     <template v-slot:label> Default Value </template>
     <template v-slot:content>
       <div class="flex-block">
-        <appdate-picker placeholder="Select Date" @input="dateSelected" :value="defaultValue"> </appdate-picker>
+        <appdate-picker
+          placeholder="Select Date"
+          @input="dateSelected"
+          :value="defaultValue"
+          :startFromFutureDate="true"
+          :futureDate="new Date('2022-03-01')"
+        ></appdate-picker>
         <div class="change-btn">
           <button @click="changeDefaultValue">Change Default Value</button>
         </div>
@@ -24,7 +30,7 @@ export default defineComponent({
     'appdate-picker': Datepicker,
   },
   setup() {
-    const defaultValue = ref(new Date());
+    const defaultValue = ref(new Date('2022-03-16'));
     const template = `<template>
     <appdate-picker
       placeholder="Select Date"
