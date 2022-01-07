@@ -175,14 +175,13 @@ var state = {
 <datepicker :highlighted="state.highlighted"></datepicker>
 ```
 
+## Add new Locale
 ```
-Add new Locale
 new Locale can be added to the following file /src/components/datepicker/locale/index.ts
 
 create a function with new Locale name & export that from data object at the bottom 
 
 e.g
-
 
 const newLocale = (): any => {
   const langName = 'Hindi';
