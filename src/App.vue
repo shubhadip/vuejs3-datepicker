@@ -119,6 +119,6 @@ export default defineComponent({
   }),
 });
 </script>
-<style scoped lang="postcss">
+<style lang="postcss">
 @import '@css/app.css';
 </style>

@@ -212,5 +212,5 @@ export const data = {
   de: de(),
   en: en(),
   fr: fr(),
-  nl: nl()
+  nl: nl(),
 };

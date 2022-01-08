@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <label>
+    <label class="slot-label">
       <slot name="label"></slot>
     </label>
     <div class="code-block">

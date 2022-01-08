@@ -1,7 +1,20 @@
 @import '@css/_settings.css';
 
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: $black;
+  margin: 0px;
+  padding: 0px;
+  input {
+  outline: none;
+    &:focus{
+      outline: none;
+    }
+  }
 }
 
 .flex-block{
@@ -112,6 +125,8 @@
       a {
         padding: 10px;
         display: block;
+        color: $white;
+        text-decoration: none;
       }
       &:hover {
         transform: translateX(5px);
