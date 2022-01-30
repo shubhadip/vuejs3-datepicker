@@ -1,6 +1,6 @@
 {
   "name": "vuejs3-datepicker",
-  "version": "0.0.6",
+  "version": "1.0.2",
   "description": "Vue 3 datepicker",
   "files": [
     "dist/*",
@@ -19,7 +19,7 @@
     "build:lib": "rimraf dist && rollup --config ./build/rollup.config.js",
     "test": "jest --config tests/unit/jest.conf.js --coverage ",
     "prepublishOnly": "yarn lint && yarn build:lib",
-    "commit-message": "yarn commitlint -e -V", 
+    "commit-message": "yarn commitlint -e -V",
     "semantic-release:local": "yarn run build:lib && yarn build:demo && semantic-release --no-ci",
     "semantic-release": "semantic-release"
   },

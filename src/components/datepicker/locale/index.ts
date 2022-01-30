@@ -1,4 +1,16 @@
-const af = (): any => {
+interface ILocale {
+  months: string[];
+  monthsAbbr: string[];
+  days: string[];
+  yearSuffix: string;
+  ymd: boolean;
+  rtl: boolean;
+  langName: string;
+  daysNames: string[];
+  language: string;
+}
+
+const af = (): ILocale => {
   const langName = 'Afrikaans';
   const monthFullName = [
     'Januarie',
@@ -26,12 +38,13 @@ const af = (): any => {
     yearSuffix,
     ymd,
     rtl,
+    language: langName,
     langName,
     daysNames: days,
   };
 };
 
-const de = (): any => {
+const de = (): ILocale => {
   const langName = 'German';
   const monthFullName = [
     'Januar',
@@ -66,7 +79,7 @@ const de = (): any => {
   };
 };
 
-const en = (): any => {
+const en = (): ILocale => {
   const langName = 'English';
   const monthFullName = [
     'January',
@@ -101,7 +114,7 @@ const en = (): any => {
   };
 };
 
-const fr = (): any => {
+const fr = (): ILocale => {
   const langName = 'Français';
   const monthFullName = [
     'Janvier',
@@ -136,7 +149,7 @@ const fr = (): any => {
   };
 };
 
-const hi = (): any => {
+const hi = (): ILocale => {
   const langName = 'Hindi';
   const monthFullName = [
     'जनवरी',
@@ -171,7 +184,7 @@ const hi = (): any => {
   };
 };
 
-const ja = (): any => {
+const ja = (): ILocale => {
   const langName = 'Japanese';
   const monthFullName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
   const shortName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
@@ -193,7 +206,7 @@ const ja = (): any => {
   };
 };
 
-const nl = (): any => {
+const nl = (): ILocale => {
   const langName = 'Dutch';
   const monthFullName = [
     'januari',
@@ -222,7 +235,7 @@ const nl = (): any => {
     ymd,
     rtl,
     langName,
-    // tbd: need fullName of days
+    language: langName,
     daysNames: days,
   };
 };
