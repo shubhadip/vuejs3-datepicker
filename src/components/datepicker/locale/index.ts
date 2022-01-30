@@ -240,7 +240,7 @@ const nl = (): ILocale => {
   };
 };
 
-const pt = (): any => {
+const pt = (): ILocale => {
   const langName = 'Português';
   const monthFullName = [
     'Janeiro',
@@ -258,7 +258,15 @@ const pt = (): any => {
   ];
   const shortName = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
   const days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
-  const daysNames = ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado'];
+  const daysNames = [
+    'Domingo',
+    'Segunda-Feira',
+    'Terça-Feira',
+    'Quarta-Feira',
+    'Quinta-Feira',
+    'Sexta-Feira',
+    'Sábado',
+  ];
   const rtl = false;
   const ymd = false;
   const yearSuffix = '';
