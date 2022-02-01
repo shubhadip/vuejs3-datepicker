@@ -8,6 +8,7 @@
         <appdate-picker
           placeholder="Select Date"
           @input="dateSelected"
+          :openDate="new Date('2020-11-06')"
           :disabled-dates="{
             to: new Date(2020, 10, 5),
             from: new Date(2020, 10, 16),
