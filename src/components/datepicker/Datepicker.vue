@@ -566,6 +566,9 @@ export default defineComponent({
       if (props.value) {
         setValue(props.value as any);
       }
+      if (props.openDate && !props.value) {
+        setValue(props.openDate as any);
+      }
       if (isInline.value) {
         setInitialView();
       }
