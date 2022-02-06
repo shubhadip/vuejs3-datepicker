@@ -168,6 +168,7 @@ export default defineComponent({
     openDate: {
       validator: (val: Date): boolean => validateDateInput(val),
       type: Date as new () => Date,
+      default: new Date(),
     },
     minimumView: {
       type: String,
@@ -289,8 +290,9 @@ export default defineComponent({
     if (props.modelValue && isValidDate(initmodelvalue)) {
       pageTimestamp.value = initmodelvalue.getTime();
       selectedDate.value = initmodelvalue;
-    } else {
-      pageTimestamp.value = setDate(new Date(), 1);
+    }
+    if (props.openDate) {
+      pageTimestamp.value = setDate(new Date(props.openDate), 1);
     }
     const showDayView = ref(false);
     const showMonthView = ref(false);
@@ -565,9 +567,6 @@ export default defineComponent({
     function init(): void {
       if (props.value) {
         setValue(props.value as any);
-      }
-      if (props.openDate && !props.value) {
-        setValue(props.openDate as any);
       }
       if (isInline.value) {
         setInitialView();
