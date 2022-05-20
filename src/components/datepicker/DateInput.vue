@@ -65,7 +65,7 @@
         </i>
       </span>
     </span>
-    <slot name="belowDate">Default</slot>
+    <slot name="belowDate"></slot>
   </div>
 </template>
 

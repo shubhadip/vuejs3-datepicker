@@ -36,7 +36,7 @@ export default defineComponent({
       :value="defaultValue"
     >
     <template v-slot:belowDate>
-      <p>After Date Input Slot</p>
+      <p>Below Date Input</p>
     </template>
     <template v-slot:customCalendarHeader>
       <p>Before Calendar Header Slot</p>
