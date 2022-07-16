@@ -39,9 +39,9 @@ export default defineComponent({
     },
     customClass: {
       type: String,
-      required:false,
-      default: ''
-    }
+      required: false,
+      default: '',
+    },
   },
   setup() {
     return {};

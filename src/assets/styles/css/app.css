@@ -111,6 +111,8 @@ body {
     top: 20px;
     padding: 40px;
     list-style: none;
+    overflow-y: scroll;
+    height: 650px;
     @media screen and (max-width: 768px) {
       padding-top: 0px;
     }
