@@ -28,6 +28,7 @@
         <li><a href="#slot-view">Custom Slots</a></li>
         <li><a href="#string-view">Date as String</a></li>
         <li><a href="#inline-view">Inline View</a></li>
+        <li><a href="#language-view">Language View</a></li>
       </ul>
     </div>
     <div class="app-wrapper">
@@ -76,6 +77,9 @@
         <div class="ind" id="inline-view">
           <InlineView />
         </div>
+        <div class="ind" id="language-view">
+          <Language />
+        </div>
       </div>
     </div>
   </div>
@@ -96,6 +100,7 @@ import VModel from './components/examples/VModel.vue';
 import ProgrammaticAccess from './components/examples/ProgrammaticAccess.vue';
 import SlotView from './components/examples/Slotview.vue';
 import StringView from './components/examples/StringView.vue';
+import Language from './components/examples/Language.vue';
 
 export default defineComponent({
   name: 'App-Home',
@@ -113,6 +118,7 @@ export default defineComponent({
     ProgrammaticAccess,
     SlotView,
     StringView,
+    Language
   },
   data: () => ({
     isHamburgerOpen: false,
