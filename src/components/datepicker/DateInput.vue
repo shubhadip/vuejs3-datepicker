@@ -18,7 +18,7 @@
     <div v-if="typeable || !hideInput" style="position: relative">
       <span v-if="!inline">
         <IconView
-          class="vuejs3-datepicker__typeablecalendar"
+          customClass="vuejs3-datepicker__typeablecalendar"
           :color="iconColor"
           :width="iconWidth"
           :height="iconHeight"
