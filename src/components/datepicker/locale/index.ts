@@ -392,7 +392,7 @@ export const tr = (): ILocale => {
   const langName = 'Türkçe';
   const monthFullName = [
     'Ocak',
-    'Şuubat',
+    'Şubat',
     'Mart',
     'Nisan',
     'Mayıs',
