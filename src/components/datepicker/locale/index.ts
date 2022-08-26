@@ -283,6 +283,41 @@ const pt = (): ILocale => {
   };
 };
 
+const it = (): ILocale => {
+  const langName = 'Italian';
+  const monthFullName = [
+    'Gennaio',
+    'Febbraio',
+    'Marzo',
+    'Aprile',
+    'Maggio',
+    'Giugno',
+    'Luglio',
+    'Agosto',
+    'Settembre',
+    'Ottobre',
+    'Novembre',
+    'Dicembre',
+  ];
+  const shortName = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
+  const days = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
+  const daysNames = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Gioved', 'Venerdì', 'Sabato'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 const pl = (): ILocale => {
   const langName = 'Polish';
   const monthFullName = [
@@ -397,6 +432,7 @@ export const data = {
   fr: fr(),
   nl: nl(),
   pt: pt(),
+  it: it(),
   pl: pl(),
   ru: ru(),
   tr: tr(),
