@@ -3,7 +3,7 @@
     <template v-slot:label> Language </template>
     <template v-slot:content>
       <div class="flex-block">
-        <appdate-picker language="ru" placeholder="Select Date" @input="dateSelected" :value="defaultValue">
+        <appdate-picker language="hi" placeholder="Select Date" @input="dateSelected" :value="defaultValue">
         </appdate-picker>
         <div class="change-btn">
           <button @click="changeDefaultValue">Change Default Value</button>
@@ -31,7 +31,7 @@ export default defineComponent({
       placeholder="Select Date"
       @input="dateSelected"
       :value="defaultValue"
-      :language="hi" 
+      language="hi" 
     >
     </appdate-picker>
   </template>`;

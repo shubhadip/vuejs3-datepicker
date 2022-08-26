@@ -118,7 +118,7 @@ export default defineComponent({
     ProgrammaticAccess,
     SlotView,
     StringView,
-    Language
+    Language,
   },
   data: () => ({
     isHamburgerOpen: false,

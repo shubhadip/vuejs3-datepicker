@@ -353,6 +353,41 @@ const ru = (): ILocale => {
   };
 };
 
+export const tr = (): ILocale => {
+  const langName = 'Türkçe';
+  const monthFullName = [
+    'Ocak',
+    'Şuubat',
+    'Mart',
+    'Nisan',
+    'Mayıs',
+    'Haziran',
+    'Temmuz',
+    'Ağustos',
+    'Eylül',
+    'Ekim',
+    'Kasım',
+    'Aralık',
+  ];
+  const shortName = ['Oca', 'Şub', 'Mar', 'Nis', ' May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
+  const days = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Pzr'];
+  const daysNames = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 export const data = {
   af: af(),
   hi: hi(),
@@ -364,4 +399,5 @@ export const data = {
   pt: pt(),
   pl: pl(),
   ru: ru(),
+  tr: tr(),
 };
