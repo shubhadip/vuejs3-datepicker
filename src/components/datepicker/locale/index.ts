@@ -114,6 +114,41 @@ const en = (): ILocale => {
   };
 };
 
+const es = (): ILocale => {
+  const langName = 'Español';
+  const monthFullName = [
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre',
+  ];
+  const shortName = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+  const days = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+  const daysNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 const fr = (): ILocale => {
   const langName = 'Français';
   const monthFullName = [
@@ -429,6 +464,7 @@ export const data = {
   ja: ja(),
   de: de(),
   en: en(),
+  es: es(),
   fr: fr(),
   nl: nl(),
   pt: pt(),
