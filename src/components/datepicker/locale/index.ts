@@ -458,6 +458,54 @@ export const tr = (): ILocale => {
   };
 };
 
+export const vn = (): ILocale => {
+  const langName = 'Vietnamese';
+  const monthFullName = [
+    'Tháng 1',
+    'Tháng 2',
+    'Tháng 3',
+    'Tháng 4',
+    'Tháng 5',
+    'Tháng 6',
+    'Tháng 7',
+    'Tháng 8',
+    'Tháng 9',
+    'Tháng 10',
+    'Tháng 11',
+    'Tháng 12',
+  ];
+  const shortName = [
+    'Tháng 1',
+    'Tháng 2',
+    'Tháng 3',
+    'Tháng 4',
+    'Tháng 5',
+    'Tháng 6',
+    'Tháng 7',
+    'Tháng 8',
+    'Tháng 9',
+    'Tháng 10',
+    'Tháng 11',
+    'Tháng 12',
+  ];
+  const days = ['CN', 'H', 'B', 'T', 'N', 'S', 'B']
+  const daysNames = ['CN', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 export const data = {
   af: af(),
   hi: hi(),
@@ -472,4 +520,5 @@ export const data = {
   pl: pl(),
   ru: ru(),
   tr: tr(),
+  vn: vn(),
 };
