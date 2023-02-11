@@ -5,7 +5,12 @@
     </template>
     <template v-slot:content>
       <div class="flex-block">
-        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected" :clearButton="true" />
+        <appdate-picker
+          v-model="dateinput"
+          @update:modelValue="dateSelected"
+          :clearButton="true"
+          @cleared="handleClearDate"
+        />
         <div class="change-btn">
           <button @click="changeValue">Change Value</button>
           <p>UpdateValue : {{ dateinput }}</p>
@@ -59,12 +64,20 @@ export default defineComponent({
       console.log(payload);
     }
 
+    /**
+     * clear date handler
+     */
+    function handleClearDate(): void {
+      console.log('clear date event triggered');
+    }
+
     return {
       dateinput,
       changeValue,
       dateSelected,
       template,
       script,
+      handleClearDate,
     };
   },
 });
