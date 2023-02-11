@@ -488,8 +488,8 @@ export const vn = (): ILocale => {
     'Tháng 11',
     'Tháng 12',
   ];
-  const days = ['CN', 'H', 'B', 'T', 'N', 'S', 'B']
-  const daysNames = ['CN', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
+  const days = ['CN', 'H', 'B', 'T', 'N', 'S', 'B'];
+  const daysNames = ['CN', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
   const rtl = false;
   const ymd = false;
   const yearSuffix = '';
