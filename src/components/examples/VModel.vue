@@ -61,14 +61,14 @@ export default defineComponent({
      * Handler for select-day function
      */
     function dateSelected(payload: Date): void {
-      console.log(payload);
+      console.log(payload, dateinput.value);
     }
 
     /**
      * clear date handler
      */
     function handleClearDate(): void {
-      console.log('clear date event triggered');
+      console.log('clear date event triggered', dateinput.value);
     }
 
     return {
