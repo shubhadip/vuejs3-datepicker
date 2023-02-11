@@ -5,7 +5,7 @@
     </template>
     <template v-slot:content>
       <div class="flex-block">
-        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected" />
+        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected" :clearButton="true" />
         <div class="change-btn">
           <button @click="changeValue">Change Value</button>
           <p>UpdateValue : {{ dateinput }}</p>
@@ -29,7 +29,7 @@ export default defineComponent({
   setup() {
     const dateinput = ref(new Date());
     const template = `<appdate-picker
-  v-model="dateinput" 
+  v-model="dateinput"
   @update:modelValue="dateSelected"
 />`;
 
