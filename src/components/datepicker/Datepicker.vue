@@ -43,6 +43,9 @@
       <template v-slot:belowDate>
         <slot name="belowDate"></slot>
       </template>
+      <template v-slot:icon v-if="hasSlot('icon')">
+        <slot name="icon"></slot>
+      </template>
     </date-input>
     <!--Day View  -->
     <picker-day
@@ -283,7 +286,7 @@ export default defineComponent({
     'selected',
     'selected-disabled',
   ],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const initmodelvalue = new Date((props.modelValue as unknown) as Date);
     const pageTimestamp = ref<number>(0);
     const selectedDate = ref<Date | string | null>(null);
@@ -299,6 +302,8 @@ export default defineComponent({
     const showYearView = ref(false);
     const calendarHeight = ref(0);
     const resetTypedDate = ref(new Date());
+
+    const hasSlot = (name: string): boolean => !!slots[name];
 
     /** ********************************** Computed  *********************************** */
     const computedInitialView = computed(() => {
@@ -641,6 +646,7 @@ export default defineComponent({
       setDate,
       setDate1,
       setValue,
+      hasSlot,
     };
   },
 });
