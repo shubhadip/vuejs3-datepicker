@@ -31,7 +31,7 @@ export default defineComponent({
       placeholder="Select Date"
       @input="dateSelected"
       :value="defaultValue"
-      language="hi" 
+      language="hi"
     >
     </appdate-picker>
   </template>`;
@@ -61,7 +61,7 @@ export default defineComponent({
      * Handler for select-day function
      */
     function dateSelected(payload: Date): void {
-      console.log('dateSelected', payload);
+      console.log('dateSelected ', payload);
     }
 
     return {
