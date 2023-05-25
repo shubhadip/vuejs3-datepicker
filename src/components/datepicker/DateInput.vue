@@ -17,7 +17,9 @@
     </span>
     <div v-if="typeable || !hideInput" style="position: relative">
       <span v-if="!inline">
+        <slot name="icon"></slot>
         <IconView
+          v-if="!($slots && $slots.icon)"
           customClass="vuejs3-datepicker__typeablecalendar"
           :color="iconColor"
           :width="iconWidth"
@@ -47,7 +49,9 @@
     <div v-else @click="showCalendar" id="calendar-div">
       <div class="vuejs3-datepicker__value" v-if="!inline">
         <span class="vuejs3-datepicker__icon">
-          <IconView :color="iconColor" :width="iconWidth" :height="iconHeight" />
+          <slot name="icon">
+            <IconView :color="iconColor" :width="iconWidth" :height="iconHeight" />
+          </slot>
         </span>
         <div class="vuejs3-datepicker__content" v-if="formattedValue">{{ formattedValue }}</div>
         <div v-else class="vuejs3-datepicker__content">{{ placeholder }}</div>
