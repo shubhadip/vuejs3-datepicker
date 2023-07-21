@@ -288,6 +288,7 @@ export default defineComponent({
       parseTypedDate,
       inputBlurred,
       inputRef,
+      clearDate,
     };
   },
 });

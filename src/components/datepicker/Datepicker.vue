@@ -461,11 +461,8 @@ export default defineComponent({
       selectedDate.value = date;
       setPageDate(date);
       emit('selected', date);
-      if (props.modelValue) {
-        emit('update:modelValue', date);
-      } else {
-        emit('input', date);
-      }
+      emit('update:modelValue', date);
+      emit('input', date);
     }
 
     /**
