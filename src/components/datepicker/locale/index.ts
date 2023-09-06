@@ -541,6 +541,71 @@ const bg = (): ILocale => {
   };
 };
 
+    export const kr = (): ILocale => {
+        const langName = "kr";
+        const monthFullName = [
+          "1월",
+          "2월",
+          "3월",
+          "4월",
+          "5월",
+          "6월",
+          "7월",
+          "8월",
+          "9월",
+          "10월",
+          "11월",
+          "12월",
+        ];
+        const shortName = [
+          "1월",
+          "2월",
+          "3월",
+          "4월",
+          "5월",
+          "6월",
+          "7월",
+          "8월",
+          "9월",
+          "10월",
+          "11월",
+          "12월",
+        ];
+        const days = [
+          "월요일",
+          "화요일",
+          "수요일",
+          "목요일",
+          "금요일",
+          "토요일",
+          "일요일",
+        ];
+        const daysNames = [
+          "월요일",
+          "화요일",
+          "수요일",
+          "목요일",
+          "금요일",
+          "토요일",
+          "일요일",
+        ];
+        const rtl = false;
+        const ymd = false;
+        const yearSuffix = "";
+
+        return {
+          months: monthFullName,
+          monthsAbbr: shortName,
+          days,
+          language: langName,
+          yearSuffix,
+          ymd,
+          rtl,
+          langName,
+          daysNames,
+        };
+      }
+
 export const data = {
   af: af(),
   hi: hi(),
@@ -557,4 +622,5 @@ export const data = {
   tr: tr(),
   vn: vn(),
   bg: bg(),
+  kr: kr(),
 };
