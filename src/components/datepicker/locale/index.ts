@@ -10,6 +10,42 @@ interface ILocale {
   language: string;
 }
 
+const ar = (): ILocale => {
+  const langName = 'العربية';
+  const monthFullName = [
+    'كانون الثاني',
+    'شباط',
+    'آذار',
+    'نيسان',
+    'ايار',
+    'حزيران',
+    'تموز',
+    'آب',
+    'أيلول',
+    'تشرين الاول',
+    'تشرين الثاني',
+    'كانون الاول',
+  ];
+  const shortName = ['كانون', 'شباط', 'آذار', 'نيسان', 'ايار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الاول', 'تشرين الثاني', 'كانون الاول'];
+  const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const daysNames = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const rtl = true;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+
 const af = (): ILocale => {
   const langName = 'Afrikaans';
   const monthFullName = [
