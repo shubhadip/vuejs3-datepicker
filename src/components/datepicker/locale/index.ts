@@ -578,6 +578,7 @@ const bg = (): ILocale => {
 };
 
 export const data = {
+  ar: ar(),
   af: af(),
   hi: hi(),
   ja: ja(),
