@@ -6,7 +6,7 @@
         <appdate-picker language="hi" placeholder="Select Date" @input="dateSelected" :value="defaultValue">
         </appdate-picker>
         <div class="change-btn">
-          <button @click="changeDefaultValue">Change Default Value</button>
+          <button type="button" @click="changeDefaultValue">Change Default Value</button>
         </div>
       </div>
     </template>
@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'DefaultValue',

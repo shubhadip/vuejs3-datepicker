@@ -9,3 +9,7 @@ dist/*.hot-update.json
 dist/index.html
 dist/webpack-stats.json
 tests/
+vite.config.lib.ts
+vite.config.project.ts
+postcss.config.cjs
+*.d.ts

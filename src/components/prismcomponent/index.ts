@@ -24,15 +24,18 @@ export default Vue.defineComponent({
     const slotsData = (slots && slots.default && slots.default()) || [];
     const code = props.code || (slotsData.length > 0 ? slotsData[0].children : '');
     const { inline, language } = props;
-    const prismLanguage = Prism.languages[language];
     const className = `language-${language}`;
 
     if (inline) {
       return (): VNode =>
-        h('code', { ...attrs, class: [attrs.class, className], innerHTML: Prism.highlight(code, prismLanguage) });
+        h('code', {
+          ...attrs,
+          class: [attrs.class, className],
+          innerHTML: Prism.highlight(code as string, Prism.languages.javascript, language),
+        });
     }
 
-    const d = Prism.highlight(code, prismLanguage);
+    const d = Prism.highlight(code as string, Prism.languages.javascript, language);
     return (): VNode =>
       h('pre', { ...attrs, class: [attrs.class, className] }, [
         h('code', {

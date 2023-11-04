@@ -1,8 +1,6 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      Inline View
-    </template>
+    <template v-slot:label> Inline View </template>
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker :inline="true"></appdate-picker>
@@ -14,7 +12,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'InlineView',

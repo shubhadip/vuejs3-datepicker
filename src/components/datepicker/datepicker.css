@@ -1,10 +1,11 @@
-@import "@css/_settings.css";
+@import "../../assets/styles/css/_settings.css";
 
 .rtl {
   direction: rtl;
 }
 
 .vuejs3-datepicker {
+  color: $black;
   position: relative;
   display: inline-block;
   * {
