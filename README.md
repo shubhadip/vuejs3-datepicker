@@ -55,7 +55,7 @@ var state = {
 </script>
 <datepicker :value="state.date"></datepicker>
 ```
-support name attribute for normal html form submission
+Support name attribute for normal html form submission
 ``` html
 <datepicker :value="state.date" name="uniquename"></datepicker>
 ```
@@ -71,7 +71,7 @@ Inline always open version
 ``` html
 <datepicker :inline="true"></datepicker>
 ```
-Programtic Acess of value of datepicker
+Programatic access of datepicker value
 ```html
 <datepicker ref="inputRef"  @selected="handleSelectDate" :disabled-dates="disabledDates" :highlighted="highlightDates" :value="date" @closed="handleCalendarClose" ></datepicker>
 ```
@@ -79,7 +79,7 @@ Programtic Acess of value of datepicker
 const { selectedDate } = (inputRef.value  as any).value; 
 ```
 
-icon color, icon height, icon width of calendar
+Icon color, icon height, icon width of calendar
 ``` html
 <datepicker :icon-color="color" :icon-width="width" :icon-height="height" ></datepicker>
 ```
