@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.1.0...v1.1.1) (2023-11-04)
+
+
+### Bug Fixes
+
+*  added slot for top header section ([a62c029](https://github.com/shubhadip/vuejs3-datepicker/commit/a62c029366d7be028868e72ca5fb8a7f9311ca78))
+* semantic config changes ([ab1cbb5](https://github.com/shubhadip/vuejs3-datepicker/commit/ab1cbb5d9000a495c6300e471e24ef4af820b05a))
+
 # [1.1.0](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.0.19...v1.1.0) (2023-11-04)
 
 
