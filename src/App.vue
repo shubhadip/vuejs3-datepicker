@@ -1,9 +1,9 @@
 <template>
   <div class="page-wrapper">
     <div class="page-head md-hidden">
-      <a href="https://github.com/shubhadip/vuejs3-datepicker">
+      <!-- <a href="https://github.com/shubhadip/vuejs3-datepicker">
         <img src="./assets/github.svg" alt="vuejs3-datepicker" />
-      </a>
+      </a> -->
       <span
         class="hamburger-icon md-hidden"
         :class="{ active: isHamburgerOpen }"
@@ -126,5 +126,5 @@ export default defineComponent({
 });
 </script>
 <style lang="postcss">
-@import '@css/app.css';
+@import 'assets/styles/css/app.css';
 </style>

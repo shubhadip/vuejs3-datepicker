@@ -1,4 +1,4 @@
-// import en from '@/components/datepicker/locale/translations/en';
+/* eslint-disable */
 
 /**
  * Returns the full year, using UTC or not
@@ -260,7 +260,7 @@ export const formatDate = (
  * @param {Date} end
  * @return {Array}
  */
-export const createDateArray = (start: string | number | Date, end: number): Date[] => {
+export const createDateArray = (start: number , end: number): Date[] => {
   const dates = [];
   while (start <= end) {
     dates.push(new Date(start));

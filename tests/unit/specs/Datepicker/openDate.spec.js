@@ -1,4 +1,4 @@
-import Datepicker from '@/components/datepicker/Datepicker.vue';
+import Datepicker from '@/components/datepicker/DatePickerComponent.vue';
 import { mount } from '@vue/test-utils'
 import * as Langlist from '@/components/datepicker/locale';
 
@@ -8,7 +8,7 @@ describe('Datepicker with open date', () => {
   beforeEach(()=>{
     en = Langlist.data['en'];
   })
-  
+
   const openDate = new Date()
   let wrapper
   beforeEach(() => {

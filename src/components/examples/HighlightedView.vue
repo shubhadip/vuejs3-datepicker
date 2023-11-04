@@ -1,8 +1,6 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      Highlighted View
-    </template>
+    <template v-slot:label> Highlighted View </template>
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker
@@ -21,7 +19,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'HighlightedView',
@@ -46,7 +44,7 @@ export default defineComponent({
   import { ref } from 'vue';
   export default {
     setup(){
-      return {  
+      return {
       }
     }
   }

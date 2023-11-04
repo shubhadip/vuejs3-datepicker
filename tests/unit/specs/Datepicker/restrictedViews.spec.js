@@ -1,4 +1,4 @@
-import Datepicker from '@/components/datepicker/Datepicker.vue';
+import Datepicker from '@/components/datepicker/DatePickerComponent.vue';
 import { mount } from '@vue/test-utils'
 import * as Langlist from '@/components/datepicker/locale';
 
