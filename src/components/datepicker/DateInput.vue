@@ -4,9 +4,8 @@
     <span
       v-if="calendarButton"
       class="vuejs3-datepicker__calendar-button"
-      :class="{ 'input-group-prepend': addBootstrapClass }"
+      :class="{ 'input-group-prepend': addBootstrapClass, 'cursor-na': disabled }"
       @click="showCalendar"
-      v-bind:style="{ 'cursor:not-allowed;': disabled }"
     >
       <span :class="{ 'input-group-text': addBootstrapClass }">
         <i :class="calendarButtonIcon">
@@ -72,7 +71,7 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
 import IconView from '../iconview/IconView.vue';
-import { formatDate, stringToDate } from './utils/DateUtils';
+import { formatDate, stringToDate } from './utils/DateUtils.ts';
 
 export default defineComponent({
   name: 'DateInput',
@@ -82,9 +81,11 @@ export default defineComponent({
   props: {
     selectedDate: {
       type: [Date, String],
+      default: null,
     },
     resetTypedDate: {
       type: [Date as new () => Date],
+      default: new Date(),
     },
     format: {
       type: [String, Function],
@@ -108,7 +109,7 @@ export default defineComponent({
       type: String,
     },
     inputClass: {
-      type: String,
+      type: [String, Object, Array],
     },
     clearButton: {
       type: Boolean,
@@ -136,6 +137,11 @@ export default defineComponent({
     },
     addBootstrapClass: {
       type: Boolean,
+      default: false,
+      required: false,
+      validator: (value: boolean) => {
+        return !!value;
+      },
     },
     useUtc: {
       type: Boolean,
@@ -185,7 +191,7 @@ export default defineComponent({
         }
         return {
           'form-control': true,
-          ...((props.inputClass as unknown) as Record<string, any>),
+          ...(props.inputClass as unknown as Record<string, any>),
         };
       }
       return props.inputClass;
@@ -288,7 +294,14 @@ export default defineComponent({
       parseTypedDate,
       inputBlurred,
       inputRef,
+      clearDate,
     };
   },
 });
 </script>
+
+<style scoped>
+.cursor-na {
+  cursor: 'not-allowed';
+}
+</style>

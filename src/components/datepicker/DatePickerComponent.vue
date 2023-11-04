@@ -284,7 +284,7 @@ export default defineComponent({
     'selected-disabled',
   ],
   setup(props, { emit }) {
-    const initmodelvalue = new Date((props.modelValue as unknown) as Date);
+    const initmodelvalue = new Date(props.modelValue as unknown as Date);
     const pageTimestamp = ref<number>(0);
     const selectedDate = ref<Date | string | null>(null);
     if (props.modelValue && isValidDate(initmodelvalue)) {
@@ -461,11 +461,8 @@ export default defineComponent({
       selectedDate.value = date;
       setPageDate(date);
       emit('selected', date);
-      if (props.modelValue) {
-        emit('update:modelValue', date);
-      } else {
-        emit('input', date);
-      }
+      emit('update:modelValue', date);
+      emit('input', date);
     }
 
     /**
@@ -611,7 +608,7 @@ export default defineComponent({
 
     return {
       pageTimestamp,
-      selectedDate,
+      selectedDate: selectedDate as unknown as Date,
       showDayView,
       showMonthView,
       showYearView,

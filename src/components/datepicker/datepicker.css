@@ -1,10 +1,11 @@
-@import "@css/_settings.css";
+@import "../../assets/styles/css/_settings.css";
 
 .rtl {
   direction: rtl;
 }
 
 .vuejs3-datepicker {
+  color: $black;
   position: relative;
   display: inline-block;
   * {
@@ -28,7 +29,6 @@
     margin-left: 10px;
     font-size: 15px;
   }
-
   &__typeablecalendar{
     position: absolute;
     top: 10px;
@@ -187,6 +187,9 @@
   &__clear-button, &__calendar-button{
     cursor: pointer;
     font-style: normal;
+    position: absolute;
+    top: 12px;
+    right:12px;
     &.disabled {
       color: #999;
       cursor: default;

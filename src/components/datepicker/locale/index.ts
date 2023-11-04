@@ -10,6 +10,42 @@ interface ILocale {
   language: string;
 }
 
+const ar = (): ILocale => {
+  const langName = 'العربية';
+  const monthFullName = [
+    'كانون الثاني',
+    'شباط',
+    'آذار',
+    'نيسان',
+    'ايار',
+    'حزيران',
+    'تموز',
+    'آب',
+    'أيلول',
+    'تشرين الاول',
+    'تشرين الثاني',
+    'كانون الاول',
+  ];
+  const shortName = ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'ايار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الاول', 'تشرين الثاني', 'كانون الاول'];
+  const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const daysNames = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const rtl = true;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+
 const af = (): ILocale => {
   const langName = 'Afrikaans';
   const monthFullName = [
@@ -458,6 +494,224 @@ export const tr = (): ILocale => {
   };
 };
 
+export const vn = (): ILocale => {
+  const langName = 'Vietnamese';
+  const monthFullName = [
+    'Tháng 1',
+    'Tháng 2',
+    'Tháng 3',
+    'Tháng 4',
+    'Tháng 5',
+    'Tháng 6',
+    'Tháng 7',
+    'Tháng 8',
+    'Tháng 9',
+    'Tháng 10',
+    'Tháng 11',
+    'Tháng 12',
+  ];
+  const shortName = [
+    'Tháng 1',
+    'Tháng 2',
+    'Tháng 3',
+    'Tháng 4',
+    'Tháng 5',
+    'Tháng 6',
+    'Tháng 7',
+    'Tháng 8',
+    'Tháng 9',
+    'Tháng 10',
+    'Tháng 11',
+    'Tháng 12',
+  ];
+  const days = ['CN', 'H', 'B', 'T', 'N', 'S', 'B'];
+  const daysNames = ['CN', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+const bg = (): ILocale => {
+  const langName = 'Bulgarian';
+  const monthFullName = [
+    'Януари',
+    'Февруари',
+    'Март',
+    'Април',
+    'Май',
+    'Юни',
+    'Юли',
+    'Август',
+    'Септември',
+    'Октомври',
+    'Ноември',
+    'Декември',
+  ];
+  const shortName = ['Яну', 'Фев', 'Мар', 'Апр', 'Май', 'Юни', 'Юли', 'Авг', 'Сеп', 'Окт', 'Ное', 'Дек'];
+  const days = ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+  const daysNames = ['Неделя', 'Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+const arTn = (): ILocale => {
+  const langName = 'Arabic-Tunisia';
+  const monthFullName = [
+    'جانفي',
+    'فيفري',
+    'مارس',
+    'أفريل',
+    'ماي',
+    'جوان',
+    'جويلية',
+    'أوت',
+    'سبتمبر',
+    'أكتوبر',
+    'نوفمبر',
+    'ديسمبر',
+  ];
+
+  const days = ['أحد', 'أثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة', 'سبت'];
+  const daysNames = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const rtl = true;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: monthFullName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+const id = (): ILocale => {
+  const langName = 'Indonesia';
+  const monthFullName = [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'Nopember',
+    'Desember',
+  ];
+  const shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nop', 'Des'];
+  const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+  const daysNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+export const kr = (): ILocale => {
+  const langName = "kr";
+  const monthFullName = [
+    "1월",
+    "2월",
+    "3월",
+    "4월",
+    "5월",
+    "6월",
+    "7월",
+    "8월",
+    "9월",
+    "10월",
+    "11월",
+    "12월",
+  ];
+  const shortName = [
+    "1월",
+    "2월",
+    "3월",
+    "4월",
+    "5월",
+    "6월",
+    "7월",
+    "8월",
+    "9월",
+    "10월",
+    "11월",
+    "12월",
+  ];
+  const days = [
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일",
+    "일요일",
+  ];
+  const daysNames = [
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일",
+    "일요일",
+  ];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = "";
+
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+}
+
 const zh_TW = (): ILocale => {
   const langName = '繁體中文';
   const monthFullName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
@@ -481,7 +735,9 @@ const zh_TW = (): ILocale => {
 };
 
 export const data = {
+  ar: ar(),
   af: af(),
+  arTn: arTn(),
   hi: hi(),
   ja: ja(),
   de: de(),
@@ -494,5 +750,9 @@ export const data = {
   pl: pl(),
   ru: ru(),
   tr: tr(),
-  zh_TW: zh_TW()
+  zh_TW: zh_TW(),
+  vn: vn(),
+  bg: bg(),
+  kr: kr(),
+  id: id()
 };

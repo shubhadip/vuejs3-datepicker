@@ -1,13 +1,16 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      V-Model
-    </template>
+    <template v-slot:label> V-Model </template>
     <template v-slot:content>
       <div class="flex-block">
-        <appdate-picker v-model="dateinput" @update:modelValue="dateSelected" />
+        <appdate-picker
+          v-model="dateinput"
+          @update:modelValue="dateSelected"
+          :clearButton="true"
+          @cleared="handleClearDate"
+        />
         <div class="change-btn">
-          <button @click="changeValue">Change Value</button>
+          <button type="button" @click="changeValue">Change Value</button>
           <p>UpdateValue : {{ dateinput }}</p>
         </div>
       </div>
@@ -18,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'VModel',
@@ -29,7 +32,7 @@ export default defineComponent({
   setup() {
     const dateinput = ref(new Date());
     const template = `<appdate-picker
-  v-model="dateinput" 
+  v-model="dateinput"
   @update:modelValue="dateSelected"
 />`;
 
@@ -56,7 +59,14 @@ export default defineComponent({
      * Handler for select-day function
      */
     function dateSelected(payload: Date): void {
-      console.log(payload);
+      console.log(payload, dateinput.value);
+    }
+
+    /**
+     * clear date handler
+     */
+    function handleClearDate(): void {
+      console.log('clear date event triggered', dateinput.value);
     }
 
     return {
@@ -65,6 +75,7 @@ export default defineComponent({
       dateSelected,
       template,
       script,
+      handleClearDate,
     };
   },
 });
