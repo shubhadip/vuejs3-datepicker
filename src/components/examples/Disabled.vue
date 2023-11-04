@@ -1,13 +1,11 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      Disabled
-    </template>
+    <template v-slot:label> Disabled </template>
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker
           placeholder="Select Date"
-          @input="dateSelected" 
+          @input="dateSelected"
           :value="defaultValue"
           :openDate="new Date('2020-11-06')"
           :disabled-dates="{
@@ -26,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'Disabled',

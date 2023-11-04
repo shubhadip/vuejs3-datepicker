@@ -19,7 +19,8 @@
         >
         <span>{{ getPageDecade }}</span>
         <span @click="isRtl ? previousDecade() : nextDecade()" class="next" :class="{ disabled: isRightNavDisabled }"
-          >&gt;</span>
+          >&gt;</span
+        >
       </header>
       <span
         class="cell year"
@@ -43,7 +44,7 @@ import {
   getMonthNameAbbr,
   setFullYear,
   stringToDate,
-} from './utils/DateUtils';
+} from './utils/DateUtils.ts';
 
 export default defineComponent({
   name: 'PickerYear',
@@ -62,9 +63,6 @@ export default defineComponent({
     pageDate: {
       type: Date as PropType<Date>,
       default: new Date(),
-    },
-    pageTimestamp: {
-      type: Number,
     },
     disabledDates: {
       type: Object,
@@ -86,7 +84,7 @@ export default defineComponent({
     },
     allowedToShowView: {
       type: Function,
-      required: true
+      required: true,
     },
     useUtc: {
       type: Boolean,

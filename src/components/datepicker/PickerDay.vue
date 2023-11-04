@@ -19,7 +19,8 @@
           >{{ isYmd ? currYearName : currMonthName }} {{ isYmd ? currMonthName : currYearName }}</span
         >
         <span @click="isRtl ? previousMonth() : nextMonth()" class="next" :class="{ disabled: isRightNavDisabled }"
-          >&gt;</span>
+          >&gt;</span
+        >
       </header>
       <div :class="isRtl ? 'flex-rtl' : ''">
         <span class="cell day-header" v-for="d in daysOfWeek" :key="d.timestamp">{{ d }}</span>
@@ -88,15 +89,12 @@ export default defineComponent({
       type: Date as PropType<Date>,
       default: new Date(),
     },
-    pageTimestamp: {
-      type: Number,
-    },
     fullMonthName: {
       type: Boolean,
     },
     allowedToShowView: {
       type: Function,
-      required: true
+      required: true,
     },
     dayCellContent: {
       type: Function,

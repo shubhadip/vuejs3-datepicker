@@ -1,4 +1,4 @@
-import Datepicker from '@/components/datepicker/Datepicker.vue';
+import Datepicker from '@/components/datepicker/DatePickerComponent.vue';
 import DateInput from '@/components/datepicker/DateInput.vue';
 import { mount } from '@vue/test-utils'
 import * as Langlist from '@/components/datepicker/locale';
@@ -13,7 +13,7 @@ describe('Datepicker unmounted', () => {
   })
 
   it('has a mounted hook', () => {
-    
+
     expect(wrapper.find('input')).toBeTruthy()
   })
 

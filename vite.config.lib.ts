@@ -13,7 +13,7 @@ export default defineConfig({
     emptyOutDir: true,
     cssCodeSplit: true,
     lib: {
-      entry: resolve(__dirname, './src/components/datepicker/Datepicker.vue'),
+      entry: resolve(__dirname, './src/components/datepicker/DatePickerComponent.vue'),
       name:'vuejs3-datepicker'
     },
     rollupOptions: {

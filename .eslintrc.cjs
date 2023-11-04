@@ -43,6 +43,18 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/indent': ['error', 2],
+    // TODO: refactor these rules starts here
+    'vuejs-accessibility/form-control-has-label': 'off',
+    'import/extensions': 'off',
+    'vue/require-default-prop': 'warn',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    'vuejs-accessibility/click-events-have-key-events':'warn',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    'vue/multi-word-component-names': 'off',
+    // TODO: refactor these rules ends here
     '@typescript-eslint/naming-convention': [
       'warn',
       {

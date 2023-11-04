@@ -1,8 +1,6 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      Typeable
-    </template>
+    <template v-slot:label> Typeable </template>
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker
@@ -22,7 +20,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'Typeable',
@@ -66,7 +64,7 @@ export default defineComponent({
     /**
      * Handler for select-day function
      */
-     function handleValue(payload: Date): void {
+    function handleValue(payload: Date): void {
       console.log('handleValue', payload);
     }
     return {
@@ -74,7 +72,7 @@ export default defineComponent({
       template,
       script,
       customClass,
-      handleValue
+      handleValue,
     };
   },
 });
