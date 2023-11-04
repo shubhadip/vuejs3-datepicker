@@ -71,7 +71,7 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
 import IconView from '../iconview/IconView.vue';
-import { formatDate, stringToDate } from './utils/DateUtils';
+import { formatDate, stringToDate } from './utils/DateUtils.ts';
 
 export default defineComponent({
   name: 'DateInput',
@@ -85,6 +85,7 @@ export default defineComponent({
     },
     resetTypedDate: {
       type: [Date as new () => Date],
+      default: new Date()
     },
     format: {
       type: [String, Function],
