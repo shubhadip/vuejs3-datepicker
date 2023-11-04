@@ -1,9 +1,11 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import clickOutside from '@/directives/click-outside'
+// import { createApp } from 'vue'
+// import './style.css'
+// import App from './App.vue'
 
-const app = createApp(App)
+// createApp(App).mount('#app')
 
-app.directive('clickoutside', clickOutside);
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
 
-app.mount('#app');
+createApp(App).mount('#app')

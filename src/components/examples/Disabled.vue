@@ -1,13 +1,12 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label>
-      Disabled
-    </template>
+    <template v-slot:label> Disabled </template>
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker
           placeholder="Select Date"
           @input="dateSelected"
+          :value="defaultValue"
           :openDate="new Date('2020-11-06')"
           :disabled-dates="{
             to: new Date(2020, 10, 5),
@@ -25,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
-import Datepicker from '../datepicker/Datepicker.vue';
+import Datepicker from '../datepicker/DatePickerComponent.vue';
 
 export default defineComponent({
   name: 'Disabled',
@@ -34,8 +33,15 @@ export default defineComponent({
     'appdate-picker': Datepicker,
   },
   setup() {
-    const dateSelected = ref(new Date());
+    const defaultValue = ref(new Date());
     const preventDisableDateSelection = true;
+    /**
+     * Handler for select-day function
+     */
+    function dateSelected(payload: Date): void {
+      console.log('dateSelected', payload);
+    }
+
     const template = `<template>
     <appdate-picker
       placeholder="Select Date"
@@ -56,10 +62,17 @@ export default defineComponent({
   import { ref } from 'vue';
   export default {
     setup(){
-      const dateSelected = ref(new Date())
+      const defaultValue = ref(new Date())
+      /**
+         * Handler for select-day function
+         */
+        function dateSelected(payload: Date): void {
+          console.log('dateSelected', payload);
+        }
       const preventDisableDateSelection = true
       return {
         dateSelected,
+        defaultValue
         preventDisableDateSelection
       }
     }
@@ -69,6 +82,7 @@ export default defineComponent({
       script,
       template,
       dateSelected,
+      defaultValue,
       preventDisableDateSelection,
     };
   },

@@ -64,14 +64,15 @@ export default defineComponent({
     },
     selectedDate: {
       type: [String, Date],
-      default: new Date(),
+      required: false,
+      default: null,
+      validator: (p) => {
+        return ['string', 'number'].indexOf(typeof p) !== -1 || p === null;
+      },
     },
     pageDate: {
       type: Date as PropType<Date>,
       default: new Date(),
-    },
-    pageTimestamp: {
-      type: Number,
     },
     disabledDates: {
       type: Object,
@@ -90,6 +91,7 @@ export default defineComponent({
     },
     allowedToShowView: {
       type: Function,
+      required: true,
     },
     useUtc: {
       type: Boolean,

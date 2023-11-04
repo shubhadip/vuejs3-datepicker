@@ -54,7 +54,7 @@
         <line num="209" count="2" type="stmt"/>
         <line num="212" count="58" type="stmt"/>
       </file>
-      <file name="Datepicker.vue" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/datepicker/Datepicker.vue">
+      <file name="Datepicker.vue" path="/Users/shubhadipmaity/projects/vue3-datepicker/src/components/datepicker/DatePickerComponent.vue">
         <metrics statements="148" coveredstatements="136" conditionals="62" coveredconditionals="57" methods="36" coveredmethods="30"/>
         <line num="2" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>

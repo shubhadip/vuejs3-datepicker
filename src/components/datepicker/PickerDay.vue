@@ -79,20 +79,22 @@ export default defineComponent({
     },
     selectedDate: {
       type: [String, Date],
-      default: new Date(),
+      required: false,
+      default: null,
+      validator: (p) => {
+        return ['string', 'number'].indexOf(typeof p) !== -1 || p === null;
+      },
     },
     pageDate: {
       type: Date as PropType<Date>,
       default: new Date(),
-    },
-    pageTimestamp: {
-      type: Number,
     },
     fullMonthName: {
       type: Boolean,
     },
     allowedToShowView: {
       type: Function,
+      required: true,
     },
     dayCellContent: {
       type: Function,
@@ -263,16 +265,17 @@ export default defineComponent({
       if (typeof t.from !== 'undefined' && t.from && date > t.from) {
         disabledDates = true;
       }
-      if (typeof t.ranges !== 'undefined') {
-        t.ranges.forEach((range: { from: number; to: number }): void => {
-          if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
-            if (date < range.to && date > range.from) {
-              disabledDates = true;
-              // return true;
-            }
-          }
-        });
-      }
+      // TODO: refactor based on prop types
+      // if (typeof t.ranges !== 'undefined') {
+      //   t.ranges.forEach((range: { from: number; to: number }): void => {
+      //     if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
+      //       if (date < range.to && date > range.from) {
+      //         disabledDates = true;
+      //         // return true;
+      //       }
+      //     }
+      //   });
+      // }
       if (typeof t.days !== 'undefined' && t.days.indexOf(getDay(date as Date)) !== -1) {
         disabledDates = true;
       }
@@ -415,7 +418,7 @@ export default defineComponent({
       return props.translation && props.translation.days;
     });
 
-    const blankDays = computed(() => {
+    const blankDays = computed((): any => {
       const d = props.pageDate;
       const dObj = props.useUtc
         ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
