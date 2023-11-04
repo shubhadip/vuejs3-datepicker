@@ -712,6 +712,28 @@ export const kr = (): ILocale => {
   };
 }
 
+const zh_TW = (): ILocale => {
+  const langName = '繁體中文';
+  const monthFullName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+  const shortName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+  const days = ['日', '一', '二', '三', '四', '五', '六'];
+  const daysNames = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 export const data = {
   ar: ar(),
   af: af(),
@@ -728,8 +750,9 @@ export const data = {
   pl: pl(),
   ru: ru(),
   tr: tr(),
+  zh_TW: zh_TW(),
   vn: vn(),
   bg: bg(),
   kr: kr(),
-  id: id(),
+  id: id()
 };
