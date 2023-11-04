@@ -15,7 +15,7 @@
     "build": "vue-tsc && vite build --config vite.config.project.ts",
     "build:lib": "vue-tsc && vite build --config vite.config.lib.ts",
     "preview": "vite preview",
-    "lint": "vue-cli-service lint --fix",
+    "lint": "eslint --cache --fix",
     "prepublishOnly": "npm run lint && npm run build:lib",
     "commit-message": "npm run commitlint -e -V",
     "semantic-release:local": "yarn run build:lib && yarn build:demo && semantic-release --no-ci",
@@ -64,7 +64,8 @@
     "vue-tsc": "^1.8.5"
   },
   "lint-staged": {
-    "*.ts": "eslint --cache --fix"
+    "*.ts": "eslint --cache --fix",
+    "*.vue": "eslint --cache --fix"
   },
   "types": "./types/index.d.ts",
   "keywords": [
