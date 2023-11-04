@@ -139,9 +139,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
       required: false,
-      validator: (value: boolean) => {
-        return !!value;
-      },
     },
     useUtc: {
       type: Boolean,

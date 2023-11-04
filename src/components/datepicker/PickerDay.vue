@@ -81,9 +81,6 @@ export default defineComponent({
       type: [String, Date],
       required: false,
       default: null,
-      validator: (p) => {
-        return ['string', 'number'].indexOf(typeof p) !== -1 || p === null;
-      },
     },
     pageDate: {
       type: Date as PropType<Date>,
