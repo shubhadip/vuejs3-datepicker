@@ -10,6 +10,42 @@ interface ILocale {
   language: string;
 }
 
+const ar = (): ILocale => {
+  const langName = 'العربية';
+  const monthFullName = [
+    'كانون الثاني',
+    'شباط',
+    'آذار',
+    'نيسان',
+    'ايار',
+    'حزيران',
+    'تموز',
+    'آب',
+    'أيلول',
+    'تشرين الاول',
+    'تشرين الثاني',
+    'كانون الاول',
+  ];
+  const shortName = ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'ايار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الاول', 'تشرين الثاني', 'كانون الاول'];
+  const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const daysNames = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  const rtl = true;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
+
 const af = (): ILocale => {
   const langName = 'Afrikaans';
   const monthFullName = [
@@ -576,7 +612,43 @@ const arTn = (): ILocale => {
   };
 };
 
+const id = (): ILocale => {
+  const langName = 'Indonesia';
+  const monthFullName = [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'Nopember',
+    'Desember',
+  ];
+  const shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nop', 'Des'];
+  const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+  const daysNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 export const data = {
+  ar: ar(),
   af: af(),
   arTn: arTn(),
   hi: hi(),
@@ -593,4 +665,5 @@ export const data = {
   tr: tr(),
   vn: vn(),
   bg: bg(),
+  id: id(),
 };
