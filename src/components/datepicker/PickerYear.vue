@@ -19,8 +19,7 @@
         >
         <span>{{ getPageDecade }}</span>
         <span @click="isRtl ? previousDecade() : nextDecade()" class="next" :class="{ disabled: isRightNavDisabled }"
-          >&gt;</span
-        >
+          >&gt;</span>
       </header>
       <span
         class="cell year"

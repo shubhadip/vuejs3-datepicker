@@ -270,7 +270,7 @@ export default defineComponent({
     theme: {
       default: 'green',
       type: String,
-    },
+    }
   },
   emits: [
     'input',

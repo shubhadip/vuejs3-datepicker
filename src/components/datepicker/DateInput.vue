@@ -177,7 +177,7 @@ export default defineComponent({
     theme: {
       default: 'green',
       type: String,
-    },
+    }
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
   setup(props, { emit }) {

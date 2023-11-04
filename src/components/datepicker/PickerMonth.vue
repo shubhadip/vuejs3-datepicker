@@ -21,8 +21,7 @@
           pageYearName
         }}</span>
         <span @click="isRtl ? previousYear() : nextYear()" class="next" :class="{ disabled: isRightNavDisabled }"
-          >&gt;</span
-        >
+          >&gt;</span>
       </header>
       <span
         class="cell month"
