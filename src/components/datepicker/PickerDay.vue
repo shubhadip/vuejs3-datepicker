@@ -8,7 +8,11 @@
     <slot name="customCalendarHeader"></slot>
     <section v-if="ifDifferentViews && selectedDate" class="vuejs3-datepicker__calendar-topbar">
       <p class="vuejs3-datepicker__calendar-topbar-year" @click="showYearCalendar">{{ currYearName }}</p>
-      <p class="vuejs3-datepicker__calendar-topbar-day">{{ getDayName }} {{ getDisplayDate }} {{ monthName }}</p>
+      <slot name="formatDateTopBar">
+        <p class="vuejs3-datepicker__calendar-topbar-day" v-if="selectedDate">
+          {{ getDayName }} {{ getDisplayDate }} {{ monthName }}
+        </p>
+      </slot>
     </section>
     <div class="vuejs3-datepicker__calendar-actionarea">
       <header>
@@ -81,9 +85,6 @@ export default defineComponent({
       type: [String, Date],
       required: false,
       default: null,
-      validator: (p) => {
-        return ['string', 'number'].indexOf(typeof p) !== -1 || p === null;
-      },
     },
     pageDate: {
       type: Date as PropType<Date>,

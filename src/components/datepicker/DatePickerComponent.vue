@@ -74,6 +74,9 @@
       <template v-slot:customCalendarHeader>
         <slot name="customCalendarHeader"></slot>
       </template>
+      <template v-slot:formatDateTopBar>
+        <slot name="formatDateTopBar"></slot>
+      </template>
     </picker-day>
 
     <!--Month View -->
@@ -100,6 +103,9 @@
       <template v-slot:customCalendarHeader>
         <slot name="customCalendarHeader"></slot>
       </template>
+      <template v-slot:formatDateTopBar>
+        <slot name="formatDateTopBar"></slot>
+      </template>
     </picker-month>
 
     <!-- Year View -->
@@ -124,6 +130,9 @@
     >
       <template v-slot:customCalendarHeader>
         <slot name="customCalendarHeader"></slot>
+      </template>
+      <template v-slot:formatDateTopBar>
+        <slot name="formatDateTopBar"></slot>
       </template>
     </picker-year>
   </div>

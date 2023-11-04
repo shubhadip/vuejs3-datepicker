@@ -10,6 +10,9 @@
           <template v-slot:customCalendarHeader>
             <p>Custom Calendar Header</p>
           </template>
+          <template v-slot:formatDateTopBar>
+            <p>{{ formattedDate }}</p>
+          </template>
         </appdate-picker>
       </div>
     </template>
@@ -17,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
 import Datepicker from '../datepicker/DatePickerComponent.vue';
 
@@ -41,6 +44,9 @@ export default defineComponent({
     <template v-slot:customCalendarHeader>
       <p>Before Calendar Header Slot</p>
     </template>
+    <template v-slot:formatDateTopBar>
+      <p>{{formattedDate}}</p>
+    </template>
     </appdate-picker>
   </template>`;
 
@@ -52,9 +58,22 @@ export default defineComponent({
       function dateSelected(payload: Date): void {
         console.log('dateSelected', payload)
       }
+      /**
+       * Handler for select-day function
+       */
+      function dateSelected(payload: Date): void {
+        defaultValue.value = payload
+      }
+
+      const formattedDate = computed(() => {
+        return defaultValue.value.toString();
+      })
       return {
+        ...
+        defaultValue,
         dateSelected,
-        defaultValue
+        changeDefaultValue,
+        formattedDate
       }
     }
   }
@@ -69,8 +88,12 @@ export default defineComponent({
      * Handler for select-day function
      */
     function dateSelected(payload: Date): void {
-      console.log('dateSelected', payload);
+      defaultValue.value = payload;
     }
+
+    const formattedDate = computed(() => {
+      return defaultValue.value.toString();
+    });
 
     return {
       script,
@@ -78,6 +101,7 @@ export default defineComponent({
       defaultValue,
       dateSelected,
       changeDefaultValue,
+      formattedDate,
     };
   },
 });

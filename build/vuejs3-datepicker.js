@@ -1433,8 +1433,35 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Неделя", "Понеделник", "Вторник", "Сряда", "Четвъртък", "Петък", "Събота"]
   };
-}, At = {
+}, At = () => {
+  const e = "Arabic-Tunisia", t = [
+    "جانفي",
+    "فيفري",
+    "مارس",
+    "أفريل",
+    "ماي",
+    "جوان",
+    "جويلية",
+    "أوت",
+    "سبتمبر",
+    "أكتوبر",
+    "نوفمبر",
+    "ديسمبر"
+  ];
+  return {
+    months: t,
+    monthsAbbr: t,
+    days: ["أحد", "أثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"],
+    language: e,
+    yearSuffix: "",
+    ymd: !1,
+    rtl: !0,
+    langName: e,
+    daysNames: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+  };
+}, It = {
   af: pt(),
+  arTn: At(),
   hi: Mt(),
   ja: Vt(),
   de: Nt(),
@@ -1449,7 +1476,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
   tr: Yt(),
   vn: jt(),
   bg: Ot()
-}, It = q({
+}, Ht = q({
   name: "Datepicker",
   components: {
     DateInput: Ze,
@@ -1596,7 +1623,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
   setup(e, { emit: t }) {
     const o = new Date(e.modelValue), i = R(0), r = R(null);
     e.modelValue && Ae(o) && (i.value = o.getTime(), r.value = o), e.openDate && (i.value = ie(new Date(e.openDate), 1));
-    const y = R(!1), n = R(!1), c = R(!1), M = R(0), $ = R(/* @__PURE__ */ new Date()), V = h(() => e.initialView ? e.initialView : e.minimumView), k = h(() => new Date(i.value)), T = h(() => At[e.language]), C = h(() => !!e.inline), H = h(() => ({
+    const y = R(!1), n = R(!1), c = R(!1), M = R(0), $ = R(/* @__PURE__ */ new Date()), V = h(() => e.initialView ? e.initialView : e.minimumView), k = h(() => new Date(i.value)), T = h(() => It[e.language]), C = h(() => !!e.inline), H = h(() => ({
       position: C.value ? "static" : void 0
     })), I = h(() => y.value || n.value || c.value), P = h(() => T.value && T.value.rtl === !0);
     function F(f) {
@@ -1742,7 +1769,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     };
   }
 });
-function Ht(e, t, o, i, r, y) {
+function Pt(e, t, o, i, r, y) {
   const n = Z("date-input"), c = Z("picker-day"), M = Z("picker-month"), $ = Z("picker-year"), V = Me("clickoutside");
   return le((g(), b("div", {
     class: S(["vuejs3-datepicker", [e.isRtl ? "rtl" : "", `vuejs3-${e.theme}`, e.wrapperClass]])
@@ -1872,7 +1899,7 @@ function Ht(e, t, o, i, r, y) {
     }]
   ]);
 }
-const Jt = /* @__PURE__ */ W(It, [["render", Ht]]);
+const zt = /* @__PURE__ */ W(Ht, [["render", Pt]]);
 export {
-  Jt as default
+  zt as default
 };
