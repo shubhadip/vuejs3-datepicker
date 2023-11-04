@@ -6,11 +6,12 @@
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker
+          :value="dateSelected"
+          @input="handleValue"
           :input-class="customClass"
           placeholder="YYYY-MM-DD"
           :typeable="true"
           :hideInput="false"
-          @input="dateSelected"
         >
         </appdate-picker>
       </div>
@@ -30,7 +31,7 @@ export default defineComponent({
     'appdate-picker': Datepicker,
   },
   setup() {
-    const dateSelected = ref<Date>(new Date());
+    const dateSelected = ref(new Date());
     const customClass = 'customClass';
     const template = `<template>
     <appdate-picker
@@ -48,17 +49,32 @@ export default defineComponent({
   export default {
     setup(){
       const dateSelected = ref(new Date())
+      /**
+         * Handler for select-day function
+         */
+        function handleValue(payload: Date): void {
+          console.log('handleValue', payload);
+        }
       return {
-        dateSelected
+        dateSelected,
+        handleValue
       }
     }
   }
   <script>`;
+
+    /**
+     * Handler for select-day function
+     */
+     function handleValue(payload: Date): void {
+      console.log('handleValue', payload);
+    }
     return {
       dateSelected,
       template,
       script,
       customClass,
+      handleValue
     };
   },
 });

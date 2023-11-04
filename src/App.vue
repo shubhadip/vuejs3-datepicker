@@ -126,5 +126,5 @@ export default defineComponent({
 });
 </script>
 <style lang="postcss">
-@import '@css/app.css';
+@import 'assets/styles/css/app.css';
 </style>

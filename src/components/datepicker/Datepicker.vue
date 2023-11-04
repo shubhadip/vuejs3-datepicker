@@ -608,7 +608,7 @@ export default defineComponent({
 
     return {
       pageTimestamp,
-      selectedDate,
+      selectedDate: selectedDate as unknown as Date,
       showDayView,
       showMonthView,
       showYearView,

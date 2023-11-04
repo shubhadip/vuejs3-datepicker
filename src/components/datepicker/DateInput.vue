@@ -4,9 +4,8 @@
     <span
       v-if="calendarButton"
       class="vuejs3-datepicker__calendar-button"
-      :class="{ 'input-group-prepend': addBootstrapClass }"
+      :class="{ 'input-group-prepend': addBootstrapClass, 'cursor-na' : disabled }"
       @click="showCalendar"
-      v-bind:style="{ 'cursor:not-allowed;': disabled }"
     >
       <span :class="{ 'input-group-text': addBootstrapClass }">
         <i :class="calendarButtonIcon">
@@ -82,6 +81,7 @@ export default defineComponent({
   props: {
     selectedDate: {
       type: [Date, String],
+      default: null
     },
     resetTypedDate: {
       type: [Date as new () => Date],
@@ -108,7 +108,7 @@ export default defineComponent({
       type: String,
     },
     inputClass: {
-      type: String,
+      type: [String, Object, Array],
     },
     clearButton: {
       type: Boolean,
@@ -132,10 +132,15 @@ export default defineComponent({
       type: Boolean,
     },
     typeable: {
-      type: Boolean,
+      type: Boolean
     },
     addBootstrapClass: {
       type: Boolean,
+      default: false,
+      required: false,
+      validator: (value: boolean) => {
+        return !!value
+      }
     },
     useUtc: {
       type: Boolean,
@@ -293,3 +298,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+  .cursor-na {
+    cursor: 'not-allowed';
+  }
+</style>

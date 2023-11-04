@@ -58,7 +58,7 @@ export default defineComponent({
     }
   }
   <script>`;
-    const inputRef = ref<typeof Datepicker | null>(null);
+    const inputRef = ref<any>(null);
     const accessValue = ref<Date | null>(null);
     /**
      * Handler for programmatic access of selected date
