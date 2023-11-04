@@ -3,12 +3,17 @@
   "version": "1.0.18",
   "description": "Vue 3 datepicker",
   "files": [
-    "dist/*",
-    "src/*",
-    "types/*"
+    "build/*"
   ],
   "type": "module",
-  "module": "dist/vue3-datepicker.js",
+  "module": "./build/vuejs3-datepicker.js",
+  "main": "./build/vuejs3-datepicker.umd.cjs",
+  "exports": {
+    ".": {
+      "import": "./build/vuejs3-datepicker.js",
+      "require": "./build/vuejs3-datepicker.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite --config vite.config.project.ts",
     "cz": "git-cz",
@@ -19,12 +24,13 @@
     "lint": "eslint --cache --fix",
     "prepublishOnly": "npm run lint && npm run build:lib",
     "commit-message": "npm run commitlint -e -V",
-    "semantic-release:local": "yarn run build:lib && yarn build:demo && semantic-release --no-ci",
+    "semantic-release:local": "npm run build:lib && npm build && semantic-release --no-ci",
     "semantic-release": "semantic-release",
     "prepare": "husky install"
   },
   "dependencies": {
     "prismjs": "^1.22.0",
+    "vite-plugin-dts": "^3.6.3",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -68,7 +74,6 @@
     "*.ts": "eslint --cache --fix",
     "*.vue": "eslint --cache --fix"
   },
-  "types": "./types/index.d.ts",
   "keywords": [
     "vue",
     "vuejs",

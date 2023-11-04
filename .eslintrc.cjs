@@ -23,7 +23,7 @@ module.exports = {
     'no-useless-constructor': 'off',
     indent: 'off',
     'no-tabs': 'error',
-    'max-len': [2, 140, 4, { ignoreUrls: true }],
+    'max-len': [2, 200, 4, { ignoreUrls: true }],
     'no-template-curly-in-string': 'error',
     'prefer-arrow-callback': 'error',
     'no-param-reassign': 'off',
