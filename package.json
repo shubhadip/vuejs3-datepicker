@@ -1,17 +1,17 @@
 {
-  "name": "vuejs3-datepicker",
-  "version": "1.1.1",
-  "description": "Vue 3 datepicker",
+  "name": "datepicker-lliyplli",
+  "version": "0.0.4",
+  "description": "Vue 3 datepicker fork vuejs3-datepicker",
   "files": [
     "build/*"
   ],
   "type": "module",
-  "module": "./build/vuejs3-datepicker.js",
-  "main": "./build/vuejs3-datepicker.umd.cjs",
+  "module": "./build/datepicker-lliyplli.js",
+  "main": "./build/datepicker-lliyplli.umd.cjs",
   "exports": {
     ".": {
-      "import": "./build/vuejs3-datepicker.js",
-      "require": "./build/vuejs3-datepicker.umd.cjs"
+      "import": "./build/datepicker-lliyplli.js",
+      "require": "./build/datepicker-lliyplli.umd.cjs"
     }
   },
   "scripts": {
@@ -29,6 +29,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "moment": "^2.29.4",
     "prismjs": "^1.22.0",
     "vite-plugin-dts": "^3.6.3",
     "vue": "^3.0.0"
@@ -90,10 +91,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shubhadip/vuejs3-datepicker.git"
+    "url": "git+https://github.com/lliyplliuk/vuejs3-datepicker.git"
   },
   "bugs": {
-    "url": "https://github.com/shubhadip/vuejs3-datepicker/issues"
+    "url": "https://github.com/lliyplliuk/vuejs3-datepicker/issues"
   },
   "config": {
     "commitizen": {

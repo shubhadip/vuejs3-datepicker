@@ -70,6 +70,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
+import moment from 'moment';
 import IconView from '../iconview/IconView.vue';
 import { formatDate, stringToDate } from './utils/DateUtils.ts';
 
@@ -275,6 +276,20 @@ export default defineComponent({
      * called once the input is blurred
      */
     function inputBlurred(): void {
+      if (props.format) {
+        const str = (inputRef.value as any).value;
+        const format = typeof props.format === 'function' ? props.format(str) : props.format;
+        const date = moment(str, format.toUpperCase()).toDate();
+        if (!date) {
+          clearDate();
+          (inputRef.value as any).value = null;
+          typedDate.value = '';
+        } else {
+          emit('typed-date', date);
+          emit('close-calendar', true);
+          return;
+        }
+      }
       if (props.typeable && Number.isNaN(Date.parse((inputRef.value as any).value))) {
         clearDate();
         (inputRef.value as any).value = null;

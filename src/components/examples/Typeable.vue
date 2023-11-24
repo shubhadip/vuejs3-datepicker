@@ -1,14 +1,19 @@
 <template>
   <Wrapper :templatecontent="template" :scriptcontent="script">
-    <template v-slot:label> Typeable </template>
+    <template v-slot:label> Typeable</template>
     <template v-slot:content>
       <div class="flex-block">
         <appdate-picker
-          :value="dateSelected"
+          v-model="dateSelected"
           @input="handleValue"
           :input-class="customClass"
-          placeholder="YYYY-MM-DD"
+          placeholder="dd.MM.yyyy"
+          language="ru"
+          theme="red"
+          wrapperClass="inputClass"
+          format="dd.MM.yyyy"
           :typeable="true"
+          :clear-button="true"
           :hideInput="false"
         >
         </appdate-picker>
@@ -33,10 +38,11 @@ export default defineComponent({
     const customClass = 'customClass';
     const template = `<template>
     <appdate-picker
-      :full-month-name="true"
       input-class="customClass"
-      placeholder="YYYY-MM-DD"
+      :format="'dd.MM.yyyy'"
+      placeholder="dd.MM.yyyy"
       :typeable="true"
+      :clear-button="true"
       :hideInput="false"
     >
     </appdate-picker>
@@ -67,6 +73,7 @@ export default defineComponent({
     function handleValue(payload: Date): void {
       console.log('handleValue', payload);
     }
+
     return {
       dateSelected,
       template,

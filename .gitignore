@@ -5,3 +5,4 @@ dist/
 testumdbuild/
 demo/
 example/*.js
+.idea
