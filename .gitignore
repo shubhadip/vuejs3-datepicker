@@ -6,3 +6,4 @@ testumdbuild/
 demo/
 example/*.js
 .idea
+.eslintcache

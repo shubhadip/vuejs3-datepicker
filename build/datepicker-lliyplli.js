@@ -2806,12 +2806,15 @@ const Bo = /* @__PURE__ */ Je(Lo, [["render", Eo]]), S = (e, t = !1) => t ? e.ge
     }
     function D() {
       if (e.format) {
-        const _ = n.value.value, F = typeof e.format == "function" ? e.format(_) : e.format, V = d(_, F.toUpperCase()).toDate();
-        if (!V)
-          h(), n.value.value = null, a.value = "";
-        else {
-          t("typed-date", V), t("close-calendar", !0);
-          return;
+        const _ = n.value.value, F = typeof e.format == "function" ? e.format(_) : e.format;
+        if (_) {
+          const V = d(_, F.toUpperCase()).toDate();
+          if (!V)
+            h(), n.value.value = null, a.value = "";
+          else {
+            t("typed-date", V), t("close-calendar", !0);
+            return;
+          }
         }
       }
       e.typeable && Number.isNaN(Date.parse(n.value.value)) && (h(), n.value.value = null, a.value = ""), t("close-calendar", !0);
@@ -2923,7 +2926,7 @@ function il(e, t, a, n, s, r) {
     K(e.$slots, "belowDate", {}, void 0, !0)
   ], 2);
 }
-const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-6852a744"]]), ll = ze({
+const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-f3fe399a"]]), ll = ze({
   name: "PickerDay",
   props: {
     showDayView: {
