@@ -26,7 +26,7 @@ yarn add datepicker-lliyplli
 ```
 
 ``` javascript
-import Datepicker from 'datepicker-lliypllir';
+import Datepicker from 'datepicker-lliyplli';
 
 export default {
   // ...
