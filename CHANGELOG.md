@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.1.1...v1.1.2) (2023-11-26)
+
+
+### Bug Fixes
+
+* app level css fix ([49cc5ae](https://github.com/shubhadip/vuejs3-datepicker/commit/49cc5ae7ad08fedd6631ab7073c8747f389643fe))
+
 ## [1.1.1](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.1.0...v1.1.1) (2023-11-04)
 
 
