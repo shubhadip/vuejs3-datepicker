@@ -1,14 +1,4 @@
-interface ILocale {
-  months: string[];
-  monthsAbbr: string[];
-  days: string[];
-  yearSuffix: string;
-  ymd: boolean;
-  rtl: boolean;
-  langName: string;
-  daysNames: string[];
-  language: string;
-}
+import { ILocale } from '../utils/interfaces';
 
 const ar = (): ILocale => {
   const langName = 'العربية';
@@ -26,7 +16,20 @@ const ar = (): ILocale => {
     'تشرين الثاني',
     'كانون الاول',
   ];
-  const shortName = ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'ايار', 'حزيران', 'تموز', 'آب', 'أيلول', 'تشرين الاول', 'تشرين الثاني', 'كانون الاول'];
+  const shortName = [
+    'كانون الثاني',
+    'شباط',
+    'آذار',
+    'نيسان',
+    'ايار',
+    'حزيران',
+    'تموز',
+    'آب',
+    'أيلول',
+    'تشرين الاول',
+    'تشرين الثاني',
+    'كانون الاول',
+  ];
   const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
   const daysNames = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
   const rtl = true;
@@ -44,7 +47,6 @@ const ar = (): ILocale => {
     daysNames,
   };
 };
-
 
 const af = (): ILocale => {
   const langName = 'Afrikaans';
@@ -648,56 +650,14 @@ const id = (): ILocale => {
 };
 
 export const kr = (): ILocale => {
-  const langName = "kr";
-  const monthFullName = [
-    "1월",
-    "2월",
-    "3월",
-    "4월",
-    "5월",
-    "6월",
-    "7월",
-    "8월",
-    "9월",
-    "10월",
-    "11월",
-    "12월",
-  ];
-  const shortName = [
-    "1월",
-    "2월",
-    "3월",
-    "4월",
-    "5월",
-    "6월",
-    "7월",
-    "8월",
-    "9월",
-    "10월",
-    "11월",
-    "12월",
-  ];
-  const days = [
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요일",
-    "일요일",
-  ];
-  const daysNames = [
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요일",
-    "일요일",
-  ];
+  const langName = 'kr';
+  const monthFullName = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+  const shortName = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+  const days = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'];
+  const daysNames = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'];
   const rtl = false;
   const ymd = false;
-  const yearSuffix = "";
+  const yearSuffix = '';
 
   return {
     months: monthFullName,
@@ -710,9 +670,9 @@ export const kr = (): ILocale => {
     langName,
     daysNames,
   };
-}
+};
 
-const zh_TW = (): ILocale => {
+const zhTW = (): ILocale => {
   const langName = '繁體中文';
   const monthFullName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
   const shortName = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
@@ -750,9 +710,10 @@ export const data = {
   pl: pl(),
   ru: ru(),
   tr: tr(),
-  zh_TW: zh_TW(),
+  /* eslint-disable @typescript-eslint/naming-convention */
+  zh_TW: zhTW(),
   vn: vn(),
   bg: bg(),
   kr: kr(),
-  id: id()
+  id: id(),
 };
