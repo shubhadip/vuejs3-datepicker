@@ -139,7 +139,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch, ref } from 'vue';
+import { defineComponent, computed, watch, ref, PropType } from 'vue';
 import clickOutside from '../../directives/click-outside';
 import DateInput from './DateInput.vue';
 import PickerDay from './PickerDay.vue';
@@ -147,6 +147,7 @@ import PickerMonth from './PickerMonth.vue';
 import PickerYear from './PickerYear.vue';
 import * as Langlist from './locale/index';
 import { isValidDate, setDate, validateDateInput } from './utils/DateUtils';
+import { ILocale } from './utils/interfaces';
 
 export default defineComponent({
   name: 'Datepicker',
@@ -280,6 +281,10 @@ export default defineComponent({
       default: 'green',
       type: String,
     },
+    localeData: {
+      required: false,
+      type: Object as PropType<ILocale>,
+    },
   },
   emits: [
     'input',
@@ -322,6 +327,7 @@ export default defineComponent({
     });
 
     const translation = computed(() => {
+      if (props.localeData) return props.localeData;
       const temp = (Langlist as any).data;
       return temp[props.language as any];
     });

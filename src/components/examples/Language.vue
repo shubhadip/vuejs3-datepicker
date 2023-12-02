@@ -3,7 +3,7 @@
     <template v-slot:label> Language </template>
     <template v-slot:content>
       <div class="flex-block">
-        <appdate-picker language="hi" placeholder="Select Date" @input="dateSelected" :value="defaultValue">
+        <appdate-picker :localeData="localeData" placeholder="Select Date" @input="dateSelected" :value="defaultValue">
         </appdate-picker>
         <div class="change-btn">
           <button type="button" @click="changeDefaultValue">Change Default Value</button>
@@ -17,7 +17,42 @@
 import { defineComponent, ref } from 'vue';
 import Wrapper from '../wrapper/Wrapper.vue';
 import Datepicker from '../datepicker/DatePickerComponent.vue';
+import { ILocale } from '../datepicker/utils/interfaces';
 
+const LocaleData = (): ILocale => {
+  const langName = 'Hindi';
+  const monthFullName = [
+    'जनवरी',
+    'फ़रवरी',
+    'मार्च',
+    'अप्रैल',
+    'मई',
+    'जून',
+    'जुलाई',
+    'अगस्त',
+    'सितंबर',
+    'अक्टूबर',
+    'नवंबर',
+    'दिसंबर',
+  ];
+  const shortName = ['जन', 'फ़र', 'मार्च', 'अप्रै', 'मई', 'जून', 'जुला', 'अगस्त', 'सितं', 'अक्टू', 'नवं', 'दिसं'];
+  const days = ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'];
+  const daysNames = ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
 export default defineComponent({
   name: 'DefaultValue',
   components: {
@@ -38,6 +73,7 @@ export default defineComponent({
 
     const script = `<script lang="js">
   import { ref } from 'vue';
+import { ILocale } from '../datepicker/utils/interfaces';
   export default {
     setup(){
       const defaultValue = ref(new Date())
@@ -70,6 +106,7 @@ export default defineComponent({
       defaultValue,
       dateSelected,
       changeDefaultValue,
+      localeData: LocaleData(),
     };
   },
 });
