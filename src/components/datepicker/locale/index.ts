@@ -734,6 +734,30 @@ const zh_TW = (): ILocale => {
   };
 };
 
+const cs = (): ILocale => {
+  const langName = 'Czech';
+  const monthFullName = ['Leden', 'Únor', 'Březen', 'Duben', 'Smět', 'Červen',
+    'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
+  const shortName = ['Led', 'Úno', 'Bře', 'Dub', 'Smě', 'Čen',
+    'Čec', 'Srp', 'Zář', 'Říj', 'Lis', 'Pro'];
+  const days = ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'];
+  const daysNames = ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 export const data = {
   ar: ar(),
   af: af(),
@@ -754,5 +778,6 @@ export const data = {
   vn: vn(),
   bg: bg(),
   kr: kr(),
-  id: id()
+  id: id(),
+  cs: cs()
 };
