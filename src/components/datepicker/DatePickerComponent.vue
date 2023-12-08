@@ -285,6 +285,7 @@ export default defineComponent({
     'input',
     'cleared',
     'update:modelValue',
+    'opened',
     'closed',
     'changed-month',
     'changed-year',
@@ -458,6 +459,7 @@ export default defineComponent({
         return close(true);
       }
       setInitialView();
+      emit('opened');
       return true;
     }
 

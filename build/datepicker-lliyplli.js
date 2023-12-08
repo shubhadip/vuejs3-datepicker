@@ -2926,7 +2926,7 @@ function il(e, t, a, n, s, r) {
     K(e.$slots, "belowDate", {}, void 0, !0)
   ], 2);
 }
-const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-f3fe399a"]]), ll = ze({
+const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5b"]]), ll = ze({
   name: "PickerDay",
   props: {
     showDayView: {
@@ -4275,6 +4275,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
     "input",
     "cleared",
     "update:modelValue",
+    "opened",
     "closed",
     "changed-month",
     "changed-year",
@@ -4326,7 +4327,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
       }
     }
     function Ve() {
-      return e.disabled || B.value ? !1 : oe.value ? ee(!0) : (P(), !0);
+      return e.disabled || B.value ? !1 : oe.value ? ee(!0) : (P(), t("opened"), !0);
     }
     function Ze(p) {
       const z = new Date(p);
