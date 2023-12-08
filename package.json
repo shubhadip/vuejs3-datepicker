@@ -1,6 +1,6 @@
 {
   "name": "datepicker-lliyplli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Vue 3 datepicker fork vuejs3-datepicker",
   "files": [
     "build/*"
