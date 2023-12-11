@@ -256,7 +256,8 @@ export default defineComponent({
       }
       if (props.typeable) {
         const { value } = inputRef.value as any;
-        const temptypedDate = Date.parse(value);
+        const format = typeof props.format === 'function' ? props.format(value) : props.format;
+        const temptypedDate = moment(value, format.toUpperCase()).toDate();
         if (!Number.isNaN(temptypedDate)) {
           typedDate.value = value;
           emit('typed-date', new Date(temptypedDate));
