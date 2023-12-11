@@ -427,12 +427,12 @@ function yt(e, t) {
 function us(e, t, a) {
   t != null && O(aa, e) && aa[e](t, a._a, a, e);
 }
-var x = 0, Me = 1, ye = 2, E = 3, le = 4, _e = 5, Ae = 6, ds = 7, cs = 8;
+var x = 0, Me = 1, ye = 2, B = 3, le = 4, _e = 5, Ae = 6, ds = 7, cs = 8;
 function fs(e, t) {
   return (e % t + t) % t;
 }
-var j;
-Array.prototype.indexOf ? j = Array.prototype.indexOf : j = function(e) {
+var E;
+Array.prototype.indexOf ? E = Array.prototype.indexOf : E = function(e) {
   var t;
   for (t = 0; t < this.length; ++t)
     if (this[t] === e)
@@ -488,7 +488,7 @@ function ws(e, t, a) {
         r,
         ""
       ).toLocaleLowerCase(), this._longMonthsParse[n] = this.months(r, "").toLocaleLowerCase();
-  return a ? t === "MMM" ? (s = j.call(this._shortMonthsParse, i), s !== -1 ? s : null) : (s = j.call(this._longMonthsParse, i), s !== -1 ? s : null) : t === "MMM" ? (s = j.call(this._shortMonthsParse, i), s !== -1 ? s : (s = j.call(this._longMonthsParse, i), s !== -1 ? s : null)) : (s = j.call(this._longMonthsParse, i), s !== -1 ? s : (s = j.call(this._shortMonthsParse, i), s !== -1 ? s : null));
+  return a ? t === "MMM" ? (s = E.call(this._shortMonthsParse, i), s !== -1 ? s : null) : (s = E.call(this._longMonthsParse, i), s !== -1 ? s : null) : t === "MMM" ? (s = E.call(this._shortMonthsParse, i), s !== -1 ? s : (s = E.call(this._longMonthsParse, i), s !== -1 ? s : null)) : (s = E.call(this._longMonthsParse, i), s !== -1 ? s : (s = E.call(this._shortMonthsParse, i), s !== -1 ? s : null));
 }
 function Ss(e, t, a) {
   var n, s, r;
@@ -726,7 +726,7 @@ function $s(e, t, a) {
         r,
         ""
       ).toLocaleLowerCase(), this._weekdaysParse[n] = this.weekdays(r, "").toLocaleLowerCase();
-  return a ? t === "dddd" ? (s = j.call(this._weekdaysParse, i), s !== -1 ? s : null) : t === "ddd" ? (s = j.call(this._shortWeekdaysParse, i), s !== -1 ? s : null) : (s = j.call(this._minWeekdaysParse, i), s !== -1 ? s : null) : t === "dddd" ? (s = j.call(this._weekdaysParse, i), s !== -1 || (s = j.call(this._shortWeekdaysParse, i), s !== -1) ? s : (s = j.call(this._minWeekdaysParse, i), s !== -1 ? s : null)) : t === "ddd" ? (s = j.call(this._shortWeekdaysParse, i), s !== -1 || (s = j.call(this._weekdaysParse, i), s !== -1) ? s : (s = j.call(this._minWeekdaysParse, i), s !== -1 ? s : null)) : (s = j.call(this._minWeekdaysParse, i), s !== -1 || (s = j.call(this._weekdaysParse, i), s !== -1) ? s : (s = j.call(this._shortWeekdaysParse, i), s !== -1 ? s : null));
+  return a ? t === "dddd" ? (s = E.call(this._weekdaysParse, i), s !== -1 ? s : null) : t === "ddd" ? (s = E.call(this._shortWeekdaysParse, i), s !== -1 ? s : null) : (s = E.call(this._minWeekdaysParse, i), s !== -1 ? s : null) : t === "dddd" ? (s = E.call(this._weekdaysParse, i), s !== -1 || (s = E.call(this._shortWeekdaysParse, i), s !== -1) ? s : (s = E.call(this._minWeekdaysParse, i), s !== -1 ? s : null)) : t === "ddd" ? (s = E.call(this._shortWeekdaysParse, i), s !== -1 || (s = E.call(this._weekdaysParse, i), s !== -1) ? s : (s = E.call(this._minWeekdaysParse, i), s !== -1 ? s : null)) : (s = E.call(this._minWeekdaysParse, i), s !== -1 || (s = E.call(this._weekdaysParse, i), s !== -1) ? s : (s = E.call(this._shortWeekdaysParse, i), s !== -1 ? s : null));
 }
 function js(e, t, a) {
   var n, s, r;
@@ -849,32 +849,32 @@ f("hmm", Ga);
 f("hmmss", xa);
 f("Hmm", Ga);
 f("Hmmss", xa);
-W(["H", "HH"], E);
+W(["H", "HH"], B);
 W(["k", "kk"], function(e, t, a) {
   var n = M(e);
-  t[E] = n === 24 ? 0 : n;
+  t[B] = n === 24 ? 0 : n;
 });
 W(["a", "A"], function(e, t, a) {
   a._isPm = a._locale.isPM(e), a._meridiem = e;
 });
 W(["h", "hh"], function(e, t, a) {
-  t[E] = M(e), b(a).bigHour = !0;
+  t[B] = M(e), b(a).bigHour = !0;
 });
 W("hmm", function(e, t, a) {
   var n = e.length - 2;
-  t[E] = M(e.substr(0, n)), t[le] = M(e.substr(n)), b(a).bigHour = !0;
+  t[B] = M(e.substr(0, n)), t[le] = M(e.substr(n)), b(a).bigHour = !0;
 });
 W("hmmss", function(e, t, a) {
   var n = e.length - 4, s = e.length - 2;
-  t[E] = M(e.substr(0, n)), t[le] = M(e.substr(n, 2)), t[_e] = M(e.substr(s)), b(a).bigHour = !0;
+  t[B] = M(e.substr(0, n)), t[le] = M(e.substr(n, 2)), t[_e] = M(e.substr(s)), b(a).bigHour = !0;
 });
 W("Hmm", function(e, t, a) {
   var n = e.length - 2;
-  t[E] = M(e.substr(0, n)), t[le] = M(e.substr(n));
+  t[B] = M(e.substr(0, n)), t[le] = M(e.substr(n));
 });
 W("Hmmss", function(e, t, a) {
   var n = e.length - 4, s = e.length - 2;
-  t[E] = M(e.substr(0, n)), t[le] = M(e.substr(n, 2)), t[_e] = M(e.substr(s));
+  t[B] = M(e.substr(0, n)), t[le] = M(e.substr(n, 2)), t[_e] = M(e.substr(s));
 });
 function qs(e) {
   return (e + "").toLowerCase().charAt(0) === "p";
@@ -988,7 +988,7 @@ function sr() {
 }
 function va(e) {
   var t, a = e._a;
-  return a && b(e).overflow === -2 && (t = a[Me] < 0 || a[Me] > 11 ? Me : a[ye] < 1 || a[ye] > Ht(a[x], a[Me]) ? ye : a[E] < 0 || a[E] > 24 || a[E] === 24 && (a[le] !== 0 || a[_e] !== 0 || a[Ae] !== 0) ? E : a[le] < 0 || a[le] > 59 ? le : a[_e] < 0 || a[_e] > 59 ? _e : a[Ae] < 0 || a[Ae] > 999 ? Ae : -1, b(e)._overflowDayOfYear && (t < x || t > ye) && (t = ye), b(e)._overflowWeeks && t === -1 && (t = ds), b(e)._overflowWeekday && t === -1 && (t = cs), b(e).overflow = t), e;
+  return a && b(e).overflow === -2 && (t = a[Me] < 0 || a[Me] > 11 ? Me : a[ye] < 1 || a[ye] > Ht(a[x], a[Me]) ? ye : a[B] < 0 || a[B] > 24 || a[B] === 24 && (a[le] !== 0 || a[_e] !== 0 || a[Ae] !== 0) ? B : a[le] < 0 || a[le] > 59 ? le : a[_e] < 0 || a[_e] > 59 ? _e : a[Ae] < 0 || a[Ae] > 999 ? Ae : -1, b(e)._overflowDayOfYear && (t < x || t > ye) && (t = ye), b(e)._overflowWeeks && t === -1 && (t = ds), b(e)._overflowWeekday && t === -1 && (t = cs), b(e).overflow = t), e;
 }
 var rr = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/, ir = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/, or = /Z|[+-]\d\d(?::?\d\d)?/, wt = [
   ["YYYYYY-MM-DD", /[+-]\d{6}-\d\d-\d\d/],
@@ -1157,10 +1157,10 @@ function ba(e) {
       e._a[t] = n[t] = s[t];
     for (; t < 7; t++)
       e._a[t] = n[t] = e._a[t] == null ? t === 2 ? 1 : 0 : e._a[t];
-    e._a[E] === 24 && e._a[le] === 0 && e._a[_e] === 0 && e._a[Ae] === 0 && (e._nextDay = !0, e._a[E] = 0), e._d = (e._useUTC ? lt : _s).apply(
+    e._a[B] === 24 && e._a[le] === 0 && e._a[_e] === 0 && e._a[Ae] === 0 && (e._nextDay = !0, e._a[B] = 0), e._d = (e._useUTC ? lt : _s).apply(
       null,
       n
-    ), r = e._useUTC ? e._d.getUTCDay() : e._d.getDay(), e._tzm != null && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), e._nextDay && (e._a[E] = 24), e._w && typeof e._w.d < "u" && e._w.d !== r && (b(e).weekdayMismatch = !0);
+    ), r = e._useUTC ? e._d.getUTCDay() : e._d.getDay(), e._tzm != null && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), e._nextDay && (e._a[B] = 24), e._w && typeof e._w.d < "u" && e._w.d !== r && (b(e).weekdayMismatch = !0);
   }
 }
 function wr(e) {
@@ -1190,9 +1190,9 @@ function Ma(e) {
     r = s[a], n = (t.match(os(r, e)) || [])[0], n && (i = t.substr(0, t.indexOf(n)), i.length > 0 && b(e).unusedInput.push(i), t = t.slice(
       t.indexOf(n) + n.length
     ), h += n.length), je[r] ? (n ? b(e).empty = !1 : b(e).unusedTokens.push(r), us(r, n, e)) : e._strict && !n && b(e).unusedTokens.push(r);
-  b(e).charsLeftOver = o - h, t.length > 0 && b(e).unusedInput.push(t), e._a[E] <= 12 && b(e).bigHour === !0 && e._a[E] > 0 && (b(e).bigHour = void 0), b(e).parsedDateParts = e._a.slice(0), b(e).meridiem = e._meridiem, e._a[E] = Sr(
+  b(e).charsLeftOver = o - h, t.length > 0 && b(e).unusedInput.push(t), e._a[B] <= 12 && b(e).bigHour === !0 && e._a[B] > 0 && (b(e).bigHour = void 0), b(e).parsedDateParts = e._a.slice(0), b(e).meridiem = e._meridiem, e._a[B] = Sr(
     e._locale,
-    e._a[E],
+    e._a[B],
     e._meridiem
   ), D = b(e).era, D !== null && (e._a[x] = e._locale.erasConvertYear(D, e._a[x])), ba(e), va(e);
 }
@@ -1287,7 +1287,7 @@ var Tr = function() {
 function Or(e) {
   var t, a = !1, n, s = Xe.length;
   for (t in e)
-    if (O(e, t) && !(j.call(Xe, t) !== -1 && (e[t] == null || !isNaN(e[t]))))
+    if (O(e, t) && !(E.call(Xe, t) !== -1 && (e[t] == null || !isNaN(e[t]))))
       return !1;
   for (n = 0; n < s; ++n)
     if (e[Xe[n]]) {
@@ -1416,7 +1416,7 @@ function ce(e, t) {
   } : Ne(e) || !isNaN(+e) ? (a = {}, t ? a[t] = +e : a.milliseconds = +e) : (n = Br.exec(e)) ? (s = n[1] === "-" ? -1 : 1, a = {
     y: 0,
     d: M(n[ye]) * s,
-    h: M(n[E]) * s,
+    h: M(n[B]) * s,
     m: M(n[le]) * s,
     s: M(n[_e]) * s,
     ms: M(na(n[Ae] * 1e3)) * s
@@ -2438,8 +2438,8 @@ function Wo(e, t, a, n, s) {
   return s.relativeTime(t || 1, !!a, e, n);
 }
 function Ao(e, t, a, n) {
-  var s = ce(e).abs(), r = be(s.as("s")), i = be(s.as("m")), o = be(s.as("h")), h = be(s.as("d")), D = be(s.as("M")), _ = be(s.as("w")), F = be(s.as("y")), V = r <= a.ss && ["s", r] || r < a.s && ["ss", r] || i <= 1 && ["m"] || i < a.m && ["mm", i] || o <= 1 && ["h"] || o < a.h && ["hh", o] || h <= 1 && ["d"] || h < a.d && ["dd", h];
-  return a.w != null && (V = V || _ <= 1 && ["w"] || _ < a.w && ["ww", _]), V = V || D <= 1 && ["M"] || D < a.M && ["MM", D] || F <= 1 && ["y"] || ["yy", F], V[2] = t, V[3] = +e > 0, V[4] = n, Wo.apply(null, V);
+  var s = ce(e).abs(), r = be(s.as("s")), i = be(s.as("m")), o = be(s.as("h")), h = be(s.as("d")), D = be(s.as("M")), _ = be(s.as("w")), F = be(s.as("y")), P = r <= a.ss && ["s", r] || r < a.s && ["ss", r] || i <= 1 && ["m"] || i < a.m && ["mm", i] || o <= 1 && ["h"] || o < a.h && ["hh", o] || h <= 1 && ["d"] || h < a.d && ["dd", h];
+  return a.w != null && (P = P || _ <= 1 && ["w"] || _ < a.w && ["ww", _]), P = P || D <= 1 && ["M"] || D < a.M && ["MM", D] || F <= 1 && ["y"] || ["yy", F], P[2] = t, P[3] = +e > 0, P[4] = n, Wo.apply(null, P);
 }
 function Io(e) {
   return e === void 0 ? be : typeof e == "function" ? (be = e, !0) : !1;
@@ -2761,7 +2761,7 @@ const Bo = /* @__PURE__ */ Je(Lo, [["render", Eo]]), S = (e, t = !1) => t ? e.ge
       "form-control": !0,
       ...e.inputClass
     } : e.inputClass), r = v(() => {
-      var V, B;
+      var P, j;
       if (!e.selectedDate)
         return null;
       if (a.value)
@@ -2772,8 +2772,8 @@ const Bo = /* @__PURE__ */ Je(Lo, [["render", Eo]]), S = (e, t = !1) => t ? e.ge
         const [, fe, oe] = F.split(" ");
         if (e.maximumView === "month") {
           if (e.fullMonthName) {
-            const he = (V = e.translation) == null ? void 0 : V.monthsAbbr.indexOf(fe);
-            return (B = e.translation) == null ? void 0 : B.months[he];
+            const he = (P = e.translation) == null ? void 0 : P.monthsAbbr.indexOf(fe);
+            return (j = e.translation) == null ? void 0 : j.months[he];
           }
           F = fe;
         } else
@@ -2797,8 +2797,8 @@ const Bo = /* @__PURE__ */ Je(Lo, [["render", Eo]]), S = (e, t = !1) => t ? e.ge
         13
         // enter
       ].includes(_.keyCode) && n.value.blur(), e.typeable) {
-        const { value: F } = n.value, V = Date.parse(F);
-        Number.isNaN(V) || (a.value = F, t("typed-date", new Date(V)));
+        const { value: F } = n.value, P = typeof e.format == "function" ? e.format(F) : e.format, j = d(F, P.toUpperCase()).toDate();
+        Number.isNaN(j) || (a.value = F, t("typed-date", new Date(j)));
       }
     }
     function h() {
@@ -2808,11 +2808,11 @@ const Bo = /* @__PURE__ */ Je(Lo, [["render", Eo]]), S = (e, t = !1) => t ? e.ge
       if (e.format) {
         const _ = n.value.value, F = typeof e.format == "function" ? e.format(_) : e.format;
         if (_) {
-          const V = d(_, F.toUpperCase()).toDate();
-          if (!V)
+          const P = d(_, F.toUpperCase()).toDate();
+          if (!P)
             h(), n.value.value = null, a.value = "";
           else {
-            t("typed-date", V), t("close-calendar", !0);
+            t("typed-date", P), t("close-calendar", !0);
             return;
           }
         }
@@ -2926,7 +2926,7 @@ function il(e, t, a, n, s, r) {
     K(e.$slots, "belowDate", {}, void 0, !0)
   ], 2);
 }
-const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5b"]]), ll = ze({
+const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-b8cfae44"]]), ll = ze({
   name: "PickerDay",
   props: {
     showDayView: {
@@ -3039,17 +3039,17 @@ const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5
         St(u, Pe) && (m = !0);
       }), typeof w.to < "u" && w.to && u < w.to && (m = !0), typeof w.from < "u" && w.from && u > w.from && (m = !0), typeof w.days < "u" && w.days.indexOf(me(u)) !== -1 && (m = !0), typeof w.daysOfMonth < "u" && w.daysOfMonth.indexOf(te(u)) !== -1 && (m = !0), typeof w.customPredictor == "function" && w.customPredictor(u) && (m = !0), m) : m;
     }
-    function V(u) {
+    function P(u) {
       return typeof u < "u" && u;
     }
-    function B(u) {
+    function j(u) {
       const m = e.highlighted;
       if (!(m && m.includeDisabled) && F(u))
         return !1;
       let w = !1;
       return typeof m > "u" ? !1 : (typeof m.dates < "u" && m.dates.forEach((Pe) => {
         St(u, Pe) && (w = !0);
-      }), V(m.from) && V(m.to) && (w = u >= m.from && u <= m.to), typeof m.days < "u" && m.days.indexOf(me(u)) !== -1 && (w = !0), typeof m.daysOfMonth < "u" && m.daysOfMonth.indexOf(te(u)) !== -1 && (w = !0), typeof m.customPredictor == "function" && m.customPredictor(u) && (w = !0), w);
+      }), P(m.from) && P(m.to) && (w = u >= m.from && u <= m.to), typeof m.days < "u" && m.days.indexOf(me(u)) !== -1 && (w = !0), typeof m.daysOfMonth < "u" && m.daysOfMonth.indexOf(te(u)) !== -1 && (w = !0), typeof m.customPredictor == "function" && m.customPredictor(u) && (w = !0), w);
     }
     function fe(u) {
       return {
@@ -3066,11 +3066,11 @@ const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5
     }
     function oe(u) {
       const m = e.highlighted;
-      return m ? B(u) && m.from instanceof Date && S(m.from) === S(u) && R(m.from) === R(u) && te(m.from) === te(u) : !1;
+      return m ? j(u) && m.from instanceof Date && S(m.from) === S(u) && R(m.from) === R(u) && te(m.from) === te(u) : !1;
     }
     function he(u) {
       const m = e.highlighted;
-      return m ? B(u) && m.to instanceof Date && S(m.to) === S(u) && R(m.to) === R(u) && te(m.to) === te(u) : !1;
+      return m ? j(u) && m.to instanceof Date && S(m.to) === S(u) && R(m.to) === R(u) && te(m.to) === te(u) : !1;
     }
     const q = v(() => {
       if (e.mondayFirst) {
@@ -3089,7 +3089,7 @@ const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5
           timestamp: w.getTime(),
           isSelected: _(w),
           isDisabled: F(w),
-          isHighlighted: B(w),
+          isHighlighted: j(w),
           isHighlightStart: oe(w),
           isHighlightEnd: he(w),
           isToday: St(w, /* @__PURE__ */ new Date()),
@@ -3107,7 +3107,7 @@ const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5
     }), Y = v(() => {
       const u = e.translation && e.translation.yearSuffix;
       return `${S(e.pageDate)}${u}`;
-    }), P = v(() => (e.translation && e.translation.ymd && e.translation && e.translation.ymd) === !0), Ve = v(() => e.isRtl ? h() : i()), Ze = v(() => e.isRtl ? i() : h()), zt = v(() => {
+    }), V = v(() => (e.translation && e.translation.ymd && e.translation && e.translation.ymd) === !0), Ve = v(() => e.isRtl ? h() : i()), Ze = v(() => e.isRtl ? i() : h()), zt = v(() => {
       const u = ge(e.selectedDate);
       return e.selectedDate ? Et(u, e.translation && e.translation.daysNames) : null;
     }), qe = v(() => {
@@ -3115,11 +3115,11 @@ const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5
       return e.selectedDate ? te(u) : null;
     }), Gt = v(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
     return {
-      isDefined: V,
+      isDefined: P,
       showMonthCalendar: n,
       daysOfWeek: q,
       blankDays: X,
-      isYmd: P,
+      isYmd: V,
       days: ee,
       currMonthName: g,
       currYearName: Y,
@@ -3137,7 +3137,7 @@ const ol = /* @__PURE__ */ Je(qo, [["render", il], ["__scopeId", "data-v-65797b5
       ifDifferentViews: Gt,
       isSelectedDate: _,
       isDisabledDate: F,
-      isHighlightedDate: B,
+      isHighlightedDate: j,
       isHighlightStart: oe,
       isHighlightEnd: he
     };
@@ -3288,23 +3288,23 @@ const ml = /* @__PURE__ */ Je(ll, [["render", hl]]), yl = ze({
     }
     function _(c) {
       let Y = !1;
-      const P = e.disabledDates;
-      return !P || typeof P > "u" ? !1 : (typeof P.to < "u" && P.to && (R(c) < R(P.to) && S(c) <= S(P.to) || S(c) < S(P.to)) && (Y = !0), typeof P.from < "u" && P.from && (R(c) > R(P.from) && S(c) >= S(P.from) || S(c) > S(P.from)) && (Y = !0), typeof P.customPredictor == "function" && P.customPredictor(c) && (Y = !0), Y);
+      const V = e.disabledDates;
+      return !V || typeof V > "u" ? !1 : (typeof V.to < "u" && V.to && (R(c) < R(V.to) && S(c) <= S(V.to) || S(c) < S(V.to)) && (Y = !0), typeof V.from < "u" && V.from && (R(c) > R(V.from) && S(c) >= S(V.from) || S(c) > S(V.from)) && (Y = !0), typeof V.customPredictor == "function" && V.customPredictor(c) && (Y = !0), Y);
     }
     const F = v(() => {
-      const c = e.pageDate, Y = [], P = e.useUtc ? new Date(Date.UTC(c.getUTCFullYear(), 0, c.getUTCDate())) : new Date(c.getFullYear(), 0, c.getDate(), c.getHours(), c.getMinutes());
+      const c = e.pageDate, Y = [], V = e.useUtc ? new Date(Date.UTC(c.getUTCFullYear(), 0, c.getUTCDate())) : new Date(c.getFullYear(), 0, c.getDate(), c.getHours(), c.getMinutes());
       for (let Ve = 0; Ve < 12; Ve += 1)
         Y.push({
           month: ct(Ve, e.translation && e.translation.months),
-          timestamp: P.getTime(),
-          isSelected: D(P),
-          isDisabled: _(P)
-        }), On(P, R(P) + 1);
+          timestamp: V.getTime(),
+          isSelected: D(V),
+          isDisabled: _(V)
+        }), On(V, R(V) + 1);
       return Y;
-    }), V = v(() => {
+    }), P = v(() => {
       const c = e.translation && e.translation.yearSuffix;
       return `${S(e.pageDate)}${c}`;
-    }), B = v(() => e.isRtl ? i() : s()), fe = v(() => e.isRtl ? s() : i()), oe = v(() => {
+    }), j = v(() => e.isRtl ? i() : s()), fe = v(() => e.isRtl ? s() : i()), oe = v(() => {
       const c = e.translation && e.translation.months;
       return ct(R(e.pageDate), c);
     }), he = v(() => {
@@ -3322,8 +3322,8 @@ const ml = /* @__PURE__ */ Je(ll, [["render", hl]]), yl = ze({
     }), g = v(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
     return {
       isRightNavDisabled: fe,
-      isLeftNavDisabled: B,
-      pageYearName: V,
+      isLeftNavDisabled: j,
+      pageYearName: P,
       months: F,
       selectMonth: a,
       previousYear: r,
@@ -3483,7 +3483,7 @@ const vl = /* @__PURE__ */ Je(yl, [["render", pl]]), bl = ze({
     }
     const _ = v(() => {
       const g = e.pageDate, c = [], Y = e.useUtc ? new Date(Date.UTC(Math.floor(g.getUTCFullYear() / 10) * 10, g.getUTCMonth(), g.getUTCDate())) : new Date(Math.floor(g.getFullYear() / 10) * 10, g.getMonth(), g.getDate(), g.getHours(), g.getMinutes());
-      for (let P = 0; P < 10; P += 1)
+      for (let V = 0; V < 10; V += 1)
         c.push({
           year: S(Y),
           timestamp: Y.getTime(),
@@ -3494,7 +3494,7 @@ const vl = /* @__PURE__ */ Je(yl, [["render", pl]]), bl = ze({
     }), F = v(() => {
       const g = Math.floor(S(e.pageDate) / 10) * 10, c = g + 9, Y = e.translation && e.translation.yearSuffix;
       return `${g} - ${c}${Y}`;
-    }), V = v(() => e.isRtl ? i() : s()), B = v(() => e.isRtl ? s() : i()), fe = v(() => {
+    }), P = v(() => e.isRtl ? i() : s()), j = v(() => e.isRtl ? s() : i()), fe = v(() => {
       const g = ge(e.selectedDate);
       return e.selectedDate ? Et(g, e.translation && e.translation.daysNames) : null;
     }), oe = v(() => {
@@ -3511,8 +3511,8 @@ const vl = /* @__PURE__ */ Je(yl, [["render", pl]]), bl = ze({
       return Bt(R(e.pageDate), g);
     }), ee = v(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
     return {
-      isRightNavDisabled: B,
-      isLeftNavDisabled: V,
+      isRightNavDisabled: j,
+      isLeftNavDisabled: P,
       getPageDecade: F,
       years: _,
       nextDecade: o,
@@ -4286,9 +4286,9 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
   setup(e, { emit: t }) {
     const a = new Date(e.modelValue), n = ve(0), s = ve(null);
     e.modelValue && zo(a) && (n.value = a.getTime(), s.value = a), e.openDate && (n.value = Mt(new Date(e.openDate), 1));
-    const r = ve(!1), i = ve(!1), o = ve(!1), h = ve(0), D = ve(/* @__PURE__ */ new Date()), _ = v(() => e.initialView ? e.initialView : e.minimumView), F = v(() => new Date(n.value)), V = v(() => ql[e.language]), B = v(() => !!e.inline), fe = v(() => ({
-      position: B.value ? "static" : void 0
-    })), oe = v(() => r.value || i.value || o.value), he = v(() => V.value && V.value.rtl === !0);
+    const r = ve(!1), i = ve(!1), o = ve(!1), h = ve(0), D = ve(/* @__PURE__ */ new Date()), _ = v(() => e.initialView ? e.initialView : e.minimumView), F = v(() => new Date(n.value)), P = v(() => ql[e.language]), j = v(() => !!e.inline), fe = v(() => ({
+      position: j.value ? "static" : void 0
+    })), oe = v(() => r.value || i.value || o.value), he = v(() => P.value && P.value.rtl === !0);
     function q(p) {
       p || (e.openDate ? p = new Date(e.openDate) : p = /* @__PURE__ */ new Date()), n.value = Mt(new Date(p), 1);
     }
@@ -4297,7 +4297,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
       return Oa >= gt && Oa <= Vn;
     }
     function ee(p) {
-      r.value = !1, i.value = !1, o.value = !1, B.value || p && t("closed");
+      r.value = !1, i.value = !1, o.value = !1, j.value || p && t("closed");
     }
     function g() {
       return X("day") ? (ee(), r.value = !0, !0) : !1;
@@ -4308,7 +4308,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
     function Y() {
       return X("year") ? (ee(), o.value = !0, !0) : !1;
     }
-    function P() {
+    function V() {
       const p = _.value;
       if (!X(p))
         throw new Error(
@@ -4327,7 +4327,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
       }
     }
     function Ve() {
-      return e.disabled || B.value ? !1 : oe.value ? ee(!0) : (P(), t("opened"), !0);
+      return e.disabled || j.value ? !1 : oe.value ? ee(!0) : (V(), t("opened"), !0);
     }
     function Ze(p) {
       const z = new Date(p);
@@ -4337,7 +4337,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
       s.value = null, q(), t("selected", null), e.modelValue ? t("update:modelValue", null) : t("input", null), t("cleared");
     }
     function qe(p) {
-      Ze(p.timestamp), B.value || ee(!0), D.value = /* @__PURE__ */ new Date();
+      Ze(p.timestamp), j.value || ee(!0), D.value = /* @__PURE__ */ new Date();
     }
     function Gt(p) {
       t("selected-disabled", p);
@@ -4369,7 +4369,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
       Ze(p.getTime());
     }
     function Cn() {
-      e.value && w(e.value), B.value && P();
+      e.value && w(e.value), j.value && V();
     }
     function Fn() {
       ee();
@@ -4392,7 +4392,7 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
     ), et(
       () => e.initialView,
       () => {
-        P();
+        V();
       }
     ), Cn(), {
       pageTimestamp: n,
@@ -4404,10 +4404,10 @@ const Ol = /* @__PURE__ */ Je(bl, [["render", Tl]]), Cl = () => {
       resetTypedDate: D,
       // computed
       pageDate: F,
-      translation: V,
+      translation: P,
       calendarStyle: fe,
       isOpen: oe,
-      isInline: B,
+      isInline: j,
       isRtl: he,
       // methods
       setTypedDate: Qe,
