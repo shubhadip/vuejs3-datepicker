@@ -24,6 +24,7 @@
         />
       </span>
       <input
+        v-bind="$attr"
         :type="inline ? 'hidden' : 'text'"
         :class="computedInputClass"
         :name="name"

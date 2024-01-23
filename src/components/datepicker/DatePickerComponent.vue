@@ -7,6 +7,7 @@
     }"
   >
     <date-input
+      v-bind="$attr"
       :selectedDate="selectedDate"
       :resetTypedDate="resetTypedDate"
       :format="format"
