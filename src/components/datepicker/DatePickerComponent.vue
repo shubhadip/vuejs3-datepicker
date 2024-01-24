@@ -7,7 +7,7 @@
     }"
   >
     <date-input
-      v-bind="$attr"
+      v-bind="$attrs"
       :selectedDate="selectedDate"
       :resetTypedDate="resetTypedDate"
       :format="format"
@@ -151,6 +151,7 @@ import { isValidDate, setDate, validateDateInput } from './utils/DateUtils';
 
 export default defineComponent({
   name: 'Datepicker',
+  inheritAttrs: false,
   components: {
     DateInput,
     PickerDay,

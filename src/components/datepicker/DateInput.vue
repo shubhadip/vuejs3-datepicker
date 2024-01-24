@@ -24,7 +24,7 @@
         />
       </span>
       <input
-        v-bind="$attr"
+        v-bind="$attrs"
         :type="inline ? 'hidden' : 'text'"
         :class="computedInputClass"
         :name="name"
@@ -76,6 +76,7 @@ import { formatDate, stringToDate } from './utils/DateUtils.ts';
 
 export default defineComponent({
   name: 'DateInput',
+  inheritAttrs: false,
   components: {
     IconView,
   },
