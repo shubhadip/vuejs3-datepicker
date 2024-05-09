@@ -10,7 +10,7 @@ const instances: any[] = [];
 const ClickOutside = {
   instances,
   beforeMount: bind,
-  update: (el: any, binding: any) => {
+  updated: (el: any, binding: any) => {
     if (JSON.stringify(binding.value) === JSON.stringify(binding.oldValue)) return;
     bind(el, binding);
   },
