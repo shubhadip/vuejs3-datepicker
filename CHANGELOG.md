@@ -1,3 +1,11 @@
+## [1.1.3](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.1.2...v1.1.3) (2024-05-14)
+
+
+### Bug Fixes
+
+* update hook name for directives ([cf25828](https://github.com/shubhadip/vuejs3-datepicker/commit/cf2582815847d76f88c54324eb68ee64624c92eb))
+* update hook name for directives ([c2af407](https://github.com/shubhadip/vuejs3-datepicker/commit/c2af4075562b9e52572cff3c74a666cc54a941e9))
+
 ## [1.1.2](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.1.1...v1.1.2) (2023-11-26)
 
 
