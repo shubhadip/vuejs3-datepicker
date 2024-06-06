@@ -736,10 +736,10 @@ const zh_TW = (): ILocale => {
 
 const cs = (): ILocale => {
   const langName = 'Czech';
-  const monthFullName = ['Leden', 'Únor', 'Březen', 'Duben', 'Smět', 'Červen',
+  const monthFullName = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen',
     'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
-  const shortName = ['Led', 'Úno', 'Bře', 'Dub', 'Smě', 'Čen',
-    'Čec', 'Srp', 'Zář', 'Říj', 'Lis', 'Pro'];
+  const shortName = ['Led', 'Úno', 'Bře', 'Dub', 'Kvě', 'Čvn',
+    'Čvc', 'Srp', 'Zář', 'Říj', 'Lis', 'Pro'];
   const days = ['Ne', 'Po', 'Út', 'St', 'Čt', 'Pá', 'So'];
   const daysNames = ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'];
   const rtl = false;
