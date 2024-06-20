@@ -43,7 +43,7 @@ body {
 }
 
 .page-head {
-  background-color: $darkGreen;
+  background-color: #7334a6;
   text-align: center;
   padding: 20px;
   display: flex;
@@ -91,7 +91,7 @@ body {
   top: 0px;
   width: 280px;
   height: 100%;
-  background-color: $darkGreen;
+  background-color: #7334a6;
   h1 {
     text-align: center;
     padding-top: 20px;
