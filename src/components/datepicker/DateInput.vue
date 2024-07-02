@@ -25,11 +25,10 @@
       </span>
       <input
         :type="inline ? 'hidden' : 'text'"
-        :class="computedInputClass"
         :name="name"
         ref="inputRef"
         :id="id"
-        class="vuejs3-datepicker__inputvalue"
+        :class="`${computedInputClass} vuejs3-datepicker__inputvalue`"
         :value="formattedValue"
         :open-date="openDate"
         :placeholder="placeholder"
