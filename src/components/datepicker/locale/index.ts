@@ -80,6 +80,41 @@ const af = (): ILocale => {
   };
 };
 
+const da = (): ILocale => {
+  const langName = 'Danish';
+  const monthFullName = [
+    'Januar',
+    'Februar',
+    'Marts',
+    'April',
+    'Maj',
+    'Juni',
+    'Juli',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const shortName = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const days = ['Søn', 'Man', 'Tir', 'On', 'Tors', 'Fre', 'lør'];
+  const daysNames = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'lørdag'];  
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 const de = (): ILocale => {
   const langName = 'German';
   const monthFullName = [
@@ -764,6 +799,7 @@ export const data = {
   arTn: arTn(),
   hi: hi(),
   ja: ja(),
+  da: da(),
   de: de(),
   en: en(),
   es: es(),
