@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "prismjs": "^1.22.0",
-    "vite-plugin-dts": "^3.6.3",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -39,13 +38,13 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^11.0.0",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^11.0.1",
+    "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^12.0.1",
     "@types/node": "^20.8.10",
     "@types/prismjs": "^1.26.2",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-airbnb": "^7.0.0",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^12.0.0",
@@ -64,11 +63,12 @@
     "postcss-import": "^15.1.0",
     "postcss-nested": "^6.0.1",
     "postcss-simple-vars": "^7.0.1",
-    "semantic-release": "^22.0.7",
+    "semantic-release": "^24.2.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
+    "vite": "^6.2.2",
+    "vite-plugin-dts": "^4.5.3",
     "vite-plugin-libcss": "^1.1.1",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^2.2.8"
   },
   "lint-staged": {
     "*.ts": "eslint --cache --fix",

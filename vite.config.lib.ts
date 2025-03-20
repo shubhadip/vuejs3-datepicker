@@ -1,12 +1,13 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { fileURLToPath, URL } from 'node:url'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
+import { resolve } from 'path';
 import libCss from 'vite-plugin-libcss';
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), libCss()],
+  plugins: [vue(), libCss(), dts()],
   build: {
     minify: true,
     outDir: 'build',
@@ -14,7 +15,7 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: resolve(__dirname, './src/components/datepicker/DatePickerComponent.vue'),
-      name:'vuejs3-datepicker'
+      name: 'vuejs3-datepicker',
     },
     rollupOptions: {
       external: ['vue'],
@@ -25,11 +26,11 @@ export default defineConfig({
           vue: 'Vue',
         },
       },
-    }
+    },
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
-})
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+});
