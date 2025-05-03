@@ -758,6 +758,41 @@ const cs = (): ILocale => {
   };
 };
 
+const hr = (): ILocale => {
+  const langName = 'Croatian';
+  const monthFullName = [
+    'Siječanj',
+    'Veljača',
+    'Ožujak',
+    'Travanj',
+    'Svibanj',
+    'Lipanj',
+    'Srpanj',
+    'Kolovoz',
+    'Rujan',
+    'Listopad',
+    'Studeni',
+    'Prosinac',
+  ];
+  const shortName = ['Sij', 'Vel', 'Ožu', 'Tra', 'Svi', 'Lip', 'Srp', 'Kol', 'Ruj', 'Lis', 'Stu', 'Pro'];
+  const days = ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'];
+  const daysNames = ['Nedjelja', 'Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak', 'Subota'];
+  const rtl = false;
+  const ymd = false;
+  const yearSuffix = '';
+  return {
+    months: monthFullName,
+    monthsAbbr: shortName,
+    days,
+    language: langName,
+    yearSuffix,
+    ymd,
+    rtl,
+    langName,
+    daysNames,
+  };
+};
+
 export const data = {
   ar: ar(),
   af: af(),
@@ -779,5 +814,6 @@ export const data = {
   bg: bg(),
   kr: kr(),
   id: id(),
-  cs: cs()
+  cs: cs(),
+  hr: hr()
 };
