@@ -46,20 +46,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue';
-import {
-  getDay,
-  daysInMonth,
-  setDate,
-  getMonthNameAbbr,
-  compareDates,
-  getFullYear,
-  getMonth,
-  getDate,
-  setMonth,
-  getMonthName,
-  getDayNameAbbr,
-  stringToDate,
-} from './utils/DateUtils';
+import { makeDateUtils } from './utils/DateUtils';
 
 interface IDays {
   date: number;
@@ -144,6 +131,8 @@ export default defineComponent({
   },
   emits: ['show-year-calendar', 'changed-month', 'show-month-calendar', 'selected-disabled', 'select-date'],
   setup(props, { emit }) {
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const dateUtils = makeDateUtils(props.useUtc);
     /** ********************************** Methods *********************************** */
     /**
      * Whether a day is highlighted and it is the first date
@@ -180,7 +169,7 @@ export default defineComponent({
      */
     function changeMonth(incrementBy: number): void {
       const date: Date = props.pageDate;
-      setMonth(date, getMonth(date) + incrementBy);
+      dateUtils.setMonth(date, dateUtils.getMonth(date) + incrementBy);
       emit('changed-month', date);
     }
 
@@ -194,7 +183,9 @@ export default defineComponent({
         return false;
       }
       const t = props.pageDate;
-      return getMonth(d.to) >= getMonth(t) && getFullYear(d.to) >= getFullYear(t);
+      return (
+        dateUtils.getMonth(d.to) >= dateUtils.getMonth(t) && dateUtils.getFullYear(d.to) >= dateUtils.getFullYear(t)
+      );
     }
 
     /**
@@ -216,7 +207,9 @@ export default defineComponent({
         return false;
       }
       const t = props.pageDate;
-      return getMonth(d.from) <= getMonth(t) && getFullYear(d.from) <= getFullYear(t);
+      return (
+        dateUtils.getMonth(d.from) <= dateUtils.getMonth(t) && dateUtils.getFullYear(d.from) <= dateUtils.getFullYear(t)
+      );
     }
 
     /**
@@ -233,8 +226,8 @@ export default defineComponent({
      * @return {Boolean}
      */
     function isSelectedDate(dObj: Date): boolean {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? compareDates(propDate, dObj) : false;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate ? dateUtils.compareDates(propDate, dObj) : false;
     }
 
     /**
@@ -253,7 +246,7 @@ export default defineComponent({
 
       if (typeof t.dates !== 'undefined') {
         t.dates.forEach((d: { getTime: () => string | number | Date }): void => {
-          const isEqual = compareDates(date as Date, d);
+          const isEqual = dateUtils.compareDates(date as Date, d);
           if (isEqual) {
             disabledDates = true;
             // return true;
@@ -266,21 +259,19 @@ export default defineComponent({
       if (typeof t.from !== 'undefined' && t.from && date > t.from) {
         disabledDates = true;
       }
-      // TODO: refactor based on prop types
-      // if (typeof t.ranges !== 'undefined') {
-      //   t.ranges.forEach((range: { from: number; to: number }): void => {
-      //     if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
-      //       if (date < range.to && date > range.from) {
-      //         disabledDates = true;
-      //         // return true;
-      //       }
-      //     }
-      //   });
-      // }
-      if (typeof t.days !== 'undefined' && t.days.indexOf(getDay(date as Date)) !== -1) {
+      if (typeof t.ranges !== 'undefined') {
+        t.ranges.forEach((range: { from: Date; to: Date }): void => {
+          if (typeof range.from !== 'undefined' && range.from && typeof range.to !== 'undefined' && range.to) {
+            if (date >= range.from && date <= range.to) {
+              disabledDates = true;
+            }
+          }
+        });
+      }
+      if (typeof t.days !== 'undefined' && t.days.indexOf(dateUtils.getDay(date as Date)) !== -1) {
         disabledDates = true;
       }
-      if (typeof t.daysOfMonth !== 'undefined' && t.daysOfMonth.indexOf(getDate(date as Date)) !== -1) {
+      if (typeof t.daysOfMonth !== 'undefined' && t.daysOfMonth.indexOf(dateUtils.getDate(date as Date)) !== -1) {
         disabledDates = true;
       }
       if (typeof t.customPredictor === 'function' && t.customPredictor(date)) {
@@ -316,7 +307,7 @@ export default defineComponent({
 
       if (typeof h.dates !== 'undefined') {
         h.dates.forEach((d: { getTime: () => string | number | Date }): void => {
-          if (compareDates(date as Date, d)) {
+          if (dateUtils.compareDates(date as Date, d)) {
             highlighted = true;
             // return true;
           }
@@ -327,11 +318,11 @@ export default defineComponent({
         highlighted = date >= h.from && date <= h.to;
       }
 
-      if (typeof h.days !== 'undefined' && h.days.indexOf(getDay(date as Date)) !== -1) {
+      if (typeof h.days !== 'undefined' && h.days.indexOf(dateUtils.getDay(date as Date)) !== -1) {
         highlighted = true;
       }
 
-      if (typeof h.daysOfMonth !== 'undefined' && h.daysOfMonth.indexOf(getDate(date as Date)) !== -1) {
+      if (typeof h.daysOfMonth !== 'undefined' && h.daysOfMonth.indexOf(dateUtils.getDate(date as Date)) !== -1) {
         highlighted = true;
       }
 
@@ -381,9 +372,9 @@ export default defineComponent({
       return (
         isHighlightedDate(date) &&
         h.from instanceof Date &&
-        getFullYear(h.from) === getFullYear(date) &&
-        getMonth(h.from) === getMonth(date) &&
-        getDate(h.from) === getDate(date)
+        dateUtils.getFullYear(h.from) === dateUtils.getFullYear(date) &&
+        dateUtils.getMonth(h.from) === dateUtils.getMonth(date) &&
+        dateUtils.getDate(h.from) === dateUtils.getDate(date)
       );
     }
 
@@ -399,9 +390,9 @@ export default defineComponent({
       return (
         isHighlightedDate(date) &&
         h.to instanceof Date &&
-        getFullYear(h.to) === getFullYear(date) &&
-        getMonth(h.to) === getMonth(date) &&
-        getDate(h.to) === getDate(date)
+        dateUtils.getFullYear(h.to) === dateUtils.getFullYear(date) &&
+        dateUtils.getMonth(h.to) === dateUtils.getMonth(date) &&
+        dateUtils.getDate(h.to) === dateUtils.getDate(date)
       );
     }
 
@@ -425,9 +416,9 @@ export default defineComponent({
         ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
         : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
       if (props.mondayFirst) {
-        return getDay(dObj) > 0 ? getDay(dObj) - 1 : 6;
+        return dateUtils.getDay(dObj) > 0 ? dateUtils.getDay(dObj) - 1 : 6;
       }
-      return getDay(dObj);
+      return dateUtils.getDay(dObj);
     });
 
     /**
@@ -440,22 +431,22 @@ export default defineComponent({
       const dObj = props.useUtc
         ? new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1))
         : new Date(d.getFullYear(), d.getMonth(), 1, d.getHours(), d.getMinutes());
-      const t = daysInMonth(getFullYear(dObj), getMonth(dObj));
+      const t = dateUtils.daysInMonth(dateUtils.getFullYear(dObj), dateUtils.getMonth(dObj));
       for (let i = 0; i < t; i += 1) {
         tdays.push({
-          date: getDate(dObj),
+          date: dateUtils.getDate(dObj),
           timestamp: dObj.getTime(),
           isSelected: isSelectedDate(dObj),
           isDisabled: isDisabledDate(dObj),
           isHighlighted: isHighlightedDate(dObj),
           isHighlightStart: isHighlightStart(dObj),
           isHighlightEnd: isHighlightEnd(dObj),
-          isToday: compareDates(dObj, new Date()),
-          isWeekend: getDay(dObj) === 0 || getDay(dObj) === 6,
-          isSaturday: getDay(dObj) === 6,
-          isSunday: getDay(dObj) === 0,
+          isToday: dateUtils.compareDates(dObj, new Date()),
+          isWeekend: dateUtils.getDay(dObj) === 0 || dateUtils.getDay(dObj) === 6,
+          isSaturday: dateUtils.getDay(dObj) === 6,
+          isSunday: dateUtils.getDay(dObj) === 0,
         });
-        setDate(dObj, getDate(dObj) + 1);
+        dateUtils.setDate(dObj, dateUtils.getDate(dObj) + 1);
       }
       return tdays;
     });
@@ -468,7 +459,7 @@ export default defineComponent({
       const monthName = props.fullMonthName
         ? props.translation && props.translation.months
         : props.translation && props.translation.monthsAbbr;
-      return getMonthNameAbbr(getMonth(props.pageDate), monthName);
+      return dateUtils.getMonthNameAbbr(dateUtils.getMonth(props.pageDate), monthName);
     });
 
     /**
@@ -477,7 +468,7 @@ export default defineComponent({
      */
     const monthName = computed(() => {
       const tempName = props.translation && props.translation.months;
-      return getMonthName(getMonth(props.pageDate), tempName);
+      return dateUtils.getMonthName(dateUtils.getMonth(props.pageDate), tempName);
     });
 
     /**
@@ -486,7 +477,7 @@ export default defineComponent({
      */
     const currYearName = computed(() => {
       const yearSuffix = props.translation && props.translation.yearSuffix;
-      return `${getFullYear(props.pageDate)}${yearSuffix}`;
+      return `${dateUtils.getFullYear(props.pageDate)}${yearSuffix}`;
     });
 
     /**
@@ -513,13 +504,15 @@ export default defineComponent({
     });
 
     const getDayName = computed(() => {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getDayNameAbbr(propDate, props.translation && props.translation.daysNames) : null;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate
+        ? dateUtils.getDayNameAbbr(propDate, props.translation && props.translation.daysNames)
+        : null;
     });
 
     const getDisplayDate = computed(() => {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getDate(propDate) : null;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate ? dateUtils.getDate(propDate) : null;
     });
 
     const ifDifferentViews = computed(() => {

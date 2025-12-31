@@ -71,7 +71,7 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
 import IconView from '../iconview/IconView.vue';
-import { formatDate, stringToDate } from './utils/DateUtils.ts';
+import { makeDateUtils } from './utils/DateUtils.ts';
 
 export default defineComponent({
   name: 'DateInput',
@@ -178,6 +178,9 @@ export default defineComponent({
   },
   emits: ['show-calendar', 'typed-date', 'clear-date', 'close-calendar'],
   setup(props, { emit }) {
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const dateUtils = makeDateUtils(props.useUtc);
+
     const typedDate = ref<string | number>();
     const inputRef = ref(null);
 
@@ -202,12 +205,12 @@ export default defineComponent({
         return typedDate.value;
       }
 
-      const propDate = stringToDate(props.selectedDate);
+      const propDate = dateUtils.stringToDate(props.selectedDate);
 
       let date =
         typeof props.format === 'function'
           ? props.format(propDate)
-          : formatDate(propDate, props.format as any, props.translation as any);
+          : dateUtils.formatDate(propDate, props.format as any, props.translation as any);
 
       if (props.minimumView === props.maximumView) {
         const [, y, z] = date.split(' ');

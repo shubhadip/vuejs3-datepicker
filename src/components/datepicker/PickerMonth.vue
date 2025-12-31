@@ -40,17 +40,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue';
-import {
-  getFullYear,
-  getMonth,
-  setMonth,
-  setFullYear,
-  getMonthName,
-  getDate,
-  getMonthNameAbbr,
-  getDayNameAbbr,
-  stringToDate,
-} from './utils/DateUtils';
+import { makeDateUtils } from './utils/DateUtils';
 
 interface IMonths {
   month: number;
@@ -112,6 +102,8 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const dateUtils = makeDateUtils(props.useUtc);
     /** ********************************** Methods  *********************************** */
     /**
      * Emits a selectMonth event
@@ -129,7 +121,7 @@ export default defineComponent({
      */
     function changeYear(incrementBy: number): void {
       const date = props.pageDate;
-      setFullYear(date, getFullYear(date) + incrementBy);
+      dateUtils.setFullYear(date, dateUtils.getFullYear(date) + incrementBy);
       emit('changed-year', date);
     }
 
@@ -142,7 +134,7 @@ export default defineComponent({
       if (!d || !d.to) {
         return false;
       }
-      return getFullYear(d.to) >= getFullYear(props.pageDate);
+      return dateUtils.getFullYear(d.to) >= dateUtils.getFullYear(props.pageDate);
     }
 
     /**
@@ -163,7 +155,7 @@ export default defineComponent({
       if (!d || !d.from) {
         return false;
       }
-      return getFullYear(d.from) <= getFullYear(props.pageDate);
+      return dateUtils.getFullYear(d.from) <= dateUtils.getFullYear(props.pageDate);
     }
 
     /**
@@ -188,8 +180,12 @@ export default defineComponent({
      * @return {Boolean}
      */
     function isSelectedMonth(date: Date): boolean {
-      const d = stringToDate(props.selectedDate);
-      return d && getFullYear(d) === getFullYear(date) && getMonth(d) === getMonth(date);
+      const d = dateUtils.stringToDate(props.selectedDate);
+      return (
+        d &&
+        dateUtils.getFullYear(d) === dateUtils.getFullYear(date) &&
+        dateUtils.getMonth(d) === dateUtils.getMonth(date)
+      );
     }
 
     /**
@@ -207,16 +203,18 @@ export default defineComponent({
 
       if (typeof d.to !== 'undefined' && d.to) {
         if (
-          (getMonth(date) < getMonth(d.to) && getFullYear(date) <= getFullYear(d.to)) ||
-          getFullYear(date) < getFullYear(d.to)
+          (dateUtils.getMonth(date) < dateUtils.getMonth(d.to) &&
+            dateUtils.getFullYear(date) <= dateUtils.getFullYear(d.to)) ||
+          dateUtils.getFullYear(date) < dateUtils.getFullYear(d.to)
         ) {
           disabledDates = true;
         }
       }
       if (typeof d.from !== 'undefined' && d.from) {
         if (
-          (getMonth(date) > getMonth(d.from) && getFullYear(date) >= getFullYear(d.from)) ||
-          getFullYear(date) > getFullYear(d.from)
+          (dateUtils.getMonth(date) > dateUtils.getMonth(d.from) &&
+            dateUtils.getFullYear(date) >= dateUtils.getFullYear(d.from)) ||
+          dateUtils.getFullYear(date) > dateUtils.getFullYear(d.from)
         ) {
           disabledDates = true;
         }
@@ -238,12 +236,12 @@ export default defineComponent({
         : new Date(d.getFullYear(), 0, d.getDate(), d.getHours(), d.getMinutes());
       for (let i = 0; i < 12; i += 1) {
         tmonths.push({
-          month: getMonthName(i, props.translation && props.translation.months),
+          month: dateUtils.getMonthName(i, props.translation && props.translation.months),
           timestamp: dObj.getTime(),
           isSelected: isSelectedMonth(dObj),
           isDisabled: isDisabledMonth(dObj),
         });
-        setMonth(dObj, getMonth(dObj) + 1);
+        dateUtils.setMonth(dObj, dateUtils.getMonth(dObj) + 1);
       }
       return tmonths;
     });
@@ -254,7 +252,7 @@ export default defineComponent({
      */
     const pageYearName = computed(() => {
       const yearSuffix = props.translation && props.translation.yearSuffix;
-      return `${getFullYear(props.pageDate)}${yearSuffix}`;
+      return `${dateUtils.getFullYear(props.pageDate)}${yearSuffix}`;
     });
 
     /**
@@ -279,17 +277,19 @@ export default defineComponent({
      */
     const monthName = computed(() => {
       const tempName = props.translation && props.translation.months;
-      return getMonthName(getMonth(props.pageDate), tempName);
+      return dateUtils.getMonthName(dateUtils.getMonth(props.pageDate), tempName);
     });
 
     const getDisplayDate = computed(() => {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getDate(propDate) : null;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate ? dateUtils.getDate(propDate) : null;
     });
 
     const getDayName = computed(() => {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getDayNameAbbr(propDate, props.translation && props.translation.daysNames) : null;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate
+        ? dateUtils.getDayNameAbbr(propDate, props.translation && props.translation.daysNames)
+        : null;
     });
 
     /**
@@ -298,7 +298,7 @@ export default defineComponent({
      */
     const currYearName = computed(() => {
       const yearSuffix = props.translation && props.translation.yearSuffix;
-      return `${getFullYear(props.pageDate)}${yearSuffix}`;
+      return `${dateUtils.getFullYear(props.pageDate)}${yearSuffix}`;
     });
 
     /**
@@ -309,7 +309,7 @@ export default defineComponent({
       const tempmonthName = props.fullMonthName
         ? props.translation && props.translation.months
         : props.translation && props.translation.monthsAbbr;
-      return getMonthNameAbbr(getMonth(props.pageDate), tempmonthName);
+      return dateUtils.getMonthNameAbbr(dateUtils.getMonth(props.pageDate), tempmonthName);
     });
 
     const ifDifferentViews = computed(() => {

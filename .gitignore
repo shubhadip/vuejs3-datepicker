@@ -5,3 +5,5 @@ dist/
 testumdbuild/
 demo/
 example/*.js
+coverage/
+.eslintcache

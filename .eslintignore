@@ -11,5 +11,6 @@ dist/webpack-stats.json
 tests/
 vite.config.lib.ts
 vite.config.project.ts
+vitest.config.ts
 postcss.config.cjs
 *.d.ts

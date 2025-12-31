@@ -239,7 +239,7 @@ describe('Datepicker.vue set by string', () => {
 
 describe('Datepicker.vue using UTC', () => {
   let wrapper
-  it('correctly sets the value using UTC', async (done) => {
+  it('correctly sets the value using UTC', async () => {
     const timezoneOffset = ((new Date()).getTimezoneOffset() / 60)
 
     // this is ambiguous because localzone differs by one day than UTC
@@ -259,10 +259,8 @@ describe('Datepicker.vue using UTC', () => {
       }
     })
     // It's important to assert the input rendered output
-    await wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(DateInput).vm.formattedValue).toEqual(UTCString)
-      done()
-    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(DateInput).vm.formattedValue).toEqual(UTCString)
   })
 })
 

@@ -37,16 +37,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, computed, PropType } from 'vue';
-import {
-  getDate,
-  getDayNameAbbr,
-  getFullYear,
-  getMonth,
-  getMonthName,
-  getMonthNameAbbr,
-  setFullYear,
-  stringToDate,
-} from './utils/DateUtils.ts';
+import { makeDateUtils } from './utils/DateUtils';
 
 export default defineComponent({
   name: 'PickerYear',
@@ -106,6 +97,8 @@ export default defineComponent({
   },
   emits: ['select-year', 'changed-decade'],
   setup(props, { emit }) {
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const dateUtils = makeDateUtils(props.useUtc);
     /** ********************************** Methods  *********************************** */
 
     /**
@@ -124,7 +117,7 @@ export default defineComponent({
      */
     function changeYear(incrementBy: number): void {
       const date = props.pageDate;
-      setFullYear(date, getFullYear(date) + incrementBy);
+      dateUtils.setFullYear(date, dateUtils.getFullYear(date) + incrementBy);
       emit('changed-decade', date);
     }
 
@@ -136,8 +129,8 @@ export default defineComponent({
       if (!d || !d.to) {
         return false;
       }
-      const disabledYear = getFullYear(d.to);
-      const lastYearInPreviousPage = Math.floor(getFullYear(props.pageDate) / 10) * 10 - 1;
+      const disabledYear = dateUtils.getFullYear(d.to);
+      const lastYearInPreviousPage = Math.floor(dateUtils.getFullYear(props.pageDate) / 10) * 10 - 1;
       return disabledYear > lastYearInPreviousPage;
     }
 
@@ -158,8 +151,8 @@ export default defineComponent({
       if (!d || !d.from) {
         return false;
       }
-      const disabledYear = getFullYear(d.from);
-      const firstYearInNextPage = Math.ceil(getFullYear(props.pageDate) / 10) * 10;
+      const disabledYear = dateUtils.getFullYear(d.from);
+      const firstYearInNextPage = Math.ceil(dateUtils.getFullYear(props.pageDate) / 10) * 10;
       return disabledYear <= firstYearInNextPage;
     }
 
@@ -178,8 +171,8 @@ export default defineComponent({
      * @return {Boolean}
      */
     function isSelectedYear(date: Date): boolean {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getFullYear(propDate) === getFullYear(date) : false;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate ? dateUtils.getFullYear(propDate) === dateUtils.getFullYear(date) : false;
     }
 
     /**
@@ -194,12 +187,12 @@ export default defineComponent({
       }
 
       if (typeof props.disabledDates.to !== 'undefined' && props.disabledDates.to) {
-        if (getFullYear(date) < getFullYear(props.disabledDates.to)) {
+        if (dateUtils.getFullYear(date) < dateUtils.getFullYear(props.disabledDates.to)) {
           disabledDates = true;
         }
       }
       if (typeof props.disabledDates.from !== 'undefined' && props.disabledDates.from) {
-        if (getFullYear(date) > getFullYear(props.disabledDates.from)) {
+        if (dateUtils.getFullYear(date) > dateUtils.getFullYear(props.disabledDates.from)) {
           disabledDates = true;
         }
       }
@@ -221,12 +214,12 @@ export default defineComponent({
         : new Date(Math.floor(d.getFullYear() / 10) * 10, d.getMonth(), d.getDate(), d.getHours(), d.getMinutes());
       for (let i = 0; i < 10; i += 1) {
         tyears.push({
-          year: getFullYear(dObj),
+          year: dateUtils.getFullYear(dObj),
           timestamp: dObj.getTime(),
           isSelected: isSelectedYear(dObj),
           isDisabled: isDisabledYear(dObj),
         });
-        setFullYear(dObj, getFullYear(dObj) + 1);
+        dateUtils.setFullYear(dObj, dateUtils.getFullYear(dObj) + 1);
       }
       return tyears;
     });
@@ -235,7 +228,7 @@ export default defineComponent({
      * @return {String}
      */
     const getPageDecade = computed(() => {
-      const decadeStart = Math.floor(getFullYear(props.pageDate) / 10) * 10;
+      const decadeStart = Math.floor(dateUtils.getFullYear(props.pageDate) / 10) * 10;
       const decadeEnd = decadeStart + 9;
       const yearSuffix = props.translation && props.translation.yearSuffix;
       return `${decadeStart} - ${decadeEnd}${yearSuffix}`;
@@ -258,8 +251,10 @@ export default defineComponent({
     });
 
     const getDayName = computed(() => {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getDayNameAbbr(propDate, props.translation && props.translation.daysNames) : null;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate
+        ? dateUtils.getDayNameAbbr(propDate, props.translation && props.translation.daysNames)
+        : null;
     });
 
     /**
@@ -268,12 +263,12 @@ export default defineComponent({
      */
     const monthName = computed(() => {
       const tempName = props.translation && props.translation.months;
-      return getMonthName(getMonth(props.pageDate), tempName);
+      return dateUtils.getMonthName(dateUtils.getMonth(props.pageDate), tempName);
     });
 
     const getDisplayDate = computed(() => {
-      const propDate = stringToDate(props.selectedDate);
-      return props.selectedDate ? getDate(propDate) : null;
+      const propDate = dateUtils.stringToDate(props.selectedDate);
+      return props.selectedDate ? dateUtils.getDate(propDate) : null;
     });
 
     /**
@@ -282,7 +277,7 @@ export default defineComponent({
      */
     const currYearName = computed(() => {
       const yearSuffix = props.translation && props.translation.yearSuffix;
-      return `${getFullYear(props.pageDate)}${yearSuffix}`;
+      return `${dateUtils.getFullYear(props.pageDate)}${yearSuffix}`;
     });
 
     /**
@@ -293,7 +288,7 @@ export default defineComponent({
       const tempmonthName = props.fullMonthName
         ? props.translation && props.translation.months
         : props.translation && props.translation.monthsAbbr;
-      return getMonthNameAbbr(getMonth(props.pageDate), tempmonthName);
+      return dateUtils.getMonthNameAbbr(dateUtils.getMonth(props.pageDate), tempmonthName);
     });
 
     const ifDifferentViews = computed(() => {

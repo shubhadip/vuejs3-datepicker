@@ -61,6 +61,7 @@
       :isRtl="isRtl"
       :mondayFirst="mondayFirst"
       :dayCellContent="dayCellContent"
+      :use-utc="useUtc"
       @changedMonth="handleChangedMonthFromDayPicker"
       @selectDate="selectDate"
       @showMonthCalendar="showMonthCalendar"
@@ -146,7 +147,7 @@ import PickerDay from './PickerDay.vue';
 import PickerMonth from './PickerMonth.vue';
 import PickerYear from './PickerYear.vue';
 import * as Langlist from './locale/index';
-import { isValidDate, setDate, validateDateInput } from './utils/DateUtils';
+import DateUtils, { makeDateUtils } from './utils/DateUtils';
 
 export default defineComponent({
   name: 'Datepicker',
@@ -175,7 +176,7 @@ export default defineComponent({
       default: 'en',
     },
     openDate: {
-      validator: (val: Date): boolean => validateDateInput(val),
+      validator: (val: Date): boolean => DateUtils.validateDateInput(val),
       type: Date as new () => Date,
       default: new Date(),
     },
@@ -293,15 +294,18 @@ export default defineComponent({
     'selected-disabled',
   ],
   setup(props, { emit }) {
+    // eslint-disable-next-line vue/no-setup-props-destructure
+    const dateUtils = makeDateUtils(props.useUtc);
+
     const initmodelvalue = new Date(props.modelValue as unknown as Date);
     const pageTimestamp = ref<number>(0);
     const selectedDate = ref<Date | string | null>(null);
-    if (props.modelValue && isValidDate(initmodelvalue)) {
+    if (props.modelValue && dateUtils.isValidDate(initmodelvalue)) {
       pageTimestamp.value = initmodelvalue.getTime();
       selectedDate.value = initmodelvalue;
     }
     if (props.openDate) {
-      pageTimestamp.value = setDate(new Date(props.openDate), 1);
+      pageTimestamp.value = dateUtils.setDate(new Date(props.openDate), 1);
     }
     const showDayView = ref(false);
     const showMonthView = ref(false);
@@ -356,7 +360,7 @@ export default defineComponent({
           date = new Date();
         }
       }
-      pageTimestamp.value = setDate(new Date(date), 1);
+      pageTimestamp.value = dateUtils.setDate(new Date(date), 1);
     }
 
     /**
@@ -647,7 +651,7 @@ export default defineComponent({
       closeOnClickOutside,
       showDayCalendar,
       computedInitialView,
-      setDate,
+      setDate: (date: Date, value: any): number => dateUtils.setDate(date, value),
       setDate1,
       setValue,
     };

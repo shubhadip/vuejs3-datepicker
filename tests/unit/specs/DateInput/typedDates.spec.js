@@ -45,7 +45,7 @@ describe('DateInput', () => {
 
   it('emits closeCalendar when return is pressed', () => {
     const input = wrapper.find('input')
-    const blurSpy = jest.spyOn(input.element, 'blur')
+    const blurSpy = vi.spyOn(input.element, 'blur')
     input.trigger('keyup', {keyCode: 13})
     expect(blurSpy).toBeCalled()
   })

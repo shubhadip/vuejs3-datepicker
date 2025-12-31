@@ -1,18 +1,16 @@
 import PickerYear from '@/components/datepicker/PickerYear.vue';
 import { mount } from '@vue/test-utils'
 import * as Langlist from '@/components/datepicker/locale';
-import {
-  getFullYear,
-} from '@/components/datepicker/utils/DateUtils';
+import DateUtils from '@/components/datepicker/utils/DateUtils';
 
 let en;
 
 describe('PickerYear', () => {
-  
+
   beforeEach(()=>{
     en = Langlist.data['en'];
   })
-  
+
   let wrapper
   beforeEach(() => {
     wrapper = mount(PickerYear, {
@@ -32,7 +30,7 @@ describe('PickerYear', () => {
       selectedDate: newDate
     })
     expect(wrapper.vm.selectedDate).toBe(newDate)
-    expect(getFullYear(wrapper.vm.selectedDate)).toBe(2020)
+    expect(DateUtils.getFullYear(wrapper.vm.selectedDate)).toBe(2020)
     expect(wrapper.vm.selectedDate).not.toBe(new Date(2017, 1, 1).toISOString())
   })
 

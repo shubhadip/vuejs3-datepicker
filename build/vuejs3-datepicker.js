@@ -1,46 +1,46 @@
 import './DatePickerComponent.css';
-import { defineComponent as q, openBlock as g, createElementBlock as b, normalizeClass as S, createElementVNode as N, ref as R, computed as h, watch as X, resolveComponent as Z, createTextVNode as Ce, toDisplayString as v, createCommentVNode as Y, createVNode as fe, renderSlot as U, withDirectives as le, normalizeStyle as ye, withModifiers as te, Fragment as _, renderList as x, vShow as ge, resolveDirective as Me, withCtx as se, createBlock as me } from "vue";
-const Ve = ["click"], ee = [], ke = {
-  instances: ee,
-  beforeMount: be,
-  update: (e, t) => {
-    JSON.stringify(t.value) !== JSON.stringify(t.oldValue) && be(e, t);
+import { defineComponent as R, openBlock as y, createElementBlock as D, normalizeClass as N, createElementVNode as w, ref as P, computed as f, watch as G, resolveComponent as K, createTextVNode as ye, toDisplayString as p, createCommentVNode as F, createVNode as oe, renderSlot as A, withDirectives as te, normalizeStyle as le, withModifiers as _, Fragment as Q, renderList as Z, vShow as re, resolveDirective as ge, withCtx as z, createBlock as se } from "vue";
+const De = ["click"], X = [], be = {
+  instances: X,
+  beforeMount: ue,
+  updated: (e, a) => {
+    JSON.stringify(a.value) !== JSON.stringify(a.oldValue) && ue(e, a);
   },
-  unmounted: we
+  unmounted: de
 };
-function be(e, { value: t }) {
-  we(e);
-  const o = t, i = typeof o == "function";
-  if (!i && !(typeof o == "object") || !(o.isActive !== !1))
+function ue(e, { value: a }) {
+  de(e);
+  const t = a, o = typeof t == "function";
+  if (!o && !(typeof t == "object") || !(t.isActive !== !1))
     return;
-  const n = i ? o : o.handler, c = Te({ el: e, handler: n });
-  c.eventHandlers.forEach(
-    ({ event: M, handler: $ }) => setTimeout(() => document.addEventListener(M, $, !1), 0)
-  ), ee.push(c);
+  const s = o ? t : t.handler, i = we({ el: e, handler: s });
+  i.eventHandlers.forEach(
+    ({ event: V, handler: v }) => setTimeout(() => document.addEventListener(V, v, !1), 0)
+  ), X.push(i);
 }
-function we(e) {
-  const t = ee.findIndex((i) => i.el === e);
-  if (t === -1)
+function de(e) {
+  const a = X.findIndex((o) => o.el === e);
+  if (a === -1)
     return;
-  ee[t].eventHandlers.forEach(
-    ({ event: i, handler: r }) => document.removeEventListener(i, r, !1)
-  ), ee.splice(t, 1);
+  X[a].eventHandlers.forEach(
+    ({ event: o, handler: u }) => document.removeEventListener(o, u, !1)
+  ), X.splice(a, 1);
 }
-function Te({ el: e, handler: t }) {
+function we({ el: e, handler: a }) {
   return {
     el: e,
-    eventHandlers: Ve.map((o) => ({
-      event: o,
-      handler: (i) => Be({ event: i, el: e, handler: t })
+    eventHandlers: De.map((t) => ({
+      event: t,
+      handler: (o) => Ne({ event: o, el: e, handler: a })
     }))
   };
 }
-function Be({ event: e, el: t, handler: o }) {
-  const i = e.path || (e.composedPath ? e.composedPath() : void 0);
-  if (i ? i.indexOf(t) < 0 : !t.contains(e.target))
-    return o && o(e, t);
+function Ne({ event: e, el: a, handler: t }) {
+  const o = e.path || (e.composedPath ? e.composedPath() : void 0);
+  if (o ? o.indexOf(a) < 0 : !a.contains(e.target))
+    return t && t(e, a);
 }
-const $e = q({
+const pe = R({
   name: "IconView",
   props: {
     height: {
@@ -64,17 +64,17 @@ const $e = q({
   setup() {
     return {};
   }
-}), W = (e, t) => {
-  const o = e.__vccOpts || e;
-  for (const [i, r] of t)
-    o[i] = r;
-  return o;
-}, Fe = ["height", "width"], Ye = ["fill"];
-function je(e, t, o, i, r, y) {
-  return g(), b("span", {
-    class: S(e.customClass)
+}), E = (e, a) => {
+  const t = e.__vccOpts || e;
+  for (const [o, u] of a)
+    t[o] = u;
+  return t;
+}, Se = ["height", "width"], Me = ["fill"];
+function ve(e, a, t, o, u, d) {
+  return y(), D("span", {
+    class: N(e.customClass)
   }, [
-    (g(), b("svg", {
+    (y(), D("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 448 512",
       height: e.height,
@@ -83,58 +83,218 @@ function je(e, t, o, i, r, y) {
       "aria-hidden": "true",
       "data-icon": "calendarAlt"
     }, [
-      N("path", {
+      w("path", {
         fill: e.color,
         d: "M400 64h-48V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H128V12c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h352c8.8 0 16 7.2 16 16v48H32v-48c0-8.8 7.2-16 16-16zm352 384H48c-8.8 0-16-7.2-16-16V192h384v272c0 8.8-7.2 16-16 16zM148 320h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 96h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm-96 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm192 0h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12z"
-      }, null, 8, Ye)
-    ], 8, Fe))
+      }, null, 8, Me)
+    ], 8, Se))
   ], 2);
 }
-const Oe = /* @__PURE__ */ W($e, [["render", je]]), m = (e, t = !1) => t ? e.getUTCFullYear() : e.getFullYear(), p = (e, t = !1) => t ? e.getUTCMonth() : e.getMonth(), A = (e, t = !1) => t ? e.getUTCDate() : e.getDate(), J = (e, t = !1) => t ? e.getUTCDay() : e.getDay(), he = (e, t, o = !1) => o ? e.setUTCFullYear(t) : e.setFullYear(t), pe = (e, t, o = !1) => o ? e.setUTCMonth(t) : e.setMonth(t), ie = (e, t, o = !1) => o ? e.setUTCDate(t) : e.setDate(t), oe = (e, t, o = !1) => {
-  const i = new Date(e.getTime()), r = new Date(t.getTime());
-  return o ? (i.setUTCHours(0, 0, 0, 0), r.setUTCHours(0, 0, 0, 0)) : (i.setHours(0, 0, 0, 0), r.setHours(0, 0, 0, 0)), i.getTime() === r.getTime();
-}, Ae = (e) => Object.prototype.toString.call(e) !== "[object Date]" ? !1 : !Number.isNaN(e.getTime()), re = (e, t) => {
-  if (typeof e != "object")
-    throw TypeError("Invalid Type");
-  return t[J(e)];
-}, ae = (e, t) => {
-  if (!t)
-    throw Error("missing 2nd parameter Months array");
-  if (typeof e == "object")
-    return t[p(e)];
-  if (typeof e == "number")
-    return t[e];
-  throw TypeError("Invalid type");
-}, ue = (e, t) => {
-  if (!t)
-    throw Error("missing 2nd paramter Months array");
-  if (typeof e == "object")
-    return t[p(e)];
-  if (typeof e == "number")
-    return t[e];
-  throw TypeError("Invalid type");
-}, Ie = (e, t) => /8|3|5|10/.test(t) ? 30 : t === 1 ? !(e % 4) && e % 100 || !(e % 400) ? 29 : 28 : 31, He = (e) => {
-  switch (e) {
-    case 1:
-    case 21:
-    case 31:
-      return "st";
-    case 2:
-    case 22:
-      return "nd";
-    case 3:
-    case 23:
-      return "rd";
-    default:
-      return "th";
+const Ce = /* @__PURE__ */ E(pe, [["render", ve]]), ce = {
+  /**
+   * @type {Boolean}
+   */
+  useUtc: !1,
+  /**
+   * Returns the full year, using UTC or not
+   * @param {Date} date
+   */
+  getFullYear(e) {
+    return this.useUtc ? e.getUTCFullYear() : e.getFullYear();
+  },
+  /**
+   * Returns the month, using UTC or not
+   * @param {Date} date
+   */
+  getMonth(e) {
+    return this.useUtc ? e.getUTCMonth() : e.getMonth();
+  },
+  /**
+   * Returns the date, using UTC or not
+   * @param {Date} date
+   */
+  getDate(e) {
+    return this.useUtc ? e.getUTCDate() : e.getDate();
+  },
+  /**
+   * Returns the day, using UTC or not
+   * @param {Date} date
+   */
+  getDay(e) {
+    return this.useUtc ? e.getUTCDay() : e.getDay();
+  },
+  /**
+   * Returns the hours, using UTC or not
+   * @param {Date} date
+   */
+  getHours(e) {
+    return this.useUtc ? e.getUTCHours() : e.getHours();
+  },
+  /**
+   * Returns the minutes, using UTC or not
+   * @param {Date} date
+   */
+  getMinutes(e) {
+    return this.useUtc ? e.getUTCMinutes() : e.getMinutes();
+  },
+  /**
+   * Sets the full year, using UTC or not
+   * @param {Date} date
+   * @param {Number} value
+   */
+  setFullYear(e, a) {
+    return this.useUtc ? e.setUTCFullYear(a) : e.setFullYear(a);
+  },
+  /**
+   * Sets the month, using UTC or not
+   * @param {Date} date
+   * @param {Number} value
+   */
+  setMonth(e, a) {
+    return this.useUtc ? e.setUTCMonth(a) : e.setMonth(a);
+  },
+  /**
+   * Sets the date, using UTC or not
+   * @param {Date} date
+   * @param {Number} value
+   */
+  setDate(e, a) {
+    return this.useUtc ? e.setUTCDate(a) : e.setDate(a);
+  },
+  /**
+   * Check if date1 is equivalent to date2, without comparing the time
+   * @see https://stackoverflow.com/a/6202196/4455925
+   * @param {Date} date1
+   * @param {Date} date2
+   */
+  compareDates(e, a) {
+    const t = new Date(e.getTime()), o = new Date(a.getTime());
+    return this.useUtc ? (t.setUTCHours(0, 0, 0, 0), o.setUTCHours(0, 0, 0, 0)) : (t.setHours(0, 0, 0, 0), o.setHours(0, 0, 0, 0)), t.getTime() === o.getTime();
+  },
+  /**
+   * Validates a date object
+   * @param {Date} date - an object instantiated with the new Date constructor
+   * @return {Boolean}
+   */
+  isValidDate(e) {
+    return Object.prototype.toString.call(e) !== "[object Date]" ? !1 : !Number.isNaN(e.getTime());
+  },
+  /**
+   * Return abbreviated week day name
+   * @param {Date} date
+   * @param {Array} days
+   * @return {String}
+   */
+  getDayNameAbbr(e, a) {
+    if (typeof e != "object")
+      throw TypeError("Invalid Type");
+    return a[this.getDay(e)];
+  },
+  /**
+   * Return name of the month
+   * @param {Number|Date} month
+   * @param {Array} months
+   * @return {String}
+   */
+  getMonthName(e, a) {
+    if (!a)
+      throw Error("missing 2nd parameter Months array");
+    if (typeof e == "object")
+      return a[this.getMonth(e)];
+    if (typeof e == "number")
+      return a[e];
+    throw TypeError("Invalid type");
+  },
+  /**
+   * Return an abbreviated version of the month
+   * @param {Number|Date} month
+   * @param {Array} monthsAbbr
+   * @return {String}
+   */
+  getMonthNameAbbr(e, a) {
+    if (!a)
+      throw Error("missing 2nd paramter Months array");
+    if (typeof e == "object")
+      return a[this.getMonth(e)];
+    if (typeof e == "number")
+      return a[e];
+    throw TypeError("Invalid type");
+  },
+  /**
+   * Alternative get total number of days in month
+   * @param {Number} year
+   * @param {Number} month
+   * @return {Number}
+   */
+  daysInMonth(e, a) {
+    return /8|3|5|10/.test(a) ? 30 : a === 1 ? !(e % 4) && e % 100 || !(e % 400) ? 29 : 28 : 31;
+  },
+  /**
+   * Get nth suffix for date
+   * @param {Number} day
+   * @return {String}
+   */
+  getNthSuffix(e) {
+    switch (e) {
+      case 1:
+      case 21:
+      case 31:
+        return "st";
+      case 2:
+      case 22:
+        return "nd";
+      case 3:
+      case 23:
+        return "rd";
+      default:
+        return "th";
+    }
+  },
+  /**
+   * Formats date object
+   * @param {Date} date
+   * @param {String} format
+   * @param {Object} translation
+   * @return {String}
+   */
+  formatDate(e, a, t) {
+    const o = this.getFullYear(e), u = this.getMonth(e) + 1, d = this.getDate(e);
+    return a.replace(/dd/, `0${d}`.slice(-2)).replace(/d/, d).replace(/yyyy/, o).replace(/yy/, String(o).slice(2)).replace(/MMMM/, this.getMonthName(this.getMonth(e), t.months)).replace(/MMM/, this.getMonthNameAbbr(this.getMonth(e), t.monthsAbbr)).replace(/MM/, `0${u}`.slice(-2)).replace(/M(?!a|ä|e)/, u.toString()).replace(/su/, this.getNthSuffix(this.getDate(e))).replace(/D(?!e|é|i)/, this.getDayNameAbbr(e, t.days));
+  },
+  /**
+   * Creates an array of dates for each day in between two dates.
+   * @param {Date} start
+   * @param {Date} end
+   * @return {Array}
+   */
+  createDateArray(e, a) {
+    const t = [];
+    for (; e <= a; )
+      t.push(new Date(e)), e = this.setDate(new Date(e), this.getDate(new Date(e)) + 1);
+    return t;
+  },
+  /**
+   * method used as a prop validator for input values
+   * @param {*} val
+   * @return {Boolean}
+   */
+  validateDateInput(e) {
+    return e === null || e instanceof Date || typeof e == "string" || typeof e == "number";
+  },
+  /**
+   * Converts a string to a Date object
+   * @param {String|Date} value
+   * @return {Date}
+   */
+  stringToDate(e) {
+    return typeof e == "string" ? new Date(e) : e;
   }
-}, Pe = (e, t, o) => {
-  const i = m(e), r = p(e) + 1, y = A(e);
-  return t.replace(/dd/, `0${y}`.slice(-2)).replace(/d/, y).replace(/yyyy/, i).replace(/yy/, String(i).slice(2)).replace(/MMMM/, ae(p(e), o.months)).replace(/MMM/, ue(p(e), o.monthsAbbr)).replace(/MM/, `0${r}`.slice(-2)).replace(/M(?!a|ä|e)/, r.toString()).replace(/su/, He(A(e))).replace(/D(?!e|é|i)/, re(e, o.days));
-}, Je = (e) => e === null || e instanceof Date || typeof e == "string" || typeof e == "number", z = (e) => typeof e == "string" ? new Date(e) : e, ze = q({
+}, x = (e) => ({ ...ce, useUtc: e }), Te = {
+  ...ce
+}, Ve = R({
   name: "DateInput",
   components: {
-    IconView: Oe
+    IconView: Ce
   },
   props: {
     selectedDate: {
@@ -196,8 +356,7 @@ const Oe = /* @__PURE__ */ W($e, [["render", je]]), m = (e, t = !1) => t ? e.get
     addBootstrapClass: {
       type: Boolean,
       default: !1,
-      required: !1,
-      validator: (e) => !!e
+      required: !1
     },
     useUtc: {
       type: Boolean
@@ -236,115 +395,115 @@ const Oe = /* @__PURE__ */ W($e, [["render", je]]), m = (e, t = !1) => t ? e.get
     }
   },
   emits: ["show-calendar", "typed-date", "clear-date", "close-calendar"],
-  setup(e, { emit: t }) {
-    const o = R(), i = R(null), r = h(() => e.addBootstrapClass ? typeof e.inputClass == "string" ? [e.inputClass, "form-control"].join(" ") : {
+  setup(e, { emit: a }) {
+    const t = x(e.useUtc), o = P(), u = P(null), d = f(() => e.addBootstrapClass ? typeof e.inputClass == "string" ? [e.inputClass, "form-control"].join(" ") : {
       "form-control": !0,
       ...e.inputClass
-    } : e.inputClass), y = h(() => {
-      var T, C;
+    } : e.inputClass), s = f(() => {
+      var T, M;
       if (!e.selectedDate)
         return null;
       if (o.value)
         return o.value;
-      const V = z(e.selectedDate);
-      let k = typeof e.format == "function" ? e.format(V) : Pe(V, e.format, e.translation);
+      const k = t.stringToDate(e.selectedDate);
+      let C = typeof e.format == "function" ? e.format(k) : t.formatDate(k, e.format, e.translation);
       if (e.minimumView === e.maximumView) {
-        const [, H, I] = k.split(" ");
+        const [, I, U] = C.split(" ");
         if (e.maximumView === "month") {
           if (e.fullMonthName) {
-            const P = (T = e.translation) == null ? void 0 : T.monthsAbbr.indexOf(H);
-            return (C = e.translation) == null ? void 0 : C.months[P];
+            const H = (T = e.translation) == null ? void 0 : T.monthsAbbr.indexOf(I);
+            return (M = e.translation) == null ? void 0 : M.months[H];
           }
-          k = H;
+          C = I;
         } else
-          e.maximumView === "year" && (k = I);
+          e.maximumView === "year" && (C = U);
       }
-      return k;
+      return C;
     });
-    X(
+    G(
       () => e.resetTypedDate,
       () => {
         o.value = "";
       }
     );
-    function n() {
-      t("show-calendar");
+    function i() {
+      a("show-calendar");
     }
-    function c(V) {
+    function V(k) {
       if ([
         27,
         // escape
         13
         // enter
-      ].includes(V.keyCode) && i.value.blur(), e.typeable) {
-        const { value: k } = i.value, T = Date.parse(k);
-        Number.isNaN(T) || (o.value = k, t("typed-date", new Date(T)));
+      ].includes(k.keyCode) && u.value.blur(), e.typeable) {
+        const { value: C } = u.value, T = Date.parse(C);
+        Number.isNaN(T) || (o.value = C, a("typed-date", new Date(T)));
       }
     }
-    function M() {
-      t("clear-date");
+    function v() {
+      a("clear-date");
     }
-    function $() {
-      e.typeable && Number.isNaN(Date.parse(i.value.value)) && (M(), i.value.value = null, o.value = ""), t("close-calendar", !0);
+    function B() {
+      e.typeable && Number.isNaN(Date.parse(u.value.value)) && (v(), u.value.value = null, o.value = ""), a("close-calendar", !0);
     }
     return {
       typedDate: o,
-      computedInputClass: r,
-      formattedValue: y,
-      showCalendar: n,
-      parseTypedDate: c,
-      inputBlurred: $,
-      inputRef: i,
-      clearDate: M
+      computedInputClass: d,
+      formattedValue: s,
+      showCalendar: i,
+      parseTypedDate: V,
+      inputBlurred: B,
+      inputRef: u,
+      clearDate: v
     };
   }
 });
-const Re = { key: 0 }, Ue = {
+const Fe = { key: 0 }, ke = {
   key: 1,
   style: { position: "relative" }
-}, Ee = { key: 0 }, Le = ["type", "name", "id", "value", "open-date", "placeholder", "clear-button", "disabled", "required", "readonly"], qe = {
+}, Ye = { key: 0 }, Be = ["type", "name", "id", "value", "open-date", "placeholder", "clear-button", "disabled", "required", "readonly"], $e = {
   key: 0,
   class: "vuejs3-datepicker__value"
-}, We = { class: "vuejs3-datepicker__icon" }, Ge = {
+}, Ae = { class: "vuejs3-datepicker__icon" }, je = {
   key: 0,
   class: "vuejs3-datepicker__content"
-}, Ke = {
+}, Oe = {
   key: 1,
   class: "vuejs3-datepicker__content"
-}, Qe = { key: 0 };
-function Xe(e, t, o, i, r, y) {
-  const n = Z("IconView");
-  return g(), b("div", {
-    class: S([e.addBootstrapClass ? "input-group" : ""])
+}, Ue = { key: 0 };
+function Ie(e, a, t, o, u, d) {
+  const s = K("IconView");
+  return y(), D("div", {
+    class: N([e.addBootstrapClass ? "input-group" : ""])
   }, [
-    e.calendarButton ? (g(), b("span", {
+    e.calendarButton ? (y(), D("span", {
       key: 0,
-      class: S(["vuejs3-datepicker__calendar-button", { "input-group-prepend": e.addBootstrapClass, "cursor-na": e.disabled }]),
-      onClick: t[0] || (t[0] = (...c) => e.showCalendar && e.showCalendar(...c))
+      class: N(["vuejs3-datepicker__calendar-button", { "input-group-prepend": e.addBootstrapClass, "cursor-na": e.disabled }]),
+      onClick: a[0] || (a[0] = (...i) => e.showCalendar && e.showCalendar(...i))
     }, [
-      N("span", {
-        class: S({ "input-group-text": e.addBootstrapClass })
+      w("span", {
+        class: N({ "input-group-text": e.addBootstrapClass })
       }, [
-        N("i", {
-          class: S(e.calendarButtonIcon)
+        w("i", {
+          class: N(e.calendarButtonIcon)
         }, [
-          Ce(v(e.calendarButtonIconContent) + " ", 1),
-          e.calendarButtonIcon ? Y("", !0) : (g(), b("span", Re, "…"))
+          ye(p(e.calendarButtonIconContent) + " ", 1),
+          e.calendarButtonIcon ? F("", !0) : (y(), D("span", Fe, "…"))
         ], 2)
       ], 2)
-    ], 2)) : Y("", !0),
-    e.typeable || !e.hideInput ? (g(), b("div", Ue, [
-      e.inline ? Y("", !0) : (g(), b("span", Ee, [
-        fe(n, {
+    ], 2)) : F("", !0),
+    e.typeable || !e.hideInput ? (y(), D("div", ke, [
+      e.inline ? F("", !0) : (y(), D("span", Ye, [
+        oe(s, {
           customClass: "vuejs3-datepicker__typeablecalendar",
           color: e.iconColor,
           width: e.iconWidth,
           height: e.iconHeight
         }, null, 8, ["color", "width", "height"])
       ])),
-      N("input", {
+      w("input", {
         type: e.inline ? "hidden" : "text",
-        class: S([e.computedInputClass, "vuejs3-datepicker__inputvalue"]),
+        class: N([e.computedInputClass, "vuejs3-datepicker__inputvalue"]),
         name: e.name,
         ref: "inputRef",
         id: e.id,
@@ -355,46 +514,46 @@ function Xe(e, t, o, i, r, y) {
         disabled: e.disabled,
         required: e.required,
         readonly: !e.typeable,
-        onClick: t[1] || (t[1] = (...c) => e.showCalendar && e.showCalendar(...c)),
-        onKeyup: t[2] || (t[2] = (...c) => e.parseTypedDate && e.parseTypedDate(...c)),
-        onBlur: t[3] || (t[3] = (...c) => e.inputBlurred && e.inputBlurred(...c)),
+        onClick: a[1] || (a[1] = (...i) => e.showCalendar && e.showCalendar(...i)),
+        onKeyup: a[2] || (a[2] = (...i) => e.parseTypedDate && e.parseTypedDate(...i)),
+        onBlur: a[3] || (a[3] = (...i) => e.inputBlurred && e.inputBlurred(...i)),
         autocomplete: "off"
-      }, null, 42, Le)
-    ])) : (g(), b("div", {
+      }, null, 42, Be)
+    ])) : (y(), D("div", {
       key: 2,
-      onClick: t[4] || (t[4] = (...c) => e.showCalendar && e.showCalendar(...c)),
+      onClick: a[4] || (a[4] = (...i) => e.showCalendar && e.showCalendar(...i)),
       id: "calendar-div"
     }, [
-      e.inline ? Y("", !0) : (g(), b("div", qe, [
-        N("span", We, [
-          fe(n, {
+      e.inline ? F("", !0) : (y(), D("div", $e, [
+        w("span", Ae, [
+          oe(s, {
             color: e.iconColor,
             width: e.iconWidth,
             height: e.iconHeight
           }, null, 8, ["color", "width", "height"])
         ]),
-        e.formattedValue ? (g(), b("div", Ge, v(e.formattedValue), 1)) : (g(), b("div", Ke, v(e.placeholder), 1))
+        e.formattedValue ? (y(), D("div", je, p(e.formattedValue), 1)) : (y(), D("div", Oe, p(e.placeholder), 1))
       ]))
     ])),
-    e.clearButton && e.selectedDate ? (g(), b("span", {
+    e.clearButton && e.selectedDate ? (y(), D("span", {
       key: 3,
-      class: S(["vuejs3-datepicker__clear-button", { "input-group-append": e.addBootstrapClass }]),
-      onClick: t[5] || (t[5] = (c) => e.clearDate())
+      class: N(["vuejs3-datepicker__clear-button", { "input-group-append": e.addBootstrapClass }]),
+      onClick: a[5] || (a[5] = (i) => e.clearDate())
     }, [
-      N("span", {
-        class: S({ "input-group-text": e.addBootstrapClass })
+      w("span", {
+        class: N({ "input-group-text": e.addBootstrapClass })
       }, [
-        N("i", {
-          class: S(e.clearButtonIcon)
+        w("i", {
+          class: N(e.clearButtonIcon)
         }, [
-          e.clearButtonIcon ? Y("", !0) : (g(), b("span", Qe, "×"))
+          e.clearButtonIcon ? F("", !0) : (y(), D("span", Ue, "×"))
         ], 2)
       ], 2)
-    ], 2)) : Y("", !0),
-    U(e.$slots, "belowDate", {}, void 0, !0)
+    ], 2)) : F("", !0),
+    A(e.$slots, "belowDate", {}, void 0, !0)
   ], 2);
 }
-const Ze = /* @__PURE__ */ W(ze, [["render", Xe], ["__scopeId", "data-v-204bf2e8"]]), _e = q({
+const He = /* @__PURE__ */ E(Ve, [["render", Ie], ["__scopeId", "data-v-deefa5d0"]]), Pe = R({
   name: "PickerDay",
   props: {
     showDayView: {
@@ -403,8 +562,7 @@ const Ze = /* @__PURE__ */ W(ze, [["render", Xe], ["__scopeId", "data-v-204bf2e8
     selectedDate: {
       type: [String, Date],
       required: !1,
-      default: null,
-      validator: (e) => ["string", "number"].indexOf(typeof e) !== -1 || e === null
+      default: null
     },
     pageDate: {
       type: Date,
@@ -463,212 +621,220 @@ const Ze = /* @__PURE__ */ W(ze, [["render", Xe], ["__scopeId", "data-v-204bf2e8
     }
   },
   emits: ["show-year-calendar", "changed-month", "show-month-calendar", "selected-disabled", "select-date"],
-  setup(e, { emit: t }) {
-    function o(a) {
-      a.isDisabled ? (t("selected-disabled", a), e.preventDisableDateSelection || t("select-date", a)) : t("select-date", a);
+  setup(e, { emit: a }) {
+    const t = x(e.useUtc);
+    function o(n) {
+      n.isDisabled ? (a("selected-disabled", n), e.preventDisableDateSelection || a("select-date", n)) : a("select-date", n);
+    }
+    function u() {
+      a("show-month-calendar");
+    }
+    function d() {
+      a("show-year-calendar");
+    }
+    function s(n) {
+      const r = e.pageDate;
+      t.setMonth(r, t.getMonth(r) + n), a("changed-month", r);
     }
     function i() {
-      t("show-month-calendar");
-    }
-    function r() {
-      t("show-year-calendar");
-    }
-    function y(a) {
-      const l = e.pageDate;
-      pe(l, p(l) + a), t("changed-month", l);
-    }
-    function n() {
-      const a = e.disabledDates;
-      if (!a || !a.to)
+      const n = e.disabledDates;
+      if (!n || !n.to)
         return !1;
-      const l = e.pageDate;
-      return p(a.to) >= p(l) && m(a.to) >= m(l);
+      const r = e.pageDate;
+      return t.getMonth(n.to) >= t.getMonth(r) && t.getFullYear(n.to) >= t.getFullYear(r);
     }
-    function c() {
-      n() || y(-1);
+    function V() {
+      i() || s(-1);
     }
-    function M() {
-      const a = e.disabledDates;
-      if (!a || !a.from)
+    function v() {
+      const n = e.disabledDates;
+      if (!n || !n.from)
         return !1;
-      const l = e.pageDate;
-      return p(a.from) <= p(l) && m(a.from) <= m(l);
+      const r = e.pageDate;
+      return t.getMonth(n.from) <= t.getMonth(r) && t.getFullYear(n.from) <= t.getFullYear(r);
     }
-    function $() {
-      M() || y(1);
+    function B() {
+      v() || s(1);
     }
-    function V(a) {
-      const l = z(e.selectedDate);
-      return e.selectedDate ? oe(l, a) : !1;
+    function k(n) {
+      const r = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.compareDates(r, n) : !1;
     }
-    function k(a) {
-      let l = !1;
-      const d = e.disabledDates;
-      return d ? typeof d > "u" ? !1 : (typeof d.dates < "u" && d.dates.forEach((L) => {
-        oe(a, L) && (l = !0);
-      }), typeof d.to < "u" && d.to && a < d.to && (l = !0), typeof d.from < "u" && d.from && a > d.from && (l = !0), typeof d.days < "u" && d.days.indexOf(J(a)) !== -1 && (l = !0), typeof d.daysOfMonth < "u" && d.daysOfMonth.indexOf(A(a)) !== -1 && (l = !0), typeof d.customPredictor == "function" && d.customPredictor(a) && (l = !0), l) : l;
+    function C(n) {
+      let r = !1;
+      const m = e.disabledDates;
+      return m ? typeof m > "u" ? !1 : (typeof m.dates < "u" && m.dates.forEach(($) => {
+        t.compareDates(n, $) && (r = !0);
+      }), typeof m.to < "u" && m.to && n < m.to && (r = !0), typeof m.from < "u" && m.from && n > m.from && (r = !0), typeof m.ranges < "u" && m.ranges.forEach(($) => {
+        typeof $.from < "u" && $.from && typeof $.to < "u" && $.to && n >= $.from && n <= $.to && (r = !0);
+      }), typeof m.days < "u" && m.days.indexOf(t.getDay(n)) !== -1 && (r = !0), typeof m.daysOfMonth < "u" && m.daysOfMonth.indexOf(t.getDate(n)) !== -1 && (r = !0), typeof m.customPredictor == "function" && m.customPredictor(n) && (r = !0), r) : r;
     }
-    function T(a) {
-      return typeof a < "u" && a;
+    function T(n) {
+      return typeof n < "u" && n;
     }
-    function C(a) {
-      const l = e.highlighted;
-      if (!(l && l.includeDisabled) && k(a))
+    function M(n) {
+      const r = e.highlighted;
+      if (!(r && r.includeDisabled) && C(n))
         return !1;
-      let d = !1;
-      return typeof l > "u" ? !1 : (typeof l.dates < "u" && l.dates.forEach((L) => {
-        oe(a, L) && (d = !0);
-      }), T(l.from) && T(l.to) && (d = a >= l.from && a <= l.to), typeof l.days < "u" && l.days.indexOf(J(a)) !== -1 && (d = !0), typeof l.daysOfMonth < "u" && l.daysOfMonth.indexOf(A(a)) !== -1 && (d = !0), typeof l.customPredictor == "function" && l.customPredictor(a) && (d = !0), d);
+      let m = !1;
+      return typeof r > "u" ? !1 : (typeof r.dates < "u" && r.dates.forEach(($) => {
+        t.compareDates(n, $) && (m = !0);
+      }), T(r.from) && T(r.to) && (m = n >= r.from && n <= r.to), typeof r.days < "u" && r.days.indexOf(t.getDay(n)) !== -1 && (m = !0), typeof r.daysOfMonth < "u" && r.daysOfMonth.indexOf(t.getDate(n)) !== -1 && (m = !0), typeof r.customPredictor == "function" && r.customPredictor(n) && (m = !0), m);
     }
-    function H(a) {
+    function I(n) {
       return {
-        selected: a.isSelected,
-        disabled: a.isDisabled,
-        highlighted: a.isHighlighted,
-        today: a.isToday,
-        weekend: a.isWeekend,
-        sat: a.isSaturday,
-        sun: a.isSunday,
-        "highlight-start": a.isHighlightStart,
-        "highlight-end": a.isHighlightEnd
+        selected: n.isSelected,
+        disabled: n.isDisabled,
+        highlighted: n.isHighlighted,
+        today: n.isToday,
+        weekend: n.isWeekend,
+        sat: n.isSaturday,
+        sun: n.isSunday,
+        "highlight-start": n.isHighlightStart,
+        "highlight-end": n.isHighlightEnd
       };
     }
-    function I(a) {
-      const l = e.highlighted;
-      return l ? C(a) && l.from instanceof Date && m(l.from) === m(a) && p(l.from) === p(a) && A(l.from) === A(a) : !1;
+    function U(n) {
+      const r = e.highlighted;
+      return r ? M(n) && r.from instanceof Date && t.getFullYear(r.from) === t.getFullYear(n) && t.getMonth(r.from) === t.getMonth(n) && t.getDate(r.from) === t.getDate(n) : !1;
     }
-    function P(a) {
-      const l = e.highlighted;
-      return l ? C(a) && l.to instanceof Date && m(l.to) === m(a) && p(l.to) === p(a) && A(l.to) === A(a) : !1;
+    function H(n) {
+      const r = e.highlighted;
+      return r ? M(n) && r.to instanceof Date && t.getFullYear(r.to) === t.getFullYear(n) && t.getMonth(r.to) === t.getMonth(n) && t.getDate(r.to) === t.getDate(n) : !1;
     }
-    const F = h(() => {
+    const Y = f(() => {
       if (e.mondayFirst) {
-        const a = e.translation && e.translation.days && e.translation.days.slice();
-        return a.push(a.shift()), a;
+        const n = e.translation && e.translation.days && e.translation.days.slice();
+        return n.push(n.shift()), n;
       }
       return e.translation && e.translation.days;
-    }), j = h(() => {
-      const a = e.pageDate, l = e.useUtc ? new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth(), 1)) : new Date(a.getFullYear(), a.getMonth(), 1, a.getHours(), a.getMinutes());
-      return e.mondayFirst ? J(l) > 0 ? J(l) - 1 : 6 : J(l);
-    }), O = h(() => {
-      const a = e.pageDate, l = [], d = e.useUtc ? new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth(), 1)) : new Date(a.getFullYear(), a.getMonth(), 1, a.getHours(), a.getMinutes()), L = Ie(m(d), p(d));
-      for (let Q = 0; Q < L; Q += 1)
-        l.push({
-          date: A(d),
-          timestamp: d.getTime(),
-          isSelected: V(d),
-          isDisabled: k(d),
-          isHighlighted: C(d),
-          isHighlightStart: I(d),
-          isHighlightEnd: P(d),
-          isToday: oe(d, /* @__PURE__ */ new Date()),
-          isWeekend: J(d) === 0 || J(d) === 6,
-          isSaturday: J(d) === 6,
-          isSunday: J(d) === 0
-        }), ie(d, A(d) + 1);
-      return l;
-    }), u = h(() => {
-      const a = e.fullMonthName ? e.translation && e.translation.months : e.translation && e.translation.monthsAbbr;
-      return ue(p(e.pageDate), a);
-    }), s = h(() => {
-      const a = e.translation && e.translation.months;
-      return ae(p(e.pageDate), a);
-    }), D = h(() => {
-      const a = e.translation && e.translation.yearSuffix;
-      return `${m(e.pageDate)}${a}`;
-    }), w = h(() => (e.translation && e.translation.ymd && e.translation && e.translation.ymd) === !0), E = h(() => e.isRtl ? M() : n()), G = h(() => e.isRtl ? n() : M()), de = h(() => {
-      const a = z(e.selectedDate);
-      return e.selectedDate ? re(a, e.translation && e.translation.daysNames) : null;
-    }), K = h(() => {
-      const a = z(e.selectedDate);
-      return e.selectedDate ? A(a) : null;
-    }), ce = h(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
+    }), j = f(() => {
+      const n = e.pageDate, r = e.useUtc ? new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), 1)) : new Date(n.getFullYear(), n.getMonth(), 1, n.getHours(), n.getMinutes());
+      return e.mondayFirst ? t.getDay(r) > 0 ? t.getDay(r) - 1 : 6 : t.getDay(r);
+    }), O = f(() => {
+      const n = e.pageDate, r = [], m = e.useUtc ? new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), 1)) : new Date(n.getFullYear(), n.getMonth(), 1, n.getHours(), n.getMinutes()), $ = t.daysInMonth(t.getFullYear(m), t.getMonth(m));
+      for (let q = 0; q < $; q += 1)
+        r.push({
+          date: t.getDate(m),
+          timestamp: m.getTime(),
+          isSelected: k(m),
+          isDisabled: C(m),
+          isHighlighted: M(m),
+          isHighlightStart: U(m),
+          isHighlightEnd: H(m),
+          isToday: t.compareDates(m, /* @__PURE__ */ new Date()),
+          isWeekend: t.getDay(m) === 0 || t.getDay(m) === 6,
+          isSaturday: t.getDay(m) === 6,
+          isSunday: t.getDay(m) === 0
+        }), t.setDate(m, t.getDate(m) + 1);
+      return r;
+    }), c = f(() => {
+      const n = e.fullMonthName ? e.translation && e.translation.months : e.translation && e.translation.monthsAbbr;
+      return t.getMonthNameAbbr(t.getMonth(e.pageDate), n);
+    }), l = f(() => {
+      const n = e.translation && e.translation.months;
+      return t.getMonthName(t.getMonth(e.pageDate), n);
+    }), g = f(() => {
+      const n = e.translation && e.translation.yearSuffix;
+      return `${t.getFullYear(e.pageDate)}${n}`;
+    }), b = f(() => (e.translation && e.translation.ymd && e.translation && e.translation.ymd) === !0), J = f(() => e.isRtl ? v() : i()), L = f(() => e.isRtl ? i() : v()), ae = f(() => {
+      const n = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getDayNameAbbr(n, e.translation && e.translation.daysNames) : null;
+    }), W = f(() => {
+      const n = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getDate(n) : null;
+    }), ne = f(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
     return {
       isDefined: T,
-      showMonthCalendar: i,
-      daysOfWeek: F,
+      showMonthCalendar: u,
+      daysOfWeek: Y,
       blankDays: j,
-      isYmd: w,
+      isYmd: b,
       days: O,
-      currMonthName: u,
-      currYearName: D,
-      isLeftNavDisabled: E,
-      isRightNavDisabled: G,
+      currMonthName: c,
+      currYearName: g,
+      isLeftNavDisabled: J,
+      isRightNavDisabled: L,
       selectDate: o,
-      previousMonth: c,
-      nextMonth: $,
-      dayClasses: H,
-      monthName: s,
-      getDayName: de,
-      getDisplayDate: K,
-      showYearCalendar: r,
-      isNextMonthDisabled: M,
-      ifDifferentViews: ce,
-      isSelectedDate: V,
-      isDisabledDate: k,
-      isHighlightedDate: C,
-      isHighlightStart: I,
-      isHighlightEnd: P
+      previousMonth: V,
+      nextMonth: B,
+      dayClasses: I,
+      monthName: l,
+      getDayName: ae,
+      getDisplayDate: W,
+      showYearCalendar: d,
+      isNextMonthDisabled: v,
+      ifDifferentViews: ne,
+      isSelectedDate: k,
+      isDisabledDate: C,
+      isHighlightedDate: M,
+      isHighlightStart: U,
+      isHighlightEnd: H
     };
   }
-}), xe = {
+}), Je = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar"
-}, et = { class: "vuejs3-datepicker__calendar-topbar-day" }, tt = { class: "vuejs3-datepicker__calendar-actionarea" }, at = ["innerHTML", "onClick"];
-function nt(e, t, o, i, r, y) {
-  return le((g(), b("div", {
-    class: S(["vuejs3-datepicker__calendar", `vuejs3-${e.theme}`, e.calendarClass]),
-    style: ye(e.calendarStyle),
-    onMousedown: t[4] || (t[4] = te(() => {
+}, ze = {
+  key: 0,
+  class: "vuejs3-datepicker__calendar-topbar-day"
+}, Re = { class: "vuejs3-datepicker__calendar-actionarea" }, Ee = ["innerHTML", "onClick"];
+function Le(e, a, t, o, u, d) {
+  return te((y(), D("div", {
+    class: N(["vuejs3-datepicker__calendar", `vuejs3-${e.theme}`, e.calendarClass]),
+    style: le(e.calendarStyle),
+    onMousedown: a[4] || (a[4] = _(() => {
     }, ["prevent"]))
   }, [
-    U(e.$slots, "customCalendarHeader"),
-    e.ifDifferentViews && e.selectedDate ? (g(), b("section", xe, [
-      N("p", {
+    A(e.$slots, "customCalendarHeader"),
+    e.ifDifferentViews && e.selectedDate ? (y(), D("section", Je, [
+      w("p", {
         class: "vuejs3-datepicker__calendar-topbar-year",
-        onClick: t[0] || (t[0] = (...n) => e.showYearCalendar && e.showYearCalendar(...n))
-      }, v(e.currYearName), 1),
-      N("p", et, v(e.getDayName) + " " + v(e.getDisplayDate) + " " + v(e.monthName), 1)
-    ])) : Y("", !0),
-    N("div", tt, [
-      N("header", null, [
-        N("span", {
-          onClick: t[1] || (t[1] = (n) => e.isRtl ? e.nextMonth() : e.previousMonth()),
-          class: S(["prev", { disabled: e.isLeftNavDisabled }])
+        onClick: a[0] || (a[0] = (...s) => e.showYearCalendar && e.showYearCalendar(...s))
+      }, p(e.currYearName), 1),
+      A(e.$slots, "formatDateTopBar", {}, () => [
+        e.selectedDate ? (y(), D("p", ze, p(e.getDayName) + " " + p(e.getDisplayDate) + " " + p(e.monthName), 1)) : F("", !0)
+      ])
+    ])) : F("", !0),
+    w("div", Re, [
+      w("header", null, [
+        w("span", {
+          onClick: a[1] || (a[1] = (s) => e.isRtl ? e.nextMonth() : e.previousMonth()),
+          class: N(["prev", { disabled: e.isLeftNavDisabled }])
         }, "<", 2),
-        N("span", {
-          class: S(["day__month_btn", e.allowedToShowView("month") ? "up" : ""]),
-          onClick: t[2] || (t[2] = (...n) => e.showMonthCalendar && e.showMonthCalendar(...n))
-        }, v(e.isYmd ? e.currYearName : e.currMonthName) + " " + v(e.isYmd ? e.currMonthName : e.currYearName), 3),
-        N("span", {
-          onClick: t[3] || (t[3] = (n) => e.isRtl ? e.previousMonth() : e.nextMonth()),
-          class: S(["next", { disabled: e.isRightNavDisabled }])
+        w("span", {
+          class: N(["day__month_btn", e.allowedToShowView("month") ? "up" : ""]),
+          onClick: a[2] || (a[2] = (...s) => e.showMonthCalendar && e.showMonthCalendar(...s))
+        }, p(e.isYmd ? e.currYearName : e.currMonthName) + " " + p(e.isYmd ? e.currMonthName : e.currYearName), 3),
+        w("span", {
+          onClick: a[3] || (a[3] = (s) => e.isRtl ? e.previousMonth() : e.nextMonth()),
+          class: N(["next", { disabled: e.isRightNavDisabled }])
         }, ">", 2)
       ]),
-      N("div", {
-        class: S(e.isRtl ? "flex-rtl" : "")
+      w("div", {
+        class: N(e.isRtl ? "flex-rtl" : "")
       }, [
-        (g(!0), b(_, null, x(e.daysOfWeek, (n) => (g(), b("span", {
+        (y(!0), D(Q, null, Z(e.daysOfWeek, (s) => (y(), D("span", {
           class: "cell day-header",
-          key: n.timestamp
-        }, v(n), 1))), 128)),
-        e.blankDays > 0 ? (g(!0), b(_, { key: 0 }, x(e.blankDays, (n) => (g(), b("span", {
+          key: s.timestamp
+        }, p(s), 1))), 128)),
+        e.blankDays > 0 ? (y(!0), D(Q, { key: 0 }, Z(e.blankDays, (s) => (y(), D("span", {
           class: "cell day blank",
-          key: n.timestamp
-        }))), 128)) : Y("", !0),
-        (g(!0), b(_, null, x(e.days, (n) => (g(), b("span", {
-          class: S(["cell day", e.dayClasses(n)]),
-          key: n.timestamp,
-          innerHTML: e.dayCellContent(n),
-          onClick: (c) => e.selectDate(n)
-        }, null, 10, at))), 128))
+          key: s.timestamp
+        }))), 128)) : F("", !0),
+        (y(!0), D(Q, null, Z(e.days, (s) => (y(), D("span", {
+          class: N(["cell day", e.dayClasses(s)]),
+          key: s.timestamp,
+          innerHTML: e.dayCellContent(s),
+          onClick: (i) => e.selectDate(s)
+        }, null, 10, Ee))), 128))
       ], 2)
     ])
   ], 38)), [
-    [ge, e.showDayView]
+    [re, e.showDayView]
   ]);
 }
-const st = /* @__PURE__ */ W(_e, [["render", nt]]), ot = q({
+const We = /* @__PURE__ */ E(Pe, [["render", Le]]), qe = R({
   name: "PickerMonth",
   props: {
     showMonthView: {
@@ -677,8 +843,7 @@ const st = /* @__PURE__ */ W(_e, [["render", nt]]), ot = q({
     selectedDate: {
       type: [String, Date],
       required: !1,
-      default: null,
-      validator: (e) => ["string", "number"].indexOf(typeof e) !== -1 || e === null
+      default: null
     },
     pageDate: {
       type: Date,
@@ -722,136 +887,139 @@ const st = /* @__PURE__ */ W(_e, [["render", nt]]), ot = q({
       type: String
     }
   },
-  setup(e, { emit: t }) {
-    function o(s) {
-      s.isDisabled || t("select-month", s);
+  setup(e, { emit: a }) {
+    const t = x(e.useUtc);
+    function o(l) {
+      l.isDisabled || a("select-month", l);
     }
-    function i(s) {
-      const D = e.pageDate;
-      he(D, m(D) + s), t("changed-year", D);
+    function u(l) {
+      const g = e.pageDate;
+      t.setFullYear(g, t.getFullYear(g) + l), a("changed-year", g);
     }
-    function r() {
-      const s = e.disabledDates;
-      return !s || !s.to ? !1 : m(s.to) >= m(e.pageDate);
+    function d() {
+      const l = e.disabledDates;
+      return !l || !l.to ? !1 : t.getFullYear(l.to) >= t.getFullYear(e.pageDate);
     }
-    function y() {
-      r() || i(-1);
+    function s() {
+      d() || u(-1);
     }
-    function n() {
-      const s = e.disabledDates;
-      return !s || !s.from ? !1 : m(s.from) <= m(e.pageDate);
+    function i() {
+      const l = e.disabledDates;
+      return !l || !l.from ? !1 : t.getFullYear(l.from) <= t.getFullYear(e.pageDate);
     }
-    function c() {
-      n() || i(1);
+    function V() {
+      i() || u(1);
     }
-    function M() {
-      t("show-year-calendar");
+    function v() {
+      a("show-year-calendar");
     }
-    function $(s) {
-      const D = z(e.selectedDate);
-      return D && m(D) === m(s) && p(D) === p(s);
+    function B(l) {
+      const g = t.stringToDate(e.selectedDate);
+      return g && t.getFullYear(g) === t.getFullYear(l) && t.getMonth(g) === t.getMonth(l);
     }
-    function V(s) {
-      let D = !1;
-      const w = e.disabledDates;
-      return !w || typeof w > "u" ? !1 : (typeof w.to < "u" && w.to && (p(s) < p(w.to) && m(s) <= m(w.to) || m(s) < m(w.to)) && (D = !0), typeof w.from < "u" && w.from && (p(s) > p(w.from) && m(s) >= m(w.from) || m(s) > m(w.from)) && (D = !0), typeof w.customPredictor == "function" && w.customPredictor(s) && (D = !0), D);
+    function k(l) {
+      let g = !1;
+      const b = e.disabledDates;
+      return !b || typeof b > "u" ? !1 : (typeof b.to < "u" && b.to && (t.getMonth(l) < t.getMonth(b.to) && t.getFullYear(l) <= t.getFullYear(b.to) || t.getFullYear(l) < t.getFullYear(b.to)) && (g = !0), typeof b.from < "u" && b.from && (t.getMonth(l) > t.getMonth(b.from) && t.getFullYear(l) >= t.getFullYear(b.from) || t.getFullYear(l) > t.getFullYear(b.from)) && (g = !0), typeof b.customPredictor == "function" && b.customPredictor(l) && (g = !0), g);
     }
-    const k = h(() => {
-      const s = e.pageDate, D = [], w = e.useUtc ? new Date(Date.UTC(s.getUTCFullYear(), 0, s.getUTCDate())) : new Date(s.getFullYear(), 0, s.getDate(), s.getHours(), s.getMinutes());
-      for (let E = 0; E < 12; E += 1)
-        D.push({
-          month: ae(E, e.translation && e.translation.months),
-          timestamp: w.getTime(),
-          isSelected: $(w),
-          isDisabled: V(w)
-        }), pe(w, p(w) + 1);
-      return D;
-    }), T = h(() => {
-      const s = e.translation && e.translation.yearSuffix;
-      return `${m(e.pageDate)}${s}`;
-    }), C = h(() => e.isRtl ? n() : r()), H = h(() => e.isRtl ? r() : n()), I = h(() => {
-      const s = e.translation && e.translation.months;
-      return ae(p(e.pageDate), s);
-    }), P = h(() => {
-      const s = z(e.selectedDate);
-      return e.selectedDate ? A(s) : null;
-    }), F = h(() => {
-      const s = z(e.selectedDate);
-      return e.selectedDate ? re(s, e.translation && e.translation.daysNames) : null;
-    }), j = h(() => {
-      const s = e.translation && e.translation.yearSuffix;
-      return `${m(e.pageDate)}${s}`;
-    }), O = h(() => {
-      const s = e.fullMonthName ? e.translation && e.translation.months : e.translation && e.translation.monthsAbbr;
-      return ue(p(e.pageDate), s);
-    }), u = h(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
+    const C = f(() => {
+      const l = e.pageDate, g = [], b = e.useUtc ? new Date(Date.UTC(l.getUTCFullYear(), 0, l.getUTCDate())) : new Date(l.getFullYear(), 0, l.getDate(), l.getHours(), l.getMinutes());
+      for (let J = 0; J < 12; J += 1)
+        g.push({
+          month: t.getMonthName(J, e.translation && e.translation.months),
+          timestamp: b.getTime(),
+          isSelected: B(b),
+          isDisabled: k(b)
+        }), t.setMonth(b, t.getMonth(b) + 1);
+      return g;
+    }), T = f(() => {
+      const l = e.translation && e.translation.yearSuffix;
+      return `${t.getFullYear(e.pageDate)}${l}`;
+    }), M = f(() => e.isRtl ? i() : d()), I = f(() => e.isRtl ? d() : i()), U = f(() => {
+      const l = e.translation && e.translation.months;
+      return t.getMonthName(t.getMonth(e.pageDate), l);
+    }), H = f(() => {
+      const l = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getDate(l) : null;
+    }), Y = f(() => {
+      const l = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getDayNameAbbr(l, e.translation && e.translation.daysNames) : null;
+    }), j = f(() => {
+      const l = e.translation && e.translation.yearSuffix;
+      return `${t.getFullYear(e.pageDate)}${l}`;
+    }), O = f(() => {
+      const l = e.fullMonthName ? e.translation && e.translation.months : e.translation && e.translation.monthsAbbr;
+      return t.getMonthNameAbbr(t.getMonth(e.pageDate), l);
+    }), c = f(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
     return {
-      isRightNavDisabled: H,
-      isLeftNavDisabled: C,
+      isRightNavDisabled: I,
+      isLeftNavDisabled: M,
       pageYearName: T,
-      months: k,
+      months: C,
       selectMonth: o,
-      previousYear: y,
-      nextYear: c,
+      previousYear: s,
+      nextYear: V,
       currYearName: j,
-      getDisplayDate: P,
-      monthName: I,
-      showYearCalendar: M,
-      getDayName: F,
+      getDisplayDate: H,
+      monthName: U,
+      showYearCalendar: v,
+      getDayName: Y,
       currMonthName: O,
-      ifDifferentViews: u,
-      isSelectedMonth: $,
-      isDisabledMonth: V
+      ifDifferentViews: c,
+      isSelectedMonth: B,
+      isDisabledMonth: k
     };
   }
-}), it = {
+}), Ge = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar"
-}, lt = {
+}, Ke = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar-day"
-}, rt = { class: "vuejs3-datepicker__calendar-actionarea" }, ut = ["onClick"];
-function dt(e, t, o, i, r, y) {
-  return le((g(), b("div", {
-    class: S(["vuejs3-datepicker__calendar", `vuejs3-${e.theme}`, e.calendarClass]),
-    style: ye(e.calendarStyle),
-    onMousedown: t[4] || (t[4] = te(() => {
+}, Qe = { class: "vuejs3-datepicker__calendar-actionarea" }, Ze = ["onClick"];
+function Xe(e, a, t, o, u, d) {
+  return te((y(), D("div", {
+    class: N(["vuejs3-datepicker__calendar", `vuejs3-${e.theme}`, e.calendarClass]),
+    style: le(e.calendarStyle),
+    onMousedown: a[4] || (a[4] = _(() => {
     }, ["prevent"]))
   }, [
-    U(e.$slots, "customCalendarHeader"),
-    e.ifDifferentViews ? (g(), b("section", it, [
-      N("p", {
+    A(e.$slots, "customCalendarHeader"),
+    e.ifDifferentViews ? (y(), D("section", Ge, [
+      w("p", {
         class: "vuejs3-datepicker__calendar-topbar-year",
-        onClick: t[0] || (t[0] = (...n) => e.showYearCalendar && e.showYearCalendar(...n))
-      }, v(e.currYearName), 1),
-      e.selectedDate ? (g(), b("p", lt, v(e.getDayName) + " " + v(e.getDisplayDate) + " " + v(e.monthName), 1)) : Y("", !0)
-    ])) : Y("", !0),
-    N("div", rt, [
-      N("header", null, [
-        N("span", {
-          onClick: t[1] || (t[1] = (n) => e.isRtl ? e.nextYear() : e.previousYear()),
-          class: S(["prev", { disabled: e.isLeftNavDisabled }])
+        onClick: a[0] || (a[0] = (...s) => e.showYearCalendar && e.showYearCalendar(...s))
+      }, p(e.currYearName), 1),
+      A(e.$slots, "formatDateTopBar", {}, () => [
+        e.selectedDate ? (y(), D("p", Ke, p(e.getDayName) + " " + p(e.getDisplayDate) + " " + p(e.monthName), 1)) : F("", !0)
+      ])
+    ])) : F("", !0),
+    w("div", Qe, [
+      w("header", null, [
+        w("span", {
+          onClick: a[1] || (a[1] = (s) => e.isRtl ? e.nextYear() : e.previousYear()),
+          class: N(["prev", { disabled: e.isLeftNavDisabled }])
         }, "<", 2),
-        N("span", {
-          class: S(["month__year_btn", e.allowedToShowView("year") ? "up" : ""]),
-          onClick: t[2] || (t[2] = (...n) => e.showYearCalendar && e.showYearCalendar(...n))
-        }, v(e.pageYearName), 3),
-        N("span", {
-          onClick: t[3] || (t[3] = (n) => e.isRtl ? e.previousYear() : e.nextYear()),
-          class: S(["next", { disabled: e.isRightNavDisabled }])
+        w("span", {
+          class: N(["month__year_btn", e.allowedToShowView("year") ? "up" : ""]),
+          onClick: a[2] || (a[2] = (...s) => e.showYearCalendar && e.showYearCalendar(...s))
+        }, p(e.pageYearName), 3),
+        w("span", {
+          onClick: a[3] || (a[3] = (s) => e.isRtl ? e.previousYear() : e.nextYear()),
+          class: N(["next", { disabled: e.isRightNavDisabled }])
         }, ">", 2)
       ]),
-      (g(!0), b(_, null, x(e.months, (n) => (g(), b("span", {
-        class: S(["cell month", { selected: n.isSelected, disabled: n.isDisabled }]),
-        key: n.timestamp,
-        onClick: te((c) => e.selectMonth(n), ["stop"])
-      }, v(n.month), 11, ut))), 128))
+      (y(!0), D(Q, null, Z(e.months, (s) => (y(), D("span", {
+        class: N(["cell month", { selected: s.isSelected, disabled: s.isDisabled }]),
+        key: s.timestamp,
+        onClick: _((i) => e.selectMonth(s), ["stop"])
+      }, p(s.month), 11, Ze))), 128))
     ])
   ], 38)), [
-    [ge, e.showMonthView]
+    [re, e.showMonthView]
   ]);
 }
-const ct = /* @__PURE__ */ W(ot, [["render", dt]]), mt = q({
+const _e = /* @__PURE__ */ E(qe, [["render", Xe]]), xe = R({
   name: "PickerYear",
   props: {
     showYearView: {
@@ -860,8 +1028,7 @@ const ct = /* @__PURE__ */ W(ot, [["render", dt]]), mt = q({
     selectedDate: {
       type: [String, Date],
       required: !1,
-      default: null,
-      validator: (e) => ["string", "number"].indexOf(typeof e) !== -1 || e === null
+      default: null
     },
     pageDate: {
       type: Date,
@@ -909,134 +1076,163 @@ const ct = /* @__PURE__ */ W(ot, [["render", dt]]), mt = q({
     }
   },
   emits: ["select-year", "changed-decade"],
-  setup(e, { emit: t }) {
-    function o(u) {
-      u.isDisabled || t("select-year", u);
+  setup(e, { emit: a }) {
+    const t = x(e.useUtc);
+    function o(c) {
+      c.isDisabled || a("select-year", c);
     }
-    function i(u) {
-      const s = e.pageDate;
-      he(s, m(s) + u), t("changed-decade", s);
+    function u(c) {
+      const l = e.pageDate;
+      t.setFullYear(l, t.getFullYear(l) + c), a("changed-decade", l);
     }
-    function r() {
-      const u = e.disabledDates;
-      if (!u || !u.to)
+    function d() {
+      const c = e.disabledDates;
+      if (!c || !c.to)
         return !1;
-      const s = m(u.to), D = Math.floor(m(e.pageDate) / 10) * 10 - 1;
-      return s > D;
+      const l = t.getFullYear(c.to), g = Math.floor(t.getFullYear(e.pageDate) / 10) * 10 - 1;
+      return l > g;
     }
-    function y() {
-      r() || i(-10);
+    function s() {
+      d() || u(-10);
     }
-    function n() {
-      const u = e.disabledDates;
-      if (!u || !u.from)
+    function i() {
+      const c = e.disabledDates;
+      if (!c || !c.from)
         return !1;
-      const s = m(u.from), D = Math.ceil(m(e.pageDate) / 10) * 10;
-      return s <= D;
+      const l = t.getFullYear(c.from), g = Math.ceil(t.getFullYear(e.pageDate) / 10) * 10;
+      return l <= g;
     }
-    function c() {
-      n() || i(10);
+    function V() {
+      i() || u(10);
     }
-    function M(u) {
-      const s = z(e.selectedDate);
-      return e.selectedDate ? m(s) === m(u) : !1;
+    function v(c) {
+      const l = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getFullYear(l) === t.getFullYear(c) : !1;
     }
-    function $(u) {
-      let s = !1;
-      return typeof e.disabledDates > "u" || !e.disabledDates ? !1 : (typeof e.disabledDates.to < "u" && e.disabledDates.to && m(u) < m(e.disabledDates.to) && (s = !0), typeof e.disabledDates.from < "u" && e.disabledDates.from && m(u) > m(e.disabledDates.from) && (s = !0), typeof e.disabledDates.customPredictor == "function" && (s = e.disabledDates.customPredictor(u)), s);
+    function B(c) {
+      let l = !1;
+      return typeof e.disabledDates > "u" || !e.disabledDates ? !1 : (typeof e.disabledDates.to < "u" && e.disabledDates.to && t.getFullYear(c) < t.getFullYear(e.disabledDates.to) && (l = !0), typeof e.disabledDates.from < "u" && e.disabledDates.from && t.getFullYear(c) > t.getFullYear(e.disabledDates.from) && (l = !0), typeof e.disabledDates.customPredictor == "function" && (l = e.disabledDates.customPredictor(c)), l);
     }
-    const V = h(() => {
-      const u = e.pageDate, s = [], D = e.useUtc ? new Date(Date.UTC(Math.floor(u.getUTCFullYear() / 10) * 10, u.getUTCMonth(), u.getUTCDate())) : new Date(Math.floor(u.getFullYear() / 10) * 10, u.getMonth(), u.getDate(), u.getHours(), u.getMinutes());
-      for (let w = 0; w < 10; w += 1)
-        s.push({
-          year: m(D),
-          timestamp: D.getTime(),
-          isSelected: M(D),
-          isDisabled: $(D)
-        }), he(D, m(D) + 1);
-      return s;
-    }), k = h(() => {
-      const u = Math.floor(m(e.pageDate) / 10) * 10, s = u + 9, D = e.translation && e.translation.yearSuffix;
-      return `${u} - ${s}${D}`;
-    }), T = h(() => e.isRtl ? n() : r()), C = h(() => e.isRtl ? r() : n()), H = h(() => {
-      const u = z(e.selectedDate);
-      return e.selectedDate ? re(u, e.translation && e.translation.daysNames) : null;
-    }), I = h(() => {
-      const u = e.translation && e.translation.months;
-      return ae(p(e.pageDate), u);
-    }), P = h(() => {
-      const u = z(e.selectedDate);
-      return e.selectedDate ? A(u) : null;
-    }), F = h(() => {
-      const u = e.translation && e.translation.yearSuffix;
-      return `${m(e.pageDate)}${u}`;
-    }), j = h(() => {
-      const u = e.fullMonthName ? e.translation && e.translation.months : e.translation && e.translation.monthsAbbr;
-      return ue(p(e.pageDate), u);
-    }), O = h(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
+    const k = f(() => {
+      const c = e.pageDate, l = [], g = e.useUtc ? new Date(Date.UTC(Math.floor(c.getUTCFullYear() / 10) * 10, c.getUTCMonth(), c.getUTCDate())) : new Date(Math.floor(c.getFullYear() / 10) * 10, c.getMonth(), c.getDate(), c.getHours(), c.getMinutes());
+      for (let b = 0; b < 10; b += 1)
+        l.push({
+          year: t.getFullYear(g),
+          timestamp: g.getTime(),
+          isSelected: v(g),
+          isDisabled: B(g)
+        }), t.setFullYear(g, t.getFullYear(g) + 1);
+      return l;
+    }), C = f(() => {
+      const c = Math.floor(t.getFullYear(e.pageDate) / 10) * 10, l = c + 9, g = e.translation && e.translation.yearSuffix;
+      return `${c} - ${l}${g}`;
+    }), T = f(() => e.isRtl ? i() : d()), M = f(() => e.isRtl ? d() : i()), I = f(() => {
+      const c = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getDayNameAbbr(c, e.translation && e.translation.daysNames) : null;
+    }), U = f(() => {
+      const c = e.translation && e.translation.months;
+      return t.getMonthName(t.getMonth(e.pageDate), c);
+    }), H = f(() => {
+      const c = t.stringToDate(e.selectedDate);
+      return e.selectedDate ? t.getDate(c) : null;
+    }), Y = f(() => {
+      const c = e.translation && e.translation.yearSuffix;
+      return `${t.getFullYear(e.pageDate)}${c}`;
+    }), j = f(() => {
+      const c = e.fullMonthName ? e.translation && e.translation.months : e.translation && e.translation.monthsAbbr;
+      return t.getMonthNameAbbr(t.getMonth(e.pageDate), c);
+    }), O = f(() => !(e.minimumView === e.maximumView && (e.minimumView !== "day" || e.maximumView !== "day")));
     return {
-      isRightNavDisabled: C,
+      isRightNavDisabled: M,
       isLeftNavDisabled: T,
-      getPageDecade: k,
-      years: V,
-      nextDecade: c,
-      previousDecade: y,
+      getPageDecade: C,
+      years: k,
+      nextDecade: V,
+      previousDecade: s,
       selectYear: o,
-      getDayName: H,
-      monthName: I,
-      getDisplayDate: P,
-      currYearName: F,
+      getDayName: I,
+      monthName: U,
+      getDisplayDate: H,
+      currYearName: Y,
       currMonthName: j,
       ifDifferentViews: O,
       // methods
-      isNextDecadeDisabled: n,
-      isPreviousDecadeDisabled: r,
-      isDisabledYear: $
+      isNextDecadeDisabled: i,
+      isPreviousDecadeDisabled: d,
+      isDisabledYear: B
     };
   }
-}), ft = {
+}), et = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar"
-}, ht = { class: "vuejs3-datepicker__calendar-topbar-year" }, yt = {
+}, tt = { class: "vuejs3-datepicker__calendar-topbar-year" }, at = {
   key: 0,
   class: "vuejs3-datepicker__calendar-topbar-day"
-}, gt = { class: "vuejs3-datepicker__calendar-actionarea" }, Dt = ["onClick"];
-function bt(e, t, o, i, r, y) {
-  return le((g(), b("div", {
-    class: S(["vuejs3-datepicker__calendar", `vuejs3-${e.theme}`, e.calendarClass]),
-    style: ye(e.calendarStyle),
-    onMousedown: t[2] || (t[2] = te(() => {
+}, nt = { class: "vuejs3-datepicker__calendar-actionarea" }, st = ["onClick"];
+function ot(e, a, t, o, u, d) {
+  return te((y(), D("div", {
+    class: N(["vuejs3-datepicker__calendar", `vuejs3-${e.theme}`, e.calendarClass]),
+    style: le(e.calendarStyle),
+    onMousedown: a[2] || (a[2] = _(() => {
     }, ["prevent"]))
   }, [
-    U(e.$slots, "customCalendarHeader"),
-    e.ifDifferentViews && e.selectedDate ? (g(), b("section", ft, [
-      N("p", ht, v(e.currYearName), 1),
-      e.selectedDate ? (g(), b("p", yt, v(e.getDayName) + " " + v(e.getDisplayDate) + " " + v(e.monthName), 1)) : Y("", !0)
-    ])) : Y("", !0),
-    N("div", gt, [
-      N("header", null, [
-        N("span", {
-          onClick: t[0] || (t[0] = (n) => e.isRtl ? e.nextDecade() : e.previousDecade()),
-          class: S(["prev", { disabled: e.isLeftNavDisabled }])
+    A(e.$slots, "customCalendarHeader"),
+    e.ifDifferentViews && e.selectedDate ? (y(), D("section", et, [
+      w("p", tt, p(e.currYearName), 1),
+      A(e.$slots, "formatDateTopBar", {}, () => [
+        e.selectedDate ? (y(), D("p", at, p(e.getDayName) + " " + p(e.getDisplayDate) + " " + p(e.monthName), 1)) : F("", !0)
+      ])
+    ])) : F("", !0),
+    w("div", nt, [
+      w("header", null, [
+        w("span", {
+          onClick: a[0] || (a[0] = (s) => e.isRtl ? e.nextDecade() : e.previousDecade()),
+          class: N(["prev", { disabled: e.isLeftNavDisabled }])
         }, "<", 2),
-        N("span", null, v(e.getPageDecade), 1),
-        N("span", {
-          onClick: t[1] || (t[1] = (n) => e.isRtl ? e.previousDecade() : e.nextDecade()),
-          class: S(["next", { disabled: e.isRightNavDisabled }])
+        w("span", null, p(e.getPageDecade), 1),
+        w("span", {
+          onClick: a[1] || (a[1] = (s) => e.isRtl ? e.previousDecade() : e.nextDecade()),
+          class: N(["next", { disabled: e.isRightNavDisabled }])
         }, ">", 2)
       ]),
-      (g(!0), b(_, null, x(e.years, (n) => (g(), b("span", {
-        class: S(["cell year", { selected: n.isSelected, disabled: n.isDisabled }]),
-        key: n.timestamp,
-        onClick: te((c) => e.selectYear(n), ["stop"])
-      }, v(n.year), 11, Dt))), 128))
+      (y(!0), D(Q, null, Z(e.years, (s) => (y(), D("span", {
+        class: N(["cell year", { selected: s.isSelected, disabled: s.isDisabled }]),
+        key: s.timestamp,
+        onClick: _((i) => e.selectYear(s), ["stop"])
+      }, p(s.year), 11, st))), 128))
     ])
   ], 38)), [
-    [ge, e.showYearView]
+    [re, e.showYearView]
   ]);
 }
-const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
-  const e = "Afrikaans", t = [
+const lt = /* @__PURE__ */ E(xe, [["render", ot]]), rt = () => {
+  const e = "العربية";
+  return {
+    months: [
+      "كانون الثاني",
+      "شباط",
+      "آذار",
+      "نيسان",
+      "ايار",
+      "حزيران",
+      "تموز",
+      "آب",
+      "أيلول",
+      "تشرين الاول",
+      "تشرين الثاني",
+      "كانون الاول"
+    ],
+    monthsAbbr: ["كانون الثاني", "شباط", "آذار", "نيسان", "ايار", "حزيران", "تموز", "آب", "أيلول", "تشرين الاول", "تشرين الثاني", "كانون الاول"],
+    days: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"],
+    language: e,
+    yearSuffix: "",
+    ymd: !1,
+    rtl: !0,
+    langName: e,
+    daysNames: ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
+  };
+}, it = () => {
+  const e = "Afrikaans", a = [
     "Januarie",
     "Februarie",
     "Maart",
@@ -1049,19 +1245,19 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     "Oktober",
     "November",
     "Desember"
-  ], o = ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"], i = ["So.", "Ma.", "Di.", "Wo.", "Do.", "Vr.", "Sa."];
+  ], t = ["Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"], o = ["So.", "Ma.", "Di.", "Wo.", "Do.", "Vr.", "Sa."];
   return {
-    months: t,
-    monthsAbbr: o,
-    days: i,
+    months: a,
+    monthsAbbr: t,
+    days: o,
     yearSuffix: "",
     ymd: !1,
     rtl: !1,
     language: e,
     langName: e,
-    daysNames: i
+    daysNames: o
   };
-}, Nt = () => {
+}, ut = () => {
   const e = "German";
   return {
     months: [
@@ -1087,7 +1283,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"]
   };
-}, St = () => {
+}, dt = () => {
   const e = "English";
   return {
     months: [
@@ -1113,7 +1309,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   };
-}, vt = () => {
+}, ct = () => {
   const e = "Español";
   return {
     months: [
@@ -1139,7 +1335,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
   };
-}, Ct = () => {
+}, mt = () => {
   const e = "Français";
   return {
     months: [
@@ -1165,7 +1361,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
   };
-}, Mt = () => {
+}, ht = () => {
   const e = "Hindi";
   return {
     months: [
@@ -1191,7 +1387,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"]
   };
-}, Vt = () => {
+}, ft = () => {
   const e = "Japanese";
   return {
     months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
@@ -1204,8 +1400,8 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"]
   };
-}, kt = () => {
-  const e = "Dutch", t = [
+}, yt = () => {
+  const e = "Dutch", a = [
     "januari",
     "februari",
     "maart",
@@ -1218,19 +1414,19 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     "oktober",
     "november",
     "december"
-  ], o = ["jan.", "feb.", "mrt.", "apr.", "mei", "juni", "juli", "aug.", "sep.", "okt.", "nov.", "dec."], i = ["zo.", "ma.", "di.", "wo.", "do.", "vr.", "za."];
+  ], t = ["jan.", "feb.", "mrt.", "apr.", "mei", "juni", "juli", "aug.", "sep.", "okt.", "nov.", "dec."], o = ["zo.", "ma.", "di.", "wo.", "do.", "vr.", "za."];
   return {
-    months: t,
-    monthsAbbr: o,
-    days: i,
+    months: a,
+    monthsAbbr: t,
+    days: o,
     yearSuffix: "",
     ymd: !1,
     rtl: !1,
     langName: e,
     language: e,
-    daysNames: i
+    daysNames: o
   };
-}, Tt = () => {
+}, gt = () => {
   const e = "Português";
   return {
     months: [
@@ -1264,7 +1460,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
       "Sábado"
     ]
   };
-}, Bt = () => {
+}, Dt = () => {
   const e = "Italian";
   return {
     months: [
@@ -1290,7 +1486,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Gioved", "Venerdì", "Sabato"]
   };
-}, $t = () => {
+}, bt = () => {
   const e = "Polish";
   return {
     months: [
@@ -1316,7 +1512,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"]
   };
-}, Ft = () => {
+}, wt = () => {
   const e = "Russian";
   return {
     months: [
@@ -1342,7 +1538,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
   };
-}, Yt = () => {
+}, Nt = () => {
   const e = "Türkçe";
   return {
     months: [
@@ -1368,7 +1564,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"]
   };
-}, jt = () => {
+}, pt = () => {
   const e = "Vietnamese";
   return {
     months: [
@@ -1407,7 +1603,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["CN", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"]
   };
-}, Ot = () => {
+}, St = () => {
   const e = "Bulgarian";
   return {
     months: [
@@ -1433,8 +1629,8 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["Неделя", "Понеделник", "Вторник", "Сряда", "Четвъртък", "Петък", "Събота"]
   };
-}, At = () => {
-  const e = "Arabic-Tunisia", t = [
+}, Mt = () => {
+  const e = "Arabic-Tunisia", a = [
     "جانفي",
     "فيفري",
     "مارس",
@@ -1449,8 +1645,8 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     "ديسمبر"
   ];
   return {
-    months: t,
-    monthsAbbr: t,
+    months: a,
+    monthsAbbr: a,
     days: ["أحد", "أثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"],
     language: e,
     yearSuffix: "",
@@ -1459,33 +1655,171 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     langName: e,
     daysNames: ["الأحد", "الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"]
   };
-}, It = {
-  af: pt(),
-  arTn: At(),
-  hi: Mt(),
-  ja: Vt(),
-  de: Nt(),
-  en: St(),
-  es: vt(),
-  fr: Ct(),
-  nl: kt(),
-  pt: Tt(),
-  it: Bt(),
-  pl: $t(),
-  ru: Ft(),
-  tr: Yt(),
-  vn: jt(),
-  bg: Ot()
-}, Ht = q({
+}, vt = () => {
+  const e = "Indonesia";
+  return {
+    months: [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "Nopember",
+      "Desember"
+    ],
+    monthsAbbr: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agt", "Sep", "Okt", "Nop", "Des"],
+    days: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+    language: e,
+    yearSuffix: "",
+    ymd: !1,
+    rtl: !1,
+    langName: e,
+    daysNames: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+  };
+}, Ct = () => {
+  const e = "kr";
+  return {
+    months: [
+      "1월",
+      "2월",
+      "3월",
+      "4월",
+      "5월",
+      "6월",
+      "7월",
+      "8월",
+      "9월",
+      "10월",
+      "11월",
+      "12월"
+    ],
+    monthsAbbr: [
+      "1월",
+      "2월",
+      "3월",
+      "4월",
+      "5월",
+      "6월",
+      "7월",
+      "8월",
+      "9월",
+      "10월",
+      "11월",
+      "12월"
+    ],
+    days: [
+      "월요일",
+      "화요일",
+      "수요일",
+      "목요일",
+      "금요일",
+      "토요일",
+      "일요일"
+    ],
+    language: e,
+    yearSuffix: "",
+    ymd: !1,
+    rtl: !1,
+    langName: e,
+    daysNames: [
+      "월요일",
+      "화요일",
+      "수요일",
+      "목요일",
+      "금요일",
+      "토요일",
+      "일요일"
+    ]
+  };
+}, Tt = () => {
+  const e = "繁體中文";
+  return {
+    months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    monthsAbbr: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    days: ["日", "一", "二", "三", "四", "五", "六"],
+    language: e,
+    yearSuffix: "",
+    ymd: !1,
+    rtl: !1,
+    langName: e,
+    daysNames: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+  };
+}, Vt = () => {
+  const e = "Czech";
+  return {
+    months: [
+      "Leden",
+      "Únor",
+      "Březen",
+      "Duben",
+      "Smět",
+      "Červen",
+      "Červenec",
+      "Srpen",
+      "Září",
+      "Říjen",
+      "Listopad",
+      "Prosinec"
+    ],
+    monthsAbbr: [
+      "Led",
+      "Úno",
+      "Bře",
+      "Dub",
+      "Smě",
+      "Čen",
+      "Čec",
+      "Srp",
+      "Zář",
+      "Říj",
+      "Lis",
+      "Pro"
+    ],
+    days: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"],
+    language: e,
+    yearSuffix: "",
+    ymd: !1,
+    rtl: !1,
+    langName: e,
+    daysNames: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"]
+  };
+}, Ft = {
+  ar: rt(),
+  af: it(),
+  arTn: Mt(),
+  hi: ht(),
+  ja: ft(),
+  de: ut(),
+  en: dt(),
+  es: ct(),
+  fr: mt(),
+  nl: yt(),
+  pt: gt(),
+  it: Dt(),
+  pl: bt(),
+  ru: wt(),
+  tr: Nt(),
+  zh_TW: Tt(),
+  vn: pt(),
+  bg: St(),
+  kr: Ct(),
+  id: vt(),
+  cs: Vt()
+}, kt = R({
   name: "Datepicker",
   components: {
-    DateInput: Ze,
-    PickerDay: st,
-    PickerMonth: ct,
-    PickerYear: wt
+    DateInput: He,
+    PickerDay: We,
+    PickerMonth: _e,
+    PickerYear: lt
   },
   directives: {
-    clickoutside: ke
+    clickoutside: be
   },
   props: {
     modelValue: {
@@ -1503,7 +1837,7 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
       default: "en"
     },
     openDate: {
-      validator: (e) => Je(e),
+      validator: (e) => Te.validateDateInput(e),
       type: Date,
       default: /* @__PURE__ */ new Date()
     },
@@ -1620,161 +1954,161 @@ const wt = /* @__PURE__ */ W(mt, [["render", bt]]), pt = () => {
     "selected",
     "selected-disabled"
   ],
-  setup(e, { emit: t }) {
-    const o = new Date(e.modelValue), i = R(0), r = R(null);
-    e.modelValue && Ae(o) && (i.value = o.getTime(), r.value = o), e.openDate && (i.value = ie(new Date(e.openDate), 1));
-    const y = R(!1), n = R(!1), c = R(!1), M = R(0), $ = R(/* @__PURE__ */ new Date()), V = h(() => e.initialView ? e.initialView : e.minimumView), k = h(() => new Date(i.value)), T = h(() => It[e.language]), C = h(() => !!e.inline), H = h(() => ({
-      position: C.value ? "static" : void 0
-    })), I = h(() => y.value || n.value || c.value), P = h(() => T.value && T.value.rtl === !0);
-    function F(f) {
-      f || (e.openDate ? f = new Date(e.openDate) : f = /* @__PURE__ */ new Date()), i.value = ie(new Date(f), 1);
+  setup(e, { emit: a }) {
+    const t = x(e.useUtc), o = new Date(e.modelValue), u = P(0), d = P(null);
+    e.modelValue && t.isValidDate(o) && (u.value = o.getTime(), d.value = o), e.openDate && (u.value = t.setDate(new Date(e.openDate), 1));
+    const s = P(!1), i = P(!1), V = P(!1), v = P(0), B = P(/* @__PURE__ */ new Date()), k = f(() => e.initialView ? e.initialView : e.minimumView), C = f(() => new Date(u.value)), T = f(() => Ft[e.language]), M = f(() => !!e.inline), I = f(() => ({
+      position: M.value ? "static" : void 0
+    })), U = f(() => s.value || i.value || V.value), H = f(() => T.value && T.value.rtl === !0);
+    function Y(h) {
+      h || (e.openDate ? h = new Date(e.openDate) : h = /* @__PURE__ */ new Date()), u.value = t.setDate(new Date(h), 1);
     }
-    function j(f) {
-      const B = ["day", "month", "year"], ne = B.indexOf(e.minimumView), ve = B.indexOf(e.maximumView), De = B.indexOf(f);
-      return De >= ne && De <= ve;
+    function j(h) {
+      const S = ["day", "month", "year"], ee = S.indexOf(e.minimumView), fe = S.indexOf(e.maximumView), ie = S.indexOf(h);
+      return ie >= ee && ie <= fe;
     }
-    function O(f) {
-      y.value = !1, n.value = !1, c.value = !1, C.value || f && t("closed");
+    function O(h) {
+      s.value = !1, i.value = !1, V.value = !1, M.value || h && a("closed");
     }
-    function u() {
-      return j("day") ? (O(), y.value = !0, !0) : !1;
+    function c() {
+      return j("day") ? (O(), s.value = !0, !0) : !1;
     }
-    function s() {
-      return j("month") ? (O(), n.value = !0, !0) : !1;
+    function l() {
+      return j("month") ? (O(), i.value = !0, !0) : !1;
     }
-    function D() {
-      return j("year") ? (O(), c.value = !0, !0) : !1;
+    function g() {
+      return j("year") ? (O(), V.value = !0, !0) : !1;
     }
-    function w() {
-      const f = V.value;
-      if (!j(f))
+    function b() {
+      const h = k.value;
+      if (!j(h))
         throw new Error(
-          `initialView '${f}' cannot be rendered based on minimum '${e.minimumView}' and maximum '${e.maximumView}'`
+          `initialView '${h}' cannot be rendered based on minimum '${e.minimumView}' and maximum '${e.maximumView}'`
         );
-      switch (f) {
+      switch (h) {
         case "year":
-          D();
+          g();
           break;
         case "month":
-          s();
+          l();
           break;
         default:
-          u();
+          c();
           break;
       }
     }
-    function E() {
-      return e.disabled || C.value ? !1 : I.value ? O(!0) : (w(), !0);
+    function J() {
+      return e.disabled || M.value ? !1 : U.value ? O(!0) : (b(), !0);
     }
-    function G(f) {
-      const B = new Date(f);
-      r.value = B, F(B), t("selected", B), t("update:modelValue", B), t("input", B);
+    function L(h) {
+      const S = new Date(h);
+      d.value = S, Y(S), a("selected", S), a("update:modelValue", S), a("input", S);
     }
-    function de() {
-      r.value = null, F(), t("selected", null), e.modelValue ? t("update:modelValue", null) : t("input", null), t("cleared");
+    function ae() {
+      d.value = null, Y(), a("selected", null), e.modelValue ? a("update:modelValue", null) : a("input", null), a("cleared");
     }
-    function K(f) {
-      G(f.timestamp), C.value || O(!0), $.value = /* @__PURE__ */ new Date();
+    function W(h) {
+      L(h.timestamp), M.value || O(!0), B.value = /* @__PURE__ */ new Date();
     }
-    function ce(f) {
-      t("selected-disabled", f);
+    function ne(h) {
+      a("selected-disabled", h);
     }
-    function a(f) {
-      const B = new Date(f.timestamp);
-      j("day") ? (F(B), u()) : K(f), t("changed-month", f);
+    function n(h) {
+      const S = new Date(h.timestamp);
+      j("day") ? (Y(S), c()) : W(h), a("changed-month", h);
     }
-    function l(f) {
-      const B = new Date(f.timestamp);
-      j("month") ? (F(B), s()) : K(f), t("changed-year", f);
+    function r(h) {
+      const S = new Date(h.timestamp);
+      j("month") ? (Y(S), l()) : W(h), a("changed-year", h);
     }
-    function d(f) {
-      let B = f;
-      if (typeof f == "string" || typeof f == "number") {
-        const ne = new Date(f);
-        B = Number.isNaN(ne.valueOf()) ? "" : ne;
+    function m(h) {
+      let S = h;
+      if (typeof h == "string" || typeof h == "number") {
+        const ee = new Date(h);
+        S = Number.isNaN(ee.valueOf()) ? "" : ee;
       }
-      if (!B) {
-        F(), r.value = null;
+      if (!S) {
+        Y(), d.value = null;
         return;
       }
-      r.value = B, F(f);
+      d.value = S, Y(h);
     }
-    function L(f) {
-      F(f), t("changed-month", f);
+    function $(h) {
+      Y(h), a("changed-month", h);
     }
-    function Q(f) {
-      G(f.getTime());
+    function q(h) {
+      L(h.getTime());
     }
-    function Ne() {
-      e.value && d(e.value), C.value && w();
+    function me() {
+      e.value && m(e.value), M.value && b();
     }
-    function Se() {
+    function he() {
       O();
     }
-    return X(
+    return G(
       () => e.modelValue,
-      (f) => {
-        d(f);
+      (h) => {
+        m(h);
       }
-    ), X(
+    ), G(
       () => e.value,
-      (f) => {
-        d(f);
+      (h) => {
+        m(h);
       }
-    ), X(
+    ), G(
       () => e.openDate,
       () => {
-        F();
+        Y();
       }
-    ), X(
+    ), G(
       () => e.initialView,
       () => {
-        w();
+        b();
       }
-    ), Ne(), {
-      pageTimestamp: i,
-      selectedDate: r,
-      showDayView: y,
-      showMonthView: n,
-      showYearView: c,
-      calendarHeight: M,
-      resetTypedDate: $,
+    ), me(), {
+      pageTimestamp: u,
+      selectedDate: d,
+      showDayView: s,
+      showMonthView: i,
+      showYearView: V,
+      calendarHeight: v,
+      resetTypedDate: B,
       // computed
-      pageDate: k,
+      pageDate: C,
       translation: T,
-      calendarStyle: H,
-      isOpen: I,
-      isInline: C,
-      isRtl: P,
+      calendarStyle: I,
+      isOpen: U,
+      isInline: M,
+      isRtl: H,
       // methods
-      setTypedDate: Q,
-      handleChangedMonthFromDayPicker: L,
-      selectYear: l,
-      selectMonth: a,
-      selectDisabledDate: ce,
-      clearDate: de,
-      showCalendar: E,
+      setTypedDate: q,
+      handleChangedMonthFromDayPicker: $,
+      selectYear: r,
+      selectMonth: n,
+      selectDisabledDate: ne,
+      clearDate: ae,
+      showCalendar: J,
       close: O,
       allowedToShowView: j,
-      showYearCalendar: D,
-      showMonthCalendar: s,
-      setPageDate: F,
-      selectDate: K,
-      closeOnClickOutside: Se,
-      showDayCalendar: u,
-      computedInitialView: V,
-      setDate: ie,
-      setDate1: G,
-      setValue: d
+      showYearCalendar: g,
+      showMonthCalendar: l,
+      setPageDate: Y,
+      selectDate: W,
+      closeOnClickOutside: he,
+      showDayCalendar: c,
+      computedInitialView: k,
+      setDate: (h, S) => t.setDate(h, S),
+      setDate1: L,
+      setValue: m
     };
   }
 });
-function Pt(e, t, o, i, r, y) {
-  const n = Z("date-input"), c = Z("picker-day"), M = Z("picker-month"), $ = Z("picker-year"), V = Me("clickoutside");
-  return le((g(), b("div", {
-    class: S(["vuejs3-datepicker", [e.isRtl ? "rtl" : "", `vuejs3-${e.theme}`, e.wrapperClass]])
+function Yt(e, a, t, o, u, d) {
+  const s = K("date-input"), i = K("picker-day"), V = K("picker-month"), v = K("picker-year"), B = ge("clickoutside");
+  return te((y(), D("div", {
+    class: N(["vuejs3-datepicker", [e.isRtl ? "rtl" : "", `vuejs3-${e.theme}`, e.wrapperClass]])
   }, [
-    fe(n, {
+    oe(s, {
       selectedDate: e.selectedDate,
       resetTypedDate: e.resetTypedDate,
       format: e.format,
@@ -1808,12 +2142,12 @@ function Pt(e, t, o, i, r, y) {
       iconColor: e.iconColor,
       theme: e.theme
     }, {
-      belowDate: se(() => [
-        U(e.$slots, "belowDate")
+      belowDate: z(() => [
+        A(e.$slots, "belowDate")
       ]),
       _: 3
     }, 8, ["selectedDate", "resetTypedDate", "format", "translation", "inline", "id", "name", "fullMonthName", "openDate", "placeholder", "inputClass", "typeable", "clearButton", "clearButtonIcon", "calendarButton", "calendarButtonIcon", "calendarButtonIconContent", "disabled", "required", "addBootstrapClass", "use-utc", "onShowCalendar", "onCloseCalendar", "onTypedDate", "onClearDate", "minimumView", "maximumView", "hideInput", "iconWidth", "iconHeight", "iconColor", "theme"]),
-    e.allowedToShowView("day") ? (g(), me(c, {
+    e.allowedToShowView("day") ? (y(), se(i, {
       key: 0,
       pageDate: e.pageDate,
       selectedDate: e.selectedDate,
@@ -1829,6 +2163,7 @@ function Pt(e, t, o, i, r, y) {
       isRtl: e.isRtl,
       mondayFirst: e.mondayFirst,
       dayCellContent: e.dayCellContent,
+      "use-utc": e.useUtc,
       onChangedMonth: e.handleChangedMonthFromDayPicker,
       onSelectDate: e.selectDate,
       onShowMonthCalendar: e.showMonthCalendar,
@@ -1839,12 +2174,15 @@ function Pt(e, t, o, i, r, y) {
       preventDisableDateSelection: e.preventDisableDateSelection,
       theme: e.theme
     }, {
-      customCalendarHeader: se(() => [
-        U(e.$slots, "customCalendarHeader")
+      customCalendarHeader: z(() => [
+        A(e.$slots, "customCalendarHeader")
+      ]),
+      formatDateTopBar: z(() => [
+        A(e.$slots, "formatDateTopBar")
       ]),
       _: 3
-    }, 8, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection", "theme"])) : Y("", !0),
-    e.allowedToShowView("month") ? (g(), me(M, {
+    }, 8, ["pageDate", "selectedDate", "showDayView", "fullMonthName", "allowedToShowView", "disabledDates", "highlighted", "calendarClass", "calendarStyle", "translation", "pageTimestamp", "isRtl", "mondayFirst", "dayCellContent", "use-utc", "onChangedMonth", "onSelectDate", "onShowMonthCalendar", "onSelectedDisabled", "onShowYearCalendar", "minimumView", "maximumView", "preventDisableDateSelection", "theme"])) : F("", !0),
+    e.allowedToShowView("month") ? (y(), se(V, {
       key: 1,
       pageDate: e.pageDate,
       selectedDate: e.selectedDate,
@@ -1864,12 +2202,15 @@ function Pt(e, t, o, i, r, y) {
       maximumView: e.maximumView,
       theme: e.theme
     }, {
-      customCalendarHeader: se(() => [
-        U(e.$slots, "customCalendarHeader")
+      customCalendarHeader: z(() => [
+        A(e.$slots, "customCalendarHeader")
+      ]),
+      formatDateTopBar: z(() => [
+        A(e.$slots, "formatDateTopBar")
       ]),
       _: 3
-    }, 8, ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView", "theme"])) : Y("", !0),
-    e.allowedToShowView("year") ? (g(), me($, {
+    }, 8, ["pageDate", "selectedDate", "showMonthView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "fullMonthName", "onSelectMonth", "onShowYearCalendar", "onChangedYear", "minimumView", "maximumView", "theme"])) : F("", !0),
+    e.allowedToShowView("year") ? (y(), se(v, {
       key: 2,
       pageDate: e.pageDate,
       selectedDate: e.selectedDate,
@@ -1888,18 +2229,21 @@ function Pt(e, t, o, i, r, y) {
       maximumView: e.maximumView,
       theme: e.theme
     }, {
-      customCalendarHeader: se(() => [
-        U(e.$slots, "customCalendarHeader")
+      customCalendarHeader: z(() => [
+        A(e.$slots, "customCalendarHeader")
+      ]),
+      formatDateTopBar: z(() => [
+        A(e.$slots, "formatDateTopBar")
       ]),
       _: 3
-    }, 8, ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView", "theme"])) : Y("", !0)
+    }, 8, ["pageDate", "selectedDate", "showYearView", "allowedToShowView", "disabledDates", "calendarClass", "calendarStyle", "translation", "isRtl", "use-utc", "onSelectYear", "onChangedDecade", "fullMonthName", "minimumView", "maximumView", "theme"])) : F("", !0)
   ], 2)), [
-    [V, {
+    [B, {
       handler: e.inline ? null : e.closeOnClickOutside
     }]
   ]);
 }
-const zt = /* @__PURE__ */ W(Ht, [["render", Pt]]);
+const $t = /* @__PURE__ */ E(kt, [["render", Yt]]);
 export {
-  zt as default
+  $t as default
 };
