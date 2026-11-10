@@ -493,6 +493,9 @@ export default defineComponent({
      * @param {Object} date
      */
     function selectDate(date: { timestamp: string | number | Date }): void {
+      if (props.disabled) {
+        return;
+      }
       setDate1(date.timestamp);
       if (!isInline.value) {
         close(true);
